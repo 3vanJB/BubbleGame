@@ -16,7 +16,7 @@ func setup():
 	ally = MEMBERINFO.getmember(ID)["ally"]
 	membername = MEMBERINFO.getmember(ID)["name"]
 	$ProgressBar.maxvalue = stats["hp"]
-	
+
 	if ally == true:
 		curhp = MEMBERINFO.partyhp[ID]
 		hide()
