@@ -11,17 +11,17 @@ var partyhp = {
 var members = {
 	0:{
 		"name":"Rose",
-		"stats":{ "hp":10, "str":10, "def":3, "mgk":3, "mgkdef":3, "spd":3},
+		"stats":{ "hp":50, "str":15, "def":10, "mgk":7, "mgkdef":8, "spd":3},
 		"ally":true
 	},
 	1:{
 		"name":"Yoru",
-		"stats":{ "hp":10, "str":10, "def":3, "mgk":3, "mgkdef":3, "spd":3},
+		"stats":{ "hp":30, "str":8, "def":8, "mgk":15, "mgkdef":10, "spd":3},
 		"ally":true
 	},
 	2:{
 		"name":"Adeline",
-		"stats":{ "hp":10, "str":10, "def":3, "mgk":3, "mgkdef":3, "spd":3},
+		"stats":{ "hp":100, "str":10, "def":3, "mgk":3, "mgkdef":3, "spd":3},
 		"ally":false
 	},
 }

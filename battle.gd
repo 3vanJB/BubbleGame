@@ -29,6 +29,10 @@ func _ready() -> void:
 		enemyparty.add_child(x)
 	print(turns)
 
+func nextturn():
+	pass
+
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

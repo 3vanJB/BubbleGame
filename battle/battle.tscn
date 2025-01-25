@@ -14,3 +14,5 @@ script = ExtResource("1_f8ab6")
 position = Vector2(490, 249)
 
 [node name="UI" parent="." instance=ExtResource("2_n1p0q")]
+
+[editable path="UI"]
