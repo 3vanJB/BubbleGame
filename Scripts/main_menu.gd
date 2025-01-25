@@ -7,8 +7,7 @@ func _ready() -> void:
 
 func _on_play_pressed() -> void:
 	# Should transition to level 1
-	#Auto.goto_scene("res://Playground.tscn")
-	pass
+	Auto.goto_scene("res://overworld/overworld_level.tscn")
 
 
 func _on_options_pressed() -> void:

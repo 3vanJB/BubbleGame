@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cprwpwu0kyucr"]
+
+[ext_resource type="Script" path="res://Scripts/player_movement.gd" id="1_4uonk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xwmdq"]
+radius = 75.0067
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cs1f2"]
+
+[node name="Overworld Player" type="CharacterBody2D"]
+script = ExtResource("1_4uonk")
+
+[node name="Player Body" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xwmdq")
+
+[node name="Enemy Detection" type="Area2D" parent="."]
+
+[node name="Detect Shape" type="CollisionShape2D" parent="Enemy Detection"]
+shape = SubResource("CircleShape2D_cs1f2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -61.0
+offset_top = -57.0
+offset_right = 63.0
+offset_bottom = 53.0

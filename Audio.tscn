@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bt2x2d67pgcgr"]
 
 [ext_resource type="Script" path="res://Scripts/audio.gd" id="1_228ru"]
-[ext_resource type="AudioStream" uid="uid://bu3058opwtwiq" path="res://Audio/Voyage  16Bit Arcade No Copyright Music.mp3" id="2_vhxpg"]
+[ext_resource type="AudioStream" uid="uid://c33kwl44o438y" path="res://Audio/Title Theme.wav" id="2_0k470"]
 
 [node name="Audio" type="Control"]
 layout_mode = 3
@@ -13,10 +13,9 @@ grow_vertical = 2
 script = ExtResource("1_228ru")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_vhxpg")
+stream = ExtResource("2_0k470")
 autoplay = true
 bus = &"Music"
-parameters/looping = false
 
 [node name="Effects" type="AudioStreamPlayer" parent="."]
 bus = &"Effects"

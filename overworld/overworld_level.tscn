@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=4 uid="uid://cavkjml0ecjf1"]
+[gd_scene load_steps=7 format=4 uid="uid://cavkjml0ecjf1"]
 
 [ext_resource type="Script" path="res://overworld/overworld_level.gd" id="1_1gd41"]
 [ext_resource type="Texture2D" uid="uid://bqnv851g4ja3j" path="res://icon.svg" id="2_8g4ef"]
+[ext_resource type="PackedScene" uid="uid://cprwpwu0kyucr" path="res://overworld_player.tscn" id="3_xnfgg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_parbr"]
 resource_name = "test"
@@ -91,5 +92,10 @@ collision_enabled = false
 [node name="BubbleSpawnTimer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="Overworld Player" parent="." instance=ExtResource("3_xnfgg")]
+position = Vector2(-7, 295)
+
+[node name="Camera2D" type="Camera2D" parent="Overworld Player"]
 
 [connection signal="timeout" from="BubbleSpawnTimer" to="." method="_on_bubble_spawn_timer_timeout"]

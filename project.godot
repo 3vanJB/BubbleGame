@@ -22,6 +22,7 @@ Auto="*res://Scripts/auto.gd"
 ACTIONS="*res://battle/ACTIONS.gd"
 BeehaveGlobalMetrics="*res://addons/beehave/metrics/beehave_global_metrics.gd"
 BeehaveGlobalDebugger="*res://addons/beehave/debug/global_debugger.gd"
+Audio="*res://Audio.tscn"
 
 [display]
 
