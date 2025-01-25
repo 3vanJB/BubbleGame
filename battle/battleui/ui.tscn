@@ -11,35 +11,74 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="buttonpanel" type="VBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/buttonpanel"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/PanelContainer"]
+[node name="Button" type="Button" parent="HBoxContainer/buttonpanel/PanelContainer"]
 layout_mode = 2
 text = "Attack"
 
-[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer"]
+[node name="memberpanel" type="VBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer2"]
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/memberpanel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/PanelContainer2/VBoxContainer"]
+[node name="memeber1" type="HBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="name" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/memeber1"]
+layout_mode = 2
+text = "name"
+
+[node name="hp" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/memeber1"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "10/10"
+
+[node name="member2" type="HBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="name" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/member2"]
+layout_mode = 2
+text = "name"
+
+[node name="hp" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/member2"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "10/10"
+
+[node name="textpanel" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/textpanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/textpanel/VBoxContainer"]
 layout_mode = 2
 text = " > This is text
 "
 
-[node name="Button" type="Button" parent="HBoxContainer/PanelContainer2/VBoxContainer"]
+[node name="Button" type="Button" parent="HBoxContainer/textpanel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 10
