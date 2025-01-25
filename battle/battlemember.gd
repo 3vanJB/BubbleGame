@@ -3,7 +3,7 @@ class_name BattleMember
 
 var stats = {"hp":1, "str":1, "def":1, "mgk":1, "mgkdef":1, "spd":1}
 var curhp
-var maxshine
+var maxshine : float = 100.0
 var action
 var membername
 var ID
@@ -26,6 +26,7 @@ func takedamage(value):
 		curhp = 0
 	else:
 		curhp -= value
+	$ProgressBar.value = curhp
 
 func heal(value):
 	if curhp + value > stats["hp"]:

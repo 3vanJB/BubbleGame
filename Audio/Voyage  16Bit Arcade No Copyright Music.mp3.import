@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bu3058opwtwiq"
+path="res://.godot/imported/Voyage  16Bit Arcade No Copyright Music.mp3-d3c67717843cae423f1a80245dd68b93.mp3str"
+
+[deps]
+
+source_file="res://Audio/Voyage  16Bit Arcade No Copyright Music.mp3"
+dest_files=["res://.godot/imported/Voyage  16Bit Arcade No Copyright Music.mp3-d3c67717843cae423f1a80245dd68b93.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

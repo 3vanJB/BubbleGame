@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr208klhokarj"]
+
+[ext_resource type="PackedScene" uid="uid://dacd5nfekvjfj" path="res://Options_UI.tscn" id="1_mnxxm"]
+
+[node name="option_scene" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -568.0
+offset_top = -330.0
+offset_right = -528.0
+offset_bottom = -290.0
+scale = Vector2(28.88, 16.56)
+color = Color(1.68458e-06, 0.489758, 0.565806, 1)
+metadata/_edit_lock_ = true
+
+[node name="Options" parent="." instance=ExtResource("1_mnxxm")]
+offset_left = 11.0
+offset_top = -1.0
+offset_right = 11.0
+offset_bottom = -1.0
