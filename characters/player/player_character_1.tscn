@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bscujqsdl8afs"]
+
+[ext_resource type="Script" path="res://characters/player/player_character.gd" id="1_ls565"]
+
+[node name="PlayerCharacter1" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_ls565")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b73te0yjgahi4"]
+
+[ext_resource type="Script" path="res://overworld/interactables/normal/lever/interactable_lever.gd" id="1_aa4nw"]
+
+[node name="InteractableLever" type="Node2D"]
+script = ExtResource("1_aa4nw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

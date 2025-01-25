@@ -8,17 +8,10 @@ var m = preload("res://battle/battlemember.tscn")
 #checks to see if targeting enemy
 var enemyfocused = false
 var nextdamage
+var last_overworld_locations : Dictionary # THIS is for when going back to overworld. To know where we are going to spawn the characters back to
 
 signal playeractionselected
 var turns = []
-
-# Bubbles
-@export_category("Bubbles")
-@export var max_bubbles_in_level : int = 10
-var teleport_bubbles_in_game : int
-
-
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -82,15 +75,8 @@ func _on_attack_pressed() -> void:
 	enemyparty.grabfocus(0)
 	buttonattack.disabled = true
 	buttonattack.release_focus()
-
-
-func spawn_new_bubble() -> void:
-	var new_bubble : BubbleTeleport = load("res://battle/teleport bubble/bubble_teleport.tscn").instance() as BubbleTeleport
-	if new_bubble == null:
-		return
-	teleport_bubbles_in_game += 1
-
-func _on_bubble_spawn_timer_timeout() -> void:
-	if teleport_bubbles_in_game >= max_bubbles_in_level:
-		return
-	spawn_new_bubble()
+	
+func transition_to_overworld() -> void:
+	# TODO: transition back to overworld
+	get_tree().change_scene_to_file("res://overworld/overworld_level.tscn")
+	pass

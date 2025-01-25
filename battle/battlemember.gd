@@ -8,7 +8,6 @@ var action
 var membername
 var ID
 var ally
-var location : Vector2
 
 
 func setup():
@@ -33,9 +32,6 @@ func heal(value):
 		curhp = stats["hp"]
 	else:
 		curhp += value
-		
-func teleport_to_location(destination: Vector2) -> void:
-	location = destination
 
 func grabfocus():
 	$selecter.show()

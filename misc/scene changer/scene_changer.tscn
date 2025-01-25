@@ -1,6 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ymg74ooobovl"]
 
-[ext_resource type="Script" path="res://battle/scene changer/scene_changer.gd" id="1_ux0mb"]
+[ext_resource type="Script" path="res://misc/scene changer/scene_changer.gd" id="1_ux0mb"]
+
 
 [sub_resource type="Animation" id="Animation_kjwq1"]
 length = 0.001

@@ -18,9 +18,9 @@ func _physics_process(delta: float) -> void:
 	global_position += movement_direction * movement_speed
 
 func _on_body_entered(body: Node) -> void:
-	if not body is BattleMember:
+	if not body is CharacterBase:
 		return
-	var character_collided : BattleMember = body as BattleMember
+	var character_collided : CharacterBase = body as CharacterBase
 	character_collided.teleport_to_location(destination_location)
 
 func get_new_direction() -> Vector2:
