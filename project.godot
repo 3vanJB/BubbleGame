@@ -17,6 +17,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 MEMBERINFO="*res://battle/MEMBERINFO.gd"
+AudioPlugin="*res://addons/AudioBySymbol/audio_plugin.gd"
+Audio="*res://addons/AudioBySymbol/Code/Autoloads/audio_autoload.gd"
 
 [input]
 
