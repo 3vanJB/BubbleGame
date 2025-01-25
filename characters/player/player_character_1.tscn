@@ -1,9 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://bscujqsdl8afs"]
+[gd_scene load_steps=3 format=3 uid="uid://bscujqsdl8afs"]
 
 [ext_resource type="Script" path="res://characters/player/player_character.gd" id="1_ls565"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w7do5"]
+
 [node name="PlayerCharacter1" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+collision_layer = 5
+collision_mask = 7
 script = ExtResource("1_ls565")
 sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_w7do5")

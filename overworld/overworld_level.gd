@@ -8,6 +8,7 @@ var player_characters : Array[PlayerCharacter] = []
 @export_category("Bubbles")
 @export var max_bubbles_in_level : int = 10
 var teleport_bubbles_in_game : int
+
 func spawn_new_bubble() -> void:
 	var new_bubble : BubbleTeleport = load("res://battle/teleport bubble/bubble_teleport.tscn").instance() as BubbleTeleport
 	if new_bubble == null:

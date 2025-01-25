@@ -14,7 +14,6 @@ func can_interact_with_object(interactable : InteractableObject) -> bool:
 	return global_position.distance_to(interactable.global_position) <= interaction_radius
 	
 
-
 func interact() -> void:
 	if closest_interactable == null:
 		return
