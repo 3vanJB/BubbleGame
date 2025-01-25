@@ -2,6 +2,11 @@ extends Node
 
 var hasyoru = true
 
+var partyhp = {
+	0:10,
+	1:10
+}
+
 
 var members = {
 	0:{
@@ -21,9 +26,10 @@ var members = {
 	},
 }
 
-func getmemberstats(member):
-	return members[member]["stats"]
-
+func getmemberstats(ID):
+	return members[ID]["stats"]
+func getmember(ID):
+	return members[ID]
 
 
 var echips = {

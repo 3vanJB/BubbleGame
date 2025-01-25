@@ -6,3 +6,5 @@
 script = ExtResource("1_f8ab6")
 
 [node name="playerparty" type="Node2D" parent="."]
+
+[node name="enemyparty" type="Node2D" parent="."]

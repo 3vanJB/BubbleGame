@@ -1,18 +1,25 @@
 extends Node2D
 var m = preload("res://battle/battlemember.tscn")
 @onready var playerparty = $playerparty
-var enemyparty
+@onready var enemyparty = $enemyparty
 @export var echip : int = 0
+var turns = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var x = m.instantiate()
 	x.ID = 0
 	x.setup()
+	turns.push_back(x)
 	playerparty.add_child(x)
-	if MEMBERINFO.hasyoru == true:
-		pass
 	
+	if MEMBERINFO.hasyoru == true:
+		x = m.instantiate()
+		x.ID = 1
+		x.setup()
+		turns.push_back(x)
+		playerparty.add_child(x)
+	print(turns)
 	
 
 
