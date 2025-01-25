@@ -12,6 +12,14 @@ var nextdamage
 signal playeractionselected
 var turns = []
 
+# Bubbles
+@export_category("Bubbles")
+@export var max_bubbles_in_level : int = 10
+var teleport_bubbles_in_game : int
+
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	buttonattack.disabled = true
@@ -74,3 +82,15 @@ func _on_attack_pressed() -> void:
 	enemyparty.grabfocus(0)
 	buttonattack.disabled = true
 	buttonattack.release_focus()
+
+
+func spawn_new_bubble() -> void:
+	var new_bubble : BubbleTeleport = load("res://battle/teleport bubble/bubble_teleport.tscn").instance() as BubbleTeleport
+	if new_bubble == null:
+		return
+	teleport_bubbles_in_game += 1
+
+func _on_bubble_spawn_timer_timeout() -> void:
+	if teleport_bubbles_in_game >= max_bubbles_in_level:
+		return
+	spawn_new_bubble()
