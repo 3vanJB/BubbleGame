@@ -12,6 +12,7 @@ var nextdamage
 
 signal playeractionselected
 var turns = []
+var current
 
 # Bubbles
 @export_category("Bubbles")
@@ -64,24 +65,39 @@ func _process(delta: float) -> void:
 			buttonattack.grab_focus()
 			buttonattack.disabled = false
 			enemyparty.endfocus()
+		if Input.is_action_just_pressed("ui_accept"):
+			enemyfocused = false
+			print(current.membername)
+			calculate(current, enemyparty.members[enemyparty.cursor])
+			enemyparty.endfocus()
+			emit_signal("playeractionselected")
+			
 
 func nextturn():
 	for i in len(turns):
+		current = turns[i]
 		if turns[i].ally == false:
-			print(turns[i].name + "'s turn")
+			#print(turns[i].membername + "'s turn")
+			turns[i].action = load(ACTIONS.actions[0])
 		else:
 			buttonattack.disabled = false
+			#print(turns[i].membername + "'s turn")
 			buttonattack.grab_focus()
 			await playeractionselected
+	nextturn()
 
 func calculate(attacker, target):
-	pass
+	if attacker.action.isattack == true:
+		var damage = (4 * attacker.stats["str"] - 3 * target.stats["def"]) * attacker.action.power
+		nextdamage = damage
+		target.takedamage(damage)
 
 
 func _on_attack_pressed() -> void:
+	buttonattack.disabled = true
 	enemyfocused = true
 	enemyparty.grabfocus(0)
-	buttonattack.disabled = true
+	current.action = load(ACTIONS.actions[0])
 	buttonattack.release_focus()
 
 

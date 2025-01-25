@@ -27,6 +27,7 @@ func takedamage(value):
 		curhp = 0
 	else:
 		curhp -= value
+	$ProgressBar.value = curhp
 
 func heal(value):
 	if curhp + value > stats["hp"]:

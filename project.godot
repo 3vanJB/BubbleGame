@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 MEMBERINFO="*res://battle/MEMBERINFO.gd"
+ACTIONS="*res://battle/ACTIONS.gd"
 
 [input]
 
