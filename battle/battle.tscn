@@ -1,18 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://xyilfmmrcrvf"]
+[gd_scene load_steps=5 format=3 uid="uid://xyilfmmrcrvf"]
 
 [ext_resource type="Script" path="res://battle.gd" id="1_f8ab6"]
+[ext_resource type="Script" path="res://battle/playerparty.gd" id="2_ehidm"]
 [ext_resource type="PackedScene" uid="uid://c5g4muvowpv78" path="res://battle/battleui/ui.tscn" id="2_n1p0q"]
+[ext_resource type="Script" path="res://battle/enemyparty.gd" id="3_i4jx3"]
 
 [node name="battle" type="Node2D"]
 script = ExtResource("1_f8ab6")
 
 [node name="playerparty" type="Node2D" parent="."]
+script = ExtResource("2_ehidm")
 
 [node name="enemyparty" type="Node2D" parent="."]
+script = ExtResource("3_i4jx3")
 
 [node name="enemyspawn" type="Marker2D" parent="."]
 position = Vector2(490, 249)
 
 [node name="UI" parent="." instance=ExtResource("2_n1p0q")]
+
+[connection signal="pressed" from="UI/HBoxContainer/buttonpanel/PanelContainer/attack" to="." method="_on_attack_pressed"]
 
 [editable path="UI"]

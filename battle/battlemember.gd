@@ -15,13 +15,7 @@ func setup():
 	curhp = stats["hp"]
 	ally = MEMBERINFO.getmember(ID)["ally"]
 	membername = MEMBERINFO.getmember(ID)["name"]
-<<<<<<< HEAD
-	$ProgressBar.maxvalue = stats["hp"]
-
-=======
 	$ProgressBar.max_value = stats["hp"]
-	
->>>>>>> 6bdbb7153a19c9c58a6495c234d8904b957c872d
 	if ally == true:
 		curhp = MEMBERINFO.partyhp[ID]
 		hide()
@@ -38,3 +32,9 @@ func heal(value):
 		curhp = stats["hp"]
 	else:
 		curhp += value
+
+func grabfocus():
+	$selecter.show()
+
+func releasefocus():
+	$selecter.hide()

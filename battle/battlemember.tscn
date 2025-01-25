@@ -15,3 +15,10 @@ offset_left = -24.0
 offset_top = 75.0
 offset_right = 26.0
 offset_bottom = 102.0
+
+[node name="selecter" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0, 0.598016, 0.178012, 1)
+position = Vector2(0, -106)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_6w1n3")

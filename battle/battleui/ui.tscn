@@ -24,7 +24,7 @@ size_flags_vertical = 8
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="HBoxContainer/buttonpanel/PanelContainer"]
+[node name="attack" type="Button" parent="HBoxContainer/buttonpanel/PanelContainer"]
 layout_mode = 2
 text = "Attack"
 
