@@ -5,7 +5,7 @@ var m = preload("res://battle/battlemember.tscn")
 @onready var enemyparty = $enemyparty
 @onready var UI = $UI
 @export var echip : int = 0
-@onready var buttonattack = $UI/HBoxContainer/buttonpanel/PanelContainer/attack
+@onready var buttonattack = $UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer/attack
 #checks to see if targeting enemy
 var enemyfocused = false
 var nextdamage : int
@@ -76,6 +76,7 @@ func nextturn():
 			turns[i].action = load(ACTIONS.actions[0])
 			calculate(turns[i], playerparty.members[1])
 		else:
+			UI.loadskills(turns[i].ID)
 			buttonattack.disabled = false
 			#print(turns[i].membername + "'s turn")
 			buttonattack.grab_focus()
@@ -106,3 +107,7 @@ func transition_to_overworld() -> void:
 	# TODO: transition back to overworld
 	get_tree().change_scene_to_file("res://overworld/overworld_level.tscn")
 	pass
+
+
+func _on_skill_pressed() -> void:
+	UI

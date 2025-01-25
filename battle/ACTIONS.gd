@@ -16,5 +16,6 @@ extends Node
 
 
 var actions = {
-	0:"res://battle/actions/RegAttack.tres"
+	0:"res://battle/actions/RegAttack.tres",
+	1:"res://battle/actions/aimshot.tres"
 }

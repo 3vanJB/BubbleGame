@@ -24,9 +24,21 @@ size_flags_vertical = 8
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="attack" type="Button" parent="HBoxContainer/buttonpanel/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/buttonpanel/PanelContainer"]
+layout_mode = 2
+
+[node name="attack" type="Button" parent="HBoxContainer/buttonpanel/PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Attack"
+
+[node name="skill" type="Button" parent="HBoxContainer/buttonpanel/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Skill"
+
+[node name="special" type="Button" parent="HBoxContainer/buttonpanel/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Special
+"
 
 [node name="memberpanel" type="VBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(0, 150)
@@ -102,3 +114,48 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 10
 text = "Next"
+
+[node name="skillmenu" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="skillmenu"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="skillmenu/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="skillmenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Buttonskill1" type="Button" parent="skillmenu/PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "skill1"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="skillmenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="skill2" type="Button" parent="skillmenu/PanelContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "skill2"
+
+[node name="skill3" type="Button" parent="skillmenu/PanelContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "skill3"

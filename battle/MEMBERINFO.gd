@@ -16,7 +16,7 @@ var members = {
 	},
 	1:{
 		"name":"Yoru",
-		"stats":{ "hp":30, "str":8, "def":3, "mgk":15, "mgkdef":10, "spd":3},
+		"stats":{ "hp":30, "str":8, "def":5, "mgk":15, "mgkdef":10, "spd":3},
 		"ally":true
 	},
 	2:{

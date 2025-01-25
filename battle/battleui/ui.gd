@@ -1,10 +1,15 @@
 extends CanvasLayer
 
+var skill1
+var skill2
+var skill3
+@onready var skillmenu = $skillmenu
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if MEMBERINFO.hasyoru == false:
 		$HBoxContainer/memberpanel/PanelContainer/VBoxContainer/member2.hide()
+	$skillmenu.hide()
 	
 
 func sethplabel(ID, cur):
@@ -18,3 +23,8 @@ func setshine(ID, cur):
 		$HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2/shine.value = cur
 	else:
 		$HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/shine.value = cur
+
+func loadskills(ID):
+	if ID == 0:
+		skill1 = load(ACTIONS.actions[1])
+		$skillmenu/PanelContainer/VBoxContainer/HBoxContainer/Buttonskill1.text = skill1.actionname

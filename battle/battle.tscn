@@ -24,7 +24,8 @@ position = Vector2(490, 249)
 [node name="BubbleSpawnTimer" type="Timer" parent="."]
 wait_time = 2.0
 
-[connection signal="pressed" from="UI/HBoxContainer/buttonpanel/PanelContainer/attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer/attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer/skill" to="." method="_on_skill_pressed"]
 [connection signal="timeout" from="BubbleSpawnTimer" to="." method="_on_bubble_spawn_timer_timeout"]
 
 [editable path="UI"]

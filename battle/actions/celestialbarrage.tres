@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BattleAction" load_steps=2 format=3 uid="uid://cyhw1jdas1vbk"]
+
+[ext_resource type="Script" path="res://battle/actions/battleaction.gd" id="1_45eaa"]
+
+[resource]
+script = ExtResource("1_45eaa")
+type = 0
+isattack = true
+power = 0.0
+cost = 0.0
+actionname = ""

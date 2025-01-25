@@ -7,3 +7,4 @@ class_name BattleAction
 @export var power: float
 @export var cost : float
 @export var actionname : String
+@export var targetenemy: bool = true
