@@ -2,6 +2,7 @@ extends Node2D
 var m = preload("res://battle/battlemember.tscn")
 @onready var playerparty = $playerparty
 @onready var enemyparty = $enemyparty
+@onready var UI = $UI
 @export var echip : int = 0
 var turns = []
 
@@ -19,6 +20,9 @@ func _ready() -> void:
 		x.setup()
 		turns.push_back(x)
 		playerparty.add_child(x)
+		UI.sethplabel(1, playerparty.get_children()[1].curhp)
+	
+	UI.sethplabel(0, playerparty.get_children()[0].curhp)
 	
 	for i in MEMBERINFO.echips[echip]:
 		x = m.instantiate()

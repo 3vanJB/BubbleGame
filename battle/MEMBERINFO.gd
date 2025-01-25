@@ -3,8 +3,8 @@ extends Node
 var hasyoru = true
 
 var partyhp = {
-	0:10,
-	1:10
+	0:50,
+	1:30
 }
 
 

@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://c5g4muvowpv78"]
+[gd_scene load_steps=2 format=3 uid="uid://c5g4muvowpv78"]
+
+[ext_resource type="Script" path="res://battle/battleui/ui.gd" id="1_vah0k"]
 
 [node name="UI" type="CanvasLayer"]
+script = ExtResource("1_vah0k")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 15
@@ -44,7 +47,7 @@ size_flags_vertical = 3
 
 [node name="name" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/memeber1"]
 layout_mode = 2
-text = "name"
+text = "Rose"
 
 [node name="hp" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/memeber1"]
 layout_mode = 2
@@ -57,7 +60,7 @@ size_flags_vertical = 3
 
 [node name="name" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/member2"]
 layout_mode = 2
-text = "name"
+text = "Yoru"
 
 [node name="hp" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/member2"]
 layout_mode = 2
