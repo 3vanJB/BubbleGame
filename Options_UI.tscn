@@ -23,15 +23,6 @@ offset_bottom = 324.0
 color = Color(0.627451, 0.823529, 0.854902, 0.352941)
 metadata/_edit_lock_ = true
 
-[node name="Exit" type="Button" parent="."]
-layout_mode = 0
-offset_left = 414.0
-offset_top = 213.0
-offset_right = 537.0
-offset_bottom = 290.0
-theme_override_font_sizes/font_size = 50
-text = "Exit"
-
 [node name="Option Labels" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = -537.0
@@ -57,7 +48,7 @@ theme_override_font_sizes/font_size = 40
 text = "Effects
 "
 
-[node name="Sliders" type="VBoxContainer" parent="."]
+[node name="Slider Container" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = -380.0
 offset_top = -113.0
@@ -66,16 +57,22 @@ offset_bottom = 11.0
 tooltip_text = "Music"
 theme_override_constants/separation = 65
 
-[node name="Master Slider" type="HSlider" parent="Sliders"]
+[node name="Master Slider" type="HSlider" parent="Slider Container"]
 layout_mode = 2
+max_value = 1.0
+step = 0.001
 tick_count = 1
 
-[node name="Music Slider" type="HSlider" parent="Sliders"]
+[node name="Music Slider" type="HSlider" parent="Slider Container"]
 layout_mode = 2
+max_value = 1.0
+step = 0.001
 tick_count = 1
 
-[node name="Sfx Slider" type="HSlider" parent="Sliders"]
+[node name="Sfx Slider" type="HSlider" parent="Slider Container"]
 layout_mode = 2
+max_value = 1.0
+step = 0.001
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -86,8 +83,28 @@ offset_bottom = -172.0
 theme_override_font_sizes/normal_font_size = 80
 text = "Options"
 
-[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
-[connection signal="value_changed" from="Sliders/Master Slider" to="." method="_on_master_slider_value_changed"]
-[connection signal="value_changed" from="Sliders/Master Slider" to="." method="_on_music_slider_value_changed"]
-[connection signal="value_changed" from="Sliders/Music Slider" to="." method="_on_music_slider_value_changed"]
-[connection signal="value_changed" from="Sliders/Sfx Slider" to="." method="_on_sfx_slider_value_changed"]
+[node name="Button Container" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 218.0
+offset_right = 558.0
+offset_bottom = 295.0
+theme_override_constants/separation = 20
+
+[node name="Exit" type="Button" parent="Button Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Exit"
+
+[node name="Quit" type="Button" parent="Button Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Quit
+"
+
+[connection signal="value_changed" from="Slider Container/Master Slider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="Slider Container/Master Slider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Slider Container/Music Slider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Slider Container/Sfx Slider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="pressed" from="Button Container/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Button Container/Quit" to="." method="_on_exit_pressed"]
