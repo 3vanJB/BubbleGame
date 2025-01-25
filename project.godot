@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 MEMBERINFO="*res://battle/MEMBERINFO.gd"
 Auto="*res://Scripts/auto.gd"
+ACTIONS="*res://battle/ACTIONS.gd"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [input]
 

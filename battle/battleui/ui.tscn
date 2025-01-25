@@ -41,31 +41,47 @@ size_flags_vertical = 3
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer"]
 layout_mode = 2
 
-[node name="memeber1" type="HBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="member2" type="HBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="name" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/memeber1"]
-layout_mode = 2
-text = "Rose"
-
-[node name="hp" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/memeber1"]
-layout_mode = 2
-size_flags_horizontal = 6
-text = "10/10"
-
-[node name="member2" type="HBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="name" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/member2"]
+[node name="name" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/member2"]
 layout_mode = 2
 text = "Yoru"
 
-[node name="hp" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/member2"]
+[node name="hp" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/member2"]
 layout_mode = 2
 size_flags_horizontal = 6
 text = "10/10"
+
+[node name="shine" type="ProgressBar" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="memeber1" type="HBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="name" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2/memeber1"]
+layout_mode = 2
+text = "Rose"
+
+[node name="hp" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2/memeber1"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "10/10"
+
+[node name="shine" type="ProgressBar" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="textpanel" type="PanelContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(0, 150)
