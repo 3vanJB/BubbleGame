@@ -19,8 +19,15 @@ func _ready() -> void:
 		x.setup()
 		turns.push_back(x)
 		playerparty.add_child(x)
-	print(turns)
 	
+	for i in MEMBERINFO.echips[echip]:
+		x = m.instantiate()
+		x.ID = i
+		x.setup()
+		turns.push_back(x)
+		x.position = $enemyspawn.position
+		enemyparty.add_child(x)
+	print(turns)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

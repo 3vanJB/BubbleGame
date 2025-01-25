@@ -22,7 +22,7 @@ var members = {
 	2:{
 		"name":"Adeline",
 		"stats":{ "hp":10, "str":10, "def":3, "mgk":3, "mgkdef":3, "spd":3},
-		"ally":true
+		"ally":false
 	},
 }
 
