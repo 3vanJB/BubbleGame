@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj4m2ht7gihvh"]
+
+[ext_resource type="Script" path="res://Scripts/playground.gd" id="1_pliy5"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_pliy5")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Floor" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = -1275.0
+offset_top = -601.0
+offset_right = -120.0
+offset_bottom = 65.0
+scale = Vector2(2.59829, 2.04811)
+color = Color(0.678534, 0.901833, 0.783911, 1)

@@ -1,0 +1,93 @@
+[gd_scene load_steps=2 format=3 uid="uid://dacd5nfekvjfj"]
+
+[ext_resource type="Script" path="res://Scripts/options.gd" id="1_lm2me"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lm2me")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Fade" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -575.0
+offset_top = -323.0
+offset_right = 575.0
+offset_bottom = 324.0
+color = Color(0.627451, 0.823529, 0.854902, 0.352941)
+metadata/_edit_lock_ = true
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 414.0
+offset_top = 213.0
+offset_right = 537.0
+offset_bottom = 290.0
+theme_override_font_sizes/font_size = 50
+text = "Exit"
+
+[node name="Option Labels" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -537.0
+offset_top = -134.0
+offset_right = -408.0
+offset_bottom = -4.0
+theme_override_constants/separation = 20
+
+[node name="Master" type="Label" parent="Option Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Master
+"
+
+[node name="Music Label" type="Label" parent="Option Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Music"
+
+[node name="Effects Label" type="Label" parent="Option Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Effects
+"
+
+[node name="Sliders" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -380.0
+offset_top = -113.0
+offset_right = 26.0
+offset_bottom = 11.0
+tooltip_text = "Music"
+theme_override_constants/separation = 65
+
+[node name="Master Slider" type="HSlider" parent="Sliders"]
+layout_mode = 2
+tick_count = 1
+
+[node name="Music Slider" type="HSlider" parent="Sliders"]
+layout_mode = 2
+tick_count = 1
+
+[node name="Sfx Slider" type="HSlider" parent="Sliders"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = -160.0
+offset_top = -314.0
+offset_right = 161.0
+offset_bottom = -172.0
+theme_override_font_sizes/normal_font_size = 80
+text = "Options"
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="value_changed" from="Sliders/Master Slider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="Sliders/Master Slider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Sliders/Music Slider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Sliders/Sfx Slider" to="." method="_on_sfx_slider_value_changed"]
