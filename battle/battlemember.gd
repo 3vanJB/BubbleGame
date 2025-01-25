@@ -4,6 +4,7 @@ class_name BattleMember
 var stats = {"hp":1, "str":1, "def":1, "mgk":1, "mgkdef":1, "spd":1}
 var curhp
 var maxshine : float = 100.0
+var curshine : float = 0
 var action
 var membername
 var ID
@@ -20,6 +21,7 @@ func setup():
 		curhp = MEMBERINFO.partyhp[ID]
 		hide()
 	$ProgressBar.value = curhp
+	curshine = 25
 
 func takedamage(value):
 	if curhp - value < 0:

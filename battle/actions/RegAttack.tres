@@ -6,6 +6,6 @@
 script = ExtResource("1_8iv8r")
 type = 0
 isattack = true
-power = 0.25
+power = 1.0
 cost = 0.0
 actionname = "Attack"

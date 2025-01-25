@@ -9,6 +9,12 @@ func _ready() -> void:
 
 func sethplabel(ID, cur):
 	if ID == 0:
-		$HBoxContainer/memberpanel/PanelContainer/VBoxContainer/memeber1/hp.text = str(cur) + "/" + str(MEMBERINFO.getmemberstats(ID)["hp"])
+		$HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2/memeber1/hp.text = str(cur) + "/" + str(MEMBERINFO.getmemberstats(ID)["hp"])
 	else:
-		$HBoxContainer/memberpanel/PanelContainer/VBoxContainer/member2/hp.text = str(cur) + "/" + str(MEMBERINFO.getmemberstats(ID)["hp"])
+		$HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/member2/hp.text = str(cur) + "/" + str(MEMBERINFO.getmemberstats(ID)["hp"])
+
+func setshine(ID, cur):
+	if ID == 0:
+		$HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2/shine.value = cur
+	else:
+		$HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/shine.value = cur

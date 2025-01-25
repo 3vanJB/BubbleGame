@@ -81,7 +81,7 @@ func nextturn():
 
 func calculate(attacker, target):
 	if attacker.action.isattack == true:
-		var damage = (4 * attacker.stats["str"] - 3 * target.stats["def"]) * attacker.action.power
+		var damage = (((attacker.curshine/50 * attacker.stats["str"]) - (target.curshine/50 * target.stats["def"]))) * attacker.action.power
 		nextdamage = damage
 		target.takedamage(damage)
 
