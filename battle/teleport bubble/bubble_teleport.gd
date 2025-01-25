@@ -28,3 +28,7 @@ func get_new_direction() -> Vector2:
 
 func _on_timer_timeout() -> void:
 	movement_direction = get_new_direction()
+
+
+func _on_bubble_pop_timer_timeout() -> void:
+	queue_free()
