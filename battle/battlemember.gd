@@ -8,3 +8,7 @@ var action
 var membername
 var ID
 var ally
+
+
+func setup():
+	pass

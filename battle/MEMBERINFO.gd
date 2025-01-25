@@ -1,26 +1,34 @@
 extends Node
 
-
+var hasyoru = true
 
 
 var members = {
 	0:{
 		"name":"Rose",
-		"hp":10, "str":1, "def":1, "mgk":1, "mgkdef":1, "spd":1,
+		"stats":{ "hp":10, "str":10, "def":3, "mgk":3, "mgkdef":3, "spd":3},
 		"ally":true
 	},
 	1:{
 		"name":"Yoru",
-		"hp":1, "str":1, "def":1, "mgk":1, "mgkdef":1, "spd":1,
+		"stats":{ "hp":10, "str":10, "def":3, "mgk":3, "mgkdef":3, "spd":3},
 		"ally":true
 	},
 	2:{
 		"name":"Adeline",
-		"hp":1, "str":1, "def":1, "mgk":1, "mgkdef":1, "spd":1,
+		"stats":{ "hp":10, "str":10, "def":3, "mgk":3, "mgkdef":3, "spd":3},
 		"ally":true
 	},
 }
 
+func getmemberstats(member):
+	return members[member]["stats"]
+
+
+
+var echips = {
+	0:[2]
+}
 
 
 # Called when the node enters the scene tree for the first time.
