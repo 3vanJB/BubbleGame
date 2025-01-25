@@ -8,7 +8,7 @@ var m = preload("res://battle/battlemember.tscn")
 @onready var buttonattack = $UI/HBoxContainer/buttonpanel/PanelContainer/attack
 #checks to see if targeting enemy
 var enemyfocused = false
-var nextdamage
+var nextdamage : int
 var last_overworld_locations : Dictionary # THIS is for when going back to overworld. To know where we are going to spawn the characters back to
 
 signal playeractionselected
@@ -45,6 +45,8 @@ func _ready() -> void:
 		x.position.x += (i * 300)
 		enemyparty.members.push_back(x)
 		enemyparty.add_child(x)
+	UI.setshine(0, playerparty.members[0].curshine)
+	UI.setshine(1, playerparty.members[1].curshine)
 	nextturn()
 
 func _process(delta: float) -> void:
@@ -72,6 +74,7 @@ func nextturn():
 		if turns[i].ally == false:
 			#print(turns[i].membername + "'s turn")
 			turns[i].action = load(ACTIONS.actions[0])
+			calculate(turns[i], playerparty.members[1])
 		else:
 			buttonattack.disabled = false
 			#print(turns[i].membername + "'s turn")
@@ -82,8 +85,14 @@ func nextturn():
 func calculate(attacker, target):
 	if attacker.action.isattack == true:
 		var damage = (((attacker.curshine/50 * attacker.stats["str"]) - (target.curshine/50 * target.stats["def"]))) * attacker.action.power
+		damage += randi_range(-2, 2)
+		if damage < 0:
+			damage = 1
 		nextdamage = damage
 		target.takedamage(damage)
+		if target.ally == true:
+			UI.sethplabel(target.ID, target.curhp)
+		print(nextdamage)
 
 
 func _on_attack_pressed() -> void:
