@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5g4muvowpv78"]
+[gd_scene load_steps=2 format=3 uid="uid://c5g4muvowpv78"]
 
 [ext_resource type="Script" path="res://battle/battleui/ui.gd" id="1_vah0k"]
-[ext_resource type="Script" path="res://battle/scene changer/scene_changer.gd" id="2_pdjp3"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_vah0k")
@@ -87,6 +86,3 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 10
 text = "Next"
-
-[node name="SceneChanger" type="CanvasLayer" parent="HBoxContainer"]
-script = ExtResource("2_pdjp3")
