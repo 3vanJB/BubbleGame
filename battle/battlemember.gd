@@ -30,6 +30,18 @@ func takedamage(value):
 		curhp -= value
 	$ProgressBar.value = curhp
 
+func restoreshine(value):
+	if curshine + value > maxshine:
+		curshine = maxshine
+	else:
+		curshine += value
+
+func consumeshine(value):
+	if curshine - value < 0:
+		curshine = 0
+	else:
+		curshine -= value
+
 func heal(value):
 	if curhp + value > stats["hp"]:
 		curhp = stats["hp"]
