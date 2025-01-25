@@ -5,6 +5,10 @@ var closest_interactable : InteractableObject = null
 
 var keys_in_inventory : Array[String] = []
 
+func add_key(key : String) -> void:
+	if keys_in_inventory.has(key):
+		return
+	keys_in_inventory.append(key)
 
 func can_interact_with_object(interactable : InteractableObject) -> bool:
 	return global_position.distance_to(interactable.global_position) <= interaction_radius

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1aod4f0thqyf"]
+
+[ext_resource type="Script" path="res://overworld/interactables/consumables/consumable_key.gd" id="1_1ijy7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jw1ct"]
+radius = 5.0
+
+[node name="KeyConsumable" type="Node2D"]
+script = ExtResource("1_1ijy7")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_jw1ct")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

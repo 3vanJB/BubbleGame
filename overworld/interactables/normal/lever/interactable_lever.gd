@@ -10,6 +10,6 @@ func interact(character_consumed : PlayerCharacter) -> bool:
 		return false
 	bIsOn = !bIsOn
 	$Sprite2D.texture = open_texture if bIsOn else close_texture
-	door_linked.interact(character_consumed)
+	door_linked.interact_door(character_consumed)
 	# TODO: Play Lever SFX
 	return true
