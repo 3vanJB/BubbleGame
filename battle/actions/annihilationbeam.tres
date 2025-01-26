@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BattleAction" load_steps=2 format=3 uid="uid://b8i66v45ly4s3"]
+
+[ext_resource type="Script" path="res://battle/actions/battleaction.gd" id="1_7100u"]
+
+[resource]
+script = ExtResource("1_7100u")
+type = 1
+isattack = true
+power = 3.0
+cost = 100.0
+actionname = ""
+targetenemy = true
+ischeer = false
+cheervalue = 20
+targetally = false
+targetallyparty = false
+targetenemyparty = false
+isspecial = true
+isheal = false
+heal = 0

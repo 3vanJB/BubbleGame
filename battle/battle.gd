@@ -12,6 +12,7 @@ var m = preload("res://battle/battlemember.tscn")
 @onready var buttonskill3 = $UI/skillmenu/PanelContainer/VBoxContainer/HBoxContainer2/skill3
 #checks to see if targeting enemy
 var enemyfocused = false
+var partyfocused = false
 var nextdamage : int
 var last_overworld_locations : Dictionary # THIS is for when going back to overworld. To know where we are going to spawn the characters back to
 
@@ -70,7 +71,25 @@ func _process(delta: float) -> void:
 			calculate(current, enemyparty.members[enemyparty.cursor])
 			enemyparty.endfocus()
 			emit_signal("playeractionselected")
-			
+	if partyfocused == true:
+		if Input.is_action_just_pressed("left"):
+			playerparty.scrolldown()
+			print(playerparty.cursor)
+		if Input.is_action_just_pressed("right"):
+			playerparty.scrollup()
+			print(playerparty.cursor)
+		if Input.is_action_just_pressed("ui_cancel"):
+			partyfocused = false
+			buttonattack.grab_focus()
+			UI.setmainbuttons(false)
+			playerparty.endfocus()
+		if Input.is_action_just_pressed("ui_accept"):
+			partyfocused = false
+			print(current.membername)
+			calculate(current, playerparty.members[playerparty.cursor])
+			playerparty.endfocus()
+			enemyparty.endfocus()
+			emit_signal("playeractionselected")
 
 func nextturn():
 	for i in len(turns):
@@ -92,28 +111,52 @@ func nextturn():
 func calculate(attacker, target):
 	if attacker.action.isattack == true:
 		if attacker.action.isspecial == true:
-			var damage = attacker.curshine/50 * (attacker.stats["str"] * attacker.action.power) - target.curshine/50 * target.stats["def"]
+			if attacker.action.type == 0:
+				var damage = attacker.curshine/50 * (attacker.stats["str"] * attacker.action.power) - target.curshine/50 * target.stats["def"]
+				damage += randi_range(-2, 2)
+				if damage < 0:
+					damage = 1
+				nextdamage = damage
+			else:
+				var damage = attacker.curshine/50 * (attacker.stats["mgk"] * attacker.action.power) - target.curshine/50 * target.stats["mgkdef"]
+				damage += randi_range(-2, 2)
+				if damage < 0:
+					damage = 1
+				nextdamage = damage
+			
+			
+		if attacker.action.type == 0:
+			var damage = (((attacker.curshine/50 * attacker.stats["str"]) - (target.curshine/50 * target.stats["def"]))) * attacker.action.power
 			damage += randi_range(-2, 2)
 			if damage < 0:
 				damage = 1
 			nextdamage = damage
+			target.takedamage(damage)
+			if target.ally == true:
+				UI.sethplabel(target.ID, target.curhp)
+			#print(nextdamage)
+		else:
+			var damage = (((attacker.curshine/50 * attacker.stats["mgk"]) - (target.curshine/50 * target.stats["mgkdef"]))) * attacker.action.power
+			damage += randi_range(-2, 2)
+			if damage < 0:
+				damage = 1
+			nextdamage = damage
+			target.takedamage(damage)
+			if target.ally == true:
+				UI.sethplabel(target.ID, target.curhp)
+			#print(nextdamage)
 			
-			
-		var damage = (((attacker.curshine/50 * attacker.stats["str"]) - (target.curshine/50 * target.stats["def"]))) * attacker.action.power
-		damage += randi_range(-2, 2)
-		if damage < 0:
-			damage = 1
-		nextdamage = damage
-		target.takedamage(damage)
-		if target.ally == true:
-			UI.sethplabel(target.ID, target.curhp)
-		print(nextdamage)
 	elif attacker.action.ischeer == true:
 		print("cheer")
 		playerparty.members[0].restoreshine(attacker.action.cheervalue)
 		playerparty.members[1].restoreshine(attacker.action.cheervalue)
 		UI.setshine(0, playerparty.members[0].curshine)
 		UI.setshine(1, playerparty.members[1].curshine)
+	elif attacker.action.isheal == true:
+		var healing = attacker.stats["mgk"] * attacker.action.power
+		target.heal(healing)
+		UI.sethplabel(target.ID, target.curhp)
+		print(target.membername + "653728")
 
 
 func _on_attack_pressed() -> void:
@@ -138,11 +181,15 @@ func _on_skill_pressed() -> void:
 
 func _on_buttonskill_1_pressed() -> void:
 	UI.setskillbuttons(true)
-	
-	enemyfocused = true
-	UI.skillmenu.hide()
-	enemyparty.grabfocus(0)
 	current.action = UI.skill1
+	if UI.skill1.targetenemyparty == true:
+		calculate(current, current)
+		emit_signal("playeractionselected")
+	else:
+		enemyfocused = true
+		UI.skillmenu.hide()
+		enemyparty.grabfocus(0)
+	
 	buttonskill1.release_focus()
 
 
@@ -153,6 +200,10 @@ func _on_skill_2_pressed() -> void:
 		calculate(current, current)
 		emit_signal("playeractionselected")
 		
+	elif UI.skill2.isheal == true:
+		partyfocused = true
+		UI.skillmenu.hide()
+		playerparty.grabfocus(0)
 	
 	UI.skillmenu.hide()
 	current.action = UI.skill2

@@ -19,5 +19,8 @@ var actions = {
 	0:"res://battle/actions/RegAttack.tres",
 	1:"res://battle/actions/aimshot.tres",
 	2:"res://battle/actions/cheer.tres",
-	3:"res://battle/actions/celestialbarrage.tres"
+	3:"res://battle/actions/celestialbarrage.tres",
+	4:"res://battle/actions/oblivionneedles.tres",
+	5:"res://battle/actions/tranquility.tres",
+	6:"res://battle/actions/annihilationbeam.tres"
 }
