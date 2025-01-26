@@ -26,6 +26,12 @@ func _on_bubble_spawn_timer_timeout() -> void:
 
 
 func transition_to_battle(echip) -> void:
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
+	$PlayerCharacter1.frozen = true
+	Dialogic.start("Pre Battle 1")	
+
+func _on_timeline_ended() -> void:
+	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
 	var n = b.instantiate()
 	n.echip = 0
 	$PlayerCharacter1.frozen = true
