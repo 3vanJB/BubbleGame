@@ -129,8 +129,14 @@ func calculate(attacker, target):
 				if damage < 0:
 					damage = 1
 				nextdamage = damage
-			
-			
+		if attacker.action.targetenemyparty == true and attacker.ally == false:
+			var damage = (((attacker.curshine/50 * attacker.stats["str"]) - (target.curshine/50 * target.stats["def"]))) * attacker.action.power
+			damage += randi_range(-2, 2)
+			if damage < 0:
+				damage = 1
+			nextdamage = damage
+			playerparty.members[0].takedamage(nextdamage)
+			playerparty.members[1].takedamage(nextdamage)
 		if attacker.action.type == 0:
 			var damage = (((attacker.curshine/50 * attacker.stats["str"]) - (target.curshine/50 * target.stats["def"]))) * attacker.action.power
 			damage += randi_range(-2, 2)

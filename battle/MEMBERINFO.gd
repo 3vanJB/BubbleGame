@@ -25,18 +25,19 @@ var members = {
 		"ally":false
 	},
 	3:{
-		#Cube bubble
+		#orang bubble
 		"name":"Furious Jubjub",
 		"stats":{ "hp":30, "str":10, "def":5, "mgk":6, "mgkdef":3, "spd":3},
-		"ally":false
+		"ally":false,
+		"skills":[7, 8]
 	},
 	4:{
-		#Triangle bubble
+		#purp bubble
 		"name":"Jittering Eye Man",
 		"stats":{ "hp":30, "str":10, "def":5, "mgk":6, "mgkdef":3, "spd":3},
 		"ally":false},
 	5:{
-		#Round
+		#cyan
 		"name":"Divine Euenice",
 		"stats":{ "hp":30, "str":10, "def":5, "mgk":6, "mgkdef":3, "spd":3},
 		"ally":false}
