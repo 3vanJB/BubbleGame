@@ -14,3 +14,5 @@ class_name BattleAction
 @export var targetallyparty: bool = false
 @export var targetenemyparty : bool = false
 @export var isspecial : bool = false
+@export var isheal : bool = false
+@export var heal : int 
