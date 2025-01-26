@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="6_pa5ik"]
 
 [node name="battle" type="Node2D"]
+position = Vector2(0, 1)
 script = ExtResource("1_f8ab6")
 
 [node name="playerparty" type="Node2D" parent="."]
@@ -68,8 +69,8 @@ metadata/_edit_lock_ = true
 
 [node name="Buttonskill1" parent="UI/skillmenu/PanelContainer/VBoxContainer/HBoxContainer" index="0"]
 custom_minimum_size = Vector2(250, 72)
-theme_override_colors/font_color = Color(0.706205, 0.862893, 0.979062, 1)
-theme_override_colors/font_outline_color = Color(0.417823, 0.255709, 0.869008, 1)
+theme_override_colors/font_color = Color(0.624514, 0.707328, 0.89147, 1)
+theme_override_colors/font_outline_color = Color(0.368658, 0.204272, 0.788752, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 25
 
