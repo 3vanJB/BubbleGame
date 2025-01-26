@@ -51,6 +51,7 @@ func heal(value):
 		curhp = stats["hp"]
 	else:
 		curhp += value
+	$ProgressBar.value = curhp
 
 func grabfocus():
 	$selecter.show()

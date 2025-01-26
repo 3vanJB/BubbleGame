@@ -104,6 +104,7 @@ func nextturn():
 			
 			#print(turns[i].membername + "'s turn")
 			turns[i].action = load(ACTIONS.actions[0])
+			##THIS IS THE PART THAT DECIDES WHICH ACTION TO USE
 			calculate(turns[i], playerparty.members[1])
 		else:
 			UI.loadskills(turns[i].ID)
@@ -133,13 +134,23 @@ func calculate(attacker, target):
 					damage = 1
 				nextdamage = damage
 		if attacker.action.targetenemyparty == true and attacker.ally == false:
-			var damage = (((attacker.curshine/50 * attacker.stats["str"]) - (target.curshine/50 * target.stats["def"]))) * attacker.action.power
-			damage += randi_range(-2, 2)
-			if damage < 0:
-				damage = 1
-			nextdamage = damage
-			playerparty.members[0].takedamage(nextdamage)
-			playerparty.members[1].takedamage(nextdamage)
+			if attacker.action.type == 0:
+				var damage = (((attacker.curshine/50 * attacker.stats["str"]) - (target.curshine/50 * target.stats["def"]))) * attacker.action.power
+				damage += randi_range(-2, 2)
+				if damage < 0:
+					damage = 1
+				nextdamage = damage
+				playerparty.members[0].takedamage(nextdamage)
+				playerparty.members[1].takedamage(nextdamage)
+			else:
+				var damage = (((attacker.curshine/50 * attacker.stats["mgk"]) - (target.curshine/50 * target.stats["mgkdef"]))) * attacker.action.power
+				damage += randi_range(-2, 2)
+				if damage < 0:
+					damage = 1
+				nextdamage = damage
+				playerparty.members[0].takedamage(nextdamage)
+				playerparty.members[1].takedamage(nextdamage)
+		
 		if attacker.action.type == 0:
 			var damage = (((attacker.curshine/50 * attacker.stats["str"]) - (target.curshine/50 * target.stats["def"]))) * attacker.action.power
 			damage += randi_range(-2, 2)
@@ -169,8 +180,11 @@ func calculate(attacker, target):
 		UI.setshine(1, playerparty.members[1].curshine)
 	elif attacker.action.isheal == true:
 		var healing = attacker.stats["mgk"] * attacker.action.power
-		target.heal(healing)
-		UI.sethplabel(target.ID, target.curhp)
+		if attacker.ally == false:
+			target.heal(healing)
+		else:
+			target.heal(healing)
+			UI.sethplabel(target.ID, target.curhp)
 		print(target.membername + "653728")
 
 
