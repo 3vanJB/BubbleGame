@@ -4,7 +4,8 @@ var skill1
 var skill2
 var skill3
 @onready var skillmenu = $skillmenu
-
+@onready var attackh = $attack
+@onready var nameh = $target
 
 
 # Called when the node enters the scene tree for the first time.
@@ -52,7 +53,7 @@ func loadskills(ID):
 		skill1 = load(ACTIONS.actions[1])
 		skill2 = load(ACTIONS.actions[2])
 		skill3 = load(ACTIONS.actions[3])
-		print(skill1.actionname)
+		
 		$skillmenu/PanelContainer/VBoxContainer/HBoxContainer/Buttonskill1.text = skill1.actionname
 		$skillmenu/PanelContainer/VBoxContainer/HBoxContainer2/skill2.text = skill2.actionname
 		$skillmenu/PanelContainer/VBoxContainer/HBoxContainer2/skill3.text = skill3.actionname
@@ -63,3 +64,8 @@ func loadskills(ID):
 		$skillmenu/PanelContainer/VBoxContainer/HBoxContainer/Buttonskill1.text = skill1.actionname
 		$skillmenu/PanelContainer/VBoxContainer/HBoxContainer2/skill2.text = skill2.actionname
 		$skillmenu/PanelContainer/VBoxContainer/HBoxContainer2/skill3.text = skill3.actionname
+
+func setattacktext(text):
+	$attack/MarginContainer/attackname/HBoxContainer/Label.text = text
+func settargettext(text):
+	$target/MarginContainer/attackname/HBoxContainer/Label.text = text

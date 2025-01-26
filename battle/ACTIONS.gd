@@ -22,5 +22,7 @@ var actions = {
 	3:"res://battle/actions/celestialbarrage.tres",
 	4:"res://battle/actions/oblivionneedles.tres",
 	5:"res://battle/actions/tranquility.tres",
-	6:"res://battle/actions/annihilationbeam.tres"
+	6:"res://battle/actions/annihilationbeam.tres",
+	#enemy skills
+	
 }

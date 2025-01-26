@@ -19,6 +19,12 @@ position = Vector2(490, 249)
 
 [node name="UI" parent="." instance=ExtResource("2_n1p0q")]
 
+[node name="attack" parent="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer" index="0"]
+size_flags_vertical = 3
+
+[node name="skill" parent="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer" index="1"]
+size_flags_vertical = 3
+
 [node name="special" parent="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer" index="2"]
 visible = false
 

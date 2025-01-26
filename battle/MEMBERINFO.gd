@@ -24,6 +24,22 @@ var members = {
 		"stats":{ "hp":100, "str":10, "def":3, "mgk":3, "mgkdef":3, "spd":3},
 		"ally":false
 	},
+	3:{
+		#Cube bubble
+		"name":"Furious Jubjub",
+		"stats":{ "hp":30, "str":10, "def":5, "mgk":6, "mgkdef":3, "spd":3},
+		"ally":false
+	},
+	4:{
+		#Triangle bubble
+		"name":"Jittering Eye Man",
+		"stats":{ "hp":30, "str":10, "def":5, "mgk":6, "mgkdef":3, "spd":3},
+		"ally":false},
+	5:{
+		#Round
+		"name":"Divine Euenice",
+		"stats":{ "hp":30, "str":10, "def":5, "mgk":6, "mgkdef":3, "spd":3},
+		"ally":false}
 }
 
 func getmemberstats(ID):
@@ -33,7 +49,7 @@ func getmember(ID):
 
 
 var echips = {
-	0:[2, 2]
+	0:[2, 3]
 }
 
 

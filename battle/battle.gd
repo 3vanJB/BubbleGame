@@ -56,10 +56,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if enemyfocused == true:
+		
 		if Input.is_action_just_pressed("left"):
 			enemyparty.scrolldown()
+			UI.settargettext(enemyparty.members[enemyparty.cursor].membername)
 		if Input.is_action_just_pressed("right"):
 			enemyparty.scrollup()
+			UI.settargettext(enemyparty.members[enemyparty.cursor].membername)
 		if Input.is_action_just_pressed("ui_cancel"):
 			enemyfocused = false
 			buttonattack.grab_focus()
@@ -67,7 +70,7 @@ func _process(delta: float) -> void:
 			enemyparty.endfocus()
 		if Input.is_action_just_pressed("ui_accept"):
 			enemyfocused = false
-			print(current.membername)
+			print("current.membernamepressed")
 			calculate(current, enemyparty.members[enemyparty.cursor])
 			enemyparty.endfocus()
 			emit_signal("playeractionselected")
@@ -106,6 +109,7 @@ func nextturn():
 			#print(turns[i].membername + "'s turn")
 			buttonattack.grab_focus()
 			await playeractionselected
+			UI.nameh.hide()
 	nextturn()
 
 func calculate(attacker, target):
@@ -162,8 +166,11 @@ func calculate(attacker, target):
 func _on_attack_pressed() -> void:
 	UI.setmainbuttons(true)
 	enemyfocused = true
+	
 	enemyparty.grabfocus(0)
 	current.action = load(ACTIONS.actions[0])
+	UI.settargettext(enemyparty.members[enemyparty.cursor].membername)
+	UI.nameh.show()
 	buttonattack.release_focus()
 	
 func transition_to_overworld() -> void:
@@ -183,12 +190,20 @@ func _on_buttonskill_1_pressed() -> void:
 	UI.setskillbuttons(true)
 	current.action = UI.skill1
 	if UI.skill1.targetenemyparty == true:
-		calculate(current, current)
+		for i in len(enemyparty.members):
+			calculate(current, enemyparty.members[i])
+		UI.skillmenu.hide()
+		
 		emit_signal("playeractionselected")
+		
 	else:
-		enemyfocused = true
+		
+		UI.nameh.show()
 		UI.skillmenu.hide()
 		enemyparty.grabfocus(0)
+		enemyfocused = true
+		UI.settargettext(enemyparty.members[enemyparty.cursor].membername)
+		UI.settargettext(enemyparty.members[enemyparty.cursor].membername)
 	
 	buttonskill1.release_focus()
 
