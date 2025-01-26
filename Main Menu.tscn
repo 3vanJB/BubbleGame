@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dakw1wayutgnm"]
+[gd_scene load_steps=4 format=3 uid="uid://dakw1wayutgnm"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_1mmhn"]
+[ext_resource type="FontFile" uid="uid://cj7c8ydcjaxj5" path="res://Fonts/Fonts/Fonts/LiberationSans.ttf" id="2_vl5yv"]
 [ext_resource type="PackedScene" uid="uid://ymg74ooobovl" path="res://misc/scene changer/scene_changer.tscn" id="2_vxjqa"]
 
 [node name="Control" type="Control"]
@@ -20,7 +21,7 @@ offset_left = -605.0
 offset_top = -364.0
 offset_right = 599.0
 offset_bottom = 418.0
-color = Color(0.630127, 0.785776, 0.936966, 1)
+color = Color(0.904407, 0.914717, 0.916658, 1)
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -28,13 +29,18 @@ metadata/_edit_lock_ = true
 
 [node name="Main Title" type="Label" parent="."]
 layout_mode = 0
-offset_left = -361.0
-offset_top = -278.0
-offset_right = 356.0
-offset_bottom = -141.0
-theme_override_colors/font_color = Color(0.670274, 0.194479, 0.741597, 1)
+offset_left = -359.0
+offset_top = -290.0
+offset_right = 358.0
+offset_bottom = -61.0
+theme_override_colors/font_color = Color(0.430042, 0.395257, 0.740773, 0.372549)
+theme_override_colors/font_outline_color = Color(0.815686, 0.301961, 0.988235, 0.839216)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_vl5yv")
 theme_override_font_sizes/font_size = 100
-text = "Meteor Bubble"
+text = "Bubble Burst 
+Dungeon"
+horizontal_alignment = 1
 
 [node name="Button_Container" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -46,26 +52,45 @@ metadata/_edit_lock_ = true
 
 [node name="Play" type="Button" parent="Button_Container"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0.61998, 0.955695, 0.959663, 0.882353)
+theme_override_colors/icon_hover_color = Color(0.490196, 0.819608, 0.858824, 0.835294)
+theme_override_colors/icon_hover_pressed_color = Color(0.450552, 0.848883, 0.881213, 0.294118)
+theme_override_fonts/font = ExtResource("2_vl5yv")
 theme_override_font_sizes/font_size = 50
 text = "Start"
 
 [node name="Options" type="Button" parent="Button_Container"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0.61998, 0.955695, 0.959663, 0.882353)
+theme_override_colors/icon_hover_color = Color(0.490196, 0.819608, 0.858824, 0.835294)
+theme_override_colors/icon_hover_pressed_color = Color(0.450552, 0.848883, 0.881213, 0.294118)
+theme_override_fonts/font = ExtResource("2_vl5yv")
 theme_override_font_sizes/font_size = 50
 text = "Options"
 
 [node name="Credits" type="Button" parent="Button_Container"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0.61998, 0.955695, 0.959663, 0.882353)
+theme_override_colors/icon_hover_color = Color(0.490196, 0.819608, 0.858824, 0.835294)
+theme_override_colors/icon_hover_pressed_color = Color(0.450552, 0.848883, 0.881213, 0.294118)
+theme_override_fonts/font = ExtResource("2_vl5yv")
 theme_override_font_sizes/font_size = 50
 text = "Credits"
 
 [node name="Quit" type="Button" parent="Button_Container"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0.61998, 0.955695, 0.959663, 0.882353)
+theme_override_colors/icon_hover_color = Color(0.490196, 0.819608, 0.858824, 0.835294)
+theme_override_colors/icon_hover_pressed_color = Color(0.450552, 0.848883, 0.881213, 0.294118)
+theme_override_fonts/font = ExtResource("2_vl5yv")
 theme_override_font_sizes/font_size = 50
 text = "Quit"
 
-[node name="SceneChanger" parent="." node_paths=PackedStringArray("AnimPlayer") instance=ExtResource("2_vxjqa")]
-AnimPlayer = NodePath("AnimationPlayer")
+[node name="SceneChanger" parent="." instance=ExtResource("2_vxjqa")]
 
 [connection signal="pressed" from="Button_Container/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Button_Container/Options" to="." method="_on_options_pressed"]

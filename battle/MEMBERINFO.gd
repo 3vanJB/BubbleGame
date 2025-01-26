@@ -11,12 +11,12 @@ var partyhp = {
 var members = {
 	0:{
 		"name":"Rose",
-		"stats":{ "hp":50, "str":15, "def":5, "mgk":7, "mgkdef":8, "spd":3},
+		"stats":{ "hp":80, "str":15, "def":5, "mgk":7, "mgkdef":8, "spd":3},
 		"ally":true
 	},
 	1:{
 		"name":"Yoru",
-		"stats":{ "hp":30, "str":8, "def":5, "mgk":15, "mgkdef":10, "spd":3},
+		"stats":{ "hp":50, "str":8, "def":5, "mgk":15, "mgkdef":10, "spd":3},
 		"ally":true
 	},
 	2:{
@@ -24,6 +24,23 @@ var members = {
 		"stats":{ "hp":100, "str":10, "def":3, "mgk":3, "mgkdef":3, "spd":3},
 		"ally":false
 	},
+	3:{
+		#orang bubble
+		"name":"Furious Jubjub",
+		"stats":{ "hp":30, "str":10, "def":5, "mgk":6, "mgkdef":3, "spd":3},
+		"ally":false,
+		"skills":[7, 8]
+	},
+	4:{
+		#purp bubble
+		"name":"Jittering Eye Man",
+		"stats":{ "hp":30, "str":10, "def":5, "mgk":6, "mgkdef":3, "spd":3},
+		"ally":false},
+	5:{
+		#cyan
+		"name":"Divine Euenice",
+		"stats":{ "hp":30, "str":10, "def":5, "mgk":6, "mgkdef":3, "spd":3},
+		"ally":false}
 }
 
 func getmemberstats(ID):
@@ -33,7 +50,7 @@ func getmember(ID):
 
 
 var echips = {
-	0:[2, 2]
+	0:[2, 3]
 }
 
 

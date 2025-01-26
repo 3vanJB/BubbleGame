@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5g4muvowpv78"]
+[gd_scene load_steps=3 format=3 uid="uid://c5g4muvowpv78"]
 
 [ext_resource type="Script" path="res://battle/battleui/ui.gd" id="1_vah0k"]
+[ext_resource type="Texture2D" uid="uid://bqnv851g4ja3j" path="res://icon.svg" id="2_kqrcr"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_vah0k")
@@ -53,27 +54,6 @@ size_flags_vertical = 3
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="member2" type="HBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="name" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/member2"]
-layout_mode = 2
-text = "Yoru"
-
-[node name="hp" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/member2"]
-layout_mode = 2
-size_flags_horizontal = 6
-text = "10/10"
-
-[node name="shine" type="ProgressBar" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -90,7 +70,40 @@ layout_mode = 2
 size_flags_horizontal = 6
 text = "10/10"
 
+[node name="icon" type="TextureRect" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2/memeber1"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_kqrcr")
+expand_mode = 3
+
 [node name="shine" type="ProgressBar" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="member2" type="HBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="name" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/member2"]
+layout_mode = 2
+text = "Yoru"
+
+[node name="hp" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/member2"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "10/10"
+
+[node name="icon" type="TextureRect" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/member2"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_kqrcr")
+expand_mode = 3
+
+[node name="shine" type="ProgressBar" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -159,3 +172,66 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 text = "skill3"
+
+[node name="attack" type="HBoxContainer" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 50.0
+grow_horizontal = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="attack"]
+layout_mode = 2
+theme_override_constants/margin_top = 150
+
+[node name="attackname" type="PanelContainer" parent="attack/MarginContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="attack/MarginContainer/attackname"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="attack/MarginContainer/attackname/HBoxContainer"]
+layout_mode = 2
+text = "name"
+
+[node name="target" type="HBoxContainer" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -200.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 6
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="target"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 200
+
+[node name="attackname" type="PanelContainer" parent="target/MarginContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="target/MarginContainer/attackname"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="target/MarginContainer/attackname/HBoxContainer"]
+layout_mode = 2
+text = "name"

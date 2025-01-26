@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name BattleMember
 
 var stats = {"hp":1, "str":1, "def":1, "mgk":1, "mgkdef":1, "spd":1}
-var curhp
+var curhp : int
 var maxshine : float = 100.0
 var curshine : float = 0
 var action
@@ -29,6 +29,18 @@ func takedamage(value):
 	else:
 		curhp -= value
 	$ProgressBar.value = curhp
+
+func restoreshine(value):
+	if curshine + value > maxshine:
+		curshine = maxshine
+	else:
+		curshine += value
+
+func consumeshine(value):
+	if curshine - value < 0:
+		curshine = 0
+	else:
+		curshine -= value
 
 func heal(value):
 	if curhp + value > stats["hp"]:
