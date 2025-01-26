@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dakw1wayutgnm"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_1mmhn"]
-[ext_resource type="FontFile" uid="uid://cj7c8ydcjaxj5" path="res://Fonts/Fonts/Fonts/LiberationSans.ttf" id="2_vl5yv"]
+[ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="2_runye"]
 [ext_resource type="Theme" uid="uid://banc6367nyh15" path="res://battle/battleui/ui.tres" id="3_64ubu"]
 
 [sub_resource type="Theme" id="Theme_23get"]
@@ -39,7 +39,7 @@ offset_bottom = -61.0
 theme_override_colors/font_color = Color(0.430042, 0.395257, 0.740773, 0.372549)
 theme_override_colors/font_outline_color = Color(0.815686, 0.301961, 0.988235, 0.839216)
 theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("2_vl5yv")
+theme_override_fonts/font = ExtResource("2_runye")
 theme_override_font_sizes/font_size = 100
 text = "Bubble Burst 
 Dungeon"
