@@ -35,13 +35,13 @@ var members = {
 	4:{
 		#purp bubble
 		"name":"Jittering Eye Man",
-		"stats":{ "hp":30, "str":10, "def":5, "mgk":6, "mgkdef":3, "spd":3},
+		"stats":{ "hp":30, "str":8, "def":15, "mgk":10, "mgkdef":10, "spd":3},
 		"ally":false,
 		"sprite":"res://battle/enemyanim/eyeman.tscn"},
 	5:{
 		#cyan
 		"name":"Divine Euenice",
-		"stats":{ "hp":30, "str":10, "def":5, "mgk":6, "mgkdef":3, "spd":3},
+		"stats":{ "hp":20, "str":10, "def":3, "mgk":15, "mgkdef":10, "spd":3},
 		"ally":false,
 		"sprite":"res://battle/enemyanim/eunice.tscn"}
 }

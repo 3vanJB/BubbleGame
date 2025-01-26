@@ -54,16 +54,16 @@ func loadskills(ID):
 		skill2 = load(ACTIONS.actions[2])
 		skill3 = load(ACTIONS.actions[3])
 		
-		$skillmenu/PanelContainer/VBoxContainer/HBoxContainer/Buttonskill1.text = skill1.actionname
-		$skillmenu/PanelContainer/VBoxContainer/HBoxContainer2/skill2.text = skill2.actionname
-		$skillmenu/PanelContainer/VBoxContainer/HBoxContainer2/skill3.text = skill3.actionname
+		$skillmenu/PanelContainer/VBoxContainer/HBoxContainer/Buttonskill1.text = skill1.actionname + " - " + str(skill1.cost) + "%"
+		$skillmenu/PanelContainer/VBoxContainer/HBoxContainer2/skill2.text = skill2.actionname + " - " + str(skill1.cost) + "%"
+		$skillmenu/PanelContainer/VBoxContainer/HBoxContainer2/skill3.text = skill3.actionname + " - " + str(skill1.cost) + "%"
 	else:
 		skill1 = load(ACTIONS.actions[4])
 		skill2 = load(ACTIONS.actions[5])
 		skill3 = load(ACTIONS.actions[6])
-		$skillmenu/PanelContainer/VBoxContainer/HBoxContainer/Buttonskill1.text = skill1.actionname
-		$skillmenu/PanelContainer/VBoxContainer/HBoxContainer2/skill2.text = skill2.actionname
-		$skillmenu/PanelContainer/VBoxContainer/HBoxContainer2/skill3.text = skill3.actionname
+		$skillmenu/PanelContainer/VBoxContainer/HBoxContainer/Buttonskill1.text = skill1.actionname + " - " + str(skill1.cost) + "%"
+		$skillmenu/PanelContainer/VBoxContainer/HBoxContainer2/skill2.text = skill2.actionname + " - " + str(skill1.cost) + "%"
+		$skillmenu/PanelContainer/VBoxContainer/HBoxContainer2/skill3.text = skill3.actionname + " - " + str(skill1.cost) + "%"
 
 func setattacktext(text):
 	$attack/MarginContainer/attackname/HBoxContainer/Label.text = text

@@ -130,11 +130,15 @@ func _process(delta: float) -> void:
 			emit_signal("playeractionselected")
 
 func nextturn():
+	
 	for i in len(turns):
 		current = turns[i]
+		current.restoreshine(10)
 		if turns[i].ally == false:
 			print_debug("ENEMY")
 			#print(turns[i].membername + "'s turn")
+			if MEMBERINFO.members[current.ID].has("skills"):
+				pass
 			turns[i].action = load(ACTIONS.actions[0])
 			calculate(turns[i], playerparty.members[1])
 		else:
@@ -233,6 +237,8 @@ func _on_skill_pressed() -> void:
 
 
 func _on_buttonskill_1_pressed() -> void:
+	if UI.skill1.cost > current.curshine:
+		pass
 	Audio.playeffect(confirmsound)
 	await get_tree().create_timer(0.1).timeout
 	UI.setskillbuttons(true)
