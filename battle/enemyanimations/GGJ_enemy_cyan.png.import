@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t8ytcruo3epg"
-valid=false
+uid="uid://bl435ueuakyk7"
+path="res://.godot/imported/GGJ_enemy_cyan.png-4506a3a9ce673b5dcee4f92e93645de9.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://characters/Sprites/Yoru_idle/__MACOSX/Yoru_idle/._Yoru_Idle 2.png"
+source_file="res://battle/enemyanimations/GGJ_enemy_cyan.png"
+dest_files=["res://.godot/imported/GGJ_enemy_cyan.png-4506a3a9ce673b5dcee4f92e93645de9.ctex"]
 
 [params]
 

@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t8ytcruo3epg"
-valid=false
+uid="uid://c4mgmr5xxcuxe"
+path="res://.godot/imported/GGJ_enemy_prpl.png-cc84e30c905066ee4cf48e67768536f1.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://characters/Sprites/Yoru_idle/__MACOSX/Yoru_idle/._Yoru_Idle 2.png"
+source_file="res://battle/enemyanimations/GGJ_enemy_prpl.png"
+dest_files=["res://.godot/imported/GGJ_enemy_prpl.png-cc84e30c905066ee4cf48e67768536f1.ctex"]
 
 [params]
 

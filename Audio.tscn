@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bt2x2d67pgcgr"]
+[gd_scene load_steps=4 format=3 uid="uid://bt2x2d67pgcgr"]
 
 [ext_resource type="Script" path="res://Scripts/audio.gd" id="1_228ru"]
 [ext_resource type="AudioStream" uid="uid://b6lg30iscxket" path="res://Audio/Title Theme.wav" id="2_0k470"]
+[ext_resource type="AudioStream" uid="uid://coxdnycvux7hc" path="res://Audio/Battle Theme .mp3" id="3_absmh"]
 
 [node name="Audio" type="Control"]
 layout_mode = 3
@@ -19,3 +20,7 @@ bus = &"Music"
 
 [node name="Effects" type="AudioStreamPlayer" parent="."]
 bus = &"Effects"
+
+[node name="Battle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_absmh")
+bus = &"Music"

@@ -18,11 +18,12 @@ config/icon="res://icon.svg"
 [autoload]
 
 MEMBERINFO="*res://battle/MEMBERINFO.gd"
-Auto="*res://Scripts/auto.gd"
+Auto="res://Scripts/auto.gd"
 ACTIONS="*res://battle/ACTIONS.gd"
 BeehaveGlobalMetrics="*res://addons/beehave/metrics/beehave_global_metrics.gd"
 BeehaveGlobalDebugger="*res://addons/beehave/debug/global_debugger.gd"
 Audio="*res://Audio.tscn"
+Changer="*res://misc/scene changer/scene_changer.tscn"
 
 [display]
 

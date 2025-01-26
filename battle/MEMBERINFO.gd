@@ -22,25 +22,28 @@ var members = {
 	2:{
 		"name":"Adeline",
 		"stats":{ "hp":100, "str":10, "def":3, "mgk":3, "mgkdef":3, "spd":3},
-		"ally":false
+		"ally":false,
+		"sprite":"res://battle/enemyanimations/jubjub.tscn"
 	},
 	3:{
-		#orang bubble
+		#Cube bubble
 		"name":"Furious Jubjub",
 		"stats":{ "hp":30, "str":10, "def":5, "mgk":6, "mgkdef":3, "spd":3},
 		"ally":false,
-		"skills":[7, 8]
+		"sprite":"res://battle/enemyanimations/jubjub.tscn"
 	},
 	4:{
-		#purp bubble
+		#Triangle bubble
 		"name":"Jittering Eye Man",
 		"stats":{ "hp":30, "str":10, "def":5, "mgk":6, "mgkdef":3, "spd":3},
-		"ally":false},
+		"ally":false,
+		"sprite":"res://battle/enemyanimations/eyeman.tscn"},
 	5:{
-		#cyan
+		#Round
 		"name":"Divine Euenice",
 		"stats":{ "hp":30, "str":10, "def":5, "mgk":6, "mgkdef":3, "spd":3},
-		"ally":false}
+		"ally":false,
+		"sprite":"res://battle/enemyanimations/eunice.tscn"}
 }
 
 func getmemberstats(ID):
@@ -50,15 +53,10 @@ func getmember(ID):
 
 
 var echips = {
-	0:[2, 3]
+	0:[4, 3]
 }
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

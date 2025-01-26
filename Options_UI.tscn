@@ -55,11 +55,11 @@ text = "Effects
 [node name="Slider Container" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = -380.0
-offset_top = -113.0
+offset_top = -119.0
 offset_right = 26.0
-offset_bottom = 11.0
+offset_bottom = 39.0
 tooltip_text = "Music"
-theme_override_constants/separation = 65
+theme_override_constants/separation = 55
 
 [node name="Master Slider" type="HSlider" parent="Slider Container"]
 layout_mode = 2
@@ -107,8 +107,8 @@ theme_override_font_sizes/font_size = 50
 text = "Quit
 "
 
-[connection signal="value_changed" from="Slider Container/Master Slider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Slider Container/Master Slider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="Slider Container/Master Slider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Slider Container/Music Slider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Slider Container/Sfx Slider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="pressed" from="Button Container/Exit" to="." method="_on_exit_pressed"]
