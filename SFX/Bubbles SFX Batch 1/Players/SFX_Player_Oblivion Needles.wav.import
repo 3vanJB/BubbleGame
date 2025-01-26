@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c12dlg3qjib2b"
+path="res://.godot/imported/SFX_Player_Oblivion Needles.wav-02546399005b83ad2659523bf61c662f.sample"
+
+[deps]
+
+source_file="res://SFX/Bubbles SFX Batch 1/Players/SFX_Player_Oblivion Needles.wav"
+dest_files=["res://.godot/imported/SFX_Player_Oblivion Needles.wav-02546399005b83ad2659523bf61c662f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

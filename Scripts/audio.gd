@@ -14,6 +14,10 @@ func _ready() -> void:
 
 func switchtotrack(id):
 	music.stream = load(tracks[id])
+	music.play()
 
 func togglestreampaused(value):
 	music.stream_paused = value
+	
+func set_pitch(value):
+	music.set_pitch_scale(value)

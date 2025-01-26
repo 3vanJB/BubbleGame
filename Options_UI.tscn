@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dacd5nfekvjfj"]
+[gd_scene load_steps=5 format=3 uid="uid://dacd5nfekvjfj"]
 
 [ext_resource type="Script" path="res://Scripts/options.gd" id="1_lm2me"]
 [ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="2_qwrix"]
+[ext_resource type="AudioStream" uid="uid://5hp5v3oidvmg" path="res://SFX/Bubbles SFX Batch 1/UI/SFX_UI_Hover.wav" id="3_tfxwl"]
+[ext_resource type="AudioStream" uid="uid://do7tea3e0hi0b" path="res://SFX/Bubbles SFX Batch 1/UI/SFX_UI_Confirm.wav" id="4_ut1l4"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -15,7 +17,7 @@ metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Fade" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = -575.0
 offset_top = -323.0
@@ -64,19 +66,19 @@ theme_override_constants/separation = 65
 [node name="Master Slider" type="HSlider" parent="Slider Container"]
 layout_mode = 2
 max_value = 1.0
-step = 0.001
+step = 0.1
 tick_count = 1
 
 [node name="Music Slider" type="HSlider" parent="Slider Container"]
 layout_mode = 2
 max_value = 1.0
-step = 0.001
+step = 0.1
 tick_count = 1
 
 [node name="Sfx Slider" type="HSlider" parent="Slider Container"]
 layout_mode = 2
 max_value = 1.0
-step = 0.001
+step = 0.1
 
 [node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -108,6 +110,14 @@ theme_override_fonts/font = ExtResource("2_qwrix")
 theme_override_font_sizes/font_size = 50
 text = "Quit
 "
+
+[node name="SFX_Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tfxwl")
+bus = &"Effects"
+
+[node name="SFX_Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ut1l4")
+bus = &"Effects"
 
 [connection signal="value_changed" from="Slider Container/Master Slider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Slider Container/Master Slider" to="." method="_on_master_slider_value_changed"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dakw1wayutgnm"]
+[gd_scene load_steps=6 format=3 uid="uid://dakw1wayutgnm"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_1mmhn"]
 [ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="2_runye"]
 [ext_resource type="Theme" uid="uid://banc6367nyh15" path="res://battle/battleui/ui.tres" id="3_64ubu"]
+[ext_resource type="AudioStream" uid="uid://5hp5v3oidvmg" path="res://SFX/Bubbles SFX Batch 1/UI/SFX_UI_Hover.wav" id="4_q72si"]
 
 [sub_resource type="Theme" id="Theme_23get"]
 Button/styles/disabled_mirrored = null
@@ -78,6 +79,10 @@ texture_filter = 1
 custom_minimum_size = Vector2(200, 72)
 layout_mode = 2
 text = "Quit"
+
+[node name="SFX_Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_q72si")
+bus = &"Effects"
 
 [connection signal="pressed" from="Button_Container/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Button_Container/Options" to="." method="_on_options_pressed"]

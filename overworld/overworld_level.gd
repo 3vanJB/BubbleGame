@@ -8,9 +8,6 @@ var current_character_controlled_index : int = 0
 func _ready() -> void:
 	
 	Audio.switchtotrack(1)
-	Audio.music.play()
-
-
 
 func spawn_new_bubble() -> void:
 
