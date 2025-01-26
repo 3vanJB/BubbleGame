@@ -28,25 +28,8 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={
-"Rose": "res://dialogue/Rose.dch",
-"Voice": "res://dialogue/Voice.dch",
-"Yoru": "res://characters/player/Yoru.dch"
-}
-directories/dtl_directory={
-"Battle 1": "res://dialogue/Battle 1.dtl",
-"Battle 2": "res://dialogue/Battle 2.dtl",
-"First Entrance": "res://dialogue/First Entrance.dtl",
-"Intro": "res://dialogue/Intro.dtl",
-"Post Battle 1": "res://dialogue/Post Battle 1.dtl",
-"Post Battle 2": "res://dialogue/Post Battle 2.dtl",
-"Post Battle 3": "res://dialogue/Post Battle 3.dtl",
-"Pre Battle 1": "res://dialogue/Pre Battle 1.dtl",
-"Pre Battle 2": "res://dialogue/Pre Battle 2.dtl",
-"Pre Battle 2 Corridor": "res://dialogue/Pre Battle 2 Corridor.dtl",
-"Pre Battle 3": "res://dialogue/Pre Battle 3.dtl",
-"Pre Boss Corridor": "res://dialogue/Pre Boss Corridor.dtl"
-}
+directories/dch_directory={}
+directories/dtl_directory={}
 
 [display]
 
