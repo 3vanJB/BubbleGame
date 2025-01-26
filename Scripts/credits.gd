@@ -5,4 +5,4 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _on_exit_pressed() -> void:
-	Auto.goto_scene("res://Main Menu.tscn")
+	$SceneChanger.start_transition("res://Main Menu.tscn")
