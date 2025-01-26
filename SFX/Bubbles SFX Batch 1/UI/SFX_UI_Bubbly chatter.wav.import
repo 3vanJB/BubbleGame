@@ -2,11 +2,7 @@
 
 importer="wav"
 type="AudioStreamWAV"
-<<<<<<< HEAD
-uid="uid://c3eagw3xk7hu6"
-=======
-uid="uid://sjm27b23kfrs"
->>>>>>> fac520d3f78485d4d1ed5a4ec2711ee60ce2e8f6
+uid="uid://1oefytcr8hf"
 path="res://.godot/imported/SFX_UI_Bubbly chatter.wav-c2773aaf77e7ecac009eb6d8d45f19de.sample"
 
 [deps]

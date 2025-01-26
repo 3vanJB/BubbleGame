@@ -2,11 +2,7 @@
 
 importer="wav"
 type="AudioStreamWAV"
-<<<<<<< HEAD
-uid="uid://7yq83658gwfx"
-=======
-uid="uid://8kwqwmpii5rv"
->>>>>>> fac520d3f78485d4d1ed5a4ec2711ee60ce2e8f6
+uid="uid://b5jlu17m1tl2m"
 path="res://.godot/imported/SFX_Player_Pep Talk.wav-2f9c4904e2496be664ca4c6aa2849954.sample"
 
 [deps]
