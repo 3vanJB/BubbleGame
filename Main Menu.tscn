@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dakw1wayutgnm"]
+[gd_scene load_steps=5 format=3 uid="uid://dakw1wayutgnm"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_1mmhn"]
 [ext_resource type="FontFile" uid="uid://cj7c8ydcjaxj5" path="res://Fonts/Fonts/Fonts/LiberationSans.ttf" id="2_vl5yv"]
+[ext_resource type="Theme" uid="uid://banc6367nyh15" path="res://battle/battleui/ui.tres" id="3_64ubu"]
 
 [sub_resource type="Theme" id="Theme_23get"]
 Button/styles/disabled_mirrored = null
@@ -50,47 +51,32 @@ offset_left = -181.0
 offset_top = -39.0
 offset_right = 176.0
 offset_bottom = 258.0
+theme = ExtResource("3_64ubu")
 metadata/_edit_lock_ = true
 
 [node name="Play" type="Button" parent="Button_Container"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 72)
 layout_mode = 2
 theme = SubResource("Theme_23get")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_normal_color = Color(0.61998, 0.955695, 0.959663, 0.882353)
-theme_override_colors/icon_hover_color = Color(0.490196, 0.819608, 0.858824, 0.835294)
-theme_override_colors/icon_hover_pressed_color = Color(0.450552, 0.848883, 0.881213, 0.294118)
-theme_override_fonts/font = ExtResource("2_vl5yv")
-theme_override_font_sizes/font_size = 50
 text = "Start"
 
 [node name="Options" type="Button" parent="Button_Container"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 72)
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_normal_color = Color(0.61998, 0.955695, 0.959663, 0.882353)
-theme_override_colors/icon_hover_color = Color(0.490196, 0.819608, 0.858824, 0.835294)
-theme_override_colors/icon_hover_pressed_color = Color(0.450552, 0.848883, 0.881213, 0.294118)
-theme_override_fonts/font = ExtResource("2_vl5yv")
-theme_override_font_sizes/font_size = 50
 text = "Options"
 
 [node name="Credits" type="Button" parent="Button_Container"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 72)
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_normal_color = Color(0.61998, 0.955695, 0.959663, 0.882353)
-theme_override_colors/icon_hover_color = Color(0.490196, 0.819608, 0.858824, 0.835294)
-theme_override_colors/icon_hover_pressed_color = Color(0.450552, 0.848883, 0.881213, 0.294118)
-theme_override_fonts/font = ExtResource("2_vl5yv")
-theme_override_font_sizes/font_size = 50
 text = "Credits"
 
 [node name="Quit" type="Button" parent="Button_Container"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 72)
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_normal_color = Color(0.61998, 0.955695, 0.959663, 0.882353)
-theme_override_colors/icon_hover_color = Color(0.490196, 0.819608, 0.858824, 0.835294)
-theme_override_colors/icon_hover_pressed_color = Color(0.450552, 0.848883, 0.881213, 0.294118)
-theme_override_fonts/font = ExtResource("2_vl5yv")
-theme_override_font_sizes/font_size = 50
 text = "Quit"
 
 [connection signal="pressed" from="Button_Container/Play" to="." method="_on_play_pressed"]

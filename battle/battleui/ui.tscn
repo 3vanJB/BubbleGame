@@ -150,9 +150,12 @@ text = " > This is text
 "
 
 [node name="Button" type="Button" parent="HBoxContainer/textpanel/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 36)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 10
+theme = ExtResource("2_8i88d")
 text = "Next"
 
 [node name="skillmenu" type="VBoxContainer" parent="."]
@@ -176,10 +179,12 @@ layout_mode = 2
 size_flags_vertical = 6
 
 [node name="Buttonskill1" type="Button" parent="skillmenu/PanelContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
+texture_filter = 1
+custom_minimum_size = Vector2(200, 72)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+theme = ExtResource("2_8i88d")
 text = "skill1"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="skillmenu/PanelContainer/VBoxContainer"]
@@ -187,17 +192,21 @@ layout_mode = 2
 size_flags_vertical = 6
 
 [node name="skill2" type="Button" parent="skillmenu/PanelContainer/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(200, 0)
+texture_filter = 1
+custom_minimum_size = Vector2(200, 72)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+theme = ExtResource("2_8i88d")
 text = "skill2"
 
 [node name="skill3" type="Button" parent="skillmenu/PanelContainer/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(200, 0)
+texture_filter = 1
+custom_minimum_size = Vector2(200, 72)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+theme = ExtResource("2_8i88d")
 text = "skill3"
 
 [node name="attack" type="HBoxContainer" parent="."]
