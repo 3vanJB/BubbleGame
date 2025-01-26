@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dakw1wayutgnm"]
+[gd_scene load_steps=4 format=3 uid="uid://dakw1wayutgnm"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_1mmhn"]
 [ext_resource type="FontFile" uid="uid://cj7c8ydcjaxj5" path="res://Fonts/Fonts/Fonts/LiberationSans.ttf" id="2_vl5yv"]
+[ext_resource type="PackedScene" uid="uid://ymg74ooobovl" path="res://misc/scene changer/scene_changer.tscn" id="2_vxjqa"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -88,6 +89,8 @@ theme_override_colors/icon_hover_pressed_color = Color(0.450552, 0.848883, 0.881
 theme_override_fonts/font = ExtResource("2_vl5yv")
 theme_override_font_sizes/font_size = 50
 text = "Quit"
+
+[node name="SceneChanger" parent="." instance=ExtResource("2_vxjqa")]
 
 [connection signal="pressed" from="Button_Container/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Button_Container/Options" to="." method="_on_options_pressed"]

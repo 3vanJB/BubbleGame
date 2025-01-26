@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ymg74ooobovl"]
+[gd_scene load_steps=5 format=3 uid="uid://ymg74ooobovl"]
 
 [ext_resource type="Script" path="res://misc/scene changer/scene_changer.gd" id="1_ux0mb"]
 
@@ -26,32 +26,30 @@ tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.9),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.4, 0.633333, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+"values": [Color(0.87451, 0.780392, 0.580392, 0), Color(0.862745, 0.792157, 0.52549, 1), Color(0.87451, 0.780392, 0.580392, 0), Color(0.862745, 0.792157, 0.52549, 1), Color(0.87451, 0.780392, 0.580392, 0)]
 }
-
-[sub_resource type="Animation" id="Animation_g275h"]
-resource_name = "fadeout"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_scene_animation_event"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vknyg"]
 _data = {
 "RESET": SubResource("Animation_kjwq1"),
-"fadein": SubResource("Animation_jnr7m"),
-"fadeout": SubResource("Animation_g275h")
+"scene_change_animation": SubResource("Animation_jnr7m")
 }
 
 [node name="SceneChanger" type="CanvasLayer" node_paths=PackedStringArray("AnimPlayer")]

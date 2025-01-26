@@ -1,6 +1,5 @@
 extends Control
 
-var battle = AudioServer.get_bus_index("Battle")
 var music_bus = AudioServer.get_bus_index("Music")
 var sfx_bus = AudioServer.get_bus_index("Effects")
 var master = AudioServer.get_bus_index("Master")
@@ -14,15 +13,14 @@ func _ready() -> void:
 
 func _on_exit_pressed() -> void:
 	if get_tree().current_scene.name == "option_scene":
-		#Auto.goto_scene("res://Main Menu.tscn")
-		$"res://misc/scene changer/scene_changer.gd".start_transition("res://Main Menu.tscn")
+		Auto.goto_scene("res://Main Menu.tscn")
+		#print(get_tree().current_scene.name)
 	else:
 		visible = false
 		#print(get_tree().current_scene.name)
 
 func _on_music_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(music_bus,linear_to_db(value))
-	AudioServer.set_bus_volume_db(battle,linear_to_db(value))
 
 func _on_sfx_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(sfx_bus,linear_to_db(value))
