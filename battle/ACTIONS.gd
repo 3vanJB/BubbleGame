@@ -2,7 +2,7 @@ extends Node
 
 #TODO:
 ##Barrage (Celestial Storm) special
-##Aimshot (Prism something?) reg skill
+##Aimshot (Neon Prism) reg skill
 ##Peptalk (Cheer?) shine up for party
 ##Barrier? (experimental idea/version of defending) negates damage once
 #Nihilistic Light (Annihilation Beam) special attack?
@@ -24,5 +24,7 @@ var actions = {
 	5:"res://battle/actions/tranquility.tres",
 	6:"res://battle/actions/annihilationbeam.tres",
 	#enemy skills
-	
+	7:"res://battle/actions/berserk.tres",
+	8:"res://battle/actions/brutality.tres",
+	9:"res://battle/actions/prayer.tres"
 }
