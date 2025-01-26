@@ -1,12 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhyquqjd50wp6"]
 
-<<<<<<<< HEAD:battle/teleport bubble/bubble_teleport.tscn
-[ext_resource type="Script" path="res://battle/teleport bubble/bubble_teleport.gd" id="1_8wkpv"]
-
-========
 [ext_resource type="Script" path="res://misc/teleport bubble/bubble_teleport.gd" id="1_8wkpv"]
 [ext_resource type="Texture2D" uid="uid://bqnv851g4ja3j" path="res://icon.svg" id="2_gjauf"]
->>>>>>>> origin/pouya:misc/teleport bubble/bubble_teleport.tscn
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rb576"]
 radius = 30.0
