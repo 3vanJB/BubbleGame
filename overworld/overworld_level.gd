@@ -28,3 +28,8 @@ func transition_to_battle(battle_with_who : Array[EnemyCharacter]) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
 		$SceneChanger.start_transition("res://Options_UI.tscn")
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	print("Battle Time")
+	$SceneChanger.start_transition("res://battle/battle.gd")

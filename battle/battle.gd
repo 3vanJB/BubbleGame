@@ -20,10 +20,9 @@ signal playeractionselected
 var turns = []
 var current
 
-#MusicManager.currentsong
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	UI.setmainbuttons(true)
 	var x = m.instantiate()
 	x.ID = 0
@@ -108,15 +107,13 @@ func nextturn():
 			UI.loadskills(turns[i].ID)
 			UI.setmainbuttons(false)
 			UI.setskillbuttons(false)
-			current = turns[i]
-			print(turns[i].membername + "'s turn")
+			#print(turns[i].membername + "'s turn")
 			buttonattack.grab_focus()
 			await playeractionselected
 			UI.nameh.hide()
 	nextturn()
 
 func calculate(attacker, target):
-	print(attacker.action.actionname  + "action")
 	if attacker.action.isattack == true:
 		if attacker.action.isspecial == true:
 			if attacker.action.type == 0:
@@ -233,18 +230,8 @@ func _on_skill_2_pressed() -> void:
 
 func _on_skill_3_pressed() -> void:
 	UI.setskillbuttons(true)
-	print(UI.skill3.actionname +"skill3")
 	current.action = UI.skill3
-	if UI.skill3.targetenemyparty == true:
-		for i in len(enemyparty.members):
-			calculate(current, enemyparty.members[i])
-		emit_signal("playeractionselected")
-	else:
-		enemyparty.grabfocus(0)
-		enemyfocused = true
-		UI.nameh.show()
-		UI.skillmenu.hide()
-		
-		UI.settargettext(enemyparty.members[enemyparty.cursor].membername)
+	for i in len(enemyparty.members):
+		calculate(current, enemyparty.members[i])
 	UI.skillmenu.hide()
 	buttonskill3.release_focus()

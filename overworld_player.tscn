@@ -1,31 +1,49 @@
-[gd_scene load_steps=5 format=3 uid="uid://cprwpwu0kyucr"]
+[gd_scene load_steps=6 format=3 uid="uid://cprwpwu0kyucr"]
 
 [ext_resource type="Script" path="res://characters/player_movement.gd" id="1_4uonk"]
+[ext_resource type="Texture2D" uid="uid://csjq4oae0m4yg" path="res://characters/Sprites/Loose/Rose_Idle.png" id="2_tqv02"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cs1f2"]
+radius = 152.013
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xwmdq"]
 radius = 75.0067
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_cs1f2"]
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_yv68a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tqv02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tqv02")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
 
 [node name="Overworld Player" type="CharacterBody2D"]
 script = ExtResource("1_4uonk")
-
-[node name="Player Body" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_xwmdq")
 
 [node name="Enemy Detection" type="Area2D" parent="."]
 
 [node name="Detect Shape" type="CollisionShape2D" parent="Enemy Detection"]
 shape = SubResource("CircleShape2D_cs1f2")
+debug_color = Color(0.828618, 0.363536, 0.414177, 0.42)
+
+[node name="Player Body" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xwmdq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -61.0
 offset_top = -57.0
 offset_right = 63.0
 offset_bottom = 53.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
+position = Vector2(-192, -3)
+scale = Vector2(2.37805, 2.57317)
 sprite_frames = SubResource("SpriteFrames_yv68a")
+animation = &"up"
