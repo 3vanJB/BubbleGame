@@ -99,6 +99,7 @@ func _process(delta: float) -> void:
 func nextturn():
 	for i in len(turns):
 		current = turns[i]
+		current.restoreshine(15)
 		if turns[i].ally == false:
 			
 			#print(turns[i].membername + "'s turn")
