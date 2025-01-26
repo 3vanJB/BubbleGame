@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func _on_exit_pressed() -> void:
 	if get_tree().current_scene.name == "option_scene":
-		Auto.goto_scene("res://Main Menu.tscn")
+		get_tree().change_scene_to_file("res://Main Menu.tscn")
 		#print(get_tree().current_scene.name)
 	else:
 		visible = false
