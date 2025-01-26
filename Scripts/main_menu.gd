@@ -8,11 +8,10 @@ func _ready() -> void:
 	Audio.switchtotrack(0)
 	$Button_Container/Play.grab_focus()
 
-
 func _on_play_pressed() -> void:
 	# Should transition to level 1
 	# $SceneChanger.start_transition("res://overworld/overworld_level.tscn") 
-	Changer.start_transition("res://overworld/overworld_level.tscn") 
+	Changer.start_transition("res://intro_scene.tscn") 
 	Audio.playeffect(confirmsound)
 
 func _on_options_pressed() -> void:
