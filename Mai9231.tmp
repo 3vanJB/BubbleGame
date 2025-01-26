@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dakw1wayutgnm"]
+[gd_scene load_steps=3 format=3 uid="uid://b1kb05qlc8xj5"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_1mmhn"]
-[ext_resource type="PackedScene" uid="uid://ymg74ooobovl" path="res://misc/scene changer/scene_changer.tscn" id="2_vxjqa"]
+[ext_resource type="Script" path="res://misc/scene changer/scene_changer.gd" id="2_bs2dk"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -64,7 +64,8 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Quit"
 
-[node name="SceneChanger" parent="." instance=ExtResource("2_vxjqa")]
+[node name="SceneChanger" type="CanvasLayer" parent="."]
+script = ExtResource("2_bs2dk")
 
 [connection signal="pressed" from="Button_Container/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Button_Container/Options" to="." method="_on_options_pressed"]

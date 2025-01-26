@@ -7,7 +7,7 @@ func _ready() -> void:
 
 func _on_play_pressed() -> void:
 	# Should transition to level 1
-	SceneChanger.start_transition("res://overworld/overworld_level.tscn") 
+	$SceneChanger.start_transition("res://overworld/overworld_level.tscn") 
 
 
 func _on_options_pressed() -> void:
