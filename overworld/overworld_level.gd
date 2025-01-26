@@ -24,3 +24,7 @@ func _on_bubble_spawn_timer_timeout() -> void:
 func transition_to_battle(battle_with_who : Array[EnemyCharacter]) -> void:
 	# TODO: Transition to battle
 	pass
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("escape"):
+		$SceneChanger.start_transition("res://Options_UI.tscn")
