@@ -22,25 +22,29 @@ var members = {
 	2:{
 		"name":"Adeline",
 		"stats":{ "hp":100, "str":10, "def":3, "mgk":3, "mgkdef":3, "spd":3},
-		"ally":false
+		"ally":false,
+		"sprite":"res://battle/enemyanimations/jubjub.tscn"
 	},
 	3:{
 		#orang bubble
 		"name":"Furious Jubjub",
 		"stats":{ "hp":30, "str":10, "def":5, "mgk":6, "mgkdef":3, "spd":3},
 		"ally":false,
-		"skills":[7, 8]
+		"skills":[7, 8],
+		"sprite":"res://battle/enemyanimations/jubjub.tscn"
 	},
 	4:{
 		#purp bubble
 		"name":"Jittering Eye Man",
 		"stats":{ "hp":30, "str":10, "def":5, "mgk":6, "mgkdef":3, "spd":3},
-		"ally":false},
+		"ally":false,
+		"sprite":"res://battle/enemyanimations/jubjub.tscn"},
 	5:{
 		#cyan
 		"name":"Divine Euenice",
 		"stats":{ "hp":30, "str":10, "def":5, "mgk":6, "mgkdef":3, "spd":3},
-		"ally":false}
+		"ally":false,
+		"sprite":"res://battle/enemyanimations/jubjub.tscn"}
 }
 
 func getmemberstats(ID):

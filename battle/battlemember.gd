@@ -16,6 +16,10 @@ func setup():
 	curhp = stats["hp"]
 	ally = MEMBERINFO.getmember(ID)["ally"]
 	membername = MEMBERINFO.getmember(ID)["name"]
+	if ally == false:
+		var anim = load(MEMBERINFO.members[ID]["sprite"])
+		anim = anim.instantiate()
+		$holder.add_child(anim)
 	$ProgressBar.max_value = stats["hp"]
 	if ally == true:
 		curhp = MEMBERINFO.partyhp[ID]
