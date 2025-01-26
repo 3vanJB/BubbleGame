@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t8ytcruo3epg"
-valid=false
+uid="uid://gplduk8nghm3"
+path="res://.godot/imported/Yoru_Idle 3.png-d942c812ac237108152c1e9c302128a6.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://characters/Sprites/Yoru_idle/__MACOSX/Yoru_idle/._Yoru_Idle 2.png"
+source_file="res://characters/Yoru_idle/Yoru_idle/Yoru_Idle 3.png"
+dest_files=["res://.godot/imported/Yoru_Idle 3.png-d942c812ac237108152c1e9c302128a6.ctex"]
 
 [params]
 

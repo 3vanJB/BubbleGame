@@ -21,6 +21,7 @@ func _on_bubble_spawn_timer_timeout() -> void:
 	spawn_new_bubble()
 
 
+
 #echip is short for encounter chip, it determines which enemies you encounter
 func transition_to_battle(echip) -> void:
 	$PlayerCharacter1.frozen = true
@@ -34,24 +35,21 @@ func transition_to_battle(echip) -> void:
 	add_child(n)
 	Changer.AnimPlayer.play("fadeout")
 
-func transition_to_battle(battle_with_who : Array[EnemyCharacter]) -> void:
-	# TODO: Transition to battle
-	pass
-	
+
+
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
 		$SceneChanger.start_transition("res://Options_UI.tscn")
 
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	print("Battle Time")
-	$SceneChanger.start_transition("res://battle/battle.gd")
+
+
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	$Area2D.monitoring = false
 	if body.is_in_group("overworldcontroller"):
 		
 		
 		transition_to_battle(0)
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	print("Battle Time")
-	$SceneChanger.start_transition("res://battle/battle.gd")
+		
