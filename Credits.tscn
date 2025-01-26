@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/credits.gd" id="1_y5wfo"]
 [ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="2_pdyfr"]
-[ext_resource type="AudioStream" uid="uid://do7tea3e0hi0b" path="res://SFX/Bubbles SFX Batch 1/UI/SFX_UI_Confirm.wav" id="3_56f80"]
+[ext_resource type="AudioStream" uid="uid://dkxct17jp3884" path="res://SFX/Bubbles SFX Batch 1/UI/SFX_UI_Confirm.wav" id="3_56f80"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://xyilfmmrcrvf"]
+[gd_scene load_steps=7 format=3 uid="uid://xyilfmmrcrvf"]
 
 [ext_resource type="Script" path="res://battle/battle.gd" id="1_f8ab6"]
 [ext_resource type="Script" path="res://battle/playerparty.gd" id="2_ehidm"]
 [ext_resource type="PackedScene" uid="uid://c5g4muvowpv78" path="res://battle/battleui/ui.tscn" id="2_n1p0q"]
 [ext_resource type="Script" path="res://battle/enemyparty.gd" id="3_i4jx3"]
 [ext_resource type="FontFile" uid="uid://cj7c8ydcjaxj5" path="res://Fonts/Fonts/Fonts/LiberationSans.ttf" id="5_sh81s"]
+[ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="6_pa5ik"]
 
 [node name="battle" type="Node2D"]
 script = ExtResource("1_f8ab6")
@@ -22,9 +23,11 @@ position = Vector2(490, 249)
 
 [node name="attack" parent="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer" index="0"]
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
 
 [node name="skill" parent="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer" index="1"]
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
 
 [node name="special" parent="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer" index="2"]
 theme_override_colors/font_color = Color(0.952941, 0.494118, 0.705882, 0.905882)
@@ -32,6 +35,57 @@ theme_override_colors/font_outline_color = Color(0.952941, 0.776471, 0.941176, 0
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("5_sh81s")
 theme_override_font_sizes/font_size = 30
+
+[node name="memberpanel" parent="UI/HBoxContainer" index="1"]
+custom_minimum_size = Vector2(200, 200)
+
+[node name="name" parent="UI/HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/memeber1" index="0"]
+theme_override_colors/font_color = Color(0.88201, 0.345605, 0.321903, 1)
+theme_override_colors/font_outline_color = Color(0.311896, 0.0346116, 0.105128, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 24
+
+[node name="hp" parent="UI/HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/memeber1" index="1"]
+theme_override_font_sizes/font_size = 24
+
+[node name="shine" parent="UI/HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2" index="1"]
+theme_override_fonts/font = ExtResource("6_pa5ik")
+
+[node name="name" parent="UI/HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/member2" index="0"]
+theme_override_colors/font_color = Color(0.833131, 0.86962, 0.954111, 1)
+theme_override_colors/font_outline_color = Color(0.168974, 0.214442, 0.402339, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 24
+
+[node name="hp" parent="UI/HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/member2" index="1"]
+theme_override_font_sizes/font_size = 24
+
+[node name="shine" parent="UI/HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" index="1"]
+theme_override_fonts/font = ExtResource("6_pa5ik")
+
+[node name="VBoxContainer" parent="UI/skillmenu/PanelContainer" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="Buttonskill1" parent="UI/skillmenu/PanelContainer/VBoxContainer/HBoxContainer" index="0"]
+custom_minimum_size = Vector2(250, 72)
+theme_override_colors/font_color = Color(0.706205, 0.862893, 0.979062, 1)
+theme_override_colors/font_outline_color = Color(0.417823, 0.255709, 0.869008, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 25
+
+[node name="skill2" parent="UI/skillmenu/PanelContainer/VBoxContainer/HBoxContainer2" index="0"]
+custom_minimum_size = Vector2(250, 72)
+theme_override_colors/font_color = Color(0.549668, 0.804959, 0.578232, 1)
+theme_override_colors/font_outline_color = Color(0.206614, 0.338726, 0.192363, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 25
+
+[node name="skill3" parent="UI/skillmenu/PanelContainer/VBoxContainer/HBoxContainer2" index="1"]
+custom_minimum_size = Vector2(250, 72)
+theme_override_colors/font_color = Color(0.948596, 0.693345, 0.612504, 1)
+theme_override_colors/font_outline_color = Color(0.558452, 0.229236, 0.150184, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 25
 
 [node name="Teleport Bubbles" type="Node" parent="."]
 
