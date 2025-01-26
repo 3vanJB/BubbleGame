@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dacd5nfekvjfj"]
+[gd_scene load_steps=7 format=3 uid="uid://dacd5nfekvjfj"]
 
 [ext_resource type="Script" path="res://Scripts/options.gd" id="1_lm2me"]
+[ext_resource type="Texture2D" uid="uid://bsr6nhgosw3y3" path="res://misc/enemy_bg_border_scaled_4x_pngcrushed.png" id="2_hnjbs"]
 [ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="2_qwrix"]
 [ext_resource type="Texture2D" uid="uid://667bxy5tkvvh" path="res://misc/normal.png" id="2_rthup"]
 [ext_resource type="Theme" uid="uid://banc6367nyh15" path="res://battle/battleui/ui.tres" id="3_c8pad"]
@@ -26,6 +27,11 @@ offset_right = 575.0
 offset_bottom = 324.0
 color = Color(0.627451, 0.823529, 0.854902, 0.352941)
 metadata/_edit_lock_ = true
+
+[node name="EnemyBgBorderScaled4xPngcrushed" type="Sprite2D" parent="."]
+position = Vector2(2.50002, 3)
+scale = Vector2(0.99566, 1)
+texture = ExtResource("2_hnjbs")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
