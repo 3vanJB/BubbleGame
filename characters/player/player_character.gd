@@ -10,7 +10,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 @export var bIsBeingControlled : bool = false  # one has to set to true on init game
-
+var frozen = false
 
 func _ready() -> void:
 	Auto.overworld_characters.append(self)
@@ -37,8 +37,8 @@ func _physics_process(delta: float) -> void:
 			$SpriteAnim.play()
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-	move_and_slide()
+	if frozen == false:
+		move_and_slide()
 
 
 

@@ -20,6 +20,11 @@ func setup():
 	if ally == true:
 		curhp = MEMBERINFO.partyhp[ID]
 		hide()
+	else:
+		#print(MEMBERINFO.members[ID])
+		var s = load(MEMBERINFO.members[ID]["sprite"])
+		s = s.instantiate()
+		add_child(s)
 	$ProgressBar.value = curhp
 	curshine = 25
 

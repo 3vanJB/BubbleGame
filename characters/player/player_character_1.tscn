@@ -16,7 +16,8 @@ script = ExtResource("1_ls565")
 bIsBeingControlled = true
 movement_speed = 1.0
 
-[node name="SpriteAnim" type="AnimatedSprite2D" parent="."]
+[node name="SpriteAnim" type="AnimatedSprite2D" parent="." groups=["controller"]]
+texture_filter = 1
 position = Vector2(-2, 0)
 sprite_frames = ExtResource("2_an6d7")
 animation = &"idle_down"

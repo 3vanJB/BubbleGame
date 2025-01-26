@@ -7,6 +7,7 @@
 script = ExtResource("1_b54ex")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_6w1n3")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
