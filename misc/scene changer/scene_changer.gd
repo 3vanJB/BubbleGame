@@ -29,4 +29,7 @@ func change_scene_animation_event() -> void:
 
 func start_transition(in_new_level_path : String) -> void:
 	new_level_path = in_new_level_path
-	AnimPlayer.play("scene_change_animation")
+	AnimPlayer.play("fadein")
+	await AnimPlayer.animation_finished
+	change_scene_animation_event()
+	AnimPlayer.play("fadeout")

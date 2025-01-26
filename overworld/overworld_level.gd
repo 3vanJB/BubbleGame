@@ -31,5 +31,5 @@ func transition_to_battle(battle_with_who : Array[EnemyCharacter]) -> void:
 	pass
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("escape"):
+	if event.is_action_pressed("Escape"):
 		$SceneChanger.start_transition("res://Options_UI.tscn")
