@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://11yx8qjmp6kg"
-path="res://.godot/imported/Rose idle 1.png-4f8a6bfc0079de0d36ab32f936e5119c.ctex"
+uid="uid://ptcy8d1bk1aq"
+path="res://.godot/imported/Untitled-1.png-56bdb5c4ae583cecc7dbd5d0d6488fa1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/Sprites/Rose Idle/Rose idle 1.png"
-dest_files=["res://.godot/imported/Rose idle 1.png-4f8a6bfc0079de0d36ab32f936e5119c.ctex"]
+source_file="res://overworld/tiles/Untitled-1.png"
+dest_files=["res://.godot/imported/Untitled-1.png-56bdb5c4ae583cecc7dbd5d0d6488fa1.ctex"]
 
 [params]
 

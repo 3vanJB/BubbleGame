@@ -100,7 +100,7 @@ func nextturn():
 	for i in len(turns):
 		current = turns[i]
 		if turns[i].ally == false:
-			
+			print_debug("ENEMY")
 			#print(turns[i].membername + "'s turn")
 			turns[i].action = load(ACTIONS.actions[0])
 			calculate(turns[i], playerparty.members[1])
@@ -185,7 +185,7 @@ func _on_attack_pressed() -> void:
 	
 func transition_to_overworld() -> void:
 	# TODO: transition back to overworld
-	get_tree().change_scene_to_file("res://overworld/overworld_level.tscn")
+	Auto.transition_to_overworld(MEMBERINFO.members[])
 	pass
 
 

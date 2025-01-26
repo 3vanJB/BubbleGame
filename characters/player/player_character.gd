@@ -9,19 +9,32 @@ var keys_in_inventory : Array[String] = []
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+@export var bIsBeingControlled : bool = false  # one has to set to true on init game
+
+
+func _ready() -> void:
+	Auto.overworld_characters.append(self)
+	$SpriteAnim.play()
 
 func _physics_process(delta: float) -> void:
 	# Handle jump.
 	var vertical := Input.get_axis("ui_up","ui_down")
 	if vertical:
-		velocity.y = vertical * SPEED
+		if bIsBeingControlled:
+			velocity.y = vertical * SPEED
+		$SpriteAnim.set_animation("idle_down" if velocity.y > 0 else "idle_up")
+		$SpriteAnim.play()
 	else:	
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var horizontal := Input.get_axis("ui_left", "ui_right")
 	if horizontal:
-		velocity.x = horizontal * SPEED
+		if bIsBeingControlled:
+			velocity.x = horizontal * SPEED
+		if velocity.x != 0:
+			$SpriteAnim.set_animation("idle_left" if velocity.x < 0 else "idle_right")
+			$SpriteAnim.play()
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
@@ -53,7 +66,7 @@ func interact() -> void:
 	
 func _process(delta: float) -> void:
 	update_closest_interactable()
-	
-	
+
+
 func update_closest_interactable() -> void:
 	pass
