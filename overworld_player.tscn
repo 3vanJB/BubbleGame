@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cprwpwu0kyucr"]
+[gd_scene load_steps=5 format=3 uid="uid://cprwpwu0kyucr"]
 
 [ext_resource type="Script" path="res://characters/player_movement.gd" id="1_4uonk"]
 
@@ -6,6 +6,8 @@
 radius = 75.0067
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cs1f2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yv68a"]
 
 [node name="Overworld Player" type="CharacterBody2D"]
 script = ExtResource("1_4uonk")
@@ -23,3 +25,7 @@ offset_left = -61.0
 offset_top = -57.0
 offset_right = 63.0
 offset_bottom = 53.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_yv68a")

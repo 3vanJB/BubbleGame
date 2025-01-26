@@ -12,10 +12,10 @@ func _on_play_pressed() -> void:
 
 func _on_options_pressed() -> void:
 	# Transition to Options scene
-	Auto.goto_scene("res://option_scene.tscn")
+	$SceneChanger.start_transition("res://option_scene.tscn")
 
 func _on_credits_pressed() -> void:
-	Auto.goto_scene("res://Credits.tscn")
+	$SceneChanger.start_transition("res://Credits.tscn")
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
