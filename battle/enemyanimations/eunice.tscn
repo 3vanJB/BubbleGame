@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqibfnybef32i"]
+
+[ext_resource type="Texture2D" uid="uid://bl435ueuakyk7" path="res://battle/enemyanimations/GGJ_enemy_cyan.png" id="1_rlfg7"]
+
+[sub_resource type="Animation" id="Animation_6kdkt"]
+resource_name = "idle"
+length = 0.666675
+loop_mode = 2
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_6dnsj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d8f3q"]
+_data = {
+"RESET": SubResource("Animation_6dnsj"),
+"idle": SubResource("Animation_6kdkt")
+}
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_rlfg7")
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_d8f3q")
+}

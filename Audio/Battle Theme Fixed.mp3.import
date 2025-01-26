@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dmhp6lpp13v4s"
+path="res://.godot/imported/Battle Theme Fixed.mp3-3cbb2efb91418e2ce6ceff5032673c5a.mp3str"
+
+[deps]
+
+source_file="res://Audio/Battle Theme Fixed.mp3"
+dest_files=["res://.godot/imported/Battle Theme Fixed.mp3-3cbb2efb91418e2ce6ceff5032673c5a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
