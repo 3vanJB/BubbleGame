@@ -4,6 +4,14 @@ var b = preload("res://battle/battle.tscn")
 var current_character_controlled_index : int = 0
 # var player_characters : Array[PlayerCharacter] = []
 
+
+func _ready() -> void:
+	
+	Audio.switchtotrack(1)
+	Audio.music.play()
+
+
+
 func spawn_new_bubble() -> void:
 
 	# var new_bubble : BubbleTeleport = load("res://battle/teleport bubble/bubble_teleport.tscn").instantiate() as BubbleTeleport
@@ -16,6 +24,9 @@ func spawn_new_bubble() -> void:
 
 func _on_bubble_spawn_timer_timeout() -> void:
 	spawn_new_bubble()
+
+
+
 
 func transition_to_battle(echip) -> void:
 	var n = b.instantiate()
@@ -30,7 +41,7 @@ func transition_to_battle(echip) -> void:
 	Changer.AnimPlayer.play("fadeout")
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("escape"):
+	if event.is_action_pressed("Escape"):
 		$SceneChanger.start_transition("res://Options_UI.tscn")
 
 func get_random_location_around_one_player() -> Vector2:

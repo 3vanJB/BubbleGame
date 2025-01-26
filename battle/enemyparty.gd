@@ -33,3 +33,9 @@ func scrolldown():
 func endfocus():
 	members[cursor].releasefocus()
 	cursor = 0
+
+func removefromarray():
+	for i in len(members):
+		if members[i].isko == true:
+			members.remove_at(i)
+			return

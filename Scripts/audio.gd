@@ -10,7 +10,7 @@ var tracks = {
 
 
 func _ready() -> void:
-	music.play()
+	pass
 
 func switchtotrack(id):
 	music.stream = load(tracks[id])

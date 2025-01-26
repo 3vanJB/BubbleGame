@@ -24,7 +24,10 @@ var current
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Audio.switchtotrack(2)
+	Audio.music.play()
 	$Camera2D.make_current()
+	Audio.switchtotrack(2)
 	UI.setmainbuttons(true)
 	var x = m.instantiate()
 	x.ID = 0
