@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csjq4oae0m4yg"
-path="res://.godot/imported/Rose_Idle.png-3ed65318f5e43e3a0ee4dd2d2c27cfc5.ctex"
+uid="uid://6rdst2066gsu"
+path="res://.godot/imported/GGJ_enemy_prpl.png-c3b1cb89a4e0523222835bda00c494ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/Sprites/Loose/Rose_Idle.png"
-dest_files=["res://.godot/imported/Rose_Idle.png-3ed65318f5e43e3a0ee4dd2d2c27cfc5.ctex"]
+source_file="res://battle/enemyanim/GGJ_enemy_prpl.png"
+dest_files=["res://.godot/imported/GGJ_enemy_prpl.png-c3b1cb89a4e0523222835bda00c494ca.ctex"]
 
 [params]
 

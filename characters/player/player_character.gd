@@ -5,27 +5,39 @@ var closest_interactable : InteractableObject = null
 
 var keys_in_inventory : Array[String] = []
 
-var frozen = false
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+@export var bIsBeingControlled : bool = false  # one has to set to true on init game
+var frozen = false
+
+func _ready() -> void:
+	Auto.overworld_characters.append(self)
+	$SpriteAnim.play()
 
 func _physics_process(delta: float) -> void:
 	# Handle jump.
-	if frozen == false:
-		var vertical := Input.get_axis("ui_up","ui_down")
-		if vertical:
+	var vertical := Input.get_axis("ui_up","ui_down")
+	if vertical:
+		if bIsBeingControlled:
 			velocity.y = vertical * SPEED
-		else:	
-			velocity.y = move_toward(velocity.y, 0, SPEED)
+		$SpriteAnim.set_animation("idle_down" if velocity.y > 0 else "idle_up")
+		$SpriteAnim.play()
+	else:	
+		velocity.y = move_toward(velocity.y, 0, SPEED)
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-		var horizontal := Input.get_axis("ui_left", "ui_right")
-		if horizontal:
+	var horizontal := Input.get_axis("ui_left", "ui_right")
+	if horizontal:
+		if bIsBeingControlled:
 			velocity.x = horizontal * SPEED
-		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		if velocity.x != 0:
+			$SpriteAnim.set_animation("idle_left" if velocity.x < 0 else "idle_right")
+			$SpriteAnim.play()
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+	if frozen == false:
 		move_and_slide()
 
 
@@ -42,21 +54,19 @@ func can_interact_with_object(interactable : InteractableObject) -> bool:
 
 
 func interact() -> void:
-	if frozen == false:
-		if closest_interactable == null:
-			return
-		var bResult : bool = closest_interactable.interact(self)
-		if bResult:
+	if closest_interactable == null:
+		return
+	var bResult : bool = closest_interactable.interact(self)
+	if bResult:
 		# Interaction successful
-			pass
-		else:
-			# Interaction failed
-			pass
+		pass
+	else:
+		# Interaction failed
+		pass
 	
 func _process(delta: float) -> void:
-	if frozen == false:
-		update_closest_interactable()
-	
-	
+	update_closest_interactable()
+
+
 func update_closest_interactable() -> void:
 	pass

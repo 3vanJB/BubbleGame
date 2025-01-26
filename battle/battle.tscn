@@ -44,9 +44,6 @@ theme_override_fonts/font = ExtResource("5_sh81s")
 theme_override_font_sizes/font_size = 30
 
 [node name="name" parent="UI/HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2/memeber1" index="0"]
-theme_override_colors/font_color = Color(1, 0.319656, 0.415277, 1)
-theme_override_colors/font_outline_color = Color(0.827836, 0.185163, 0.201227, 1)
-theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("5_sh81s")
 theme_override_font_sizes/font_size = 20
 
@@ -54,9 +51,6 @@ theme_override_font_sizes/font_size = 20
 theme_override_fonts/font = ExtResource("5_sh81s")
 
 [node name="name" parent="UI/HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/member2" index="0"]
-theme_override_colors/font_color = Color(0.834633, 0.869492, 0.971669, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("5_sh81s")
 theme_override_font_sizes/font_size = 20
 
@@ -96,7 +90,7 @@ theme_override_font_sizes/font_size = 23
 wait_time = 2.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(574, 324)
+position = Vector2(576, 324)
 
 [connection signal="pressed" from="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer/attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer/skill" to="." method="_on_skill_pressed"]

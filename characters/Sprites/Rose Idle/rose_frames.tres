@@ -1,0 +1,83 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://ckifeyrgwj85x"]
+
+[ext_resource type="Texture2D" uid="uid://bo0jynkg0ltiw" path="res://characters/Sprites/Rose Idle/Rose Idle.PNG" id="1_3dhqj"]
+[ext_resource type="Texture2D" uid="uid://11yx8qjmp6kg" path="res://characters/Sprites/Rose Idle/Rose idle 1.PNG" id="2_cohdt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrxh6"]
+atlas = ExtResource("1_3dhqj")
+region = Rect2(7, 25, 57, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xektk"]
+atlas = ExtResource("2_cohdt")
+region = Rect2(7, 25, 57, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwk50"]
+atlas = ExtResource("1_3dhqj")
+region = Rect2(121, 25, 57, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpjsl"]
+atlas = ExtResource("2_cohdt")
+region = Rect2(121, 25, 57, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abyge"]
+atlas = ExtResource("1_3dhqj")
+region = Rect2(178, 25, 57, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1hrs"]
+atlas = ExtResource("2_cohdt")
+region = Rect2(178, 25, 57, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xirc1"]
+atlas = ExtResource("1_3dhqj")
+region = Rect2(64, 25, 57, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gun2x"]
+atlas = ExtResource("2_cohdt")
+region = Rect2(64, 25, 57, 34)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrxh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xektk")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwk50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpjsl")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abyge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1hrs")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xirc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gun2x")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}]

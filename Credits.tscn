@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/credits.gd" id="1_y5wfo"]
 
+
 [node name="Credits" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -46,7 +47,7 @@ Will UI, Options, Menu
 Evan Combat 
 Ena Dialogue and Overworld
 Nick AI
-Pouya* Boss Fight
+Pouya Game Designer and Programmer and level designer
 "
 
 [node name="Exit" type="Button" parent="."]

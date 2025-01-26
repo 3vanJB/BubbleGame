@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4mgmr5xxcuxe"
-path="res://.godot/imported/GGJ_enemy_prpl.png-cc84e30c905066ee4cf48e67768536f1.ctex"
+uid="uid://bu0yngy70vix6"
+path="res://.godot/imported/tileset_2.png-c1d9b019b4a1f602583319da2cdf41d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://battle/enemyanimations/GGJ_enemy_prpl.png"
-dest_files=["res://.godot/imported/GGJ_enemy_prpl.png-cc84e30c905066ee4cf48e67768536f1.ctex"]
+source_file="res://overworld/tiles/tileset_2.png"
+dest_files=["res://.godot/imported/tileset_2.png-c1d9b019b4a1f602583319da2cdf41d9.ctex"]
 
 [params]
 

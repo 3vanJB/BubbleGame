@@ -20,6 +20,8 @@ signal playeractionselected
 var turns = []
 var current
 
+#MusicManager.currentsong
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Camera2D.make_current()
@@ -99,7 +101,7 @@ func nextturn():
 	for i in len(turns):
 		current = turns[i]
 		if turns[i].ally == false:
-			
+			print_debug("ENEMY")
 			#print(turns[i].membername + "'s turn")
 			turns[i].action = load(ACTIONS.actions[0])
 			calculate(turns[i], playerparty.members[1])
@@ -107,13 +109,15 @@ func nextturn():
 			UI.loadskills(turns[i].ID)
 			UI.setmainbuttons(false)
 			UI.setskillbuttons(false)
-			#print(turns[i].membername + "'s turn")
+			current = turns[i]
+			print(turns[i].membername + "'s turn")
 			buttonattack.grab_focus()
 			await playeractionselected
 			UI.nameh.hide()
 	nextturn()
 
 func calculate(attacker, target):
+	print(attacker.action.actionname  + "action")
 	if attacker.action.isattack == true:
 		if attacker.action.isspecial == true:
 			if attacker.action.type == 0:
@@ -128,8 +132,14 @@ func calculate(attacker, target):
 				if damage < 0:
 					damage = 1
 				nextdamage = damage
-			
-			
+		if attacker.action.targetenemyparty == true and attacker.ally == false:
+			var damage = (((attacker.curshine/50 * attacker.stats["str"]) - (target.curshine/50 * target.stats["def"]))) * attacker.action.power
+			damage += randi_range(-2, 2)
+			if damage < 0:
+				damage = 1
+			nextdamage = damage
+			playerparty.members[0].takedamage(nextdamage)
+			playerparty.members[1].takedamage(nextdamage)
 		if attacker.action.type == 0:
 			var damage = (((attacker.curshine/50 * attacker.stats["str"]) - (target.curshine/50 * target.stats["def"]))) * attacker.action.power
 			damage += randi_range(-2, 2)
@@ -176,7 +186,6 @@ func _on_attack_pressed() -> void:
 	
 func transition_to_overworld() -> void:
 	# TODO: transition back to overworld
-	get_tree().change_scene_to_file("res://overworld/overworld_level.tscn")
 	pass
 
 
@@ -230,8 +239,18 @@ func _on_skill_2_pressed() -> void:
 
 func _on_skill_3_pressed() -> void:
 	UI.setskillbuttons(true)
+	print(UI.skill3.actionname +"skill3")
 	current.action = UI.skill3
-	for i in len(enemyparty.members):
-		calculate(current, enemyparty.members[i])
+	if UI.skill3.targetenemyparty == true:
+		for i in len(enemyparty.members):
+			calculate(current, enemyparty.members[i])
+		emit_signal("playeractionselected")
+	else:
+		enemyparty.grabfocus(0)
+		enemyfocused = true
+		UI.nameh.show()
+		UI.skillmenu.hide()
+		
+		UI.settargettext(enemyparty.members[enemyparty.cursor].membername)
 	UI.skillmenu.hide()
 	buttonskill3.release_focus()

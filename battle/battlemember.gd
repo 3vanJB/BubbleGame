@@ -16,14 +16,15 @@ func setup():
 	curhp = stats["hp"]
 	ally = MEMBERINFO.getmember(ID)["ally"]
 	membername = MEMBERINFO.getmember(ID)["name"]
-	if ally == false:
-		var anim = load(MEMBERINFO.members[ID]["sprite"])
-		anim = anim.instantiate()
-		$holder.add_child(anim)
 	$ProgressBar.max_value = stats["hp"]
 	if ally == true:
 		curhp = MEMBERINFO.partyhp[ID]
 		hide()
+	else:
+		#print(MEMBERINFO.members[ID])
+		var s = load(MEMBERINFO.members[ID]["sprite"])
+		s = s.instantiate()
+		add_child(s)
 	$ProgressBar.value = curhp
 	curshine = 25
 
@@ -51,7 +52,6 @@ func heal(value):
 		curhp = stats["hp"]
 	else:
 		curhp += value
-	$ProgressBar.value = curhp
 
 func grabfocus():
 	$selecter.show()
