@@ -25,5 +25,6 @@ var actions = {
 	6:"res://battle/actions/annihilationbeam.tres",
 	#enemy skills
 	7:"res://battle/actions/berserk.tres",
-	8:"res://battle/actions/brutality.tres"
+	8:"res://battle/actions/brutality.tres",
+	9:"res://battle/actions/prayer.tres"
 }

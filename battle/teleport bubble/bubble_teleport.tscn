@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhyquqjd50wp6"]
+[gd_scene load_steps=4 format=3 uid="uid://bhyquqjd50wp6"]
 
+<<<<<<<< HEAD:battle/teleport bubble/bubble_teleport.tscn
 [ext_resource type="Script" path="res://battle/teleport bubble/bubble_teleport.gd" id="1_8wkpv"]
 
+========
+[ext_resource type="Script" path="res://misc/teleport bubble/bubble_teleport.gd" id="1_8wkpv"]
+[ext_resource type="Texture2D" uid="uid://bqnv851g4ja3j" path="res://icon.svg" id="2_gjauf"]
+>>>>>>>> origin/pouya:misc/teleport bubble/bubble_teleport.tscn
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rb576"]
+radius = 30.0
 
 [node name="BubbleTeleport" type="RigidBody2D"]
 collision_layer = 4
@@ -11,14 +17,16 @@ collision_mask = 4
 gravity_scale = 0.0
 script = ExtResource("1_8wkpv")
 
+[node name="sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_gjauf")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_rb576")
 
 [node name="ChangeDirectionTimer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
-
-[node name="sprite" type="Sprite2D" parent="."]
 
 [node name="BubblePopTimer" type="Timer" parent="."]
 wait_time = 8.0

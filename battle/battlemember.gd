@@ -9,7 +9,7 @@ var action
 var membername
 var ID
 var ally
-
+# TODO: make a function that decides the target of the enemy
 
 func setup():
 	stats = MEMBERINFO.getmemberstats(ID)
