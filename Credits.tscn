@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cudaadbjpxdx0"]
+[gd_scene load_steps=3 format=3 uid="uid://cudaadbjpxdx0"]
 
 [ext_resource type="Script" path="res://Scripts/credits.gd" id="1_y5wfo"]
-
+[ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="2_pdyfr"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -22,10 +22,11 @@ color = Color(0.00469283, 0.0720111, 0.0921138, 1)
 
 [node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = -81.0
-offset_top = -291.0
-offset_right = 65.0
-offset_bottom = -219.0
+offset_left = -84.0
+offset_top = -286.0
+offset_right = 97.0
+offset_bottom = -214.0
+theme_override_fonts/normal_font = ExtResource("2_pdyfr")
 theme_override_font_sizes/normal_font_size = 40
 text = "Credits"
 
@@ -56,6 +57,7 @@ offset_left = 412.0
 offset_top = 205.0
 offset_right = 522.0
 offset_bottom = 282.0
+theme_override_fonts/font = ExtResource("2_pdyfr")
 theme_override_font_sizes/font_size = 50
 text = "Exit"
 
