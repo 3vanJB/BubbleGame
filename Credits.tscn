@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cudaadbjpxdx0"]
+[gd_scene load_steps=5 format=3 uid="uid://cudaadbjpxdx0"]
 
 [ext_resource type="Script" path="res://Scripts/credits.gd" id="1_y5wfo"]
 [ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="2_pdyfr"]
 [ext_resource type="AudioStream" uid="uid://dkxct17jp3884" path="res://SFX/Bubbles SFX Batch 1/UI/SFX_UI_Confirm.wav" id="3_56f80"]
+[ext_resource type="Theme" uid="uid://banc6367nyh15" path="res://battle/battleui/ui.tres" id="3_q4utv"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -70,11 +71,13 @@ Programers
 "
 
 [node name="Exit" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 75)
 layout_mode = 0
-offset_left = 412.0
-offset_top = 205.0
-offset_right = 522.0
-offset_bottom = 282.0
+offset_left = 382.0
+offset_top = 206.0
+offset_right = 532.0
+offset_bottom = 283.0
+theme = ExtResource("3_q4utv")
 theme_override_fonts/font = ExtResource("2_pdyfr")
 theme_override_font_sizes/font_size = 50
 text = "Exit"
