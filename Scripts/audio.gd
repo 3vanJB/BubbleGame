@@ -1,7 +1,7 @@
 extends Control
 
 @onready var music = $Music
-
+@onready var sfx = $Effects
 var tracks = {
 	0:"res://Audio/Title Theme.wav",
 	1:"res://Audio/Dungeon Theme.mp3",
@@ -17,3 +17,9 @@ func switchtotrack(id):
 
 func togglestreampaused(value):
 	music.stream_paused = value
+
+func playeffect(eff):
+	if eff != null:
+		sfx.stream = eff
+		sfx.play()
+		print("sfx play")

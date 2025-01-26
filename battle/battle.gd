@@ -81,8 +81,11 @@ func _process(delta: float) -> void:
 			UI.settargettext(current.membername)
 			UI.setattacktext(current.action.actionname)
 			attackname.show()
-			calculate(current, enemyparty.members[enemyparty.cursor])
+			
+			current.action.loadsoundpath()
+			Audio.playeffect(current.action.sound)
 			await get_tree().create_timer(1).timeout
+			calculate(current, enemyparty.members[enemyparty.cursor])
 			attackname.hide()
 			enemyparty.endfocus()
 			emit_signal("playeractionselected")
@@ -104,9 +107,11 @@ func _process(delta: float) -> void:
 			UI.settargettext(current.membername)
 			UI.setattacktext(current.action.actionname)
 			attackname.show()
+			current.action.loadsoundpath()
+			Audio.playeffect(current.action.sound)
 			
-			calculate(current, playerparty.members[playerparty.cursor])
 			await get_tree().create_timer(1).timeout
+			calculate(current, playerparty.members[playerparty.cursor])
 			playerparty.endfocus()
 			enemyparty.endfocus()
 			attackname.hide()
@@ -222,10 +227,13 @@ func _on_buttonskill_1_pressed() -> void:
 	if UI.skill1.targetenemyparty == true:
 		UI.setattacktext(current.action.actionname)
 		attackname.show()
-		for i in len(enemyparty.members):
-			calculate(current, enemyparty.members[i])
+		current.action.loadsoundpath()
+		Audio.playeffect(current.action.sound)
+		
 		UI.skillmenu.hide()
 		await get_tree().create_timer(1).timeout
+		for i in len(enemyparty.members):
+			calculate(current, enemyparty.members[i])
 		attackname.hide()
 		emit_signal("playeractionselected")
 		
@@ -246,11 +254,14 @@ func _on_skill_2_pressed() -> void:
 	UI.skillmenu.hide()
 	if UI.skill2.targetallyparty == true:
 		current.action = UI.skill2
-		calculate(current, current)
+		current.action.loadsoundpath()
+		Audio.playeffect(current.action.sound)
+		
 		UI.setattacktext(current.action.actionname)
 		attackname.show()
 		attackname.show()
 		await get_tree().create_timer(1).timeout
+		calculate(current, current)
 		attackname.hide()
 		emit_signal("playeractionselected")
 		
@@ -274,10 +285,14 @@ func _on_skill_3_pressed() -> void:
 	current.action = UI.skill3
 	if UI.skill3.targetenemyparty == true:
 		UI.setattacktext(current.action.actionname)
+		
+		current.action.loadsoundpath()
+		Audio.playeffect(current.action.sound)
 		attackname.show()
+		
+		await get_tree().create_timer(1).timeout
 		for i in len(enemyparty.members):
 			calculate(current, enemyparty.members[i])
-		await get_tree().create_timer(1).timeout
 		attackname.hide()
 		emit_signal("playeractionselected")
 		

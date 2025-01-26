@@ -16,3 +16,5 @@ targetally = false
 targetallyparty = false
 targetenemyparty = true
 isspecial = true
+isheal = false
+soundpath = "res://SFX/Bubbles SFX Batch 1/Players/SFX_Player_Barrage.wav"

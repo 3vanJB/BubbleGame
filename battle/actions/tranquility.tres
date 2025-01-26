@@ -17,4 +17,4 @@ targetallyparty = false
 targetenemyparty = false
 isspecial = false
 isheal = true
-heal = 0
+soundpath = "res://SFX/Bubbles SFX Batch 1/Players/SFX_Player_Ttranquil Abyss.wav"
