@@ -2,7 +2,11 @@
 
 importer="wav"
 type="AudioStreamWAV"
+<<<<<<< HEAD
 uid="uid://c12dlg3qjib2b"
+=======
+uid="uid://cfejhv02dfdak"
+>>>>>>> fac520d3f78485d4d1ed5a4ec2711ee60ce2e8f6
 path="res://.godot/imported/SFX_Player_Oblivion Needles.wav-02546399005b83ad2659523bf61c662f.sample"
 
 [deps]

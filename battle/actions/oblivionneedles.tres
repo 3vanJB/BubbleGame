@@ -17,4 +17,4 @@ targetallyparty = false
 targetenemyparty = true
 isspecial = false
 isheal = false
-heal = 0
+soundpath = "res://SFX/Bubbles SFX Batch 1/Players/SFX_Player_Oblivion Needles.wav"

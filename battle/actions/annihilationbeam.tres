@@ -17,4 +17,4 @@ targetallyparty = false
 targetenemyparty = false
 isspecial = true
 isheal = false
-heal = 0
+soundpath = "res://SFX/Bubbles SFX Batch 1/Players/SFX_Player_Nihilistic Light.wav"

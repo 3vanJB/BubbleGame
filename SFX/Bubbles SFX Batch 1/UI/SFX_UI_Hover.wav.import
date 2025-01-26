@@ -2,7 +2,11 @@
 
 importer="wav"
 type="AudioStreamWAV"
+<<<<<<< HEAD
 uid="uid://5hp5v3oidvmg"
+=======
+uid="uid://d3x3ndheg8cj0"
+>>>>>>> fac520d3f78485d4d1ed5a4ec2711ee60ce2e8f6
 path="res://.godot/imported/SFX_UI_Hover.wav-d64d7389b5bcc0c227525e734adb5cd9.sample"
 
 [deps]

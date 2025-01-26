@@ -2,7 +2,11 @@
 
 importer="wav"
 type="AudioStreamWAV"
+<<<<<<< HEAD
 uid="uid://camx0t7uusntd"
+=======
+uid="uid://bp7p0eemaee11"
+>>>>>>> fac520d3f78485d4d1ed5a4ec2711ee60ce2e8f6
 path="res://.godot/imported/SFX_Player_Aimed Shot.wav-93e7221df1199a58ec2ab05025de11a6.sample"
 
 [deps]

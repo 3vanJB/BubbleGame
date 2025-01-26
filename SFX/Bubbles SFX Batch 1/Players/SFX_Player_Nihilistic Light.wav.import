@@ -2,7 +2,11 @@
 
 importer="wav"
 type="AudioStreamWAV"
+<<<<<<< HEAD
 uid="uid://befnbegw7ken4"
+=======
+uid="uid://twbpob3r2w2k"
+>>>>>>> fac520d3f78485d4d1ed5a4ec2711ee60ce2e8f6
 path="res://.godot/imported/SFX_Player_Nihilistic Light.wav-e4f6004705429670fb3ee5ac6bf51962.sample"
 
 [deps]
