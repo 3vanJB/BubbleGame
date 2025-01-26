@@ -61,6 +61,11 @@ func _ready() -> void:
 		enemyparty.add_child(x)
 	UI.setshine(0, playerparty.members[0].curshine)
 	UI.setshine(1, playerparty.members[1].curshine)
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
+	Dialogic.start("Battle 1")	
+
+func _on_timeline_ended() -> void:
+	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
 	nextturn()
 
 func _process(delta: float) -> void:

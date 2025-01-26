@@ -8,6 +8,14 @@ var current_character_controlled_index : int = 0
 func _ready() -> void:
 	
 	Audio.switchtotrack(1)
+	Dialogic.timeline_ended.connect(_on_entrance_ended)
+	$PlayerCharacter1.frozen = true
+	Dialogic.start("First Entrance")	
+
+func _on_entrance_ended() -> void:
+	Dialogic.timeline_ended.disconnect(_on_entrance_ended)
+	$PlayerCharacter1.frozen = false
+
 
 func spawn_new_bubble() -> void:
 
