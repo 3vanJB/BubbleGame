@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://banc6367nyh15"]
+
+[ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="1_3n021"]
+[ext_resource type="Texture2D" uid="uid://667bxy5tkvvh" path="res://misc/normal.png" id="2_6h3xo"]
+[ext_resource type="Texture2D" uid="uid://bicsh830tyn65" path="res://misc/bpress.png" id="3_f08v7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_13ifx"]
+texture = ExtResource("2_6h3xo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4erjg"]
+texture = ExtResource("3_f08v7")
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0.0980392, 0.14902, 0.52549, 1)
+Button/fonts/font = ExtResource("1_3n021")
+Button/styles/normal = SubResource("StyleBoxTexture_13ifx")
+Button/styles/pressed = SubResource("StyleBoxTexture_4erjg")

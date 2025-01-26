@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dakw1wayutgnm"]
+[gd_scene load_steps=4 format=3 uid="uid://dakw1wayutgnm"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_1mmhn"]
 [ext_resource type="FontFile" uid="uid://cj7c8ydcjaxj5" path="res://Fonts/Fonts/Fonts/LiberationSans.ttf" id="2_vl5yv"]
+
+[sub_resource type="Theme" id="Theme_23get"]
+Button/styles/disabled_mirrored = null
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -51,6 +54,7 @@ metadata/_edit_lock_ = true
 
 [node name="Play" type="Button" parent="Button_Container"]
 layout_mode = 2
+theme = SubResource("Theme_23get")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_normal_color = Color(0.61998, 0.955695, 0.959663, 0.882353)
 theme_override_colors/icon_hover_color = Color(0.490196, 0.819608, 0.858824, 0.835294)

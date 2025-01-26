@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5g4muvowpv78"]
+[gd_scene load_steps=5 format=3 uid="uid://c5g4muvowpv78"]
 
 [ext_resource type="Script" path="res://battle/battleui/ui.gd" id="1_vah0k"]
-[ext_resource type="Texture2D" uid="uid://bqnv851g4ja3j" path="res://icon.svg" id="2_kqrcr"]
+[ext_resource type="Theme" uid="uid://banc6367nyh15" path="res://battle/battleui/ui.tres" id="2_8i88d"]
+[ext_resource type="Texture2D" uid="uid://bnwfb7lda0tn7" path="res://misc/cursor.png" id="2_of1mc"]
+[ext_resource type="Texture2D" uid="uid://bicsh830tyn65" path="res://misc/bpress.png" id="2_p5khf"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_vah0k")
@@ -29,17 +31,36 @@ size_flags_vertical = 3
 layout_mode = 2
 
 [node name="attack" type="Button" parent="HBoxContainer/buttonpanel/PanelContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 72)
 layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_8i88d")
 text = "Attack"
+expand_icon = true
 
 [node name="skill" type="Button" parent="HBoxContainer/buttonpanel/PanelContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 72)
 layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_8i88d")
 text = "Skill"
 
 [node name="special" type="Button" parent="HBoxContainer/buttonpanel/PanelContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Special
 "
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer/buttonpanel/PanelContainer/VBoxContainer"]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(200, 72)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_p5khf")
+stretch_mode = 0
 
 [node name="memberpanel" type="VBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(0, 150)
@@ -70,11 +91,14 @@ layout_mode = 2
 size_flags_horizontal = 6
 text = "10/10"
 
-[node name="icon" type="TextureRect" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2/memeber1"]
+[node name="icon" type="NinePatchRect" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2/memeber1"]
 visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
-texture = ExtResource("2_kqrcr")
-expand_mode = 3
+size_flags_horizontal = 8
+texture = ExtResource("2_of1mc")
+region_rect = Rect2(145, 26, 9, 8)
 
 [node name="shine" type="ProgressBar" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(100, 0)
@@ -97,11 +121,14 @@ layout_mode = 2
 size_flags_horizontal = 6
 text = "10/10"
 
-[node name="icon" type="TextureRect" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/member2"]
+[node name="icon" type="NinePatchRect" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/member2"]
 visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
-texture = ExtResource("2_kqrcr")
-expand_mode = 3
+size_flags_horizontal = 8
+texture = ExtResource("2_of1mc")
+region_rect = Rect2(145, 26, 9, 8)
 
 [node name="shine" type="ProgressBar" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
