@@ -5,10 +5,7 @@ extends Control
 func _ready() -> void:
 	#music.play()
 	pass
-
-var tracks ={
-	
-}
+<<<<<<< Updated upstream
 
 func switchtrack(track):
 	$Music.stream = load(tracks[track])
