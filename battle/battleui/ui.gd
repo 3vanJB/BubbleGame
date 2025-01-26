@@ -17,15 +17,15 @@ func _ready() -> void:
 
 func sethplabel(ID, cur):
 	if ID == 0:
-		$HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2/memeber1/hp.text = str(cur) + "/" + str(MEMBERINFO.getmemberstats(ID)["hp"])
+		$HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/memeber1/hp.text = str(cur) + "/" + str(MEMBERINFO.getmemberstats(ID)["hp"])
 	else:
-		$HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/member2/hp.text = str(cur) + "/" + str(MEMBERINFO.getmemberstats(ID)["hp"])
+		$HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/member2/hp.text = str(cur) + "/" + str(MEMBERINFO.getmemberstats(ID)["hp"])
 
 func setshine(ID, cur):
 	if ID == 0:
-		$HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2/shine.value = cur
+		$HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/shine.value = cur
 	else:
-		$HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/shine.value = cur
+		$HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/shine.value = cur
 
 #enables/disables main buttons
 func setmainbuttons(value: bool):
@@ -44,9 +44,9 @@ func grabmemberfocus(value):
 		$HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/member2/icon.show()
 func releasememberfocus(value):
 	if value == 0:
-		$HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2/memeber1/icon.hide()
+		$HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/memeber1/icon.hide()
 	else:
-		$HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/member2/icon.hide()
+		$HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/memeber1/icon.hide()
 
 func loadskills(ID):
 	if ID == 0:

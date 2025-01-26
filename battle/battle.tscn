@@ -33,28 +33,6 @@ theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("5_sh81s")
 theme_override_font_sizes/font_size = 30
 
-[node name="name" parent="UI/HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2/memeber1" index="0"]
-theme_override_fonts/font = ExtResource("5_sh81s")
-theme_override_font_sizes/font_size = 20
-
-[node name="hp" parent="UI/HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2/memeber1" index="1"]
-theme_override_fonts/font = ExtResource("5_sh81s")
-
-[node name="name" parent="UI/HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/member2" index="0"]
-theme_override_fonts/font = ExtResource("5_sh81s")
-theme_override_font_sizes/font_size = 20
-
-[node name="hp" parent="UI/HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/member2" index="1"]
-theme_override_fonts/font = ExtResource("5_sh81s")
-
-[node name="ColorRect" type="ColorRect" parent="UI/HBoxContainer/textpanel" index="0"]
-layout_mode = 2
-color = Color(0.588235, 0.47451, 0.254902, 0.576471)
-
-[node name="ColorRect" type="ColorRect" parent="UI/skillmenu/PanelContainer" index="0"]
-layout_mode = 2
-color = Color(0.658546, 0.838412, 0.908555, 0.411765)
-
 [node name="Teleport Bubbles" type="Node" parent="."]
 
 [node name="BubbleSpawnTimer" type="Timer" parent="."]

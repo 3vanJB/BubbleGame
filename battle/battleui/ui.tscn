@@ -9,6 +9,7 @@
 script = ExtResource("1_vah0k")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -16,6 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_8i88d")
 
 [node name="buttonpanel" type="VBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(0, 150)
@@ -24,11 +26,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 8
 
 [node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/buttonpanel"]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/buttonpanel/PanelContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="attack" type="Button" parent="HBoxContainer/buttonpanel/PanelContainer/VBoxContainer"]
 texture_filter = 1
@@ -63,35 +68,42 @@ texture_normal = ExtResource("2_p5khf")
 stretch_mode = 0
 
 [node name="memberpanel" type="VBoxContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(0, 150)
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
+theme = ExtResource("2_8i88d")
 
 [node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/memberpanel"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/memberpanel/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="memeber1" type="HBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2"]
+[node name="memeber1" type="HBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="name" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2/memeber1"]
+[node name="name" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/memeber1"]
 layout_mode = 2
 text = "Rose"
 
-[node name="hp" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2/memeber1"]
+[node name="hp" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/memeber1"]
 layout_mode = 2
 size_flags_horizontal = 6
 text = "10/10"
 
-[node name="icon" type="NinePatchRect" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2/memeber1"]
+[node name="icon" type="NinePatchRect" parent="HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/memeber1"]
 visible = false
 texture_filter = 1
 custom_minimum_size = Vector2(30, 0)
@@ -100,28 +112,28 @@ size_flags_horizontal = 8
 texture = ExtResource("2_of1mc")
 region_rect = Rect2(145, 26, 9, 8)
 
-[node name="shine" type="ProgressBar" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2"]
+[node name="shine" type="ProgressBar" parent="HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="member2" type="HBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer"]
+[node name="member2" type="HBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="name" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/member2"]
+[node name="name" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/member2"]
 layout_mode = 2
 text = "Yoru"
 
-[node name="hp" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/member2"]
+[node name="hp" type="Label" parent="HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/member2"]
 layout_mode = 2
 size_flags_horizontal = 6
 text = "10/10"
 
-[node name="icon" type="NinePatchRect" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/member2"]
+[node name="icon" type="NinePatchRect" parent="HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/member2"]
 visible = false
 texture_filter = 1
 custom_minimum_size = Vector2(30, 0)
@@ -130,26 +142,32 @@ size_flags_horizontal = 8
 texture = ExtResource("2_of1mc")
 region_rect = Rect2(145, 26, 9, 8)
 
-[node name="shine" type="ProgressBar" parent="HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer"]
+[node name="shine" type="ProgressBar" parent="HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 
 [node name="textpanel" type="PanelContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(0, 150)
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
+theme = ExtResource("2_8i88d")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/textpanel"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/textpanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/textpanel/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/textpanel/VBoxContainer"]
+[node name="Label" type="Label" parent="HBoxContainer/textpanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = " > This is text
 "
 
-[node name="Button" type="Button" parent="HBoxContainer/textpanel/VBoxContainer"]
+[node name="Button" type="Button" parent="HBoxContainer/textpanel/MarginContainer/VBoxContainer"]
 texture_filter = 1
 custom_minimum_size = Vector2(100, 36)
 layout_mode = 2
@@ -159,15 +177,17 @@ theme = ExtResource("2_8i88d")
 text = "Next"
 
 [node name="skillmenu" type="VBoxContainer" parent="."]
+texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 0
+theme = ExtResource("2_8i88d")
 
 [node name="PanelContainer" type="PanelContainer" parent="skillmenu"]
-custom_minimum_size = Vector2(0, 300)
+custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
 size_flags_vertical = 6
 
@@ -211,6 +231,7 @@ text = "skill3"
 
 [node name="attack" type="HBoxContainer" parent="."]
 visible = false
+texture_filter = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -220,13 +241,14 @@ offset_bottom = 50.0
 grow_horizontal = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
+theme = ExtResource("2_8i88d")
 
 [node name="MarginContainer" type="MarginContainer" parent="attack"]
 layout_mode = 2
-theme_override_constants/margin_top = 150
+theme_override_constants/margin_top = 120
 
 [node name="attackname" type="PanelContainer" parent="attack/MarginContainer"]
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(200, 72)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -241,6 +263,7 @@ text = "name"
 
 [node name="target" type="HBoxContainer" parent="."]
 visible = false
+texture_filter = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -253,13 +276,14 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 6
 size_flags_vertical = 0
+theme = ExtResource("2_8i88d")
 
 [node name="MarginContainer" type="MarginContainer" parent="target"]
 layout_mode = 2
 theme_override_constants/margin_bottom = 200
 
 [node name="attackname" type="PanelContainer" parent="target/MarginContainer"]
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(200, 72)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
