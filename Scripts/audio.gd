@@ -28,4 +28,4 @@ func playeffect(eff):
 	if eff != null:
 		sfx.stream = eff
 		sfx.play()
-		print("sfx play")
+		#print("sfx play")

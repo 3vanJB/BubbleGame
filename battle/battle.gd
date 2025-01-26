@@ -91,13 +91,13 @@ func _process(delta: float) -> void:
 			UI.settargettext(current.membername)
 			UI.setattacktext(current.action.actionname)
 			attackname.show()
-			
+			enemyparty.endfocus()
 			current.action.loadsoundpath()
 			Audio.playeffect(current.action.sound)
 			await get_tree().create_timer(1).timeout
 			calculate(current, enemyparty.members[enemyparty.cursor])
 			attackname.hide()
-			enemyparty.endfocus()
+			
 			emit_signal("playeractionselected")
 	if partyfocused == true:
 		if Input.is_action_just_pressed("left"):
@@ -115,7 +115,7 @@ func _process(delta: float) -> void:
 			Audio.playeffect(confirmsound)
 			await get_tree().create_timer(0.1).timeout
 			partyfocused = false
-			print(current.membername)
+			
 			UI.settargettext(current.membername)
 			UI.setattacktext(current.action.actionname)
 			attackname.show()
@@ -123,23 +123,30 @@ func _process(delta: float) -> void:
 			Audio.playeffect(current.action.sound)
 			
 			await get_tree().create_timer(1).timeout
+			print(current.action.actionname)
 			calculate(current, playerparty.members[playerparty.cursor])
 			playerparty.endfocus()
 			enemyparty.endfocus()
 			attackname.hide()
 			emit_signal("playeractionselected")
-
+	
 func nextturn():
 	
 	for i in len(turns):
 		current = turns[i]
 		current.restoreshine(10)
 		if turns[i].ally == false:
-			print_debug("ENEMY")
+			print("enemyturn")
 			#print(turns[i].membername + "'s turn")
 			if MEMBERINFO.members[current.ID].has("skills"):
-				pass
-			turns[i].action = load(ACTIONS.actions[0])
+				print("skills")
+				var c = randi_range(-1, len(MEMBERINFO.members[current.ID]["skills"]))
+				if c == -1 or load(ACTIONS.actions[MEMBERINFO.members[current.ID]["skills"][c]]).cost > current.curshine:
+					turns[i].action = regatk
+				else:
+					turns[i].action = load(ACTIONS.actions[c])
+			else:
+				turns[i].action = regatk
 			calculate(turns[i], playerparty.members[1])
 		else:
 			UI.loadskills(turns[i].ID)
@@ -156,7 +163,7 @@ func nextturn():
 	nextturn()
 
 func calculate(attacker, target):
-	print(attacker.action.actionname  + "action")
+	print(str(attacker) + "12435")
 	if attacker.action.isattack == true:
 		if attacker.action.isspecial == true:
 			if attacker.action.type == 0:
@@ -213,13 +220,15 @@ func calculate(attacker, target):
 		print(target.membername + "653728")
 	UI.setattacktext(current.action.actionname)
 
-
+var regatk = preload("res://battle/actions/RegAttack.tres")
 func _on_attack_pressed() -> void:
 	UI.setmainbuttons(true)
 	enemyfocused = true
 	Audio.playeffect(confirmsound)
+	current.action = regatk
 	enemyparty.grabfocus(0)
-	current.action = load(ACTIONS.actions[0])
+	
+	print(current.membername)
 	UI.settargettext(enemyparty.members[enemyparty.cursor].membername)
 	UI.nameh.show()
 	buttonattack.release_focus()
