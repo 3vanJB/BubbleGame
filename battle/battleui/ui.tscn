@@ -148,6 +148,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 
 [node name="textpanel" type="PanelContainer" parent="HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -295,3 +296,13 @@ size_flags_horizontal = 4
 [node name="Label" type="Label" parent="target/MarginContainer/attackname/HBoxContainer"]
 layout_mode = 2
 text = "name"
+
+[connection signal="mouse_entered" from="HBoxContainer/buttonpanel/PanelContainer/VBoxContainer/attack" to="." method="_on_attack_mouse_entered"]
+[connection signal="focus_entered" from="HBoxContainer/buttonpanel/PanelContainer/VBoxContainer/skill" to="." method="_on_skill_focus_entered"]
+[connection signal="mouse_entered" from="HBoxContainer/buttonpanel/PanelContainer/VBoxContainer/skill" to="." method="_on_skill_mouse_entered"]
+[connection signal="focus_entered" from="skillmenu/PanelContainer/VBoxContainer/HBoxContainer/Buttonskill1" to="." method="_on_buttonskill_1_focus_entered"]
+[connection signal="mouse_entered" from="skillmenu/PanelContainer/VBoxContainer/HBoxContainer/Buttonskill1" to="." method="_on_buttonskill_1_mouse_entered"]
+[connection signal="focus_entered" from="skillmenu/PanelContainer/VBoxContainer/HBoxContainer2/skill2" to="." method="_on_skill_2_focus_entered"]
+[connection signal="mouse_entered" from="skillmenu/PanelContainer/VBoxContainer/HBoxContainer2/skill2" to="." method="_on_skill_2_mouse_entered"]
+[connection signal="focus_entered" from="skillmenu/PanelContainer/VBoxContainer/HBoxContainer2/skill3" to="." method="_on_skill_3_focus_entered"]
+[connection signal="mouse_entered" from="skillmenu/PanelContainer/VBoxContainer/HBoxContainer2/skill3" to="." method="_on_skill_3_mouse_entered"]

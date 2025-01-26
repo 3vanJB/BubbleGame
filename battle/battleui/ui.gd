@@ -6,7 +6,7 @@ var skill3
 @onready var skillmenu = $skillmenu
 @onready var attackh = $attack
 @onready var nameh = $target
-
+var hoversound = preload("res://SFX/Bubbles SFX Batch 1/UI/SFX_UI_Hover.wav")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -39,14 +39,14 @@ func setskillbuttons(value: bool):
 
 func grabmemberfocus(value):
 	if value == 0:
-		$HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2/memeber1/icon.show()
+		$HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/memeber1/icon.show()
 	else:
-		$HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/member2/icon.show()
+		$HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/member2/icon.show()
 func releasememberfocus(value):
 	if value == 0:
 		$HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/memeber1/icon.hide()
 	else:
-		$HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/memeber1/icon.hide()
+		$HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/member2/icon.hide()
 
 func loadskills(ID):
 	if ID == 0:
@@ -69,3 +69,45 @@ func setattacktext(text):
 	$attack/MarginContainer/attackname/HBoxContainer/Label.text = text
 func settargettext(text):
 	$target/MarginContainer/attackname/HBoxContainer/Label.text = text
+
+
+func _on_attack_focus_entered() -> void:
+	Audio.playeffect(hoversound)
+
+
+func _on_attack_mouse_entered() -> void:
+	Audio.playeffect(hoversound)
+
+
+
+func _on_skill_focus_entered() -> void:
+	Audio.playeffect(hoversound)
+
+
+func _on_skill_mouse_entered() -> void:
+	Audio.playeffect(hoversound)
+
+
+func _on_buttonskill_1_focus_entered() -> void:
+	Audio.playeffect(hoversound)
+
+
+func _on_buttonskill_1_mouse_entered() -> void:
+	Audio.playeffect(hoversound)
+
+
+
+func _on_skill_2_focus_entered() -> void:
+	Audio.playeffect(hoversound)
+
+
+func _on_skill_2_mouse_entered() -> void:
+	Audio.playeffect(hoversound)
+
+
+func _on_skill_3_focus_entered() -> void:
+	Audio.playeffect(hoversound)
+
+
+func _on_skill_3_mouse_entered() -> void:
+	Audio.playeffect(hoversound)
