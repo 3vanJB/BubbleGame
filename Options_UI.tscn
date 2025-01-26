@@ -99,7 +99,7 @@ theme_override_constants/separation = 20
 [node name="Exit" type="Button" parent="Button Container"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "Exit"
+text = "Back"
 
 [node name="Quit" type="Button" parent="Button Container"]
 layout_mode = 2
@@ -107,8 +107,8 @@ theme_override_font_sizes/font_size = 50
 text = "Quit
 "
 
-[connection signal="value_changed" from="Slider Container/Master Slider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Slider Container/Master Slider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="Slider Container/Master Slider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Slider Container/Music Slider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Slider Container/Sfx Slider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="pressed" from="Button Container/Exit" to="." method="_on_exit_pressed"]
