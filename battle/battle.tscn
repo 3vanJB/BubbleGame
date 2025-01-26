@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://xyilfmmrcrvf"]
+[gd_scene load_steps=9 format=3 uid="uid://xyilfmmrcrvf"]
 
 [ext_resource type="Script" path="res://battle/battle.gd" id="1_f8ab6"]
 [ext_resource type="Script" path="res://battle/playerparty.gd" id="2_ehidm"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://battle/enemyparty.gd" id="3_i4jx3"]
 [ext_resource type="FontFile" uid="uid://cj7c8ydcjaxj5" path="res://Fonts/Fonts/Fonts/LiberationSans.ttf" id="5_sh81s"]
 [ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="6_pa5ik"]
+[ext_resource type="Texture2D" uid="uid://h8br8b8c65k4" path="res://misc/enemy_bg_scaled_4x_pngcrushed.png" id="7_emhce"]
+[ext_resource type="Texture2D" uid="uid://bsr6nhgosw3y3" path="res://misc/enemy_bg_border_scaled_4x_pngcrushed.png" id="8_ep7xb"]
 
 [node name="battle" type="Node2D"]
 position = Vector2(0, 1)
@@ -97,6 +99,16 @@ wait_time = 2.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
+
+[node name="EnemyBgScaled4xPngcrushed" type="Sprite2D" parent="."]
+position = Vector2(574, 322.5)
+scale = Vector2(1, 1.00772)
+texture = ExtResource("7_emhce")
+
+[node name="EnemyBgBorderScaled4xPngcrushed" type="Sprite2D" parent="."]
+position = Vector2(576.5, 313.5)
+scale = Vector2(1.0026, 1.00154)
+texture = ExtResource("8_ep7xb")
 
 [connection signal="pressed" from="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer/attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer/skill" to="." method="_on_skill_pressed"]

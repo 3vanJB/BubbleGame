@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dakw1wayutgnm"]
+[gd_scene load_steps=8 format=3 uid="uid://dakw1wayutgnm"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_1mmhn"]
+[ext_resource type="Texture2D" uid="uid://h8br8b8c65k4" path="res://misc/enemy_bg_scaled_4x_pngcrushed.png" id="2_jx7p0"]
 [ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="2_runye"]
 [ext_resource type="Theme" uid="uid://banc6367nyh15" path="res://battle/battleui/ui.tres" id="3_64ubu"]
+[ext_resource type="Theme" uid="uid://cqst728xxipcw" path="res://addons/dialogic/Editor/Theme/MainTheme.tres" id="3_c0u7x"]
 [ext_resource type="Texture2D" uid="uid://b4c6wrj4jhvoj" path="res://Game_Icon.png" id="4_aris8"]
 
 [sub_resource type="Theme" id="Theme_23get"]
@@ -20,6 +22,7 @@ grow_vertical = 2
 script = ExtResource("1_1mmhn")
 
 [node name="Background" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = -605.0
 offset_top = -364.0
@@ -28,15 +31,22 @@ offset_bottom = 418.0
 color = Color(0.904407, 0.914717, 0.916658, 1)
 metadata/_edit_lock_ = true
 
+[node name="EnemyBgScaled4xPngcrushed" type="Sprite2D" parent="."]
+position = Vector2(3, -1)
+texture = ExtResource("2_jx7p0")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 metadata/_edit_lock_ = true
 
 [node name="Color" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
 offset_left = -222.0
 offset_top = -306.0
 offset_right = 208.0
 offset_bottom = -85.0
-color = Color(0.658824, 0.815686, 0.980392, 0.278431)
+theme = ExtResource("3_c0u7x")
+color = Color(0.881146, 0.935196, 0.993099, 0.941176)
 
 [node name="Main Title" type="Label" parent="."]
 layout_mode = 0
@@ -44,9 +54,9 @@ offset_left = -377.0
 offset_top = -292.0
 offset_right = 340.0
 offset_bottom = -63.0
-theme_override_colors/font_color = Color(0.430042, 0.395257, 0.740773, 0.372549)
-theme_override_colors/font_outline_color = Color(0.815686, 0.301961, 0.988235, 0.839216)
-theme_override_constants/outline_size = 4
+theme_override_colors/font_color = Color(0.959553, 0.959766, 0.989519, 0.67451)
+theme_override_colors/font_outline_color = Color(0.827373, 0.333724, 0.65934, 0.854902)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("2_runye")
 theme_override_font_sizes/font_size = 100
 text = "Cosmic
@@ -55,6 +65,7 @@ horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 2
 offset_left = -546.0
 offset_top = -61.0
