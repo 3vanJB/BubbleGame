@@ -5,7 +5,11 @@ var m = preload("res://battle/battlemember.tscn")
 @onready var enemyparty = $enemyparty
 @onready var UI = $UI
 @export var echip : int = 0
+@onready var skillbutton = $UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer/skill
 @onready var buttonattack = $UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer/attack
+@onready var buttonskill1 = $UI/skillmenu/PanelContainer/VBoxContainer/HBoxContainer/Buttonskill1
+@onready var buttonskill2 = $UI/skillmenu/PanelContainer/VBoxContainer/HBoxContainer2/skill2
+@onready var buttonskill3 = $UI/skillmenu/PanelContainer/VBoxContainer/HBoxContainer2/skill3
 #checks to see if targeting enemy
 var enemyfocused = false
 var nextdamage : int
@@ -17,7 +21,7 @@ var current
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	buttonattack.disabled = true
+	UI.setmainbuttons(true)
 	var x = m.instantiate()
 	x.ID = 0
 	x.setup()
@@ -58,7 +62,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_cancel"):
 			enemyfocused = false
 			buttonattack.grab_focus()
-			buttonattack.disabled = false
+			UI.setmainbuttons(false)
 			enemyparty.endfocus()
 		if Input.is_action_just_pressed("ui_accept"):
 			enemyfocused = false
@@ -72,12 +76,14 @@ func nextturn():
 	for i in len(turns):
 		current = turns[i]
 		if turns[i].ally == false:
+			
 			#print(turns[i].membername + "'s turn")
 			turns[i].action = load(ACTIONS.actions[0])
 			calculate(turns[i], playerparty.members[1])
 		else:
 			UI.loadskills(turns[i].ID)
-			buttonattack.disabled = false
+			UI.setmainbuttons(false)
+			UI.setskillbuttons(false)
 			#print(turns[i].membername + "'s turn")
 			buttonattack.grab_focus()
 			await playeractionselected
@@ -85,6 +91,14 @@ func nextturn():
 
 func calculate(attacker, target):
 	if attacker.action.isattack == true:
+		if attacker.action.isspecial == true:
+			var damage = attacker.curshine/50 * (attacker.stats["str"] * attacker.action.power) - target.curshine/50 * target.stats["def"]
+			damage += randi_range(-2, 2)
+			if damage < 0:
+				damage = 1
+			nextdamage = damage
+			
+			
 		var damage = (((attacker.curshine/50 * attacker.stats["str"]) - (target.curshine/50 * target.stats["def"]))) * attacker.action.power
 		damage += randi_range(-2, 2)
 		if damage < 0:
@@ -94,10 +108,16 @@ func calculate(attacker, target):
 		if target.ally == true:
 			UI.sethplabel(target.ID, target.curhp)
 		print(nextdamage)
+	elif attacker.action.ischeer == true:
+		print("cheer")
+		playerparty.members[0].restoreshine(attacker.action.cheervalue)
+		playerparty.members[1].restoreshine(attacker.action.cheervalue)
+		UI.setshine(0, playerparty.members[0].curshine)
+		UI.setshine(1, playerparty.members[1].curshine)
 
 
 func _on_attack_pressed() -> void:
-	buttonattack.disabled = true
+	UI.setmainbuttons(true)
 	enemyfocused = true
 	enemyparty.grabfocus(0)
 	current.action = load(ACTIONS.actions[0])
@@ -110,4 +130,41 @@ func transition_to_overworld() -> void:
 
 
 func _on_skill_pressed() -> void:
-	UI
+	UI.skillmenu.show()
+	UI.setmainbuttons(true)
+	buttonattack.disabled = true
+	buttonskill1.grab_focus()
+
+
+func _on_buttonskill_1_pressed() -> void:
+	UI.setskillbuttons(true)
+	
+	enemyfocused = true
+	UI.skillmenu.hide()
+	enemyparty.grabfocus(0)
+	current.action = UI.skill1
+	buttonskill1.release_focus()
+
+
+func _on_skill_2_pressed() -> void:
+	UI.setskillbuttons(true)
+	if UI.skill2.targetallyparty == true:
+		current.action = UI.skill2
+		calculate(current, current)
+		emit_signal("playeractionselected")
+		
+	
+	UI.skillmenu.hide()
+	current.action = UI.skill2
+	buttonskill2.release_focus()
+
+
+
+
+func _on_skill_3_pressed() -> void:
+	UI.setskillbuttons(true)
+	current.action = UI.skill3
+	for i in len(enemyparty.members):
+		calculate(current, enemyparty.members[i])
+	UI.skillmenu.hide()
+	buttonskill3.release_focus()

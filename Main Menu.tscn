@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dakw1wayutgnm"]
+[gd_scene load_steps=3 format=3 uid="uid://dakw1wayutgnm"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_1mmhn"]
+[ext_resource type="PackedScene" uid="uid://ymg74ooobovl" path="res://misc/scene changer/scene_changer.tscn" id="2_vxjqa"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -62,6 +63,9 @@ text = "Credits"
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Quit"
+
+[node name="SceneChanger" parent="." node_paths=PackedStringArray("AnimPlayer") instance=ExtResource("2_vxjqa")]
+AnimPlayer = NodePath("AnimationPlayer")
 
 [connection signal="pressed" from="Button_Container/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Button_Container/Options" to="." method="_on_options_pressed"]

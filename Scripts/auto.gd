@@ -5,6 +5,13 @@ var effect = 1
 # Scene Variable
 var current_scene = null
 
+var overworld_characters : Array[PlayerCharacter] = []
+
+func initialize_characters() -> void:
+	# TODO: Init players
+	pass
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var root = get_tree().root
@@ -33,3 +40,19 @@ func _deferred_goto_scene(path):
 	get_tree().root.add_child(current_scene)
 	# Optionally, to make it compatible with the SceneTree.change_scene_to_file() API.
 	get_tree().current_scene = current_scene
+	
+
+
+func transition_to_battle(battle_with_who : Array[EnemyCharacter], triggered_by : EnemyCharacter) -> void:
+	
+	# TODO: show the dialogue box
+	# TODO: go from overworld to battle scene
+	pass
+	
+func transition_to_overworld(data_from_battle : Dictionary) -> void:
+	
+	# TODO: Transition from battle to overworld
+	get_tree().change_scene_to_file("res://overworld/overworld_level.tscn")
+	
+	pass
+	

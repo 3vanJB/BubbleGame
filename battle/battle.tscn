@@ -19,6 +19,9 @@ position = Vector2(490, 249)
 
 [node name="UI" parent="." instance=ExtResource("2_n1p0q")]
 
+[node name="special" parent="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer" index="2"]
+visible = false
+
 [node name="Teleport Bubbles" type="Node" parent="."]
 
 [node name="BubbleSpawnTimer" type="Timer" parent="."]
@@ -26,6 +29,9 @@ wait_time = 2.0
 
 [connection signal="pressed" from="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer/attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer/skill" to="." method="_on_skill_pressed"]
+[connection signal="pressed" from="UI/skillmenu/PanelContainer/VBoxContainer/HBoxContainer/Buttonskill1" to="." method="_on_buttonskill_1_pressed"]
+[connection signal="pressed" from="UI/skillmenu/PanelContainer/VBoxContainer/HBoxContainer2/skill2" to="." method="_on_skill_2_pressed"]
+[connection signal="pressed" from="UI/skillmenu/PanelContainer/VBoxContainer/HBoxContainer2/skill3" to="." method="_on_skill_3_pressed"]
 [connection signal="timeout" from="BubbleSpawnTimer" to="." method="_on_bubble_spawn_timer_timeout"]
 
 [editable path="UI"]
