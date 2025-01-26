@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dacd5nfekvjfj"]
+[gd_scene load_steps=4 format=3 uid="uid://dacd5nfekvjfj"]
 
 [ext_resource type="Script" path="res://Scripts/options.gd" id="1_lm2me"]
 [ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="2_qwrix"]
-[ext_resource type="AudioStream" uid="uid://5hp5v3oidvmg" path="res://SFX/Bubbles SFX Batch 1/UI/SFX_UI_Hover.wav" id="3_tfxwl"]
-[ext_resource type="AudioStream" uid="uid://do7tea3e0hi0b" path="res://SFX/Bubbles SFX Batch 1/UI/SFX_UI_Confirm.wav" id="4_ut1l4"]
+[ext_resource type="Theme" uid="uid://banc6367nyh15" path="res://battle/battleui/ui.tres" id="3_c8pad"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -90,38 +89,32 @@ theme_override_fonts/normal_font = ExtResource("2_qwrix")
 theme_override_font_sizes/normal_font_size = 80
 text = "Options"
 
-[node name="Button Container" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 279.0
-offset_top = 213.0
-offset_right = 535.0
-offset_bottom = 290.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 285.0
+offset_top = 169.0
+offset_right = 555.0
+offset_bottom = 288.0
 theme_override_constants/separation = 20
 
-[node name="Exit" type="Button" parent="Button Container"]
+[node name="Exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_c8pad")
 theme_override_fonts/font = ExtResource("2_qwrix")
 theme_override_font_sizes/font_size = 50
 text = "Exit"
 
-[node name="Quit" type="Button" parent="Button Container"]
+[node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_c8pad")
 theme_override_fonts/font = ExtResource("2_qwrix")
 theme_override_font_sizes/font_size = 50
 text = "Quit
 "
 
-[node name="SFX_Hover" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_tfxwl")
-bus = &"Effects"
-
-[node name="SFX_Click" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_ut1l4")
-bus = &"Effects"
-
 [connection signal="value_changed" from="Slider Container/Master Slider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Slider Container/Master Slider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="Slider Container/Music Slider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Slider Container/Sfx Slider" to="." method="_on_sfx_slider_value_changed"]
-[connection signal="pressed" from="Button Container/Exit" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="Button Container/Quit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_exit_pressed"]
