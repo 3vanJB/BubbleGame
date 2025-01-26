@@ -2,7 +2,7 @@ extends Node
 
 #TODO:
 ##Barrage (Celestial Storm) special
-##Aimshot (Prism something?) reg skill
+##Aimshot (Neon Prism) reg skill
 ##Peptalk (Cheer?) shine up for party
 ##Barrier? (experimental idea/version of defending) negates damage once
 #Nihilistic Light (Annihilation Beam) special attack?

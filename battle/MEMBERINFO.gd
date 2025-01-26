@@ -36,15 +36,15 @@ var members = {
 	4:{
 		#purp bubble
 		"name":"Jittering Eye Man",
-		"stats":{ "hp":30, "str":10, "def":5, "mgk":6, "mgkdef":3, "spd":3},
+		"stats":{ "hp":20, "str":8, "def":10, "mgk":8, "mgkdef":8, "spd":3},
 		"ally":false,
-		"sprite":"res://battle/enemyanimations/jubjub.tscn"},
+		"sprite":"res://battle/enemyanimations/eyeman.tscn"},
 	5:{
 		#cyan
-		"name":"Divine Euenice",
-		"stats":{ "hp":30, "str":10, "def":5, "mgk":6, "mgkdef":3, "spd":3},
+		"name":"Divine Eunice",
+		"stats":{ "hp":25, "str":10, "def":8, "mgk":20, "mgkdef":15, "spd":3},
 		"ally":false,
-		"sprite":"res://battle/enemyanimations/jubjub.tscn"}
+		"sprite":"res://battle/enemyanimations/eunice.tscn"}
 }
 
 func getmemberstats(ID):
@@ -54,7 +54,7 @@ func getmember(ID):
 
 
 var echips = {
-	0:[2, 3]
+	0:[4, 3]
 }
 
 
