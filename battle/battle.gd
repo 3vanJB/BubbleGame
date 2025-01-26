@@ -1,6 +1,8 @@
 extends Node2D
 #
 var m = preload("res://battle/battlemember.tscn")
+var hoversound = preload("res://SFX/Bubbles SFX Batch 1/UI/SFX_UI_Hover.wav")
+var confirmsound = preload("res://SFX/Bubbles SFX Batch 1/UI/SFX_UI_Confirm.wav")
 @onready var playerparty = $playerparty
 @onready var enemyparty = $enemyparty
 @onready var UI = $UI
@@ -73,9 +75,12 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_cancel"):
 			enemyfocused = false
 			buttonattack.grab_focus()
+			UI.nameh.hide()
 			UI.setmainbuttons(false)
 			enemyparty.endfocus()
 		if Input.is_action_just_pressed("ui_accept"):
+			Audio.playeffect(confirmsound)
+			await get_tree().create_timer(0.1).timeout
 			enemyfocused = false
 			print("current.membernamepressed")
 			UI.settargettext(current.membername)
@@ -102,6 +107,8 @@ func _process(delta: float) -> void:
 			UI.setmainbuttons(false)
 			playerparty.endfocus()
 		if Input.is_action_just_pressed("ui_accept"):
+			Audio.playeffect(confirmsound)
+			await get_tree().create_timer(0.1).timeout
 			partyfocused = false
 			print(current.membername)
 			UI.settargettext(current.membername)
@@ -201,7 +208,7 @@ func calculate(attacker, target):
 func _on_attack_pressed() -> void:
 	UI.setmainbuttons(true)
 	enemyfocused = true
-	
+	Audio.playeffect(confirmsound)
 	enemyparty.grabfocus(0)
 	current.action = load(ACTIONS.actions[0])
 	UI.settargettext(enemyparty.members[enemyparty.cursor].membername)
@@ -221,6 +228,8 @@ func _on_skill_pressed() -> void:
 
 
 func _on_buttonskill_1_pressed() -> void:
+	Audio.playeffect(confirmsound)
+	await get_tree().create_timer(0.1).timeout
 	UI.setskillbuttons(true)
 	UI.skillmenu.hide()
 	current.action = UI.skill1
@@ -250,6 +259,8 @@ func _on_buttonskill_1_pressed() -> void:
 
 
 func _on_skill_2_pressed() -> void:
+	Audio.playeffect(confirmsound)
+	await get_tree().create_timer(0.1).timeout
 	UI.setskillbuttons(true)
 	UI.skillmenu.hide()
 	if UI.skill2.targetallyparty == true:
@@ -279,6 +290,8 @@ func _on_skill_2_pressed() -> void:
 
 
 func _on_skill_3_pressed() -> void:
+	Audio.playeffect(confirmsound)
+	await get_tree().create_timer(0.1).timeout
 	UI.setskillbuttons(true)
 	UI.skillmenu.hide()
 	print(UI.skill3.actionname +"skill3")
