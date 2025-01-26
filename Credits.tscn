@@ -22,6 +22,7 @@ offset_bottom = 387.0
 color = Color(0.00469283, 0.0720111, 0.0921138, 1)
 
 [node name="CreditBoard2" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = -575.0
 offset_top = -264.0
 offset_right = 399.0
@@ -84,4 +85,5 @@ stream = ExtResource("3_56f80")
 [node name="Camera2D" type="Camera2D" parent="."]
 metadata/_edit_lock_ = true
 
+[connection signal="mouse_entered" from="Exit" to="." method="_on_exit_mouse_entered"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

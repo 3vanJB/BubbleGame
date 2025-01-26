@@ -24,10 +24,12 @@ position = Vector2(490, 249)
 
 [node name="attack" parent="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer" index="0"]
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 
 [node name="skill" parent="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer" index="1"]
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 
 [node name="special" parent="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer" index="2"]
@@ -69,9 +71,9 @@ metadata/_edit_lock_ = true
 
 [node name="Buttonskill1" parent="UI/skillmenu/PanelContainer/VBoxContainer/HBoxContainer" index="0"]
 custom_minimum_size = Vector2(250, 72)
-theme_override_colors/font_color = Color(0.624514, 0.707328, 0.89147, 1)
-theme_override_colors/font_outline_color = Color(0.368658, 0.204272, 0.788752, 1)
-theme_override_constants/outline_size = 8
+theme_override_colors/font_color = Color(0.947199, 0.947199, 0.947199, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("6_pa5ik")
 theme_override_font_sizes/font_size = 25
 
 [node name="skill2" parent="UI/skillmenu/PanelContainer/VBoxContainer/HBoxContainer2" index="0"]
