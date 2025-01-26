@@ -1,0 +1,18 @@
+join Rose right
+Rose: Whew! Aren't you excited? It's our first mission together.
+leave Rose
+join Yoru right
+Yoru: Yes. Totally thrilled.
+leave Yoru
+join Rose right
+Rose: Oh come on, Ru, you can do better than that. 
+leave Rose
+join Yoru right
+Yoru: I just wanna get back in time to catch the next episode of Two Piece.
+leave Yoru
+join Rose right
+Rose: That show again? Doesn't it have over 2000 episodes?
+leave Rose
+join Yoru right
+Yoru: Whatever. Let's get moving.
+leave Yoru
