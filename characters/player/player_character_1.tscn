@@ -1,25 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bscujqsdl8afs"]
+[gd_scene load_steps=3 format=3 uid="uid://bscujqsdl8afs"]
 
 [ext_resource type="Script" path="res://characters/player/player_character.gd" id="1_ls565"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_s3auw"]
-size = Vector2(20, 30)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w7do5"]
 
 [node name="PlayerCharacter1" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 collision_layer = 5
 collision_mask = 7
-platform_floor_layers = 4294967294
-platform_wall_layers = 1
 script = ExtResource("1_ls565")
 sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_s3auw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_w7do5")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)

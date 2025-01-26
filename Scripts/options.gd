@@ -15,7 +15,7 @@ func _ready() -> void:
 func _on_exit_pressed() -> void:
 	if get_tree().current_scene.name == "option_scene":
 		#Auto.goto_scene("res://Main Menu.tscn")
-		$"res://misc/scene changer/scene_changer.gd".start_transition("res://Main Menu.tscn")
+		$SceneChanger.start_transition("res://Main Menu.tscn")
 	else:
 		visible = false
 		#print(get_tree().current_scene.name)
