@@ -39,7 +39,7 @@ func exitbattle():
 
 func transition_to_battle(echip, istext) -> void:
 	var n = b.instantiate()
-	n.echip = 0
+	n.echip = echip
 	n.name = "battle"
 	n.intext = istext
 	$PlayerCharacter1.frozen = true
@@ -103,7 +103,7 @@ func _on_bosstrigger_body_entered(body: Node2D) -> void:
 		$PlayerCharacter1.frozen = true
 		Dialogic.start("preboss")
 		await Dialogic.timeline_ended
-		transition_to_battle(1,true)
+		transition_to_battle(1,false)
 		$bosstrigger.queue_free()
 		#await $battle.battleend
 		#exitbattle()
