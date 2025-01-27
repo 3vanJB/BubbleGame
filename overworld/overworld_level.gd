@@ -47,7 +47,7 @@ func _on_timeline_ended() -> void:
 	await Changer.AnimPlayer.animation_finished
 	add_child(n)
 	$TileMapLayer.hide()
-	$TileMapLayer2.hide()
+	#$TileMapLayer2.hide()
 	$PlayerCharacter1.hide()
 	Changer.AnimPlayer.play("fadeout")
 
