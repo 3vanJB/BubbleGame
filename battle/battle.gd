@@ -6,7 +6,7 @@ var confirmsound = preload("res://SFX/Bubbles SFX Batch 1/UI/SFX_UI_Confirm.wav"
 @onready var playerparty = $playerparty
 @onready var enemyparty = $enemyparty
 @onready var UI = $UI
-@export var echip : int = 0
+@export var echip : int 
 @onready var skillbutton = $UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer/skill
 @onready var buttonattack = $UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer/attack
 @onready var buttonskill1 = $UI/skillmenu/PanelContainer/VBoxContainer/HBoxContainer/Buttonskill1
@@ -20,6 +20,7 @@ var nextdamage : int
 var last_overworld_locations : Dictionary # THIS is for when going back to overworld. To know where we are going to spawn the characters back to
 
 signal playeractionselected
+
 var turns = []
 var current
 var intext = false
@@ -27,6 +28,8 @@ var intext = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if echip == null:
+		echip = 0
 	Audio.switchtotrack(2)
 	Audio.music.play()
 	$Camera2D.make_current()
@@ -74,7 +77,9 @@ func endbattle():
 	Changer.AnimPlayer.play("fadein")
 	await Changer.AnimPlayer.animation_finished
 	Changer.AnimPlayer.play("fadeout")
+	get_parent().emit_signal("battleend")
 	self.queue_free()
+	
 
 
 func _process(delta: float) -> void:

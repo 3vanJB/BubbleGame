@@ -1093,7 +1093,7 @@ tile_set = SubResource("TileSet_hsdwm")
 use_kinematic_bodies = true
 
 [node name="PlayerCharacter1" parent="." groups=["controller"] instance=ExtResource("3_xsmx7")]
-position = Vector2(-30, -472)
+position = Vector2(293, -904)
 
 [node name="Enemy Trigger" type="Area2D" parent="."]
 position = Vector2(91, -433)
@@ -1113,6 +1113,9 @@ position = Vector2(295, -945)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bosstrigger"]
 shape = SubResource("RectangleShape2D_5c7ip")
 
+[connection signal="battleend" from="." to="." method="_on_battleend"]
 [connection signal="timeout" from="BubbleSpawnTimer" to="." method="_on_bubble_spawn_timer_timeout"]
 [connection signal="body_entered" from="Enemy Trigger" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="bosstrigger" to="." method="_on_bosstrigger_body_entered"]
+
+[editable path="PlayerCharacter1"]

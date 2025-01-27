@@ -7,6 +7,9 @@ var current_scene = null
 var bIsInOverworld : bool = true
 var overworld_characters : Array[PlayerCharacter] = []  # gets initialized by playercharacter
 
+#NOTE:
+##This script essentially does nothing don't worry about it
+
 func init_characters() -> void:
 	overworld_characters[0].bIsBeingControlled = true
 	overworld_characters[0].bIsBeingControlled = false

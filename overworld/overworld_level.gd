@@ -3,14 +3,14 @@ extends Node2D
 var b = preload("res://battle/battle.tscn")
 var current_character_controlled_index : int = 0
 # var player_characters : Array[PlayerCharacter] = []
-
-
+var battle
+signal battleend
 func _ready() -> void:
 	
 	Audio.switchtotrack(1)
 	Dialogic.timeline_ended.connect(_on_entrance_ended)
 	$PlayerCharacter1.frozen = true
-	Dialogic.start("First Entrance")	
+	Dialogic.start("First Entrance")
 
 func _on_entrance_ended() -> void:
 	Dialogic.timeline_ended.disconnect(_on_entrance_ended)
@@ -30,37 +30,43 @@ func spawn_new_bubble() -> void:
 func _on_bubble_spawn_timer_timeout() -> void:
 	spawn_new_bubble()
 
+func exitbattle():
+	Audio.music.stream = load(Audio.tracks[1])
+	Audio.music.play()
+	$PlayerCharacter1.frozen = false
+	$PlayerCharacter1/Camera2D.make_current()
 
 
-
-func transition_to_battle(echip) -> void:
+func transition_to_battle(echip, istext) -> void:
 	var n = b.instantiate()
 	n.echip = 0
+	n.name = "battle"
+	n.intext = istext
 	$PlayerCharacter1.frozen = true
 	Changer.AnimPlayer.play("fadein")
 	await Changer.AnimPlayer.animation_finished
 	add_child(n)
-	$TileMapLayer.hide()
-	#$TileMapLayer2.hide()
-	$PlayerCharacter1.hide()
+	#$TileMapLayer.hide()
+	##$TileMapLayer2.hide()
+	#$PlayerCharacter1.hide()
 	Changer.AnimPlayer.play("fadeout")
 	await Changer.AnimPlayer.animation_finished
-	
+	battle = $battle
 
 func _on_timeline_ended() -> void:
-	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
-	var n = b.instantiate()
-	n.echip = 0
-	$PlayerCharacter1.frozen = true
-	Changer.AnimPlayer.play("fadein")
-	await Changer.AnimPlayer.animation_finished
-	add_child(n)
-	$TileMapLayer.hide()
-	#$TileMapLayer2.hide()
-	$PlayerCharacter1.hide()
-	Changer.AnimPlayer.play("fadeout")
-	await Changer.AnimPlayer.animation_finished
-	
+	#Dialogic.timeline_ended.disconnect(_on_timeline_ended)
+	#var n = b.instantiate()
+	#n.echip = 0
+	#$PlayerCharacter1.frozen = true
+	#Changer.AnimPlayer.play("fadein")
+	#await Changer.AnimPlayer.animation_finished
+	#add_child(n)
+	#$TileMapLayer.hide()
+	##$TileMapLayer2.hide()
+	#$PlayerCharacter1.hide()
+	#Changer.AnimPlayer.play("fadeout")
+	#await Changer.AnimPlayer.animation_finished
+	pass
 
 func _input(event: InputEvent) -> void:
 	#if event.is_action_pressed("Escape"):
@@ -75,22 +81,33 @@ func get_random_location_around_one_player() -> Vector2:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("reg")
 	if body.is_in_group("controller"):
 		#Dialogic.timeline_ended.connect(_on_timeline_ended)
 		$PlayerCharacter1.frozen = true
 		Dialogic.start("Pre Battle 1")
 		await Dialogic.timeline_ended
-		transition_to_battle(0)
+		transition_to_battle(0, true)
 		Dialogic.start("Battle 1")
 		$"Enemy Trigger".queue_free()
+		#await battleend
+		
 
 
 
 func _on_bosstrigger_body_entered(body: Node2D) -> void:
+	
 	if body.is_in_group("controller"):
+		print("boss")
 		Dialogic.timeline_ended.connect(_on_timeline_ended)
 		$PlayerCharacter1.frozen = true
 		Dialogic.start("preboss")
 		await Dialogic.timeline_ended
-		transition_to_battle(1)
+		transition_to_battle(1,true)
 		$bosstrigger.queue_free()
+		#await $battle.battleend
+		#exitbattle()
+
+
+func _on_battleend() -> void:
+	exitbattle()
