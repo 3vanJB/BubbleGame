@@ -208,7 +208,6 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 theme = ExtResource("2_8i88d")
-theme_override_colors/font_color = Color(0.6142, 0.737128, 0.951799, 1)
 text = "skill1"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="skillmenu/PanelContainer/VBoxContainer"]
