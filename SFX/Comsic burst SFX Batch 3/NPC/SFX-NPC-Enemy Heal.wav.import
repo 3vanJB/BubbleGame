@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dcdwv58at1kw3"
+path="res://.godot/imported/SFX-NPC-Enemy Heal.wav-654566c648a853e9ff1b6d54e59c2d41.sample"
+
+[deps]
+
+source_file="res://SFX/Comsic burst SFX Batch 3/NPC/SFX-NPC-Enemy Heal.wav"
+dest_files=["res://.godot/imported/SFX-NPC-Enemy Heal.wav-654566c648a853e9ff1b6d54e59c2d41.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

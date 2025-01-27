@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cvyq3rmbavx6m"
+path="res://.godot/imported/SFX_Player_Barrier.wav-1bad4d4c73983d389f3c0a6a4d0d85e8.sample"
+
+[deps]
+
+source_file="res://SFX/Bubbles SFX Batch 2/SFX_Player_Barrier.wav"
+dest_files=["res://.godot/imported/SFX_Player_Barrier.wav-1bad4d4c73983d389f3c0a6a4d0d85e8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

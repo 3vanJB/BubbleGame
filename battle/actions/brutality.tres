@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BattleAction" load_steps=2 format=3 uid="uid://7ufuxnhg76ep"]
+[gd_resource type="Resource" script_class="BattleAction" load_steps=2 format=3 uid="uid://dp7lis3xlq8u3"]
 
 [ext_resource type="Script" path="res://battle/actions/battleaction.gd" id="1_r08t8"]
 
@@ -17,4 +17,4 @@ targetallyparty = false
 targetenemyparty = false
 isspecial = false
 isheal = false
-heal = 0
+soundpath = "res://SFX/Comsic burst SFX Batch 3/NPC/SFX-NPC-Boss Basic Attack.wav"

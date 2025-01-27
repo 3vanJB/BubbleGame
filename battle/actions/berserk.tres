@@ -17,4 +17,4 @@ targetallyparty = false
 targetenemyparty = true
 isspecial = false
 isheal = false
-heal = 0
+soundpath = "res://SFX/Comsic burst SFX Batch 3/NPC/SFX-NPC-Boss Basic Attack.wav"

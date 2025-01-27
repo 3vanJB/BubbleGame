@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BattleAction" load_steps=2 format=3 uid="uid://rvwyikkibunj"]
+[gd_resource type="Resource" script_class="BattleAction" load_steps=2 format=3 uid="uid://dats16l7oyuue"]
 
 [ext_resource type="Script" path="res://battle/actions/battleaction.gd" id="1_4e1ph"]
 
@@ -17,4 +17,4 @@ targetallyparty = false
 targetenemyparty = false
 isspecial = false
 isheal = true
-heal = 0
+soundpath = "res://SFX/Comsic burst SFX Batch 3/NPC/SFX-NPC-Enemy Heal.wav"
