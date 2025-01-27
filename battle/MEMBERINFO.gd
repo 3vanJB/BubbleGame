@@ -53,7 +53,8 @@ func getmember(ID):
 
 
 var echips = {
-	0:[4, 3]
+	0:[4, 3],
+
 }
 
 
