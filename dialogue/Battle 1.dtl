@@ -8,7 +8,6 @@ join Rose right
 Rose: A refresher never hurt anyone. Pop quiz, what do Oracles do in battle?
 leave Rose
 join Yoru right
-Yoru: ... 
 Yoru: We pop the bubbles.
 leave Yoru
 join Rose right
@@ -18,19 +17,6 @@ join Yoru right
 Yoru: Dealing Shine damage limits the power it can draw from it's emotions.
 leave Yoru
 join Rose right
-Rose: And if you deal enough Shine damage, the bubble thingy floating next to the Outburst.
-leave Rose
-join Yoru right
-Yoru: The vacuole you mean.
-leave Yoru
-join Rose right
-Rose: Um, yes, the vacuole. It will break and the Outburst will take lots of regular damage.
+Rose: And if you deal enough Shine damage, the vacuole will break and the Outburst will take lots of regular damage.
 Rose: I, on the other hand, deal regular damage using my weapon! Much simpler. 
 leave Rose
-join Yoru right
-Yoru: You can help me finish off targets. But the credit will still go to me. 
-leave Yoru
-join Rose right
-Rose: You wish! Hehe. 
-leave Rose
-
