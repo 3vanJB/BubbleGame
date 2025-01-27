@@ -1,5 +1,6 @@
 extends Node2D
 
+var pause = preload("res://Options_UI.tscn")
 var b = preload("res://battle/battle.tscn") # Access battle library of encounters
 var current_character_controlled_index : int = 0
 var enemy_dead = 0
@@ -8,11 +9,12 @@ var enemy_dead = 0
 var battle
 signal battleend
 func _ready() -> void:
-	
+	#process_mode = Node.PROCESS_MODE_PAUSABLE
 	Audio.switchtotrack(1)
 	Dialogic.timeline_ended.connect(_on_entrance_ended)
 	$PlayerCharacter1.frozen = true
-	Dialogic.start("First Entrance")
+	#Dialogic.start("First Entrance")
+	Dialogic.start("Post Battle 1")
 	if enemy_dead == 3:
 		$Gate.visible = false
 
@@ -73,9 +75,10 @@ func _on_timeline_ended() -> void:
 	pass
 
 func _input(event: InputEvent) -> void:
-	#if event.is_action_pressed("Escape"):
-		#$SceneChanger.start_transition("res://Options_UI.tscn")
-	pass
+	if event.is_action_pressed("Escape"):
+		#$PlayerCharacter1.frozen = true
+		#pause.instantiate()
+		pass
 
 func get_random_location_around_one_player() -> Vector2:
 	var character : PlayerCharacter = Auto.overworld_characters.pick_random()
@@ -89,9 +92,10 @@ func _on_bosstrigger_body_entered(body: Node2D) -> void:
 		print("boss")
 		Dialogic.timeline_ended.connect(_on_timeline_ended)
 		$PlayerCharacter1.frozen = true
-		Dialogic.start("preboss")
+		Dialogic.start("Post Battle 3")
 		await Dialogic.timeline_ended
 		transition_to_battle(1,false)
+		#Dialogic.start("") 
 		$bosstrigger.queue_free()
 		#await $battle.battleend
 		#exitbattle()
@@ -112,7 +116,7 @@ func _on_enemy_trigger_2_body_entered(body: Node2D) -> void:
 		Dialogic.start("Pre Battle 2")
 		await Dialogic.timeline_ended
 		transition_to_battle(0, true)
-		Dialogic.start("")
+		Dialogic.start("Battle_2_Gamejam")
 		enemy_dead += 1
 		#Dealing with multiple instances of different Enemy Trigger
 		#Because I'm too lazy to make another function.
@@ -140,9 +144,46 @@ func _on_enemy_trigger_3_body_entered(body: Node2D) -> void:
 		Dialogic.start("Pre Battle 3")
 		await Dialogic.timeline_ended
 		transition_to_battle(0, true)
-		Dialogic.start("Post Battle 1")
+		Dialogic.start("Battle 3_Gamejam")
 		enemy_dead += 1 
 		#Dealing with multiple instances of different Enemy Trigger
 		#Because I'm too lazy to make another function.
 		$"Enemy Trigger3".queue_free()
 		#await battleend
+
+#Dialogue triggers
+func _on_diaglogue_boss_body_entered(body: Node2D) -> void:
+	if body.is_in_group("controller"):
+		print("boss")
+		$PlayerCharacter1.frozen = true
+		Dialogic.start("Pre Boss Corridor")
+		await Dialogic.timeline_ended 
+		$PlayerCharacter1.frozen = false
+		$Diaglogue_Boss.hide()
+func _on_dialogue_g_body_entered(body: Node2D) -> void:
+	if body.is_in_group("controller"):
+		print("Gate")
+		$PlayerCharacter1.frozen = true
+		Dialogic.start("Gate")
+		$Dialogue_G.hide()
+func _on_dialogue_c_body_entered(body: Node2D) -> void:
+	if body.is_in_group("controller"):
+		print("Corridor")
+		$PlayerCharacter1.frozen = true
+		Dialogic.start("Pre Battle 2 Corridor")
+		await Dialogic.timeline_ended 
+		$PlayerCharacter1.frozen = false 
+		$Dialogue_C.hide()
+func _on_dialogue_2_nd_body_entered(body: Node2D) -> void:
+	if body.is_in_group("controller"):
+		print("Hidden")
+		$PlayerCharacter1.frozen = true
+		Dialogic.start("Pre Battle 2 Corridor") 
+		await Dialogic.timeline_ended 
+		$PlayerCharacter1.frozen = false
+		$Dialogue_2nd.hide()
+
+func _on_exit_body_entered(body: Node2D) -> void:
+	if body.is_in_group("controller"):
+		print("Game Complete")
+		get_tree().change_scene_to_file("res://Finale.tscn") 

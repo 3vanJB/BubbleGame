@@ -20,7 +20,7 @@ func _on_exit_pressed() -> void:
 		#print(get_tree().current_scene.name)
 	else:
 		Audio.playeffect(confirmsound)
-		visible = false
+		queue_free()
 		#print(get_tree().current_scene.name)
 
 func _on_music_slider_value_changed(value: float) -> void:
