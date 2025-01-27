@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://banc6367nyh15" path="res://battle/battleui/ui.tres" id="3_q4utv"]
 
 [node name="Credits" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,7 +47,7 @@ offset_right = 179.0
 offset_bottom = -214.0
 theme_override_fonts/normal_font = ExtResource("2_pdyfr")
 theme_override_font_sizes/normal_font_size = 40
-text = "Comisc's Credits"
+text = "Cosmic's Credits"
 
 [node name="Credit_text" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -56,18 +57,18 @@ offset_right = 554.0
 offset_bottom = 310.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 30
-text = "Important People of Grief Team
-* Frisk Narrative Director, Co-Visual Artist, UI Design
-* Tara Lead Visual Director
-* Chris Sound Designer
-* Mabon Team Management and Composer
+text = "Important People of Grief Team:
+* Frisk: Narrative Director, Co-Visual Artist, UI Design
+* Tara: Lead Visual Director
+* Chris: Sound Designer
+* Mabon: Team Management and Composer
 
-Programers
-* Will UI, Options, Menu
-* Evan Combat 
-* Ena Dialogue and Overworld
-* Nick AI
-* Pouya Game Designer and Programmer and Level Designer
+Programers:
+* Will: UI, Options, Menu
+* Evan: Combat/Enemies, Battle UI , Transitions
+* Ena: Dialogue and Overworld
+* Nick: AI
+* Pouya: Game Designer and Programmer and Level Designer
 "
 
 [node name="Exit" type="Button" parent="."]

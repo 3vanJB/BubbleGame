@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b4c6wrj4jhvoj" path="res://Game_Icon.png" id="5_s4fnl"]
 
 [node name="Options" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

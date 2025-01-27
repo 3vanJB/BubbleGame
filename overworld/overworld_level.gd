@@ -54,8 +54,9 @@ func _on_timeline_ended() -> void:
 	Dialogic.start("Battle 1")
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Escape"):
-		$SceneChanger.start_transition("res://Options_UI.tscn")
+	#if event.is_action_pressed("Escape"):
+		#$SceneChanger.start_transition("res://Options_UI.tscn")
+	pass
 
 func get_random_location_around_one_player() -> Vector2:
 	var character : PlayerCharacter = Auto.overworld_characters.pick_random()
