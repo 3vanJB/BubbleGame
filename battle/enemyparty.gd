@@ -7,6 +7,8 @@ var cursor
 func _ready() -> void:
 	pass # Replace with function body.
 
+var dcount = 0
+var mcount
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -38,4 +40,5 @@ func removefromarray():
 	for i in len(members):
 		if members[i].isko == true:
 			members.remove_at(i)
+			
 			return

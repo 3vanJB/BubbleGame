@@ -58,9 +58,11 @@ func heal(value):
 
 func ko():
 	isko = true
-	$AnimationPlayer.play("death")
-	await $AnimationPlayer.animation_finished
-	get_parent().removefromarray()
+	if ally == false:
+		$AnimationPlayer.play("death")
+		await $AnimationPlayer.animation_finished
+		get_parent().removefromarray()
+		
 
 
 
