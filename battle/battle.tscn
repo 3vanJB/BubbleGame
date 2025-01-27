@@ -13,6 +13,16 @@
 position = Vector2(0, 1)
 script = ExtResource("1_f8ab6")
 
+[node name="EnemyBgScaled4xPngcrushed" type="Sprite2D" parent="."]
+position = Vector2(574, 322.5)
+scale = Vector2(1, 1.00772)
+texture = ExtResource("7_emhce")
+
+[node name="EnemyBgBorderScaled4xPngcrushed" type="Sprite2D" parent="."]
+position = Vector2(576.5, 313.5)
+scale = Vector2(1.0026, 1.00154)
+texture = ExtResource("8_ep7xb")
+
 [node name="playerparty" type="Node2D" parent="."]
 script = ExtResource("2_ehidm")
 
@@ -99,16 +109,6 @@ wait_time = 2.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
-
-[node name="EnemyBgScaled4xPngcrushed" type="Sprite2D" parent="."]
-position = Vector2(574, 322.5)
-scale = Vector2(1, 1.00772)
-texture = ExtResource("7_emhce")
-
-[node name="EnemyBgBorderScaled4xPngcrushed" type="Sprite2D" parent="."]
-position = Vector2(576.5, 313.5)
-scale = Vector2(1.0026, 1.00154)
-texture = ExtResource("8_ep7xb")
 
 [connection signal="pressed" from="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer/attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer/skill" to="." method="_on_skill_pressed"]

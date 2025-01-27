@@ -50,6 +50,8 @@ func _on_timeline_ended() -> void:
 	#$TileMapLayer2.hide()
 	$PlayerCharacter1.hide()
 	Changer.AnimPlayer.play("fadeout")
+	await Changer.AnimPlayer.animation_finished
+	Dialogic.start("Battle 1")
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Escape"):
