@@ -76,10 +76,21 @@ func get_random_location_around_one_player() -> Vector2:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("controller"):
-		Dialogic.timeline_ended.connect(_on_timeline_ended)
+		#Dialogic.timeline_ended.connect(_on_timeline_ended)
 		$PlayerCharacter1.frozen = true
 		Dialogic.start("Pre Battle 1")
 		await Dialogic.timeline_ended
 		transition_to_battle(0)
 		Dialogic.start("Battle 1")
 		$"Enemy Trigger".queue_free()
+
+
+
+func _on_bosstrigger_body_entered(body: Node2D) -> void:
+	if body.is_in_group("controller"):
+		Dialogic.timeline_ended.connect(_on_timeline_ended)
+		$PlayerCharacter1.frozen = true
+		Dialogic.start("preboss")
+		await Dialogic.timeline_ended
+		transition_to_battle(1)
+		$bosstrigger.queue_free()

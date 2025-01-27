@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cavkjml0ecjf1"]
+[gd_scene load_steps=13 format=4 uid="uid://cavkjml0ecjf1"]
 
 [ext_resource type="Script" path="res://overworld/overworld_level.gd" id="1_1gd41"]
 [ext_resource type="Texture2D" uid="uid://ptcy8d1bk1aq" path="res://overworld/tiles/Untitled-1.png" id="2_haeeu"]
@@ -1076,6 +1076,9 @@ sources/1 = SubResource("TileSetAtlasSource_qvtxw")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5k40"]
 size = Vector2(26.5, 50)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5c7ip"]
+size = Vector2(46, 20)
+
 [node name="OverworldLevel" type="Node2D"]
 script = ExtResource("1_1gd41")
 
@@ -1104,5 +1107,12 @@ position = Vector2(389, -998.5)
 scale = Vector2(0.196429, 0.198661)
 texture = ExtResource("5_i82l8")
 
+[node name="bosstrigger" type="Area2D" parent="."]
+position = Vector2(295, -945)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bosstrigger"]
+shape = SubResource("RectangleShape2D_5c7ip")
+
 [connection signal="timeout" from="BubbleSpawnTimer" to="." method="_on_bubble_spawn_timer_timeout"]
 [connection signal="body_entered" from="Enemy Trigger" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="bosstrigger" to="." method="_on_bosstrigger_body_entered"]
