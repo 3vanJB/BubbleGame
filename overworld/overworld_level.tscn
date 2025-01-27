@@ -3243,6 +3243,7 @@ size = Vector2(26.5, 50)
 size = Vector2(67, 60)
 
 [node name="OverworldLevel" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_1gd41")
 
 [node name="BubbleSpawnTimer" type="Timer" parent="."]
@@ -3274,7 +3275,7 @@ tile_map_data = PackedByteArray("AAAdAAUAAAAUAAoAAAAdAAYAAAAUAAsAAAAeAAUAAAAVAAo
 tile_set = SubResource("TileSet_6eioa")
 
 [node name="PlayerCharacter1" parent="." groups=["controller"] instance=ExtResource("3_xsmx7")]
-position = Vector2(297, -309)
+position = Vector2(-346, -429)
 
 [node name="SpriteAnim" parent="PlayerCharacter1" index="0"]
 metadata/_edit_lock_ = true
@@ -3330,8 +3331,35 @@ shape = SubResource("RectangleShape2D_q5k40")
 modulate = Color(1, 0.63871, 0.513659, 1)
 texture = ExtResource("6_6b407")
 
-[node name="Gate" type="StaticBody2D" parent="."]
+[node name="BossGate" type="StaticBody2D" parent="."]
 position = Vector2(446, -308)
+physics_material_override = SubResource("PhysicsMaterial_quyk5")
+
+[node name="Body" type="CollisionShape2D" parent="BossGate"]
+position = Vector2(-2.5, -3)
+shape = SubResource("RectangleShape2D_pj72w")
+
+[node name="Sprite2D" type="Sprite2D" parent="BossGate"]
+modulate = Color(0.827136, 0.675304, 0.983455, 1)
+position = Vector2(-4, 0.5)
+scale = Vector2(2.5, 2.15625)
+texture = ExtResource("6_6b407")
+
+[node name="Text" type="HBoxContainer" parent="BossGate"]
+offset_left = -43.0
+offset_top = -82.0
+offset_right = 37.0
+offset_bottom = -27.0
+
+[node name="Out of" type="Label" parent="BossGate/Text"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.940918, 0.739219, 0.119756, 1)
+theme_override_fonts/font = ExtResource("10_oejaw")
+theme_override_font_sizes/font_size = 40
+text = "0/3"
+
+[node name="Gate" type="StaticBody2D" parent="."]
+position = Vector2(3, 29)
 physics_material_override = SubResource("PhysicsMaterial_quyk5")
 
 [node name="Body" type="CollisionShape2D" parent="Gate"]
@@ -3350,26 +3378,19 @@ offset_top = -82.0
 offset_right = 37.0
 offset_bottom = -27.0
 
-[node name="Requirement Text" type="Label" parent="Gate/Text"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("10_oejaw")
-theme_override_font_sizes/font_size = 50
-text = "0"
-
 [node name="Out of" type="Label" parent="Gate/Text"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.940918, 0.739219, 0.119756, 1)
 theme_override_fonts/font = ExtResource("10_oejaw")
 theme_override_font_sizes/font_size = 40
-text = "/3"
+text = "0/2"
 
 [connection signal="battleend" from="." to="." method="_on_battleend"]
 [connection signal="timeout" from="BubbleSpawnTimer" to="." method="_on_bubble_spawn_timer_timeout"]
 [connection signal="body_entered" from="bosstrigger" to="." method="_on_bosstrigger_body_entered"]
-[connection signal="body_entered" from="Enemy Trigger" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Enemy Trigger" to="." method="_on_enemy_trigger_body_entered"]
 [connection signal="body_entered" from="Enemy Trigger2" to="." method="_on_enemy_trigger_2_body_entered"]
-[connection signal="body_entered" from="Enemy Trigger3" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Enemy Trigger3" to="." method="_on_enemy_trigger_3_body_entered"]
+[connection signal="body_entered" from="Enemy Trigger3" to="." method="_on_area_2d_body_entered"]
 
 [editable path="PlayerCharacter1"]
