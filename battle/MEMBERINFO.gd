@@ -22,7 +22,8 @@ var members = {
 	2:{
 		"name":"Adeline",
 		"stats":{ "hp":100, "str":10, "def":3, "mgk":3, "mgkdef":3, "spd":3},
-		"ally":false
+		"ally":false,
+		"sprite":"res://battle/enemyanim/adeline.tscn"
 	},
 	3:{
 		#orang bubble
@@ -54,7 +55,7 @@ func getmember(ID):
 
 var echips = {
 	0:[4, 3],
-
+	1:[2]
 }
 
 

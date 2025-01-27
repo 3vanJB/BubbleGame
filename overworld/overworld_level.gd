@@ -34,9 +34,18 @@ func _on_bubble_spawn_timer_timeout() -> void:
 
 
 func transition_to_battle(echip) -> void:
-	Dialogic.timeline_ended.connect(_on_timeline_ended)
+	var n = b.instantiate()
+	n.echip = 0
 	$PlayerCharacter1.frozen = true
-	Dialogic.start("Pre Battle 1")	
+	Changer.AnimPlayer.play("fadein")
+	await Changer.AnimPlayer.animation_finished
+	add_child(n)
+	$TileMapLayer.hide()
+	#$TileMapLayer2.hide()
+	$PlayerCharacter1.hide()
+	Changer.AnimPlayer.play("fadeout")
+	await Changer.AnimPlayer.animation_finished
+	
 
 func _on_timeline_ended() -> void:
 	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
@@ -51,7 +60,7 @@ func _on_timeline_ended() -> void:
 	$PlayerCharacter1.hide()
 	Changer.AnimPlayer.play("fadeout")
 	await Changer.AnimPlayer.animation_finished
-	Dialogic.start("Battle 1")
+	
 
 func _input(event: InputEvent) -> void:
 	#if event.is_action_pressed("Escape"):
@@ -67,4 +76,10 @@ func get_random_location_around_one_player() -> Vector2:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("controller"):
+		Dialogic.timeline_ended.connect(_on_timeline_ended)
+		$PlayerCharacter1.frozen = true
+		Dialogic.start("Pre Battle 1")
+		await Dialogic.timeline_ended
 		transition_to_battle(0)
+		Dialogic.start("Battle 1")
+		$"Enemy Trigger".queue_free()

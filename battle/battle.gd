@@ -62,7 +62,7 @@ func _ready() -> void:
 	UI.setshine(0, playerparty.members[0].curshine)
 	UI.setshine(1, playerparty.members[1].curshine)
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
-		
+	
 
 func _on_timeline_ended() -> void:
 	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
