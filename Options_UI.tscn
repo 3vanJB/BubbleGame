@@ -26,12 +26,12 @@ offset_left = -575.0
 offset_top = -323.0
 offset_right = 575.0
 offset_bottom = 324.0
-color = Color(0.627451, 0.823529, 0.854902, 0.352941)
+color = Color(0.875657, 0.709617, 0.960788, 0.352941)
 metadata/_edit_lock_ = true
 
 [node name="EnemyBgBorderScaled4xPngcrushed" type="Sprite2D" parent="."]
-position = Vector2(2.50002, 3)
-scale = Vector2(0.99566, 1)
+position = Vector2(1.50005, 1.99998)
+scale = Vector2(1.01997, 1.00617)
 texture = ExtResource("2_hnjbs")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -57,10 +57,10 @@ text = "Options"
 
 [node name="Option Labels" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = -537.0
-offset_top = -134.0
-offset_right = -408.0
-offset_bottom = -4.0
+offset_left = -525.0
+offset_top = -88.0
+offset_right = -359.0
+offset_bottom = 75.0
 theme_override_constants/separation = 20
 
 [node name="Master" type="Label" parent="Option Labels"]
@@ -85,10 +85,10 @@ text = "Effects
 
 [node name="Slider Container" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = -355.0
-offset_top = -121.0
-offset_right = 51.0
-offset_bottom = 17.0
+offset_left = -343.0
+offset_top = -75.0
+offset_right = 63.0
+offset_bottom = 63.0
 tooltip_text = "Music"
 theme_override_constants/separation = 45
 
