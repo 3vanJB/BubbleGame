@@ -116,6 +116,7 @@ region_rect = Rect2(145, 26, 9, 8)
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+value = 50.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -146,6 +147,7 @@ region_rect = Rect2(145, 26, 9, 8)
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+value = 50.0
 
 [node name="textpanel" type="PanelContainer" parent="HBoxContainer"]
 visible = false

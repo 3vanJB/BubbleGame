@@ -1,10 +1,12 @@
-[gd_resource type="Theme" load_steps=13 format=3 uid="uid://banc6367nyh15"]
+[gd_resource type="Theme" load_steps=17 format=3 uid="uid://banc6367nyh15"]
 
 [ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="1_3n021"]
 [ext_resource type="Texture2D" uid="uid://667bxy5tkvvh" path="res://misc/normal.png" id="2_6h3xo"]
 [ext_resource type="Texture2D" uid="uid://cbrydktaiamus" path="res://misc/disabled.png" id="2_dg2t4"]
 [ext_resource type="Texture2D" uid="uid://bicsh830tyn65" path="res://misc/bpress.png" id="3_f08v7"]
 [ext_resource type="Texture2D" uid="uid://wie2mstx7omv" path="res://battle/battleui/panel.png" id="4_1t1a2"]
+[ext_resource type="Texture2D" uid="uid://b0w6kfne4kfte" path="res://misc/barbg.png" id="6_8abg8"]
+[ext_resource type="Texture2D" uid="uid://cttotv7rfft6k" path="res://misc/barfill.png" id="7_4cyxe"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jmhe2"]
 texture = ExtResource("2_dg2t4")
@@ -26,6 +28,15 @@ texture = ExtResource("3_f08v7")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_en67y"]
 texture = ExtResource("4_1t1a2")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g6t4e"]
+texture = ExtResource("6_8abg8")
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wng0a"]
+texture = ExtResource("7_4cyxe")
+
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_focus_color = Color(0.0980392, 0.14902, 0.52549, 1)
@@ -39,3 +50,6 @@ Button/styles/pressed = SubResource("StyleBoxTexture_4erjg")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/fonts/font = ExtResource("1_3n021")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_en67y")
+ProgressBar/fonts/font = ExtResource("1_3n021")
+ProgressBar/styles/background = SubResource("StyleBoxTexture_g6t4e")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_wng0a")

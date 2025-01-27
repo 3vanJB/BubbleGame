@@ -27,7 +27,7 @@ func setup():
 		s = s.instantiate()
 		add_child(s)
 	$ProgressBar.value = curhp
-	curshine = 25
+	curshine = 10
 
 func takedamage(value):
 	if curhp - value < 0:

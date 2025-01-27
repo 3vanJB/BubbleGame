@@ -1093,7 +1093,7 @@ tile_set = SubResource("TileSet_hsdwm")
 use_kinematic_bodies = true
 
 [node name="PlayerCharacter1" parent="." groups=["controller"] instance=ExtResource("3_xsmx7")]
-position = Vector2(293, -904)
+position = Vector2(-25, -514)
 
 [node name="Enemy Trigger" type="Area2D" parent="."]
 position = Vector2(91, -433)

@@ -159,8 +159,13 @@ func nextturn():
 	for i in len(turns):
 		
 		current = turns[i]
+		
+		
+		
+		
 		if turns[i].isko == false:
 			current.restoreshine(10)
+			
 			if turns[i].ally == false:
 				print("enemyturn")
 				#print(turns[i].membername + "'s turn")
@@ -171,6 +176,10 @@ func nextturn():
 				turns[i].action = regatk
 				calculate(turns[i], playerparty.members[1])
 			else:
+				if current.ID == 0:
+					UI.setshine(0, playerparty.members[0].curshine)
+				else:
+					UI.setshine(1, playerparty.members[1].curshine)
 				UI.loadskills(turns[i].ID)
 				UI.setmainbuttons(false)
 				UI.setskillbuttons(false)
