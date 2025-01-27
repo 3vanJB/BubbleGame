@@ -1,7 +1,9 @@
 extends Node2D
 
-var b = preload("res://battle/battle.tscn")
+var b = preload("res://battle/battle.tscn") # Access battle library of encounters
 var current_character_controlled_index : int = 0
+var enemy_dead = 0
+@onready var req = $"Gate/Text/Requirement Text"
 # var player_characters : Array[PlayerCharacter] = []
 var battle
 signal battleend
@@ -11,6 +13,8 @@ func _ready() -> void:
 	Dialogic.timeline_ended.connect(_on_entrance_ended)
 	$PlayerCharacter1.frozen = true
 	Dialogic.start("First Entrance")
+	if enemy_dead == 3:
+		$Gate.visible = false
 
 func _on_entrance_ended() -> void:
 	Dialogic.timeline_ended.disconnect(_on_entrance_ended)
@@ -38,8 +42,8 @@ func exitbattle():
 
 
 func transition_to_battle(echip, istext) -> void:
-	var n = b.instantiate()
-	n.echip = echip
+	var n = b.instantiate() #Root of borrowing
+	n.echip = echip #Dictionary Ranges 0 to 1
 	n.name = "battle"
 	n.intext = istext
 	$PlayerCharacter1.frozen = true
@@ -47,7 +51,7 @@ func transition_to_battle(echip, istext) -> void:
 	await Changer.AnimPlayer.animation_finished
 	add_child(n)
 	#$TileMapLayer.hide()
-	##$TileMapLayer2.hide()
+	#$TileMapLayer2.hide()
 	#$PlayerCharacter1.hide()
 	Changer.AnimPlayer.play("fadeout")
 	await Changer.AnimPlayer.animation_finished
@@ -79,22 +83,6 @@ func get_random_location_around_one_player() -> Vector2:
 	var y : float = randf_range(100, 150)
 	return Vector2(character.global_position.x + ((x * 1) if randi() % 2 == 0 else (x * -1)), character.global_position.y + ((x * 1) if randi() % 2 == 0 else (x * -1)))
 
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("reg")
-	if body.is_in_group("controller"):
-		#Dialogic.timeline_ended.connect(_on_timeline_ended)
-		$PlayerCharacter1.frozen = true
-		Dialogic.start("Pre Battle 1")
-		await Dialogic.timeline_ended
-		transition_to_battle(0, true)
-		Dialogic.start("Battle 1")
-		$"Enemy Trigger".queue_free()
-		#await battleend
-		
-
-
-
 func _on_bosstrigger_body_entered(body: Node2D) -> void:
 	
 	if body.is_in_group("controller"):
@@ -108,6 +96,53 @@ func _on_bosstrigger_body_entered(body: Node2D) -> void:
 		#await $battle.battleend
 		#exitbattle()
 
-
 func _on_battleend() -> void:
+	req.text = str(enemy_dead)
+	print("There are ",enemy_dead," enemies dead out of 3.")
 	exitbattle()
+
+#JANK- Multiple ENEMY_TRIGGERs to deal with death of each of them
+
+func _on_enemy_trigger_2_body_entered(body: Node2D) -> void:
+	#Apparently has "faith type" enemy
+	print("reg_2")
+	if body.is_in_group("controller"):
+		#Dialogic.timeline_ended.connect(_on_timeline_ended)
+		$PlayerCharacter1.frozen = true
+		Dialogic.start("Pre Battle 2")
+		await Dialogic.timeline_ended
+		transition_to_battle(0, true)
+		Dialogic.start("")
+		enemy_dead += 1
+		#Dealing with multiple instances of different Enemy Trigger
+		#Because I'm too lazy to make another function.
+		$"Enemy Trigger2".queue_free()
+		#await battleend
+
+func _on_enemy_trigger_body_entered(body: Node2D) -> void:
+	print("reg_1")
+	if body.is_in_group("controller"):
+		#Dialogic.timeline_ended.connect(_on_timeline_ended)
+		$PlayerCharacter1.frozen = true
+		Dialogic.start("Pre Battle 1")
+		await Dialogic.timeline_ended
+		transition_to_battle(0, true)
+		Dialogic.start("Battle 1")
+		enemy_dead += 1
+		$"Enemy Trigger".queue_free()
+		#await battleend
+
+func _on_enemy_trigger_3_body_entered(body: Node2D) -> void:
+	print("reg_3")
+	if body.is_in_group("controller"):
+		#Dialogic.timeline_ended.connect(_on_timeline_ended)
+		$PlayerCharacter1.frozen = true
+		Dialogic.start("Pre Battle 3")
+		await Dialogic.timeline_ended
+		transition_to_battle(0, true)
+		Dialogic.start("Post Battle 1")
+		enemy_dead += 1 
+		#Dealing with multiple instances of different Enemy Trigger
+		#Because I'm too lazy to make another function.
+		$"Enemy Trigger3".queue_free()
+		#await battleend
