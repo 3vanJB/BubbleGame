@@ -44,10 +44,8 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			
 		if not velocity:
-			if lastpresseddirection.x != 0:
-				$AnimationPlayer.play("idle left" if lastpresseddirection.x < 0 else "idle right")
-			if lastpresseddirection.y != 0:
-				$AnimationPlayer.play("idle back" if lastpresseddirection.y < 0 else "idle front")
+			#print(lastpresseddirection)
+			$AnimationPlayer.play("idle " + $AnimationPlayer.current_animation.split(" ")[1])
 		#print("idle" + $AnimationPlayer.current_animation.split("idle")[1])
 		if $Sprite2D2.global_position.distance_to($point.global_position) > 3:
 			$Sprite2D2.global_position += $Sprite2D2.global_position.direction_to($point.global_position) * 3
