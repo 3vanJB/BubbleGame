@@ -171,6 +171,8 @@ func nextturn():
 					turns[i].action = load(ACTIONS.actions[MEMBERINFO.members[current.ID]["skills"][x - 1]])
 				else:
 					turns[i].action = regatk
+				if current.action.cost > current.curshine():
+					turns[i].action = regatk
 				UI.settargettext(current.membername)
 				UI.setattacktext(current.action.actionname)
 				UI.nameh.show()
@@ -181,9 +183,15 @@ func nextturn():
 				if current.action.targetenemyparty == true:
 					calculate(turns[i], playerparty.members[1])
 					calculate(turns[i], playerparty.members[0])
+					current.consumeshine(current.action.cost)
 				else:
 					var x = randi_range(0, 1)
 					calculate(turns[i], playerparty.members[x])
+					current.consumeshine(current.action.cost)
+				if current.action.isheal == true:
+					var x = randi_range(0, len(enemyparty.members))
+					calculate(current, enemyparty.members[x])
+					current.consumeshine(current.action.cost)
 			else:
 				if current.ID == 0:
 					UI.setshine(0, playerparty.members[0].curshine)
