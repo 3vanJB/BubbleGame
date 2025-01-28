@@ -1,6 +1,7 @@
 extends Node2D
 
 var b = preload("res://battle/battle.tscn") # Access battle library of encounters
+var bsound = preload("res://Audio/Battle Start.wav")
 var current_character_controlled_index : int = 0
 var enemy_dead = 0
 var gate
@@ -52,7 +53,8 @@ func transition_to_battle(echip, istext) -> void:
 	n.intext = istext
 	$PlayerCharacter1.frozen = true
 	Changer.AnimPlayer.play("fadein")
-	await Changer.AnimPlayer.animation_finished
+	Audio.playeffect(bsound)
+	await get_tree().create_timer(3).timeout
 	add_child(n)
 	#$TileMapLayer.hide()
 	#$TileMapLayer2.hide()
@@ -95,8 +97,8 @@ func _on_bosstrigger_body_entered(body: Node2D) -> void:
 		$PlayerCharacter1.frozen = true
 		Dialogic.start("preboss")
 		await Dialogic.timeline_ended
-		Audio.switchtotrack(2)
-		Audio.set_pitch(-1)
+		#.switchtotrack(2)
+		#Audio.set_pitch(-1)Audio
 		transition_to_battle(1,false)
 		$bosstrigger.queue_free()
 		#await $battle.battleend
@@ -149,7 +151,7 @@ func _on_enemy_trigger_2_body_entered(body: Node2D) -> void:
 		$PlayerCharacter1.frozen = true
 		Dialogic.start("Pre Battle 2")
 		await Dialogic.timeline_ended
-		Audio.switchtotrack(2)
+		#Audio.switchtotrack(2)
 		transition_to_battle(3, true)
 		Dialogic.start("Battle 2")
 		$"Enemy Trigger2".queue_free()
@@ -161,7 +163,7 @@ func _on_enemy_trigger_body_entered(body: Node2D) -> void:
 		$PlayerCharacter1.frozen = true
 		Dialogic.start("Pre Battle 1")
 		await Dialogic.timeline_ended
-		Audio.switchtotrack(2)
+		#Audio.switchtotrack(2)
 		transition_to_battle(0, true)
 		Dialogic.start("Battle 1")
 		
@@ -174,7 +176,7 @@ func _on_enemy_trigger_3_body_entered(body: Node2D) -> void:
 		$PlayerCharacter1.frozen = true
 		Dialogic.start("Pre Battle 3")
 		await Dialogic.timeline_ended
-		Audio.switchtotrack(2)
+		#Audio.switchtotrack(2)
 		transition_to_battle(2, false)
 		#No Dialogue here such as "Post Dialogue 3"
 		$"Enemy Trigger3".queue_free()

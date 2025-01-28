@@ -3,6 +3,7 @@ extends Node2D
 var m = preload("res://battle/battlemember.tscn")
 var hoversound = preload("res://SFX/Bubbles SFX Batch 1/UI/SFX_UI_Hover.wav")
 var confirmsound = preload("res://SFX/Bubbles SFX Batch 1/UI/SFX_UI_Confirm.wav")
+var vsound = preload("res://Audio/Victory Track.wav")
 @onready var denysound = preload("res://SFX/Bubbles SFX Batch 1/UI/SFX_UI_Denied.wav")
 @onready var playerparty = $playerparty
 @onready var enemyparty = $enemyparty
@@ -31,8 +32,13 @@ var intext = false
 func _ready() -> void:
 	if echip == null:
 		echip = 0
-	#Audio.switchtotrack(2)
-	#Audio.music.play()
+	if echip!= 1:
+		Audio.switchtotrack(2)
+		Audio.music.play()
+	else:
+		Audio.switchtotrack(3)
+		$EnemyBgScaled4xPngcrushed.texture = "res://dialogue/Boss_BG.png"
+		$EnemyBgBorderScaled4xPngcrushed.texture = "res://dialogue/Boss_BG_border.png"
 	$Camera2D.make_current()
 	
 	UI.setmainbuttons(true)
@@ -75,9 +81,14 @@ func _on_timeline_ended() -> void:
 	nextturn()
 
 func endbattle():
+	$CanvasLayer.show()
+	Audio.togglestreampaused(true)
+	Audio.playeffect(vsound)
+	await Audio.sfx.finished
 	Changer.AnimPlayer.play("fadein")
 	await Changer.AnimPlayer.animation_finished
 	Changer.AnimPlayer.play("fadeout")
+	
 	get_parent().emit_signal("battleend")
 	self.queue_free()
 	
