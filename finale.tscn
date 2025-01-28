@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckcwc5ihns14h"]
+
+[ext_resource type="Script" path="res://finale.gd" id="1_yun13"]
+[ext_resource type="Texture2D" uid="uid://cehj4kp5ppa6f" path="res://dialogue/Boss_BG.png" id="2_ofm6k"]
+[ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="3_4vs6f"]
+[ext_resource type="FontFile" uid="uid://cc4xli25271fd" path="res://addons/dialogic/Example Assets/Fonts/Roboto-Bold.ttf" id="4_nqjqb"]
+
+[sub_resource type="Animation" id="Animation_8xp14"]
+resource_name = "Credits"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credit Text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pgvls"]
+_data = {
+"Credits": SubResource("Animation_8xp14")
+}
+
+[node name="Finale" type="Node2D"]
+script = ExtResource("1_yun13")
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.542348, 0.434502, 0.737021, 1)
+position = Vector2(1, 0)
+texture = ExtResource("2_ofm6k")
+
+[node name="Title Label" type="Label" parent="."]
+offset_left = -278.0
+offset_top = -285.0
+offset_right = 288.0
+offset_bottom = -184.0
+theme_override_colors/font_color = Color(0.837951, 0.746672, 0.909506, 1)
+theme_override_fonts/font = ExtResource("3_4vs6f")
+theme_override_font_sizes/font_size = 100
+text = "Team Grief"
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pgvls")
+}
+
+[node name="Credit Text" type="Label" parent="."]
+offset_left = -449.0
+offset_top = -152.0
+offset_right = -287.0
+offset_bottom = -92.0
+theme_override_colors/font_color = Color(0.842582, 0.915052, 0.956953, 1)
+theme_override_fonts/font = ExtResource("4_nqjqb")
+theme_override_font_sizes/font_size = 50
+text = "Credits"
