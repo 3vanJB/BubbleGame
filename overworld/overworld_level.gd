@@ -129,6 +129,9 @@ func _on_battleend() -> void:
 			Dialogic.start("Post Battle 2")
 		2:
 			Dialogic.start("Post Battle 3")
+		1:
+			#NOTE This is where you would put the code for the credits
+			pass
 
 #JANK- Multiple ENEMY_TRIGGERs to deal with death of each of them
 
