@@ -101,6 +101,7 @@ func _on_bosstrigger_body_entered(body: Node2D) -> void:
 		#Audio.set_pitch(-1)Audio
 		transition_to_battle(1,false)
 		$bosstrigger.queue_free()
+		
 		#await $battle.battleend
 		#exitbattle()
 
@@ -134,6 +135,7 @@ func _on_battleend() -> void:
 		2:
 			Dialogic.start("Post Battle 3")
 		1:
+			#Changer.AnimPlayer.play("fadeout")
 			#Changer.AnimPlayer.play("fadein")
 			#await Changer.AnimPlayer.animation_finished
 			#Changer.AnimPlayer.play("fadeout")
@@ -181,3 +183,24 @@ func _on_enemy_trigger_3_body_entered(body: Node2D) -> void:
 		#No Dialogue here such as "Post Dialogue 3"
 		$"Enemy Trigger3".queue_free()
 		#await battleend
+
+
+func _on_corridor_1_body_entered(body: Node2D) -> void:
+	$corridor1.queue_free()
+	if body.is_in_group("controller"):
+		#Dialogic.timeline_ended.connect(_on_timeline_ended)
+		$PlayerCharacter1.frozen = true
+		Dialogic.start("Pre Boss Corridor")
+		await Dialogic.timeline_ended
+		$PlayerCharacter1.frozen = false
+		
+
+
+func _on_corridor_2_body_entered(body: Node2D) -> void:
+	$corridor2.queue_free()
+	if body.is_in_group("controller"):
+		#Dialogic.timeline_ended.connect(_on_timeline_ended)
+		$PlayerCharacter1.frozen = true
+		Dialogic.start("Pre Battle 2 Corridor")
+		await Dialogic.timeline_ended
+		$PlayerCharacter1.frozen = false

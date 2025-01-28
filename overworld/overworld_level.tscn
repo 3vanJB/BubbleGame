@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://cavkjml0ecjf1"]
+[gd_scene load_steps=14 format=4 uid="uid://cavkjml0ecjf1"]
 
 [ext_resource type="Script" path="res://overworld/overworld_level.gd" id="1_1gd41"]
 [ext_resource type="Texture2D" uid="uid://sj2nj5vglhpg" path="res://overworld/tiles/New_Maze_Finals.png" id="2_dtglw"]
@@ -6565,6 +6565,9 @@ size = Vector2(26.5, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pj72w"]
 size = Vector2(67, 60)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ma0u3"]
+size = Vector2(20, 30)
+
 [node name="OverworldLevel" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_1gd41")
@@ -6587,7 +6590,7 @@ tile_set = SubResource("TileSet_tmvbp")
 metadata/_edit_lock_ = true
 
 [node name="PlayerCharacter1" parent="." groups=["controller"] instance=ExtResource("3_xsmx7")]
-position = Vector2(1098, -300)
+position = Vector2(-275, -380)
 
 [node name="SpriteAnim" parent="PlayerCharacter1" index="1"]
 metadata/_edit_lock_ = true
@@ -6699,12 +6702,38 @@ theme_override_fonts/font = ExtResource("10_oejaw")
 theme_override_font_sizes/font_size = 40
 text = "0/2"
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(4000, 5000)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
+[node name="corridor1" type="Area2D" parent="."]
+position = Vector2(724, -327)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="corridor1"]
+shape = SubResource("RectangleShape2D_ma0u3")
+
+[node name="corridor2" type="Area2D" parent="."]
+position = Vector2(849, -328)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="corridor2"]
+shape = SubResource("RectangleShape2D_ma0u3")
+
 [connection signal="battleend" from="." to="." method="_on_battleend"]
 [connection signal="timeout" from="BubbleSpawnTimer" to="." method="_on_bubble_spawn_timer_timeout"]
 [connection signal="body_entered" from="bosstrigger" to="." method="_on_bosstrigger_body_entered"]
 [connection signal="body_entered" from="Enemy Trigger" to="." method="_on_enemy_trigger_body_entered"]
 [connection signal="body_entered" from="Enemy Trigger2" to="." method="_on_enemy_trigger_2_body_entered"]
-[connection signal="body_entered" from="Enemy Trigger3" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Enemy Trigger3" to="." method="_on_enemy_trigger_3_body_entered"]
+[connection signal="body_entered" from="Enemy Trigger3" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="corridor1" to="." method="_on_corridor_1_body_entered"]
+[connection signal="body_entered" from="corridor2" to="." method="_on_corridor_2_body_entered"]
 
 [editable path="PlayerCharacter1"]

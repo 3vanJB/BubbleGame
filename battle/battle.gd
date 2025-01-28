@@ -87,6 +87,7 @@ func endbattle():
 	await Audio.sfx.finished
 	Changer.AnimPlayer.play("fadein")
 	await Changer.AnimPlayer.animation_finished
+	
 	Changer.AnimPlayer.play("fadeout")
 	
 	get_parent().emit_signal("battleend")
@@ -216,11 +217,11 @@ func nextturn():
 					current.consumeshine(current.action.cost)
 				else:
 					var x = randi_range(0, 1)
-					calculate(turns[i], playerparty.members[x])
+					calculate(turns[i], playerparty.members[x-1])
 					current.consumeshine(current.action.cost)
 				if current.action.isheal == true:
 					var x = randi_range(0, len(enemyparty.members))
-					calculate(current, enemyparty.members[x])
+					calculate(current, enemyparty.members[x-1])
 					current.consumeshine(current.action.cost)
 			else:
 				if current.ID == 0:
@@ -307,7 +308,8 @@ func calculate(attacker, target):
 	elif attacker.action.isheal == true:
 		var healing = attacker.stats["mgk"] * attacker.action.power
 		target.heal(healing)
-		UI.sethplabel(target.ID, target.curhp)
+		if attacker.ally == true:
+			UI.sethplabel(target.ID, target.curhp)
 		#print(target.membername + "653728")
 	UI.setattacktext(current.action.actionname)
 
