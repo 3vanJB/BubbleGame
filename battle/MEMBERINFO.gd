@@ -3,8 +3,8 @@ extends Node
 var hasyoru = true
 
 var partyhp = {
-	0:50,
-	1:30
+	0:80,
+	1:50
 }
 
 
@@ -30,7 +30,7 @@ var members = {
 		"name":"Furious Jubjub",
 		"stats":{ "hp":30, "str":10, "def":5, "mgk":6, "mgkdef":3, "spd":3},
 		"ally":false,
-		"skills":[7, 8],
+		"skills":[7, 8, 0],
 		"sprite":"res://battle/enemyanim/jubjub.tscn"
 	},
 	4:{

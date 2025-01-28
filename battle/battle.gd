@@ -152,7 +152,7 @@ func _process(delta: float) -> void:
 func nextturn():
 	
 	if enemyparty.dcount == enemyparty.mcount:
-		print("theend")
+		#print("theend")
 		UI.setmainbuttons(true)
 		endbattle()
 	
@@ -164,14 +164,26 @@ func nextturn():
 			current.restoreshine(10)
 			
 			if turns[i].ally == false:
-				print("enemyturn")
+				#print("enemyturn")
 				#print(turns[i].membername + "'s turn")
 				if MEMBERINFO.members[current.ID].has("skills"):
-					print("skills")
-					
-				
-				turns[i].action = regatk
-				calculate(turns[i], playerparty.members[1])
+					var x = randi_range(0, len(MEMBERINFO.members[current.ID]["skills"]))
+					turns[i].action = load(ACTIONS.actions[MEMBERINFO.members[current.ID]["skills"][x - 1]])
+				else:
+					turns[i].action = regatk
+				UI.settargettext(current.membername)
+				UI.setattacktext(current.action.actionname)
+				UI.nameh.show()
+				UI.attackh.show()
+				current.action.loadsoundpath()
+				Audio.playeffect(current.action.sound)
+				await get_tree().create_timer(1).timeout
+				if current.action.targetenemyparty == true:
+					calculate(turns[i], playerparty.members[1])
+					calculate(turns[i], playerparty.members[0])
+				else:
+					var x = randi_range(0, 1)
+					calculate(turns[i], playerparty.members[x])
 			else:
 				if current.ID == 0:
 					UI.setshine(0, playerparty.members[0].curshine)
@@ -193,12 +205,13 @@ func nextturn():
 				
 				UI.nameh.hide()
 		else:
-			print(len(enemyparty.members))
+			#print(len(enemyparty.members))
 			if len(enemyparty.members) == 0:
-				print("theend")
+				#print("theend")
 				UI.setmainbuttons(true)
 				endbattle()
-	
+	UI.nameh.hide()
+	UI.attackh.hide()
 	attackname.hide()
 	nextturn()
 
@@ -262,14 +275,14 @@ func calculate(attacker, target):
 
 var regatk = preload("res://battle/actions/RegAttack.tres")
 func _on_attack_pressed() -> void:
-	print(enemyparty.dcount == enemyparty.mcount)
+	#print(enemyparty.dcount == enemyparty.mcount)
 	UI.setmainbuttons(true)
 	enemyfocused = true
 	Audio.playeffect(confirmsound)
 	current.action = regatk
 	enemyparty.grabfocus(0)
 	
-	print(current.membername)
+	#print(current.membername)
 	UI.settargettext(enemyparty.members[enemyparty.cursor].membername)
 	UI.nameh.show()
 	buttonattack.release_focus()
