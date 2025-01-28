@@ -1,12 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckcwc5ihns14h"]
+[gd_scene load_steps=11 format=3 uid="uid://ckcwc5ihns14h"]
 
 [ext_resource type="Script" path="res://finale.gd" id="1_yun13"]
 [ext_resource type="Texture2D" uid="uid://cehj4kp5ppa6f" path="res://dialogue/Boss_BG.png" id="2_ofm6k"]
 [ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="3_4vs6f"]
 [ext_resource type="FontFile" uid="uid://cc4xli25271fd" path="res://addons/dialogic/Example Assets/Fonts/Roboto-Bold.ttf" id="4_nqjqb"]
+[ext_resource type="Texture2D" uid="uid://bwmwa4g2tgxqf" path="res://characters/Sprites/Adeline-Portrait_scaled_6x_pngcrushed_1.png" id="5_wlqfa"]
+[ext_resource type="Texture2D" uid="uid://cabw6bs58atjk" path="res://dialogue/rose_avatar.png" id="6_invgr"]
+[ext_resource type="Texture2D" uid="uid://dedyw5vdjbgpc" path="res://dialogue/yoru_avatar.png" id="7_nhckd"]
 
 [sub_resource type="Animation" id="Animation_8xp14"]
 resource_name = "Credits"
+length = 34.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -14,15 +18,183 @@ tracks/0/path = NodePath("Credit Text:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0.0666667, 2.6, 6.83333, 10.8667, 14.3667, 18.2333, 22, 25.8333, 29.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": []
+"values": ["Mabon: Composer
+Also,
+Team Manager
+and Narrative Director
+
+Epic Hype-Man of \"Comsic\"
+
+", "Frisk:  Visual Artist, 
+Also:
+UI Design
+Overworld Design
+Narrative
+
+- Drew the hot girls
+
+", "Tara: Lead Visual Director
+Has Beautifully Drew:
+All Backgrounds
+Overworld Art
+
+- Drew Sexy Adeline
+
+", "Chris: Sound Designer
+
+- The person who has it together 
+   in the industry and the team
+
+", "Evan: Senior Programmer in Godot
+Responsible for:
+Combat/Enemies, 
+Battle UI , 
+Overworld Events
+
+- Died hard just to play Fortnite
+
+", "Ena: Programmer
+Responsible for:
+Dialogue 
+and Overworld
+
+- What is Godot?", "Will: Junior Programmer
+Crafted:
+Options, 
+Menu, 
+Overworld Collision
+
+-AHHHH!!! What does that function do?!", "Nick: Programmer
+AI?
+
+- The Team's \"absent\" founder", "Pouya: Game Designer
+Also known for:
+Programming
+Level Design
+
+- \"Aight. I’m awake (literally Alan Wake)\"
+"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Art/Adeline-portraitScaled6xPngcrushed1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(6.8, 7.36667, 9.03333, 10.1667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Credit Text:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 2.1, 2.6, 3.3, 5, 6.8, 7.4, 9.1, 10.8667, 11.3, 12.5667, 14.3667, 14.7, 16.4, 18.2, 18.6, 20.2333, 22.0333, 22.4667, 24.1667, 25.8333, 26.2, 27.8333, 29.6333, 30.1333, 31.7667, 33.5667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Art/RoseAvatar:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.53333, 3.08333, 4.9, 6.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Art/YoruAvatar:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.46667, 4.03333, 5.63333, 6.63333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_autew"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credit Text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Mabon: Team Management, 
+Narrative and Composer"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Art/Adeline-portraitScaled6xPngcrushed1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Credit Text:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Art/RoseAvatar:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Art/YoruAvatar:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pgvls"]
 _data = {
-"Credits": SubResource("Animation_8xp14")
+"Credits": SubResource("Animation_8xp14"),
+"RESET": SubResource("Animation_autew")
 }
 
 [node name="Finale" type="Node2D"]
@@ -51,12 +223,39 @@ libraries = {
 "": SubResource("AnimationLibrary_pgvls")
 }
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -462.0
+offset_top = -151.0
+offset_right = 471.0
+offset_bottom = 242.0
+color = Color(0.207378, 0.0411942, 0.297918, 0.172549)
+metadata/_edit_lock_ = true
+
 [node name="Credit Text" type="Label" parent="."]
 offset_left = -449.0
-offset_top = -152.0
-offset_right = -287.0
-offset_bottom = -92.0
-theme_override_colors/font_color = Color(0.842582, 0.915052, 0.956953, 1)
+offset_top = -150.0
+offset_right = 434.0
+offset_bottom = 268.0
+theme_override_colors/font_color = Color(0.843137, 0.913725, 0.956863, 1)
 theme_override_fonts/font = ExtResource("4_nqjqb")
 theme_override_font_sizes/font_size = 50
-text = "Credits"
+text = "Mabon: Team Management, 
+Narrative and Composer"
+metadata/_edit_lock_ = true
+
+[node name="Art" type="Node2D" parent="."]
+
+[node name="Adeline-portraitScaled6xPngcrushed1" type="Sprite2D" parent="Art"]
+position = Vector2(348, 15)
+scale = Vector2(0.338889, 0.35)
+texture = ExtResource("5_wlqfa")
+
+[node name="RoseAvatar" type="Sprite2D" parent="Art"]
+position = Vector2(240, 123)
+texture = ExtResource("6_invgr")
+
+[node name="YoruAvatar" type="Sprite2D" parent="Art"]
+position = Vector2(430, 80)
+texture = ExtResource("7_nhckd")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

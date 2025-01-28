@@ -15,8 +15,8 @@ func _ready() -> void:
 	Audio.switchtotrack(1)
 	Dialogic.timeline_ended.connect(_on_entrance_ended)
 	$PlayerCharacter1.frozen = true
-	#Dialogic.start("First Entrance")
-	Dialogic.start("Quick_start")
+	Dialogic.start("First Entrance")
+	#Dialogic.start("Quick_start")
 
 
 func _on_entrance_ended() -> void:
@@ -95,6 +95,8 @@ func _on_bosstrigger_body_entered(body: Node2D) -> void:
 		$PlayerCharacter1.frozen = true
 		Dialogic.start("preboss")
 		await Dialogic.timeline_ended
+		Audio.switchtotrack(2)
+		Audio.set_pitch(-1)
 		transition_to_battle(1,false)
 		$bosstrigger.queue_free()
 		#await $battle.battleend
@@ -147,6 +149,7 @@ func _on_enemy_trigger_2_body_entered(body: Node2D) -> void:
 		$PlayerCharacter1.frozen = true
 		Dialogic.start("Pre Battle 2")
 		await Dialogic.timeline_ended
+		Audio.switchtotrack(2)
 		transition_to_battle(3, true)
 		Dialogic.start("Battle 2")
 		$"Enemy Trigger2".queue_free()
@@ -158,6 +161,7 @@ func _on_enemy_trigger_body_entered(body: Node2D) -> void:
 		$PlayerCharacter1.frozen = true
 		Dialogic.start("Pre Battle 1")
 		await Dialogic.timeline_ended
+		Audio.switchtotrack(2)
 		transition_to_battle(0, true)
 		Dialogic.start("Battle 1")
 		
@@ -170,6 +174,7 @@ func _on_enemy_trigger_3_body_entered(body: Node2D) -> void:
 		$PlayerCharacter1.frozen = true
 		Dialogic.start("Pre Battle 3")
 		await Dialogic.timeline_ended
+		Audio.switchtotrack(2)
 		transition_to_battle(2, false)
 		#No Dialogue here such as "Post Dialogue 3"
 		$"Enemy Trigger3".queue_free()

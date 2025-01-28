@@ -31,8 +31,8 @@ var intext = false
 func _ready() -> void:
 	if echip == null:
 		echip = 0
-	Audio.switchtotrack(2)
-	Audio.music.play()
+	#Audio.switchtotrack(2)
+	#Audio.music.play()
 	$Camera2D.make_current()
 	
 	UI.setmainbuttons(true)
