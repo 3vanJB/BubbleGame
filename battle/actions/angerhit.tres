@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BattleAction" load_steps=2 format=3 uid="uid://jt12yb0cs6nr"]
+
+[ext_resource type="Script" path="res://battle/actions/battleaction.gd" id="1_1b3rs"]
+
+[resource]
+script = ExtResource("1_1b3rs")
+type = 0
+isattack = true
+power = 5.0
+cost = 20.0
+actionname = "Anger Hit"
+targetenemy = true
+ischeer = false
+cheervalue = 20
+targetally = false
+targetallyparty = false
+targetenemyparty = false
+isspecial = false
+isheal = false
+soundpath = "res://SFX/Comsic burst SFX Batch 3/NPC/SFX-NPC-Boss Basic Attack.wav"

@@ -5,7 +5,8 @@ extends Control
 var tracks = {
 	0:"res://Audio/Title Theme.wav",
 	1:"res://Audio/Dungeon Theme.mp3",
-	2:"res://Audio/Battle Theme Fixed.mp3"
+	2:"res://Audio/Battle Theme Fixed.mp3",
+	3:"res://Audio/Boss Track.wav"
 }
 
 

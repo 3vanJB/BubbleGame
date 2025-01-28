@@ -27,5 +27,9 @@ var actions = {
 	7:"res://battle/actions/berserk.tres",
 	8:"res://battle/actions/brutality.tres",
 	9:"res://battle/actions/prayer.tres",
-	10:"res://battle/actions/psychoshot.tres"
+	10:"res://battle/actions/psychoshot.tres",
+	11:"res://battle/actions/divineblood.tres",
+	12:"res://battle/actions/fearwave.tres",
+	13:"res://battle/actions/angerhit.tres"
+	
 }
