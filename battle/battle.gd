@@ -412,7 +412,9 @@ func _on_skill_2_pressed() -> void:
 func _on_skill_3_pressed() -> void:
 	if UI.skill3.cost > current.curshine:
 		Audio.playeffect(denysound)
+		#print("Not enough Shine need", UI.skill3.cost, "out of",current.curshine)
 	else:
+		#print(current.curshine)
 		Audio.playeffect(confirmsound)
 		await get_tree().create_timer(0.1).timeout
 		UI.setskillbuttons(true)

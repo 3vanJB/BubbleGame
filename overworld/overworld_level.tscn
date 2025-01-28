@@ -6591,13 +6591,11 @@ position = Vector2(-301, -393)
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" parent="PlayerCharacter1" index="2"]
+position = Vector2(11, 0)
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" parent="PlayerCharacter1" index="3"]
 metadata/_edit_lock_ = true
-
-[node name="AnimationPlayer" parent="PlayerCharacter1" index="4"]
-autoplay = "idle front"
 
 [node name="bosstrigger" type="Area2D" parent="."]
 position = Vector2(1185, -248)
