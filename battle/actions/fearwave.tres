@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BattleAction" load_steps=2 format=3 uid="uid://bhl8v4iyfdllt"]
+
+[ext_resource type="Script" path="res://battle/actions/battleaction.gd" id="1_37fk7"]
+
+[resource]
+script = ExtResource("1_37fk7")
+type = 1
+isattack = true
+power = 3.0
+cost = 20.0
+actionname = "Fear Wave"
+targetenemy = false
+ischeer = false
+cheervalue = 20
+targetally = false
+targetallyparty = false
+targetenemyparty = true
+isspecial = false
+isheal = false
+soundpath = "res://SFX/Comsic burst SFX Batch 3/NPC/SFX-NPC-Boss Magic Attack.wav"

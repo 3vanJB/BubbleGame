@@ -23,6 +23,7 @@ var members = {
 		"name":"Adeline",
 		"stats":{ "hp":100, "str":10, "def":3, "mgk":3, "mgkdef":3, "spd":3},
 		"ally":false,
+		"skills":[0, 11, 12, 13],
 		"sprite":"res://battle/enemyanim/adeline.tscn"
 	},
 	3:{
