@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	if vertical:
 		if bIsBeingControlled:
 			velocity.y = vertical * SPEED
-		$AnimationPlayer.play("walkfront" if velocity.y > 0 else "walkback")
+		$AnimationPlayer.play("walk front" if velocity.y > 0 else "walk back")
 		#$SpriteAnim.set_animation()
 		#$SpriteAnim
 	else:	
@@ -37,17 +37,24 @@ func _physics_process(delta: float) -> void:
 		if velocity.x != 0:
 			#$SpriteAnim.set_animation("idle_left" if velocity.x < 0 else "idle_right")
 			#$SpriteAnim.play()
-			$AnimationPlayer.play("walkleft" if velocity.x < 0 else "walkright")
+			$AnimationPlayer.play("walk left" if velocity.x < 0 else "walk right")
 	
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	if not velocity:
 		if lastpresseddirection.x != 0:
-			$AnimationPlayer.play("idleleft" if lastpresseddirection.x < 0 else "idleright")
+			$AnimationPlayer.play("idle left" if lastpresseddirection.x < 0 else "idler ight")
 		if lastpresseddirection.y != 0:
-			$AnimationPlayer.play("idleback" if lastpresseddirection.y < 0 else "idlefront")
-	
+			$AnimationPlayer.play("idle back" if lastpresseddirection.y < 0 else "idle front")
+	#print("idle" + $AnimationPlayer.current_animation.split("idle")[1])
+	if $Sprite2D2.global_position.distance_to($point.global_position) > 5:
+		$Sprite2D2.global_position += $Sprite2D2.global_position.direction_to($point.global_position) * 3
+		$Sprite2D2/AnimationPlayer.play("walk " + $AnimationPlayer.current_animation.split(" ")[1])
+	elif $Sprite2D2.global_position.distance_to($point.global_position) < 5 and not velocity:
+		$Sprite2D2/AnimationPlayer.play("idle " + $AnimationPlayer.current_animation.split(" ")[1])
+		
+	#$Sprite2D2.position.y = move_toward($Sprite2D.position.y, $point.position.y, 50)
 	if frozen == false:
 		move_and_slide()
 
