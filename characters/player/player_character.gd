@@ -4,7 +4,7 @@ class_name PlayerCharacter extends CharacterBase
 var closest_interactable : InteractableObject = null
 
 var keys_in_inventory : Array[String] = []
-
+var lastpresseddirection
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -22,8 +22,9 @@ func _physics_process(delta: float) -> void:
 	if vertical:
 		if bIsBeingControlled:
 			velocity.y = vertical * SPEED
-		$SpriteAnim.set_animation("idle_down" if velocity.y > 0 else "idle_up")
-		$SpriteAnim.play()
+		$AnimationPlayer.play("idlefront" if velocity.y > 0 else "idleback")
+		#$SpriteAnim.set_animation()
+		#$SpriteAnim
 	else:	
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	# Get the input direction and handle the movement/deceleration.
@@ -33,8 +34,9 @@ func _physics_process(delta: float) -> void:
 		if bIsBeingControlled:
 			velocity.x = horizontal * SPEED
 		if velocity.x != 0:
-			$SpriteAnim.set_animation("idle_left" if velocity.x < 0 else "idle_right")
-			$SpriteAnim.play()
+			#$SpriteAnim.set_animation("idle_left" if velocity.x < 0 else "idle_right")
+			#$SpriteAnim.play()
+			$AnimationPlayer.play("idleleft" if velocity.x < 0 else "idleright")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	if frozen == false:
