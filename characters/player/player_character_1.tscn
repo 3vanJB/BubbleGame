@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bscujqsdl8afs"]
+[gd_scene load_steps=15 format=3 uid="uid://bscujqsdl8afs"]
 
 [ext_resource type="Script" path="res://characters/player/player_character.gd" id="1_ls565"]
 [ext_resource type="SpriteFrames" uid="uid://ckifeyrgwj85x" path="res://characters/Sprites/Rose Idle/rose_frames.tres" id="2_an6d7"]
@@ -7,24 +7,6 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w7do5"]
 radius = 12.0
 height = 35.0
-
-[sub_resource type="Animation" id="Animation_pdgdv"]
-resource_name = "idle"
-length = 1.20002
-loop_mode = 1
-step = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 4]
-}
 
 [sub_resource type="Animation" id="Animation_kfkqt"]
 length = 0.001
@@ -59,6 +41,42 @@ tracks/0/keys = {
 "values": [1, 5]
 }
 
+[sub_resource type="Animation" id="Animation_pdgdv"]
+resource_name = "idle"
+length = 1.20002
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 4]
+}
+
+[sub_resource type="Animation" id="Animation_yb5wt"]
+resource_name = "idleleft"
+length = 1.20002
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 6]
+}
+
 [sub_resource type="Animation" id="Animation_dgkss"]
 resource_name = "idleright"
 length = 1.20002
@@ -77,9 +95,10 @@ tracks/0/keys = {
 "values": [3, 7]
 }
 
-[sub_resource type="Animation" id="Animation_yb5wt"]
-resource_name = "idleleft"
-length = 1.20002
+[sub_resource type="Animation" id="Animation_67666"]
+resource_name = "walkback"
+length = 0.80002
+loop_mode = 1
 step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -88,10 +107,64 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [2, 6]
+"values": [9, 13, 17, 21]
+}
+
+[sub_resource type="Animation" id="Animation_p764w"]
+resource_name = "walkfront"
+length = 0.80002
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 12, 16, 20]
+}
+
+[sub_resource type="Animation" id="Animation_qkci0"]
+resource_name = "walkleft"
+length = 0.80002
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [10, 14, 18, 22]
+}
+
+[sub_resource type="Animation" id="Animation_s3if3"]
+resource_name = "walkright"
+length = 0.80002
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [11, 15, 19, 23]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e61ve"]
@@ -100,7 +173,11 @@ _data = {
 "idleback": SubResource("Animation_l4va0"),
 "idlefront": SubResource("Animation_pdgdv"),
 "idleleft": SubResource("Animation_yb5wt"),
-"idleright": SubResource("Animation_dgkss")
+"idleright": SubResource("Animation_dgkss"),
+"walkback": SubResource("Animation_67666"),
+"walkfront": SubResource("Animation_p764w"),
+"walkleft": SubResource("Animation_qkci0"),
+"walkright": SubResource("Animation_s3if3")
 }
 
 [node name="PlayerCharacter1" type="CharacterBody2D"]
@@ -116,7 +193,7 @@ movement_speed = 1.0
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_gtlyv")
 hframes = 4
-vframes = 2
+vframes = 6
 
 [node name="SpriteAnim" type="AnimatedSprite2D" parent="." groups=["controller"]]
 visible = false

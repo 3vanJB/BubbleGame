@@ -18,11 +18,12 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Handle jump.
+	lastpresseddirection = velocity
 	var vertical := Input.get_axis("ui_up","ui_down")
 	if vertical:
 		if bIsBeingControlled:
 			velocity.y = vertical * SPEED
-		$AnimationPlayer.play("idlefront" if velocity.y > 0 else "idleback")
+		$AnimationPlayer.play("walkfront" if velocity.y > 0 else "walkback")
 		#$SpriteAnim.set_animation()
 		#$SpriteAnim
 	else:	
@@ -36,9 +37,17 @@ func _physics_process(delta: float) -> void:
 		if velocity.x != 0:
 			#$SpriteAnim.set_animation("idle_left" if velocity.x < 0 else "idle_right")
 			#$SpriteAnim.play()
-			$AnimationPlayer.play("idleleft" if velocity.x < 0 else "idleright")
+			$AnimationPlayer.play("walkleft" if velocity.x < 0 else "walkright")
+	
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+	if not velocity:
+		if lastpresseddirection.x != 0:
+			$AnimationPlayer.play("idleleft" if lastpresseddirection.x < 0 else "idleright")
+		if lastpresseddirection.y != 0:
+			$AnimationPlayer.play("idleback" if lastpresseddirection.y < 0 else "idlefront")
+	
 	if frozen == false:
 		move_and_slide()
 
