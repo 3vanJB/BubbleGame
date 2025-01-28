@@ -37,8 +37,8 @@ func _ready() -> void:
 		Audio.music.play()
 	else:
 		Audio.switchtotrack(3)
-		$EnemyBgScaled4xPngcrushed.texture = "res://dialogue/Boss_BG.png"
-		$EnemyBgBorderScaled4xPngcrushed.texture = "res://dialogue/Boss_BG_border.png"
+		$EnemyBgScaled4xPngcrushed.texture = load("res://dialogue/Boss_BG.png")
+		$EnemyBgBorderScaled4xPngcrushed.texture = load("res://dialogue/Boss_BG_border.png")
 	$Camera2D.make_current()
 	
 	UI.setmainbuttons(true)

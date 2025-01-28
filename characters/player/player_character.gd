@@ -60,6 +60,8 @@ func _physics_process(delta: float) -> void:
 		#$Sprite2D2.position.y = move_toward($Sprite2D.position.y, $point.position.y, 50)
 		if frozen == false:
 			move_and_slide()
+	else:
+		$AnimationPlayer.play("idle " + $AnimationPlayer.current_animation.split(" ")[1])
 
 
 
