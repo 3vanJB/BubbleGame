@@ -15,8 +15,8 @@ func _ready() -> void:
 	Audio.switchtotrack(1)
 	Dialogic.timeline_ended.connect(_on_entrance_ended)
 	$PlayerCharacter1.frozen = true
-	#Dialogic.start("First Entrance")
-	Dialogic.start("Quick_start")
+	Dialogic.start("First Entrance")
+	#Dialogic.start("Quick_start")
 
 
 func _on_entrance_ended() -> void:
