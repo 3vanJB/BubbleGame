@@ -15,8 +15,8 @@ func _ready() -> void:
 	Audio.switchtotrack(1)
 	Dialogic.timeline_ended.connect(_on_entrance_ended)
 	$PlayerCharacter1.frozen = true
-	Dialogic.start("First Entrance")
-	#Dialogic.start("Quick_start")
+	#Dialogic.start("First Entrance")
+	Dialogic.start("Quick_start")
 
 
 func _on_entrance_ended() -> void:
@@ -130,8 +130,12 @@ func _on_battleend() -> void:
 		2:
 			Dialogic.start("Post Battle 3")
 		1:
-			#NOTE This is where you would put the code for the credits
-			pass
+			#Changer.AnimPlayer.play("fadein")
+			#await Changer.AnimPlayer.animation_finished
+			#Changer.AnimPlayer.play("fadeout")
+			#await Changer.AnimPlayer.animation_finished
+			#get_tree().change_scene_to_file("res://finale.tscn")
+			Changer.start_transition("res://finale.tscn") 
 
 #JANK- Multiple ENEMY_TRIGGERs to deal with death of each of them
 
@@ -145,9 +149,6 @@ func _on_enemy_trigger_2_body_entered(body: Node2D) -> void:
 		await Dialogic.timeline_ended
 		transition_to_battle(3, true)
 		Dialogic.start("Battle 2")
-		
-		#Dealing with multiple instances of different Enemy Trigger
-		#Because I'm too lazy to make another function.
 		$"Enemy Trigger2".queue_free()
 		#await battleend
 
@@ -170,9 +171,6 @@ func _on_enemy_trigger_3_body_entered(body: Node2D) -> void:
 		Dialogic.start("Pre Battle 3")
 		await Dialogic.timeline_ended
 		transition_to_battle(2, false)
-		#Dialogic.start("Post Battle 3")
-		
-		#Dealing with multiple instances of different Enemy Trigger
-		#Because I'm too lazy to make another function.
+		#No Dialogue here such as "Post Dialogue 3"
 		$"Enemy Trigger3".queue_free()
 		#await battleend
