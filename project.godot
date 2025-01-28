@@ -46,6 +46,7 @@ directories/dtl_directory={
 "Pre Battle 2 Corridor": "res://dialogue/Pre Battle 2 Corridor.dtl",
 "Pre Battle 3": "res://dialogue/Pre Battle 3.dtl",
 "Pre Boss Corridor": "res://dialogue/Pre Boss Corridor.dtl",
+"Quick_start": "res://dialogue/Quick_start.dtl",
 "preboss": "res://dialogue/preboss.dtl"
 }
 

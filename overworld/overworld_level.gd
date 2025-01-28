@@ -15,7 +15,8 @@ func _ready() -> void:
 	Audio.switchtotrack(1)
 	Dialogic.timeline_ended.connect(_on_entrance_ended)
 	$PlayerCharacter1.frozen = true
-	Dialogic.start("First Entrance")
+	#Dialogic.start("First Entrance")
+	Dialogic.start("Quick_start")
 
 
 func _on_entrance_ended() -> void:
@@ -100,13 +101,16 @@ func _on_bosstrigger_body_entered(body: Node2D) -> void:
 		#exitbattle()
 
 func setgatevalues(value):
-	gate = value
-	bossgate = value
-	$"BossGate/Text/Out of".text = str(value) + "/" + "3"
-	$"Gate/Text/Out of".text = str(value) + "/" + "2"
-	if gate == 2:
+	#print("Value is ",str(value))
+	#gate = value
+	#bossgate = value
+	if value < 3:
+		$"BossGate/Text/Out of".text = str(value) + "/" + "3"
+	if value < 2:
+		$"Gate/Text/Out of".text = str(value) + "/" + "2"
+	if value == 2:
 		$Gate.queue_free()
-	if bossgate == 3:
+	if value == 3:
 		$BossGate.queue_free()
 
 

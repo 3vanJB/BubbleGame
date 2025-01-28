@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cudaadbjpxdx0"]
+[gd_scene load_steps=6 format=3 uid="uid://cudaadbjpxdx0"]
 
 [ext_resource type="Script" path="res://Scripts/credits.gd" id="1_y5wfo"]
 [ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="2_pdyfr"]
+[ext_resource type="Texture2D" uid="uid://bsr6nhgosw3y3" path="res://misc/enemy_bg_border_scaled_4x_pngcrushed.png" id="2_yi2xj"]
 [ext_resource type="AudioStream" uid="uid://dkxct17jp3884" path="res://SFX/Bubbles SFX Batch 1/UI/SFX_UI_Confirm.wav" id="3_56f80"]
 [ext_resource type="Theme" uid="uid://banc6367nyh15" path="res://battle/battleui/ui.tres" id="3_q4utv"]
 
@@ -30,6 +31,11 @@ offset_top = -264.0
 offset_right = 399.0
 offset_bottom = 326.0
 color = Color(0.087431, 0.072918, 0.184834, 1)
+
+[node name="EnemyBgBorderScaled4xPngcrushed" type="Sprite2D" parent="."]
+position = Vector2(-5, 28)
+scale = Vector2(1.00694, 1.09568)
+texture = ExtResource("2_yi2xj")
 
 [node name="CreditBoard" type="ColorRect" parent="."]
 layout_mode = 0

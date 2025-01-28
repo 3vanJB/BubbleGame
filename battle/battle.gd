@@ -160,9 +160,6 @@ func nextturn():
 		
 		current = turns[i]
 		
-		
-		
-		
 		if turns[i].isko == false:
 			current.restoreshine(10)
 			
