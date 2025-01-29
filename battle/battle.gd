@@ -193,7 +193,8 @@ func nextturn():
 			$UI/HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/member2/name.text = "Yoru"
 		if turns[i].isko == false:
 			current.restoreshine(10)
-			
+		
+		
 			if turns[i].ally == false:
 				#print("enemyturn")
 				#print(turns[i].membername + "'s turn")
@@ -224,23 +225,25 @@ func nextturn():
 					calculate(current, enemyparty.members[x-1])
 					current.consumeshine(current.action.cost)
 			else:
-				if current.ID == 0:
-					UI.setshine(0, playerparty.members[0].curshine)
-				else:
-					UI.setshine(1, playerparty.members[1].curshine)
-				UI.loadskills(turns[i].ID)
-				UI.setmainbuttons(false)
-				UI.setskillbuttons(false)
-				current = turns[i]
-				#print(turns[i].membername + "'s turn")
-				buttonattack.grab_focus()
+				if current.isko == false:
+					if current.ID == 0:
+						UI.setshine(0, playerparty.members[0].curshine)
+					else:
+						UI.setshine(1, playerparty.members[1].curshine)
+					UI.loadskills(turns[i].ID)
+					UI.setmainbuttons(false)
+					UI.setskillbuttons(false)
+					current = turns[i]
+					#print(turns[i].membername + "'s turn")
+					buttonattack.grab_focus()
 				
 				if enemyparty.dcount == enemyparty.mcount:
 					UI.setmainbuttons(true)
 					endbattle()
 					return
 				else:
-					await playeractionselected
+					if current.isko == false:
+						await playeractionselected
 				
 				UI.nameh.hide()
 		else:
@@ -252,6 +255,13 @@ func nextturn():
 	UI.nameh.hide()
 	UI.attackh.hide()
 	attackname.hide()
+	if playerparty.members[0].isko == true and playerparty.members[1].isko == true:
+		$CanvasLayer/Label.text = "Game Over!"
+		$CanvasLayer.show()
+		await get_tree().create_timer(5).timeout
+		get_tree().quit()
+	
+	
 	nextturn()
 
 func calculate(attacker, target):

@@ -129,11 +129,23 @@ func _on_battleend() -> void:
 	await Changer.AnimPlayer.animation_finished
 	match prevbattle:
 		0:
+			$PlayerCharacter1.frozen = true
 			Dialogic.start("Post Battle 1")
+			await Dialogic.timeline_ended
+			$PlayerCharacter1.frozen = false
+			
 		3:
+			$PlayerCharacter1.frozen = true
+			
 			Dialogic.start("Post Battle 2")
+			await Dialogic.timeline_ended
+			$PlayerCharacter1.frozen = false
 		2:
+			$PlayerCharacter1.frozen = true
+			
 			Dialogic.start("Post Battle 3")
+			await Dialogic.timeline_ended
+			$PlayerCharacter1.frozen = false
 		1:
 			#Changer.AnimPlayer.play("fadeout")
 			#Changer.AnimPlayer.play("fadein")
