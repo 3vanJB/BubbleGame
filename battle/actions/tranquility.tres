@@ -6,7 +6,7 @@
 script = ExtResource("1_nrg1t")
 type = 0
 isattack = false
-power = 1.2
+power = 4.0
 cost = 10.0
 actionname = "Tranquility"
 targetenemy = false

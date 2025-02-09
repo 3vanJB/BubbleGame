@@ -6590,7 +6590,7 @@ tile_set = SubResource("TileSet_tmvbp")
 metadata/_edit_lock_ = true
 
 [node name="PlayerCharacter1" parent="." groups=["controller"] instance=ExtResource("3_xsmx7")]
-position = Vector2(-275, -380)
+position = Vector2(-287, -384)
 
 [node name="SpriteAnim" parent="PlayerCharacter1" index="1"]
 metadata/_edit_lock_ = true
