@@ -95,7 +95,7 @@ func _on_bosstrigger_body_entered(body: Node2D) -> void:
 		print("boss")
 		Dialogic.timeline_ended.connect(_on_timeline_ended)
 		$PlayerCharacter1.frozen = true
-		Dialogic.start("preboss")
+		Dialogic.start("preboss_adeline")
 		await Dialogic.timeline_ended
 		#.switchtotrack(2)
 		#Audio.set_pitch(-1)Audio

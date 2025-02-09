@@ -29,6 +29,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
+"Adeline": "res://dialogue/Adeline.dch",
 "Rose": "res://dialogue/Rose.dch",
 "Voice": "res://dialogue/Voice.dch",
 "Yoru": "res://characters/player/Yoru.dch"
