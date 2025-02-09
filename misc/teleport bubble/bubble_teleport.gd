@@ -14,7 +14,7 @@ var movement_direction : Vector2
 func _ready() -> void:
 	movement_direction = get_new_direction()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	global_position += movement_direction * movement_speed
 	
 

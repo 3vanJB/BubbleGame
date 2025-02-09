@@ -79,7 +79,6 @@ func _on_attack_mouse_entered() -> void:
 	Audio.playeffect(hoversound)
 
 
-
 func _on_skill_focus_entered() -> void:
 	Audio.playeffect(hoversound)
 

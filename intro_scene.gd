@@ -11,5 +11,5 @@ func _on_timeline_ended() -> void:
 	Changer.start_transition("res://overworld/overworld_level.tscn") 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

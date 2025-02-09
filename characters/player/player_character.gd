@@ -16,7 +16,7 @@ func _ready() -> void:
 	Auto.overworld_characters.append(self)
 	$SpriteAnim.play()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	# Handle jump.
 	lastpresseddirection = velocity
 	var vertical := Input.get_axis("ui_up","ui_down")
@@ -85,7 +85,7 @@ func interact() -> void:
 		# Interaction failed
 		pass
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	update_closest_interactable()
 
 
