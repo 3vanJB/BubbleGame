@@ -29,7 +29,7 @@ var members = {
 	3:{
 		#orang bubble
 		"name":"Furious Jubjub",
-		"stats":{ "hp":50, "str":999999999, "def":5, "mgk":6, "mgkdef":3, "spd":3},
+		"stats":{ "hp":50, "str":20, "def":5, "mgk":6, "mgkdef":3, "spd":3},
 		"ally":false,
 		"skills":[7, 8, 0],
 		"sprite":"res://battle/enemyanim/jubjub.tscn"
@@ -55,7 +55,7 @@ func getmemberstats(ID):
 func getmember(ID):
 	return members[ID]
 
-
+#Where the encounters are set up using "var members" in the dictionary
 var echips = {
 	0:[4, 3],
 	1:[2],
