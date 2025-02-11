@@ -49,7 +49,9 @@ directories/dtl_directory={
 "Pre Boss Corridor": "res://dialogue/Pre Boss Corridor.dtl",
 "Quick_start": "res://dialogue/Quick_start.dtl",
 "preboss": "res://dialogue/preboss.dtl",
-"preboss_adeline": "res://dialogue/preboss_adeline.dtl"
+"preboss_adeline": "res://dialogue/preboss_adeline.dtl",
+"puzzlogue 1": "res://dialogue/puzzlogue 1.dtl",
+"puzzlogue 1 win": "res://dialogue/puzzlogue 1 win.dtl"
 }
 
 [display]

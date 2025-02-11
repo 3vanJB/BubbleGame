@@ -1,10 +1,13 @@
-[gd_scene load_steps=14 format=4 uid="uid://cavkjml0ecjf1"]
+[gd_scene load_steps=21 format=4 uid="uid://cavkjml0ecjf1"]
 
 [ext_resource type="Script" path="res://overworld/overworld_level.gd" id="1_1gd41"]
 [ext_resource type="Texture2D" uid="uid://sj2nj5vglhpg" path="res://overworld/tiles/New_Maze_Finals.png" id="2_dtglw"]
 [ext_resource type="PackedScene" uid="uid://bscujqsdl8afs" path="res://characters/player/player_character_1.tscn" id="3_xsmx7"]
 [ext_resource type="Texture2D" uid="uid://b2dxs74mgvygm" path="res://characters/AI/enemy/boss/GGJ_Boss_scaled_7x_pngcrushed.png" id="5_i82l8"]
 [ext_resource type="Texture2D" uid="uid://b4c6wrj4jhvoj" path="res://Game_Icon.png" id="6_6b407"]
+[ext_resource type="Texture2D" uid="uid://35i23hhccc8l" path="res://characters/Sprites/bubble.png" id="6_aem5s"]
+[ext_resource type="Texture2D" uid="uid://667bxy5tkvvh" path="res://misc/normal.png" id="7_f3rq3"]
+[ext_resource type="Texture2D" uid="uid://bicsh830tyn65" path="res://misc/bpress.png" id="8_i8oti"]
 [ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="10_oejaw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7n6m4"]
@@ -6554,6 +6557,37 @@ texture = ExtResource("2_dtglw")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7n6m4")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2k0j"]
+size = Vector2(42, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iqxsd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_f3rq3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_f3rq3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_i8oti")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rro5b"]
+size = Vector2(70, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wfmrd"]
+size = Vector2(46, 70)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5c7ip"]
 size = Vector2(46, 72)
 
@@ -6577,9 +6611,9 @@ wait_time = 2.0
 
 [node name="Floor_Color" type="ColorRect" parent="."]
 z_index = -5
-offset_left = -1153.0
+offset_left = -1161.0
 offset_top = -1311.0
-offset_right = 1704.0
+offset_right = 1696.0
 offset_bottom = 559.0
 color = Color(0.137255, 0.141176, 0.254902, 1)
 
@@ -6589,8 +6623,131 @@ tile_map_data = PackedByteArray("AADQ/+H/AAAEACEAAADR/+H/AAAFACEAAADR/+L/AAAFACI
 tile_set = SubResource("TileSet_tmvbp")
 metadata/_edit_lock_ = true
 
+[node name="Puzzle 1" type="Node2D" parent="."]
+position = Vector2(80, 152)
+
+[node name="Button1" type="Area2D" parent="Puzzle 1"]
+modulate = Color(0.668503, 0.565457, 0.980353, 1)
+position = Vector2(-137, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puzzle 1/Button1"]
+shape = SubResource("RectangleShape2D_u2k0j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Puzzle 1/Button1"]
+sprite_frames = SubResource("SpriteFrames_iqxsd")
+
+[node name="Label" type="Label" parent="Puzzle 1/Button1"]
+modulate = Color(1, 1, 1, 0.52549)
+offset_left = -18.0
+offset_top = 67.0
+offset_right = 22.0
+offset_bottom = 118.0
+scale = Vector2(1, -0.840001)
+theme_override_colors/font_color = Color(0.792479, 0.35286, 0.838169, 1)
+theme_override_fonts/font = ExtResource("10_oejaw")
+theme_override_font_sizes/font_size = 50
+text = "1"
+
+[node name="Button2" type="Area2D" parent="Puzzle 1"]
+modulate = Color(0.668503, 0.565457, 0.980353, 1)
+position = Vector2(-290, 17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puzzle 1/Button2"]
+shape = SubResource("RectangleShape2D_u2k0j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Puzzle 1/Button2"]
+sprite_frames = SubResource("SpriteFrames_iqxsd")
+
+[node name="Label" type="Label" parent="Puzzle 1/Button2"]
+modulate = Color(1, 1, 1, 0.54902)
+offset_left = -20.0
+offset_top = 69.0
+offset_right = 20.0
+offset_bottom = 120.0
+scale = Vector2(1, -0.960001)
+theme_override_colors/font_color = Color(0.792479, 0.35286, 0.838169, 1)
+theme_override_fonts/font = ExtResource("10_oejaw")
+theme_override_font_sizes/font_size = 50
+text = "2
+"
+
+[node name="Button3" type="Area2D" parent="Puzzle 1"]
+modulate = Color(0.668503, 0.565457, 0.980353, 1)
+position = Vector2(-454, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puzzle 1/Button3"]
+shape = SubResource("RectangleShape2D_u2k0j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Puzzle 1/Button3"]
+sprite_frames = SubResource("SpriteFrames_iqxsd")
+
+[node name="Label" type="Label" parent="Puzzle 1/Button3"]
+modulate = Color(1, 1, 1, 0.576471)
+offset_left = -19.0
+offset_top = 68.0
+offset_right = 21.0
+offset_bottom = 119.0
+scale = Vector2(1, -0.960001)
+theme_override_colors/font_color = Color(0.792479, 0.35286, 0.838169, 1)
+theme_override_fonts/font = ExtResource("10_oejaw")
+theme_override_font_sizes/font_size = 50
+text = "3
+"
+
+[node name="puzzlogue_1" type="Area2D" parent="Puzzle 1"]
+position = Vector2(8, -38)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puzzle 1/puzzlogue_1"]
+shape = SubResource("RectangleShape2D_rro5b")
+
+[node name="puzzlogue_2" type="Area2D" parent="Puzzle 1"]
+position = Vector2(354, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puzzle 1/puzzlogue_2"]
+position = Vector2(-1, -4)
+shape = SubResource("RectangleShape2D_rro5b")
+
+[node name="Block1" type="StaticBody2D" parent="Puzzle 1"]
+modulate = Color(0.985802, 0.828068, 0.499236, 1)
+position = Vector2(145, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puzzle 1/Block1"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_wfmrd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Puzzle 1/Block1"]
+position = Vector2(-0.500001, 1.90735e-06)
+scale = Vector2(1.23438, 1.25)
+texture = ExtResource("6_aem5s")
+
+[node name="Block2" type="StaticBody2D" parent="Puzzle 1"]
+modulate = Color(0.985802, 0.828068, 0.499236, 1)
+position = Vector2(213, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puzzle 1/Block2"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_wfmrd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Puzzle 1/Block2"]
+position = Vector2(-0.500001, 1.90735e-06)
+scale = Vector2(1.23438, 1.25)
+texture = ExtResource("6_aem5s")
+
+[node name="Block3" type="StaticBody2D" parent="Puzzle 1"]
+modulate = Color(0.985802, 0.828068, 0.499236, 1)
+position = Vector2(279, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puzzle 1/Block3"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_wfmrd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Puzzle 1/Block3"]
+position = Vector2(-0.500001, 1.90735e-06)
+scale = Vector2(1.23438, 1.25)
+texture = ExtResource("6_aem5s")
+
 [node name="PlayerCharacter1" parent="." groups=["controller"] instance=ExtResource("3_xsmx7")]
-position = Vector2(-287, -384)
+position = Vector2(-263, -391)
 
 [node name="SpriteAnim" parent="PlayerCharacter1" index="1"]
 metadata/_edit_lock_ = true
@@ -6633,6 +6790,11 @@ position = Vector2(-367, -926)
 position = Vector2(1, 3)
 shape = SubResource("RectangleShape2D_q5k40")
 
+[node name="Bubble2" type="Sprite2D" parent="Enemy Trigger2"]
+modulate = Color(0.622095, 0.994773, 0.816297, 1)
+position = Vector2(-12, -7)
+texture = ExtResource("6_6b407")
+
 [node name="Bubble" type="Sprite2D" parent="Enemy Trigger2"]
 modulate = Color(0.622095, 0.994773, 0.816297, 1)
 texture = ExtResource("6_6b407")
@@ -6658,9 +6820,9 @@ shape = SubResource("RectangleShape2D_pj72w")
 
 [node name="Sprite2D" type="Sprite2D" parent="BossGate"]
 modulate = Color(0.827136, 0.675304, 0.983455, 1)
-position = Vector2(-4, 0.5)
-scale = Vector2(2.5, 2.15625)
-texture = ExtResource("6_6b407")
+position = Vector2(-1.50001, -6.5)
+scale = Vector2(1.42187, 1.42187)
+texture = ExtResource("6_aem5s")
 
 [node name="Text" type="HBoxContainer" parent="BossGate"]
 offset_left = -43.0
@@ -6685,9 +6847,9 @@ shape = SubResource("RectangleShape2D_pj72w")
 
 [node name="Sprite2D" type="Sprite2D" parent="Gate"]
 modulate = Color(0.827136, 0.675304, 0.983455, 1)
-position = Vector2(-4, 0.5)
-scale = Vector2(2.5, 2.15625)
-texture = ExtResource("6_6b407")
+position = Vector2(-3.00001, -3)
+scale = Vector2(1.48438, 1.42969)
+texture = ExtResource("6_aem5s")
 
 [node name="Text" type="HBoxContainer" parent="Gate"]
 offset_left = -43.0
@@ -6728,11 +6890,17 @@ shape = SubResource("RectangleShape2D_ma0u3")
 
 [connection signal="battleend" from="." to="." method="_on_battleend"]
 [connection signal="timeout" from="BubbleSpawnTimer" to="." method="_on_bubble_spawn_timer_timeout"]
+[connection signal="body_entered" from="Puzzle 1/Button1" to="." method="_on_button_1_body_entered"]
+[connection signal="body_entered" from="Puzzle 1/Button2" to="." method="_on_button_2_body_entered"]
+[connection signal="body_entered" from="Puzzle 1/Button3" to="." method="_on_button_3_body_entered"]
+[connection signal="body_entered" from="Puzzle 1/puzzlogue_1" to="." method="_on_puzzlogue_1_body_entered"]
+[connection signal="body_entered" from="Puzzle 1/puzzlogue_2" to="." method="_on_puzzlogue_1_body_entered"]
+[connection signal="body_entered" from="Puzzle 1/puzzlogue_2" to="." method="_on_puzzlogue_2_body_entered"]
 [connection signal="body_entered" from="bosstrigger" to="." method="_on_bosstrigger_body_entered"]
 [connection signal="body_entered" from="Enemy Trigger" to="." method="_on_enemy_trigger_body_entered"]
 [connection signal="body_entered" from="Enemy Trigger2" to="." method="_on_enemy_trigger_2_body_entered"]
-[connection signal="body_entered" from="Enemy Trigger3" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Enemy Trigger3" to="." method="_on_enemy_trigger_3_body_entered"]
+[connection signal="body_entered" from="Enemy Trigger3" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="corridor1" to="." method="_on_corridor_1_body_entered"]
 [connection signal="body_entered" from="corridor2" to="." method="_on_corridor_2_body_entered"]
 

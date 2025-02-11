@@ -196,7 +196,6 @@ func _on_enemy_trigger_3_body_entered(body: Node2D) -> void:
 		$"Enemy Trigger3".queue_free()
 		#await battleend
 
-
 func _on_corridor_1_body_entered(body: Node2D) -> void:
 	$corridor1.queue_free()
 	if body.is_in_group("controller"):
@@ -207,7 +206,6 @@ func _on_corridor_1_body_entered(body: Node2D) -> void:
 		$PlayerCharacter1.frozen = false
 		
 
-
 func _on_corridor_2_body_entered(body: Node2D) -> void:
 	$corridor2.queue_free()
 	if body.is_in_group("controller"):
@@ -216,3 +214,38 @@ func _on_corridor_2_body_entered(body: Node2D) -> void:
 		Dialogic.start("Pre Battle 2 Corridor")
 		await Dialogic.timeline_ended
 		$PlayerCharacter1.frozen = false
+
+
+func _on_puzzlogue_1_body_entered(body: Node2D) -> void:
+	$"Puzzle 1/puzzlogue_1".queue_free()
+	if body.is_in_group("controller"):
+		#Dialogic.timeline_ended.connect(_on_timeline_ended)
+		$PlayerCharacter1.frozen = true
+		Dialogic.start("puzzlogue 1")
+		await Dialogic.timeline_ended
+		$PlayerCharacter1.frozen = false
+
+func _on_puzzlogue_2_body_entered(body: Node2D) -> void:
+	$"Puzzle 1/puzzlogue_2".queue_free()
+	if body.is_in_group("controller"):
+		#Dialogic.timeline_ended.connect(_on_timeline_ended)
+		$PlayerCharacter1.frozen = true
+		Dialogic.start("puzzlogue 1 win")
+		await Dialogic.timeline_ended
+		$PlayerCharacter1.frozen = false
+
+#TODO Gonna replace with more complex puzzle later
+func _on_button_1_body_entered(body: Node2D) -> void:
+	$"Puzzle 1/Button1/AnimatedSprite2D".play("pressed")
+	$"Puzzle 1/Button1/AnimatedSprite2D".stop()
+	$"Puzzle 1/Block1".queue_free()
+	
+func _on_button_2_body_entered(body: Node2D) -> void:
+	$"Puzzle 1/Button2/AnimatedSprite2D".play("pressed")
+	$"Puzzle 1/Button2/AnimatedSprite2D".stop()
+	$"Puzzle 1/Block2".queue_free()
+
+func _on_button_3_body_entered(body: Node2D) -> void:
+	$"Puzzle 1/Button3/AnimatedSprite2D".play("pressed")
+	$"Puzzle 1/Button3/AnimatedSprite2D".stop()
+	$"Puzzle 1/Block3".queue_free()
