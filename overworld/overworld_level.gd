@@ -41,6 +41,7 @@ func _on_bubble_spawn_timer_timeout() -> void:
 func exitbattle():
 	Audio.music.stream = load(Audio.tracks[1])
 	Audio.music.play()
+	$Lights.show()
 	$PlayerCharacter1.frozen = false
 	$PlayerCharacter1/Camera2D.make_current()
 
@@ -52,6 +53,7 @@ func transition_to_battle(echip, istext) -> void:
 	prevbattle = echip
 	n.intext = istext
 	$PlayerCharacter1.frozen = true
+	$Lights.hide()
 	Changer.AnimPlayer.play("fadein")
 	Audio.playeffect(bsound)
 	await get_tree().create_timer(3).timeout

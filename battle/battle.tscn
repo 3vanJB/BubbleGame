@@ -112,6 +112,7 @@ wait_time = 2.0
 position = Vector2(576, 324)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
 modulate = Color(0.989618, 0.818015, 0.357856, 1)

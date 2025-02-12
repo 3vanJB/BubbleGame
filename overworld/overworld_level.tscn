@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cavkjml0ecjf1"]
+[gd_scene load_steps=29 format=4 uid="uid://cavkjml0ecjf1"]
 
 [ext_resource type="Script" path="res://overworld/overworld_level.gd" id="1_1gd41"]
 [ext_resource type="Texture2D" uid="uid://sj2nj5vglhpg" path="res://overworld/tiles/New_Maze_Finals.png" id="2_dtglw"]
@@ -9,6 +9,42 @@
 [ext_resource type="Texture2D" uid="uid://667bxy5tkvvh" path="res://misc/normal.png" id="7_f3rq3"]
 [ext_resource type="Texture2D" uid="uid://bicsh830tyn65" path="res://misc/bpress.png" id="8_i8oti"]
 [ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="10_oejaw"]
+
+[sub_resource type="Gradient" id="Gradient_qb44a"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p0vvw"]
+gradient = SubResource("Gradient_qb44a")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_7btvt"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vb2kv"]
+gradient = SubResource("Gradient_7btvt")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_r2wp7"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ba50p"]
+gradient = SubResource("Gradient_r2wp7")
+fill = 2
+fill_from = Vector2(0.325688, 0.43578)
+fill_to = Vector2(0.993119, 0.559633)
+
+[sub_resource type="Gradient" id="Gradient_quo4p"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_onw60"]
+gradient = SubResource("Gradient_quo4p")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7n6m4"]
 texture = ExtResource("2_dtglw")
@@ -6603,18 +6639,186 @@ size = Vector2(67, 60)
 size = Vector2(20, 30)
 
 [node name="OverworldLevel" type="Node2D"]
+modulate = Color(0.739424, 0.661326, 0.773861, 1)
 texture_filter = 1
 script = ExtResource("1_1gd41")
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="Crystal_B" type="PointLight2D" parent="Lights"]
+position = Vector2(-476, -422)
+scale = Vector2(4.92, 3.08)
+color = Color(0.244368, 1, 0.923584, 1)
+texture = SubResource("GradientTexture2D_p0vvw")
+
+[node name="Crystal_B2" type="PointLight2D" parent="Lights"]
+position = Vector2(340, -446)
+scale = Vector2(4.92, 3.08)
+color = Color(0.244368, 1, 0.923584, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_p0vvw")
+
+[node name="Crystal_B3" type="PointLight2D" parent="Lights"]
+position = Vector2(474, -562)
+scale = Vector2(4.92, 3.08)
+color = Color(0.244368, 1, 0.923584, 1)
+energy = 3.0
+texture = SubResource("GradientTexture2D_p0vvw")
+
+[node name="Crystal_B4" type="PointLight2D" parent="Lights"]
+position = Vector2(141, -764)
+scale = Vector2(4.92, 3.08)
+color = Color(0.244368, 1, 0.923584, 1)
+energy = 5.0
+texture = SubResource("GradientTexture2D_p0vvw")
+
+[node name="Crystal_B5" type="PointLight2D" parent="Lights"]
+position = Vector2(509, 0.999939)
+scale = Vector2(4.92, 3.08)
+color = Color(0.244368, 1, 0.923584, 1)
+energy = 3.0
+texture = SubResource("GradientTexture2D_p0vvw")
+
+[node name="Crystal_B6" type="PointLight2D" parent="Lights"]
+position = Vector2(854, -806)
+scale = Vector2(4.92, 3.08)
+color = Color(0.244368, 1, 0.923584, 1)
+energy = 5.0
+texture = SubResource("GradientTexture2D_p0vvw")
+
+[node name="Crystal_B7" type="PointLight2D" parent="Lights"]
+position = Vector2(-415, 118)
+scale = Vector2(2.35884, 1.47159)
+color = Color(0.244368, 1, 0.923584, 1)
+energy = 5.0
+texture = SubResource("GradientTexture2D_p0vvw")
+
+[node name="Crystal_B8" type="PointLight2D" parent="Lights"]
+position = Vector2(17, 181)
+scale = Vector2(4.92, 3.08)
+color = Color(0.244368, 1, 0.923584, 1)
+energy = 3.0
+texture = SubResource("GradientTexture2D_p0vvw")
+
+[node name="Crystal_B9" type="PointLight2D" parent="Lights"]
+position = Vector2(-326, -767)
+scale = Vector2(4.92, 3.08)
+color = Color(0.244368, 1, 0.923584, 1)
+energy = 3.0
+texture = SubResource("GradientTexture2D_p0vvw")
+
+[node name="Crystal_B10" type="PointLight2D" parent="Lights"]
+position = Vector2(-81, -227)
+scale = Vector2(4.92, 3.08)
+color = Color(0.244368, 1, 0.923584, 1)
+texture = SubResource("GradientTexture2D_p0vvw")
+
+[node name="Crystal_M" type="PointLight2D" parent="Lights"]
+position = Vector2(375, -69)
+scale = Vector2(3.84, 3)
+color = Color(0.955662, 0.678345, 0.942366, 1)
+energy = 3.0
+texture = SubResource("GradientTexture2D_vb2kv")
+
+[node name="Crystal_M2" type="PointLight2D" parent="Lights"]
+position = Vector2(-153, -699)
+scale = Vector2(3.84, 3)
+color = Color(0.955662, 0.678345, 0.942366, 1)
+energy = 3.0
+texture = SubResource("GradientTexture2D_vb2kv")
+
+[node name="Crystal_M3" type="PointLight2D" parent="Lights"]
+position = Vector2(997, -262)
+scale = Vector2(2.57594, 2.40625)
+color = Color(0.955662, 0.678345, 0.942366, 1)
+energy = 3.0
+texture = SubResource("GradientTexture2D_vb2kv")
+
+[node name="Crystal_M4" type="PointLight2D" parent="Lights"]
+position = Vector2(567, -667)
+scale = Vector2(3.84, 3)
+color = Color(0.955662, 0.678345, 0.942366, 1)
+energy = 3.0
+texture = SubResource("GradientTexture2D_vb2kv")
+
+[node name="Crystal_M5" type="PointLight2D" parent="Lights"]
+position = Vector2(-401, -965)
+scale = Vector2(3.84, 3)
+color = Color(0.955662, 0.678345, 0.942366, 1)
+energy = 3.0
+texture = SubResource("GradientTexture2D_vb2kv")
+
+[node name="Crystal_M6" type="PointLight2D" parent="Lights"]
+position = Vector2(1331, -347)
+scale = Vector2(2.57594, 2.40625)
+color = Color(0.955662, 0.678345, 0.942366, 1)
+texture = SubResource("GradientTexture2D_vb2kv")
+
+[node name="Lake" type="PointLight2D" parent="Lights"]
+position = Vector2(74.5, 190)
+scale = Vector2(17.2344, 3.28125)
+texture = SubResource("GradientTexture2D_ba50p")
+
+[node name="Lake2" type="PointLight2D" parent="Lights"]
+position = Vector2(-401.125, -394.625)
+scale = Vector2(8.62109, 2.63672)
+energy = 0.5
+texture = SubResource("GradientTexture2D_ba50p")
+
+[node name="Lake3" type="PointLight2D" parent="Lights"]
+position = Vector2(1191, -222.5)
+scale = Vector2(6.71875, 0.671875)
+energy = 0.6
+shadow_enabled = true
+shadow_color = Color(0.0156863, 0.0156863, 0.0156863, 1)
+texture = SubResource("GradientTexture2D_ba50p")
+
+[node name="Lake4" type="PointLight2D" parent="Lights"]
+position = Vector2(1056.5, -395.5)
+scale = Vector2(2.23437, 1.23438)
+energy = 0.6
+shadow_enabled = true
+shadow_color = Color(0.0156863, 0.0156863, 0.0156863, 1)
+texture = SubResource("GradientTexture2D_ba50p")
+
+[node name="Boss" type="PointLight2D" parent="Lights"]
+position = Vector2(1183.5, -368.5)
+scale = Vector2(1.60938, 1.98438)
+texture = SubResource("GradientTexture2D_onw60")
+
+[node name="Crystal_b" type="PointLight2D" parent="Lights"]
+position = Vector2(-45, -524)
+scale = Vector2(2.6475, 2.08688)
+color = Color(0.244368, 1, 0.923584, 1)
+texture = SubResource("GradientTexture2D_p0vvw")
+
+[node name="Crystal_b2" type="PointLight2D" parent="Lights"]
+position = Vector2(113, -349)
+scale = Vector2(2.6475, 2.08688)
+color = Color(0.244368, 1, 0.923584, 1)
+texture = SubResource("GradientTexture2D_p0vvw")
+
+[node name="Crystal_b3" type="PointLight2D" parent="Lights"]
+position = Vector2(374, -804)
+scale = Vector2(2.6475, 2.08688)
+color = Color(0.244368, 1, 0.923584, 1)
+texture = SubResource("GradientTexture2D_p0vvw")
+
+[node name="Crystal_b4" type="PointLight2D" parent="Lights"]
+position = Vector2(582, -913)
+scale = Vector2(2.6475, 2.08688)
+color = Color(0.244368, 1, 0.923584, 1)
+texture = SubResource("GradientTexture2D_p0vvw")
 
 [node name="BubbleSpawnTimer" type="Timer" parent="."]
 wait_time = 2.0
 
 [node name="Floor_Color" type="ColorRect" parent="."]
 z_index = -5
-offset_left = -1161.0
-offset_top = -1311.0
-offset_right = 1696.0
-offset_bottom = 559.0
+offset_left = -933.0
+offset_top = -1306.0
+offset_right = 1924.0
+offset_bottom = 564.0
 color = Color(0.137255, 0.141176, 0.254902, 1)
 
 [node name="New_Floor_Plan" type="TileMapLayer" parent="."]
@@ -6759,6 +6963,12 @@ metadata/_edit_lock_ = true
 [node name="Camera2D" parent="PlayerCharacter1" index="3"]
 metadata/_edit_lock_ = true
 
+[node name="Player_Light" type="PointLight2D" parent="PlayerCharacter1"]
+position = Vector2(10, 1)
+scale = Vector2(1.60938, 1.98438)
+energy = 1.5
+texture = SubResource("GradientTexture2D_onw60")
+
 [node name="bosstrigger" type="Area2D" parent="."]
 position = Vector2(1185, -248)
 
@@ -6857,7 +7067,7 @@ offset_top = -82.0
 offset_right = 37.0
 offset_bottom = -27.0
 
-[node name="Requirement Text" type="Label" parent="Gate/Text"]
+[node name="Out of" type="Label" parent="Gate/Text"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.940918, 0.739219, 0.119756, 1)
 theme_override_fonts/font = ExtResource("10_oejaw")
@@ -6894,8 +7104,8 @@ shape = SubResource("RectangleShape2D_ma0u3")
 [connection signal="body_entered" from="Puzzle 1/Button2" to="." method="_on_button_2_body_entered"]
 [connection signal="body_entered" from="Puzzle 1/Button3" to="." method="_on_button_3_body_entered"]
 [connection signal="body_entered" from="Puzzle 1/puzzlogue_1" to="." method="_on_puzzlogue_1_body_entered"]
-[connection signal="body_entered" from="Puzzle 1/puzzlogue_2" to="." method="_on_puzzlogue_1_body_entered"]
 [connection signal="body_entered" from="Puzzle 1/puzzlogue_2" to="." method="_on_puzzlogue_2_body_entered"]
+[connection signal="body_entered" from="Puzzle 1/puzzlogue_2" to="." method="_on_puzzlogue_1_body_entered"]
 [connection signal="body_entered" from="bosstrigger" to="." method="_on_bosstrigger_body_entered"]
 [connection signal="body_entered" from="Enemy Trigger" to="." method="_on_enemy_trigger_body_entered"]
 [connection signal="body_entered" from="Enemy Trigger2" to="." method="_on_enemy_trigger_2_body_entered"]
