@@ -10,11 +10,13 @@ var partyhp = {
 
 var members = {
 	0:{
+		#Red girl
 		"name":"Rose",
 		"stats":{ "hp":80, "str":15, "def":5, "mgk":7, "mgkdef":8, "spd":3},
 		"ally":true
 	},
 	1:{
+		#Silver boi
 		"name":"Yoru",
 		"stats":{ "hp":50, "str":8, "def":5, "mgk":15, "mgkdef":10, "spd":3},
 		"ally":true

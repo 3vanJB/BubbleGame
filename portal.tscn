@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd2ivg0cb2h54"]
+
+[ext_resource type="Texture2D" uid="uid://b4c6wrj4jhvoj" path="res://Game_Icon.png" id="2_8t0yf"]
+
+[sub_resource type="GDScript" id="GDScript_yt5hs"]
+script/source = "extends Node2D
+
+@onready var x_position = get_node(\"Port-X\").position
+@onready var y_position = get_node(\"Port-Y\").position
+
+func _on_port_x_body_entered(body: Node2D) -> void:
+	if body.is_in_group(\"controller\"):
+		body.set_position(y_position)
+		
+func _on_port_y_body_entered(body: Node2D) -> void:
+	if body.is_in_group(\"controller\"):
+		body.set_position(x_position)
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8dyoi"]
+radius = 14.0357
+
+[node name="Portal" type="Node2D"]
+script = SubResource("GDScript_yt5hs")
+
+[node name="Port-X" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Port-X"]
+shape = SubResource("CircleShape2D_8dyoi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Port-X"]
+texture = ExtResource("2_8t0yf")
+
+[connection signal="body_entered" from="Port-X" to="." method="_on_port_x_body_entered"]

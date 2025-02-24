@@ -3,7 +3,7 @@ class_name BubbleTeleport extends Node2D
 # Nodes
 @onready var sprite_node : Sprite2D = $sprite
 
-# Teleport
+# Teleport_location
 @export var destination_location : Vector2
 
 # Movement
@@ -34,5 +34,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if character_collided == null:
 		print("aaaa")
 		return
-	character_collided.teleport_to_location(destination_location)
+	else:
+		#destination_location = get_new_direction()
+		character_collided.teleport_to_location(destination_location)
 	queue_free()

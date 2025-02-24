@@ -16,8 +16,9 @@ func _ready() -> void:
 	Audio.switchtotrack(1)
 	Dialogic.timeline_ended.connect(_on_entrance_ended)
 	$PlayerCharacter1.frozen = true
-	Dialogic.start("First Entrance")
-	#Dialogic.start("Quick_start")
+	#Dialogic.start("First Entrance")
+	
+	Dialogic.start("Quick_start")
 
 
 func _on_entrance_ended() -> void:
@@ -31,6 +32,7 @@ func spawn_new_bubble() -> void:
 
 	var new_bubble : BubbleTeleport = load("res://misc/teleport bubble/bubble_teleport.tscn").instantiate() as BubbleTeleport
 	add_child(new_bubble)
+	print("New Bubble")
 	new_bubble.global_position = get_random_location_around_one_player()
 	if new_bubble == null:
 		return
@@ -219,7 +221,10 @@ func _on_corridor_2_body_entered(body: Node2D) -> void:
 
 
 func _on_puzzlogue_1_body_entered(body: Node2D) -> void:
-	$"Puzzle 1/puzzlogue_1".queue_free()
+	if $"Puzzle 1/puzzlogue_1" == null:
+		pass
+	else:
+		$"Puzzle 1/puzzlogue_1".queue_free()
 	if body.is_in_group("controller"):
 		#Dialogic.timeline_ended.connect(_on_timeline_ended)
 		$PlayerCharacter1.frozen = true
@@ -237,17 +242,35 @@ func _on_puzzlogue_2_body_entered(body: Node2D) -> void:
 		$PlayerCharacter1.frozen = false
 
 #TODO Gonna replace with more complex puzzle later
+@onready var alpha = $"Puzzle 1/Block1"
+@onready var beta = $"Puzzle 1/Block2"
+@onready var theta = $"Puzzle 1/Block3"
+var confirmsound = preload("res://SFX/Bubbles SFX Batch 1/UI/SFX_UI_Confirm.wav")
+
 func _on_button_1_body_entered(body: Node2D) -> void:
 	$"Puzzle 1/Button1/AnimatedSprite2D".play("pressed")
+	Audio.playeffect(confirmsound)
 	$"Puzzle 1/Button1/AnimatedSprite2D".stop()
-	$"Puzzle 1/Block1".queue_free()
+	if $"Puzzle 1/Block1" == null:
+		$"Puzzle 1".add_child(beta)
+	else:
+		$"Puzzle 1".remove_child(alpha)
 	
 func _on_button_2_body_entered(body: Node2D) -> void:
 	$"Puzzle 1/Button2/AnimatedSprite2D".play("pressed")
+	Audio.playeffect(confirmsound)
 	$"Puzzle 1/Button2/AnimatedSprite2D".stop()
-	$"Puzzle 1/Block2".queue_free()
-
+	if $"Puzzle 1/Block2" == null:
+		$"Puzzle 1".add_child(theta)
+	else:
+		$"Puzzle 1".add_child(alpha)
+		$"Puzzle 1".remove_child(beta)
 func _on_button_3_body_entered(body: Node2D) -> void:
 	$"Puzzle 1/Button3/AnimatedSprite2D".play("pressed")
+	Audio.playeffect(confirmsound)
 	$"Puzzle 1/Button3/AnimatedSprite2D".stop()
-	$"Puzzle 1/Block3".queue_free()
+	if $"Puzzle 1/Block3" == null:
+		$"Puzzle 1".add_child(alpha)
+	else:
+		$"Puzzle 1".add_child(beta)
+		$"Puzzle 1".remove_child(theta)

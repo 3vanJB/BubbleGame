@@ -6619,7 +6619,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rro5b"]
-size = Vector2(70, 34)
+size = Vector2(70, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wfmrd"]
 size = Vector2(46, 70)
@@ -6639,7 +6639,6 @@ size = Vector2(67, 60)
 size = Vector2(20, 30)
 
 [node name="OverworldLevel" type="Node2D"]
-modulate = Color(0.739424, 0.661326, 0.773861, 1)
 texture_filter = 1
 script = ExtResource("1_1gd41")
 
@@ -6728,6 +6727,7 @@ energy = 3.0
 texture = SubResource("GradientTexture2D_vb2kv")
 
 [node name="Crystal_M3" type="PointLight2D" parent="Lights"]
+visible = false
 position = Vector2(997, -262)
 scale = Vector2(2.57594, 2.40625)
 color = Color(0.955662, 0.678345, 0.942366, 1)
@@ -6749,6 +6749,7 @@ energy = 3.0
 texture = SubResource("GradientTexture2D_vb2kv")
 
 [node name="Crystal_M6" type="PointLight2D" parent="Lights"]
+visible = false
 position = Vector2(1331, -347)
 scale = Vector2(2.57594, 2.40625)
 color = Color(0.955662, 0.678345, 0.942366, 1)
@@ -6766,6 +6767,7 @@ energy = 0.5
 texture = SubResource("GradientTexture2D_ba50p")
 
 [node name="Lake3" type="PointLight2D" parent="Lights"]
+visible = false
 position = Vector2(1191, -222.5)
 scale = Vector2(6.71875, 0.671875)
 energy = 0.6
@@ -6782,6 +6784,7 @@ shadow_color = Color(0.0156863, 0.0156863, 0.0156863, 1)
 texture = SubResource("GradientTexture2D_ba50p")
 
 [node name="Boss" type="PointLight2D" parent="Lights"]
+visible = false
 position = Vector2(1183.5, -368.5)
 scale = Vector2(1.60938, 1.98438)
 texture = SubResource("GradientTexture2D_onw60")
@@ -6812,6 +6815,7 @@ texture = SubResource("GradientTexture2D_p0vvw")
 
 [node name="BubbleSpawnTimer" type="Timer" parent="."]
 wait_time = 2.0
+autostart = true
 
 [node name="Floor_Color" type="ColorRect" parent="."]
 z_index = -5
@@ -6902,6 +6906,8 @@ text = "3
 position = Vector2(8, -38)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Puzzle 1/puzzlogue_1"]
+visible = false
+position = Vector2(0, -4.5)
 shape = SubResource("RectangleShape2D_rro5b")
 
 [node name="puzzlogue_2" type="Area2D" parent="Puzzle 1"]
@@ -6951,7 +6957,7 @@ scale = Vector2(1.23438, 1.25)
 texture = ExtResource("6_aem5s")
 
 [node name="PlayerCharacter1" parent="." groups=["controller"] instance=ExtResource("3_xsmx7")]
-position = Vector2(-263, -391)
+position = Vector2(-289, -380)
 
 [node name="SpriteAnim" parent="PlayerCharacter1" index="1"]
 metadata/_edit_lock_ = true
@@ -6962,12 +6968,6 @@ metadata/_edit_lock_ = true
 
 [node name="Camera2D" parent="PlayerCharacter1" index="3"]
 metadata/_edit_lock_ = true
-
-[node name="Player_Light" type="PointLight2D" parent="PlayerCharacter1"]
-position = Vector2(10, 1)
-scale = Vector2(1.60938, 1.98438)
-energy = 1.5
-texture = SubResource("GradientTexture2D_onw60")
 
 [node name="bosstrigger" type="Area2D" parent="."]
 position = Vector2(1185, -248)
@@ -7085,6 +7085,13 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0, 0, 0, 1)
+
+[node name="Ending" type="ColorRect" parent="."]
+offset_left = 946.0
+offset_top = -565.0
+offset_right = 1442.0
+offset_bottom = -199.0
+color = Color(0.137255, 0.141176, 0.254902, 0.952941)
 
 [node name="corridor1" type="Area2D" parent="."]
 position = Vector2(724, -327)
