@@ -7,7 +7,7 @@ var new_level : Node2D
 
 @export var AnimPlayer : AnimationPlayer
 
-
+var mementocount = 0
 enum E_change_scene_type {
 	NEW_LEVEL,
 	NEW_LOCATION

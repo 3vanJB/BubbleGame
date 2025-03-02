@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://swjoy5bsf67e"]
+[gd_scene load_steps=10 format=4 uid="uid://swjoy5bsf67e"]
 
 [ext_resource type="Texture2D" uid="uid://cw7t052qpfj5q" path="res://overworld/floor2/Floor_2_Layout.png" id="1_0rg6m"]
 [ext_resource type="PackedScene" uid="uid://bscujqsdl8afs" path="res://characters/player/player_character_1.tscn" id="2_6hg40"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dd2ivg0cb2h54" path="res://portal.tscn" id="4_s20ja"]
 [ext_resource type="PackedScene" uid="uid://di4bfda3xmq7i" path="res://overworld/interactables/normal/door/interactable_door.tscn" id="5_06iis"]
 [ext_resource type="PackedScene" uid="uid://b73te0yjgahi4" path="res://overworld/interactables/normal/lever/interactable_lever.tscn" id="6_eg8nn"]
+[ext_resource type="PackedScene" uid="uid://dck2dselg144l" path="res://overworld/interactables/pickables/mementoplaceholder.tscn" id="7_pv4hk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xvkkc"]
 texture = ExtResource("3_xxhmn")
@@ -6683,13 +6684,34 @@ exit = NodePath("../portalg1")
 [node name="exitpoint" parent="portals/G/portalg2" index="1"]
 position = Vector2(6, 63)
 
+[node name="PortalR1" parent="portals" node_paths=PackedStringArray("exit") instance=ExtResource("4_s20ja")]
+position = Vector2(1446, 2533)
+exit = NodePath("../PortalR2")
+
+[node name="PortalR2" parent="portals" instance=ExtResource("4_s20ja")]
+position = Vector2(1000, 3512)
+
+[node name="exitpoint" parent="portals/PortalR2" index="1"]
+position = Vector2(-213, -363)
+
 [node name="InteractableDoor" parent="." instance=ExtResource("5_06iis")]
 position = Vector2(1849, 1914)
-scale = Vector2(2.24, 1.86429)
+scale = Vector2(3.606, 3)
 
 [node name="InteractableLever" parent="." node_paths=PackedStringArray("door_linked") instance=ExtResource("6_eg8nn")]
 position = Vector2(240, 3099)
 door_linked = NodePath("../InteractableDoor")
+
+[node name="Mementos" type="Node" parent="."]
+
+[node name="memento1" parent="Mementos" instance=ExtResource("7_pv4hk")]
+position = Vector2(318, 2592)
+
+[node name="memento2" parent="Mementos" instance=ExtResource("7_pv4hk")]
+position = Vector2(1337, 1791)
+
+[node name="memento3" parent="Mementos" instance=ExtResource("7_pv4hk")]
+position = Vector2(1092, 662)
 
 [editable path="portals/A/portala1"]
 [editable path="portals/A/portala2"]
@@ -6704,3 +6726,4 @@ door_linked = NodePath("../InteractableDoor")
 [editable path="portals/F/portalf1"]
 [editable path="portals/G/portalg1"]
 [editable path="portals/G/portalg2"]
+[editable path="portals/PortalR2"]
