@@ -5,22 +5,37 @@
 [sub_resource type="GDScript" id="GDScript_yt5hs"]
 script/source = "extends Node2D
 
-@onready var x_position = get_node(\"Port-X\").position
-@onready var y_position = get_node(\"Port-Y\").position
+#NOTE: Make sure to check editable children and move the marker2d around if you want to change things
 
+
+#Other portal node you will exit from
+@export var exit : Node
+#Area 2D node for this portal
+@onready var area = $\"Port-X\"
+#The exit position other portals will use
+@onready var expoint = $exitpoint.global_position
+#@onready var x_position = get_node(\"Port-X\").position
+#@onready var y_position = get_node(\"Port-Y\").position
+
+#teleportation logic
 func _on_port_x_body_entered(body: Node2D) -> void:
 	if body.is_in_group(\"controller\"):
-		body.set_position(y_position)
+		diablesoppositeteleport()
+		body.global_position = exit.expoint
 		
-func _on_port_y_body_entered(body: Node2D) -> void:
-	if body.is_in_group(\"controller\"):
-		body.set_position(x_position)
+
+#creates a buffer between teleports
+func diablesoppositeteleport():
+	exit.area.monitoring = false
+	await get_tree().create_timer(0.3).timeout
+	exit.area.monitoring = true
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8dyoi"]
 radius = 14.0357
 
 [node name="Portal" type="Node2D"]
+texture_filter = 1
 script = SubResource("GDScript_yt5hs")
 
 [node name="Port-X" type="Area2D" parent="."]
@@ -30,5 +45,8 @@ shape = SubResource("CircleShape2D_8dyoi")
 
 [node name="Sprite2D" type="Sprite2D" parent="Port-X"]
 texture = ExtResource("2_8t0yf")
+
+[node name="exitpoint" type="Marker2D" parent="."]
+position = Vector2(-40, 0)
 
 [connection signal="body_entered" from="Port-X" to="." method="_on_port_x_body_entered"]
