@@ -18,6 +18,8 @@ func interact_door(character_consumed : PlayerCharacter) -> bool:
 		if not unlock_door(character_consumed):
 			return false
 	bIsOpen = !bIsOpen
+	$Sprite2D.flip_v = !$Sprite2D.flip_v
+	$StaticBody2D/CollisionShape2D2.set_deferred("disabled", !$StaticBody2D/CollisionShape2D2.disabled)
 	return true
 	# TODO: SFX
 
