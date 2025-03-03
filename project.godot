@@ -37,6 +37,7 @@ directories/dch_directory={
 directories/dtl_directory={
 "Battle 1": "res://dialogue/Battle 1.dtl",
 "Battle 2": "res://dialogue/Battle 2.dtl",
+"Encounter Portal": "res://dialogue/Encounter Portal.dtl",
 "First Entrance": "res://dialogue/First Entrance.dtl",
 "Intro": "res://dialogue/Intro.dtl",
 "Post Battle 1": "res://dialogue/Post Battle 1.dtl",
@@ -48,6 +49,7 @@ directories/dtl_directory={
 "Pre Battle 3": "res://dialogue/Pre Battle 3.dtl",
 "Pre Boss Corridor": "res://dialogue/Pre Boss Corridor.dtl",
 "Quick_start": "res://dialogue/Quick_start.dtl",
+"Second Entrance": "res://dialogue/Second Entrance.dtl",
 "preboss": "res://dialogue/preboss.dtl",
 "preboss_adeline": "res://dialogue/preboss_adeline.dtl",
 "puzzlogue 1": "res://dialogue/puzzlogue 1.dtl",

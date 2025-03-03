@@ -59,10 +59,15 @@ func getmember(ID):
 
 #Where the encounters are set up using "var members" in the dictionary
 var echips = {
+	#Crystal Caverns Set
 	0:[4, 3],
-	1:[2],
 	2:[5, 4, 3],
-	3:[5, 3]
+	3:[5, 3], 
+	# Level 2 Set
+	4:[4],
+	5:[3],
+	#Boss Battle
+	1:[2]
 }
 
 

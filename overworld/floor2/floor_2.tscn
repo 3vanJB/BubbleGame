@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=4 uid="uid://swjoy5bsf67e"]
+[gd_scene load_steps=16 format=4 uid="uid://swjoy5bsf67e"]
 
 [ext_resource type="Texture2D" uid="uid://cw7t052qpfj5q" path="res://overworld/floor2/Floor_2_Layout.png" id="1_0rg6m"]
+[ext_resource type="Script" path="res://overworld/floor2/floor_2.gd" id="1_l0mtw"]
 [ext_resource type="PackedScene" uid="uid://bscujqsdl8afs" path="res://characters/player/player_character_1.tscn" id="2_6hg40"]
 [ext_resource type="Texture2D" uid="uid://sj2nj5vglhpg" path="res://overworld/tiles/New_Maze_Finals.png" id="3_xxhmn"]
 [ext_resource type="PackedScene" uid="uid://dd2ivg0cb2h54" path="res://portal.tscn" id="4_s20ja"]
 [ext_resource type="PackedScene" uid="uid://di4bfda3xmq7i" path="res://overworld/interactables/normal/door/interactable_door.tscn" id="5_06iis"]
 [ext_resource type="PackedScene" uid="uid://b73te0yjgahi4" path="res://overworld/interactables/normal/lever/interactable_lever.tscn" id="6_eg8nn"]
 [ext_resource type="PackedScene" uid="uid://dck2dselg144l" path="res://overworld/interactables/pickables/mementoplaceholder.tscn" id="7_pv4hk"]
+[ext_resource type="Texture2D" uid="uid://bqnv851g4ja3j" path="res://icon.svg" id="8_kk1ka"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xvkkc"]
 texture = ExtResource("3_xxhmn")
@@ -6555,8 +6557,21 @@ texture = ExtResource("3_xxhmn")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_xvkkc")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_248w7"]
+size = Vector2(107, 35)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xoj1u"]
+radius = 29.0172
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_27pbg"]
+radius = 55.1453
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y7m8y"]
+radius = 50.0899
+
 [node name="floor2" type="Node2D"]
 texture_filter = 1
+script = ExtResource("1_l0mtw")
 
 [node name="Floor2Layout" type="Sprite2D" parent="."]
 z_index = -10
@@ -6702,6 +6717,46 @@ scale = Vector2(3.606, 3)
 position = Vector2(240, 3099)
 door_linked = NodePath("../InteractableDoor")
 
+[node name="Dialogue" type="Node2D" parent="."]
+
+[node name="Entrance" type="Area2D" parent="Dialogue"]
+position = Vector2(0, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/Entrance"]
+position = Vector2(1045, 2682)
+shape = SubResource("RectangleShape2D_248w7")
+
+[node name="First Portal" type="Area2D" parent="Dialogue"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/First Portal"]
+position = Vector2(1384, 2809)
+shape = SubResource("CircleShape2D_xoj1u")
+
+[node name="Triggers" type="Node2D" parent="."]
+
+[node name="Enemy_1" type="Area2D" parent="Triggers"]
+position = Vector2(1852, 1225)
+
+[node name="Sprite2D" type="Sprite2D" parent="Triggers/Enemy_1"]
+position = Vector2(-3, -0.999998)
+scale = Vector2(0.742188, 0.6875)
+texture = ExtResource("8_kk1ka")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Enemy_1"]
+position = Vector2(-4, 0)
+shape = SubResource("CircleShape2D_27pbg")
+
+[node name="Enemy_2" type="Area2D" parent="Triggers"]
+position = Vector2(619, 1526)
+
+[node name="Sprite2D" type="Sprite2D" parent="Triggers/Enemy_2"]
+position = Vector2(2, -2)
+scale = Vector2(0.726563, 0.671875)
+texture = ExtResource("8_kk1ka")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Enemy_2"]
+shape = SubResource("CircleShape2D_y7m8y")
+
 [node name="Mementos" type="Node" parent="."]
 
 [node name="memento1" parent="Mementos" instance=ExtResource("7_pv4hk")]
@@ -6712,6 +6767,11 @@ position = Vector2(1337, 1791)
 
 [node name="memento3" parent="Mementos" instance=ExtResource("7_pv4hk")]
 position = Vector2(1092, 662)
+
+[connection signal="body_entered" from="Dialogue/Entrance" to="." method="_on_entrance_body_entered"]
+[connection signal="body_entered" from="Dialogue/First Portal" to="." method="_on_first_portal_body_entered"]
+[connection signal="body_entered" from="Triggers/Enemy_1" to="." method="_on_enemy_1_body_entered"]
+[connection signal="body_entered" from="Triggers/Enemy_2" to="." method="_on_enemy_2_body_entered"]
 
 [editable path="portals/A/portala1"]
 [editable path="portals/A/portala2"]

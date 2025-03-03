@@ -16,10 +16,8 @@ func _ready() -> void:
 	Audio.switchtotrack(1)
 	Dialogic.timeline_ended.connect(_on_entrance_ended)
 	$PlayerCharacter1.frozen = true
-	#Dialogic.start("First Entrance")
-	
-	Dialogic.start("Quick_start")
-
+	Dialogic.start("First Entrance")
+	#Dialogic.start("Quick_start")
 
 func _on_entrance_ended() -> void:
 	Dialogic.timeline_ended.disconnect(_on_entrance_ended)
@@ -255,7 +253,6 @@ func _on_button_1_body_entered(body: Node2D) -> void:
 		$"Puzzle 1".add_child(beta)
 	else:
 		$"Puzzle 1".remove_child(alpha)
-	
 func _on_button_2_body_entered(body: Node2D) -> void:
 	$"Puzzle 1/Button2/AnimatedSprite2D".play("pressed")
 	Audio.playeffect(confirmsound)
@@ -274,3 +271,8 @@ func _on_button_3_body_entered(body: Node2D) -> void:
 	else:
 		$"Puzzle 1".add_child(beta)
 		$"Puzzle 1".remove_child(theta)
+
+
+func _on_next_level_body_entered(body: Node2D) -> void:
+	if body.is_in_group("controller"):
+		Changer.start_transition("res://overworld/floor2/floor_2.tscn")

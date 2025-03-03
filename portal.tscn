@@ -16,13 +16,14 @@ script/source = "extends Node2D
 @onready var expoint = $exitpoint.global_position
 #@onready var x_position = get_node(\"Port-X\").position
 #@onready var y_position = get_node(\"Port-Y\").position
-
+var plorp = preload(\"res://SFX/Bubbles SFX Batch 1/UI/SFX_UI_Hover.wav\")
 #teleportation logic
 func _on_port_x_body_entered(body: Node2D) -> void:
 	if exit == null:
 		pass
 	else:
 		if body.is_in_group(\"controller\"):
+			Audio.playeffect(plorp)
 			diablesoppositeteleport()
 			body.global_position = exit.expoint
 		
