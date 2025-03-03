@@ -17,7 +17,7 @@ func transition_to_battle(echip, istext) -> void:
 	prevbattle = echip
 	n.intext = istext
 	$PlayerCharacter1.frozen = true
-	#$Lights.hide()
+	$Lights.hide()
 	Changer.AnimPlayer.play("fadein")
 	Audio.playeffect(bsound)
 	await get_tree().create_timer(3).timeout
@@ -35,50 +35,14 @@ func exitbattle():
 	$Lights.show()
 	$PlayerCharacter1.frozen = false
 	$PlayerCharacter1/Camera2D.make_current()
-	
-#Dialogue Encounters
-func _on_entrance_body_entered(body: Node2D) -> void:
-	$Dialogue/Entrance.queue_free()
-	if body.is_in_group("controller"):
-		#Dialogic.timeline_ended.connect(_on_timeline_ended)
-		$PlayerCharacter1.frozen = true
-		Dialogic.start("Second Entrance")
-		await Dialogic.timeline_ended
-		$PlayerCharacter1.frozen = false
-func _on_first_portal_body_entered(body: Node2D) -> void:
-	$"Dialogue/First Portal".queue_free()
-	if body.is_in_group("controller"):
-		#Dialogic.timeline_ended.connect(_on_timeline_ended)
-		$PlayerCharacter1.frozen = true
-		Dialogic.start("Encounter Portal")
-		await Dialogic.timeline_ended
-		$PlayerCharacter1.frozen = false
 
-func _on_enemy_1_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("controller"):
 		#Dialogic.timeline_ended.connect(_on_timeline_ended)
 		$PlayerCharacter1.frozen = true
 		#Dialogic.start("Pre Battle 1")
 		#await Dialogic.timeline_ended
 		Audio.switchtotrack(2)
-		transition_to_battle(4, true)
+		transition_to_battle(1, true)
 		#Dialogic.start("Battle 1")
 		$"Enemy_1".queue_free()
-		#await battleend
-
-
-func _on_enemy_2_body_entered(body: Node2D) -> void:
-	if body.is_in_group("controller"):
-		#Dialogic.timeline_ended.connect(_on_timeline_ended)
-		$PlayerCharacter1.frozen = true
-		#Dialogic.start("Pre Battle 1")
-		#await Dialogic.timeline_ended
-		Audio.switchtotrack(2)
-		transition_to_battle(5, true)
-		#Dialogic.start("Battle 1")
-		$"Enemy_1".queue_free()
-
-
-func _on_boss_room_body_entered(body: Node2D) -> void:
-	if body.is_in_group("controller"):
-		Changer.start_transition("res://overworld/floor2/boss_room.tscn")
