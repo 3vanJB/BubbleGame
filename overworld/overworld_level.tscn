@@ -1,6 +1,6 @@
-[gd_scene load_steps=30 format=4 uid="uid://cavkjml0ecjf1"]
+[gd_scene load_steps=31 format=4 uid="uid://cavkjml0ecjf1"]
 
-[ext_resource type="Script" path="res://overworld/overworld_level.gd" id="1_1gd41"]
+[ext_resource type="Script" uid="uid://dsnvimr2slvjf" path="res://overworld/overworld_level.gd" id="1_1gd41"]
 [ext_resource type="Texture2D" uid="uid://sj2nj5vglhpg" path="res://overworld/tiles/New_Maze_Finals.png" id="2_dtglw"]
 [ext_resource type="PackedScene" uid="uid://bscujqsdl8afs" path="res://characters/player/player_character_1.tscn" id="3_xsmx7"]
 [ext_resource type="Texture2D" uid="uid://b2dxs74mgvygm" path="res://characters/AI/enemy/boss/GGJ_Boss_scaled_7x_pngcrushed.png" id="5_i82l8"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://35i23hhccc8l" path="res://characters/Sprites/bubble.png" id="6_aem5s"]
 [ext_resource type="Texture2D" uid="uid://667bxy5tkvvh" path="res://misc/normal.png" id="7_f3rq3"]
 [ext_resource type="Texture2D" uid="uid://bicsh830tyn65" path="res://misc/bpress.png" id="8_i8oti"]
+[ext_resource type="PackedScene" uid="uid://dck2dselg144l" path="res://overworld/interactables/pickables/mementoplaceholder.tscn" id="10_draww"]
 [ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="10_oejaw"]
 
 [sub_resource type="Gradient" id="Gradient_qb44a"]
@@ -119,6 +120,7 @@ texture = ExtResource("2_dtglw")
 29:3/0 = 0
 30:3/0 = 0
 31:3/0 = 0
+31:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 83:3/0 = 0
 83:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 84:3/0 = 0
@@ -604,7 +606,7 @@ texture = ExtResource("2_dtglw")
 28:14/0 = 0
 29:14/0 = 0
 30:14/0 = 0
-30:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+30:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.38491, -8, 8, -8, 8, 8, 1.7806, 8)
 31:14/0 = 0
 31:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 32:14/0 = 0
@@ -728,7 +730,7 @@ texture = ExtResource("2_dtglw")
 28:15/0 = 0
 29:15/0 = 0
 30:15/0 = 0
-30:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+30:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(1.38491, -8, 8, -8, 8, 8, 1.7806, 8)
 31:15/0 = 0
 31:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 32:15/0 = 0
@@ -811,11 +813,8 @@ texture = ExtResource("2_dtglw")
 28:16/0 = 0
 29:16/0 = 0
 30:16/0 = 0
-30:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 31:16/0 = 0
-31:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 32:16/0 = 0
-32:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 33:16/0 = 0
 34:16/0 = 0
 35:16/0 = 0
@@ -843,11 +842,8 @@ texture = ExtResource("2_dtglw")
 57:16/0 = 0
 58:16/0 = 0
 59:16/0 = 0
-59:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 60:16/0 = 0
-60:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 61:16/0 = 0
-61:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 62:16/0 = 0
 63:16/0 = 0
 64:16/0 = 0
@@ -918,11 +914,8 @@ texture = ExtResource("2_dtglw")
 28:17/0 = 0
 29:17/0 = 0
 30:17/0 = 0
-30:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 31:17/0 = 0
-31:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 32:17/0 = 0
-32:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 33:17/0 = 0
 34:17/0 = 0
 35:17/0 = 0
@@ -950,11 +943,8 @@ texture = ExtResource("2_dtglw")
 57:17/0 = 0
 58:17/0 = 0
 59:17/0 = 0
-59:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 60:17/0 = 0
-60:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 61:17/0 = 0
-61:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 62:17/0 = 0
 63:17/0 = 0
 64:17/0 = 0
@@ -1110,7 +1100,7 @@ texture = ExtResource("2_dtglw")
 40:19/0 = 0
 41:19/0 = 0
 42:19/0 = 0
-42:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.5, -8, 8, -8, 8, 8, -8, 8)
+42:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1.28599, -3.06659, 8, -3.66013, 8, 8, -3.46228, 8)
 43:19/0 = 0
 43:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -5.0625, -8, -2.1875, 8, -8, 8)
 44:19/0 = 0
@@ -2497,7 +2487,6 @@ texture = ExtResource("2_dtglw")
 74:35/0 = 0
 74:35/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 75:35/0 = 0
-75:35/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 76:35/0 = 0
 77:35/0 = 0
 78:35/0 = 0
@@ -2682,7 +2671,6 @@ texture = ExtResource("2_dtglw")
 69:36/0 = 0
 70:36/0 = 0
 71:36/0 = 0
-71:36/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 72:36/0 = 0
 72:36/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 73:36/0 = 0
@@ -2690,7 +2678,6 @@ texture = ExtResource("2_dtglw")
 74:36/0 = 0
 74:36/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 75:36/0 = 0
-75:36/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 76:36/0 = 0
 77:36/0 = 0
 78:36/0 = 0
@@ -2866,7 +2853,6 @@ texture = ExtResource("2_dtglw")
 69:37/0 = 0
 70:37/0 = 0
 71:37/0 = 0
-71:37/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 72:37/0 = 0
 72:37/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 73:37/0 = 0
@@ -2874,7 +2860,6 @@ texture = ExtResource("2_dtglw")
 74:37/0 = 0
 74:37/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 75:37/0 = 0
-75:37/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 76:37/0 = 0
 77:37/0 = 0
 78:37/0 = 0
@@ -4954,7 +4939,6 @@ texture = ExtResource("2_dtglw")
 75:59/0 = 0
 75:59/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 76:59/0 = 0
-76:59/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 77:59/0 = 0
 78:59/0 = 0
 79:59/0 = 0
@@ -4991,7 +4975,6 @@ texture = ExtResource("2_dtglw")
 75:60/0 = 0
 75:60/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 76:60/0 = 0
-76:60/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 77:60/0 = 0
 78:60/0 = 0
 79:60/0 = 0
@@ -5506,9 +5489,7 @@ texture = ExtResource("2_dtglw")
 24:71/0 = 0
 25:71/0 = 0
 26:71/0 = 0
-26:71/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 27:71/0 = 0
-27:71/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 28:71/0 = 0
 29:71/0 = 0
 30:71/0 = 0
@@ -5579,9 +5560,7 @@ texture = ExtResource("2_dtglw")
 24:72/0 = 0
 25:72/0 = 0
 26:72/0 = 0
-26:72/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -0.75, -3, -2.75)
 27:72/0 = 0
-27:72/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, -5.0625, -4.1875, -8, 8)
 28:72/0 = 0
 29:72/0 = 0
 30:72/0 = 0
@@ -5749,7 +5728,6 @@ texture = ExtResource("2_dtglw")
 50:74/0 = 0
 51:74/0 = 0
 52:74/0 = 0
-52:74/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 53:74/0 = 0
 54:74/0 = 0
 55:74/0 = 0
@@ -6748,7 +6726,6 @@ texture = SubResource("GradientTexture2D_vb2kv")
 position = Vector2(-401, -965)
 scale = Vector2(3.84, 3)
 color = Color(0.955662, 0.678345, 0.942366, 1)
-energy = 3.0
 texture = SubResource("GradientTexture2D_vb2kv")
 
 [node name="Crystal_M6" type="PointLight2D" parent="Lights"]
@@ -6818,7 +6795,6 @@ texture = SubResource("GradientTexture2D_p0vvw")
 
 [node name="BubbleSpawnTimer" type="Timer" parent="."]
 wait_time = 2.0
-autostart = true
 
 [node name="Floor_Color" type="ColorRect" parent="."]
 z_index = -5
@@ -7115,15 +7091,22 @@ position = Vector2(1004, -328)
 position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_n0y7t")
 
+[node name="Mementos" type="Node" parent="."]
+
+[node name="memento" parent="Mementos" instance=ExtResource("10_draww")]
+position = Vector2(895, -794)
+
+[node name="memento2" parent="Mementos" instance=ExtResource("10_draww")]
+position = Vector2(-451, 163)
+
 [connection signal="battleend" from="." to="." method="_on_battleend"]
 [connection signal="timeout" from="BubbleSpawnTimer" to="." method="_on_bubble_spawn_timer_timeout"]
 [connection signal="body_entered" from="Puzzle 1/Button1" to="." method="_on_button_1_body_entered"]
 [connection signal="body_entered" from="Puzzle 1/Button2" to="." method="_on_button_2_body_entered"]
 [connection signal="body_entered" from="Puzzle 1/Button3" to="." method="_on_button_3_body_entered"]
 [connection signal="body_entered" from="Puzzle 1/puzzlogue_1" to="." method="_on_puzzlogue_1_body_entered"]
-[connection signal="body_entered" from="Puzzle 1/puzzlogue_2" to="." method="_on_puzzlogue_1_body_entered"]
 [connection signal="body_entered" from="Puzzle 1/puzzlogue_2" to="." method="_on_puzzlogue_2_body_entered"]
-[connection signal="body_entered" from="bosstrigger" to="." method="_on_bosstrigger_body_entered"]
+[connection signal="body_entered" from="Puzzle 1/puzzlogue_2" to="." method="_on_puzzlogue_1_body_entered"]
 [connection signal="body_entered" from="Enemy Trigger" to="." method="_on_enemy_trigger_body_entered"]
 [connection signal="body_entered" from="Enemy Trigger2" to="." method="_on_enemy_trigger_2_body_entered"]
 [connection signal="body_entered" from="Enemy Trigger3" to="." method="_on_enemy_trigger_3_body_entered"]

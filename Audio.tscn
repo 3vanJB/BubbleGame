@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bt2x2d67pgcgr"]
 
-[ext_resource type="Script" path="res://Scripts/audio.gd" id="1_228ru"]
+[ext_resource type="Script" uid="uid://da7f8r6rnjsti" path="res://Scripts/audio.gd" id="1_228ru"]
 [ext_resource type="AudioStream" uid="uid://b6lg30iscxket" path="res://Audio/Title Theme.wav" id="2_0k470"]
 
 [node name="Audio" type="Control"]

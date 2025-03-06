@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=4 uid="uid://swjoy5bsf67e"]
 
 [ext_resource type="Texture2D" uid="uid://cw7t052qpfj5q" path="res://overworld/floor2/Floor_2_Layout.png" id="1_0rg6m"]
-[ext_resource type="Script" path="res://overworld/floor2/floor_2.gd" id="1_l0mtw"]
+[ext_resource type="Script" uid="uid://cwuqgonas6vqp" path="res://overworld/floor2/floor_2.gd" id="1_l0mtw"]
 [ext_resource type="PackedScene" uid="uid://bscujqsdl8afs" path="res://characters/player/player_character_1.tscn" id="2_6hg40"]
 [ext_resource type="Texture2D" uid="uid://sj2nj5vglhpg" path="res://overworld/tiles/New_Maze_Finals.png" id="3_xxhmn"]
 [ext_resource type="PackedScene" uid="uid://dd2ivg0cb2h54" path="res://portal.tscn" id="4_s20ja"]
@@ -6726,7 +6726,7 @@ door_linked = NodePath("../InteractableDoor")
 position = Vector2(0, -12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/Entrance"]
-position = Vector2(1045, 2682)
+position = Vector2(789, 2797)
 shape = SubResource("RectangleShape2D_248w7")
 
 [node name="First Portal" type="Area2D" parent="Dialogue"]
@@ -6776,6 +6776,13 @@ position = Vector2(1337, 1791)
 
 [node name="memento3" parent="Mementos" instance=ExtResource("7_pv4hk")]
 position = Vector2(1092, 662)
+
+[node name="ColorRect" type="ColorRect" parent="Mementos"]
+offset_left = 709.0
+offset_top = 588.0
+offset_right = 1163.0
+offset_bottom = 785.0
+color = Color(0, 0.14902, 1, 0.945098)
 
 [connection signal="body_entered" from="Dialogue/Entrance" to="." method="_on_entrance_body_entered"]
 [connection signal="body_entered" from="Dialogue/First Portal" to="." method="_on_first_portal_body_entered"]

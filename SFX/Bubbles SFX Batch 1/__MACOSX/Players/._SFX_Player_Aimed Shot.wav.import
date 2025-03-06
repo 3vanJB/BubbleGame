@@ -3,11 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cp3m1f1n8j4dl"
-valid=false
+path="res://.godot/imported/._SFX_Player_Aimed Shot.wav-cd3d01b0a5df04c7cbd25019c26a7d53.sample"
 
 [deps]
 
 source_file="res://SFX/Bubbles SFX Batch 1/__MACOSX/Players/._SFX_Player_Aimed Shot.wav"
+dest_files=["res://.godot/imported/._SFX_Player_Aimed Shot.wav-cd3d01b0a5df04c7cbd25019c26a7d53.sample"]
 
 [params]
 

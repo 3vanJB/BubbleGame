@@ -3,11 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d3sh67nbvjmaj"
-valid=false
+path="res://.godot/imported/._SFX_Player_Blood Boil.wav-65dcffa23daa3773bb1e0b2f7b9a9a4c.sample"
 
 [deps]
 
 source_file="res://SFX/Bubbles SFX Batch 2/__MACOSX/._SFX_Player_Blood Boil.wav"
+dest_files=["res://.godot/imported/._SFX_Player_Blood Boil.wav-65dcffa23daa3773bb1e0b2f7b9a9a4c.sample"]
 
 [params]
 

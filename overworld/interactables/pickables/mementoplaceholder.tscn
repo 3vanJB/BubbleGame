@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dck2dselg144l"]
 
 [ext_resource type="Texture2D" uid="uid://dtf8us7jasx1p" path="res://overworld/ScreenSelector.png" id="1_3ocrl"]
-[ext_resource type="Script" path="res://overworld/interactables/pickables/mementoplaceholder.gd" id="1_gswrp"]
+[ext_resource type="Script" uid="uid://dwivy2d3p6y2q" path="res://overworld/interactables/pickables/mementoplaceholder.gd" id="1_gswrp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5mo4"]
 

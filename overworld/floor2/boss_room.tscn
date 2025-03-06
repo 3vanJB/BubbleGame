@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://qmqyy4dqvrh3"]
 
-[ext_resource type="Script" path="res://overworld/floor2/boss_room.gd" id="1_0qnrm"]
+[ext_resource type="Script" uid="uid://b2nk4e7rnonc1" path="res://overworld/floor2/boss_room.gd" id="1_0qnrm"]
 [ext_resource type="Texture2D" uid="uid://sj2nj5vglhpg" path="res://overworld/tiles/New_Maze_Finals.png" id="1_onyog"]
 [ext_resource type="Texture2D" uid="uid://b2dxs74mgvygm" path="res://characters/AI/enemy/boss/GGJ_Boss_scaled_7x_pngcrushed.png" id="2_lxnjj"]
 [ext_resource type="PackedScene" uid="uid://bscujqsdl8afs" path="res://characters/player/player_character_1.tscn" id="3_0mlqt"]
@@ -4776,14 +4776,14 @@ tile_set = SubResource("TileSet_dv6vr")
 [node name="PlayerCharacter1" parent="." instance=ExtResource("3_0mlqt")]
 position = Vector2(-173, 6)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Boss" type="Area2D" parent="."]
 
-[node name="GgjBossScaled7xPngcrushed" type="Sprite2D" parent="Area2D"]
+[node name="GgjBossScaled7xPngcrushed" type="Sprite2D" parent="Boss"]
 position = Vector2(3, -43)
 scale = Vector2(0.157366, 0.172991)
 texture = ExtResource("2_lxnjj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss"]
 shape = SubResource("CircleShape2D_uosa2")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Boss" to="." method="_on_area_2d_body_entered"]

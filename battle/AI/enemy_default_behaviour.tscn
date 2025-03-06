@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://jymxi1bgldx4"]
 
-[ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_trgon"]
-[ext_resource type="Script" path="res://addons/beehave/nodes/decorators/decorator.gd" id="2_t2jqp"]
+[ext_resource type="Script" uid="uid://bxruclg1yjswy" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_trgon"]
+[ext_resource type="Script" uid="uid://bunqqeta6eukn" path="res://addons/beehave/nodes/decorators/decorator.gd" id="2_t2jqp"]
 
 [node name="EnemyDefaultBehaviour" type="Node" node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("1_trgon")

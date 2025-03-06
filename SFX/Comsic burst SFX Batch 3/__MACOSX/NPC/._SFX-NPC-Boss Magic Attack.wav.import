@@ -3,11 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cwuee2etuvhiq"
-valid=false
+path="res://.godot/imported/._SFX-NPC-Boss Magic Attack.wav-5c046b164f492073ea77dc3198c8c58b.sample"
 
 [deps]
 
 source_file="res://SFX/Comsic burst SFX Batch 3/__MACOSX/NPC/._SFX-NPC-Boss Magic Attack.wav"
+dest_files=["res://.godot/imported/._SFX-NPC-Boss Magic Attack.wav-5c046b164f492073ea77dc3198c8c58b.sample"]
 
 [params]
 

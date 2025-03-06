@@ -3,11 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://byhe7wiv37jpr"
-valid=false
+path="res://.godot/imported/._SFX_Player_Nihilistic Light.wav-78c430107cf303558f958999f568e671.sample"
 
 [deps]
 
 source_file="res://SFX/Bubbles SFX Batch 1/__MACOSX/Players/._SFX_Player_Nihilistic Light.wav"
+dest_files=["res://.godot/imported/._SFX_Player_Nihilistic Light.wav-78c430107cf303558f958999f568e671.sample"]
 
 [params]
 

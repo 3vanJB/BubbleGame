@@ -3,11 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://unbbwc5m5b5h"
-valid=false
+path="res://.godot/imported/._SFX_BG_Crystal Cave.wav-9a4902e06775bc029cb60b4294037ceb.sample"
 
 [deps]
 
 source_file="res://SFX/Bubbles SFX Batch 2/__MACOSX/._SFX_BG_Crystal Cave.wav"
+dest_files=["res://.godot/imported/._SFX_BG_Crystal Cave.wav-9a4902e06775bc029cb60b4294037ceb.sample"]
 
 [params]
 

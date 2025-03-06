@@ -3,11 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bp28fspopyt7r"
-valid=false
+path="res://.godot/imported/._SFX-NPC-Enemy Basic Attack.wav-93e0b9dd776ec541bb2bd9537fcbc0c0.sample"
 
 [deps]
 
 source_file="res://SFX/Comsic burst SFX Batch 3/__MACOSX/NPC/._SFX-NPC-Enemy Basic Attack.wav"
+dest_files=["res://.godot/imported/._SFX-NPC-Enemy Basic Attack.wav-93e0b9dd776ec541bb2bd9537fcbc0c0.sample"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cudaadbjpxdx0"]
 
-[ext_resource type="Script" path="res://Scripts/credits.gd" id="1_y5wfo"]
+[ext_resource type="Script" uid="uid://urn1cjrvbigy" path="res://Scripts/credits.gd" id="1_y5wfo"]
 [ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="2_pdyfr"]
 [ext_resource type="Texture2D" uid="uid://bsr6nhgosw3y3" path="res://misc/enemy_bg_border_scaled_4x_pngcrushed.png" id="2_yi2xj"]
 [ext_resource type="AudioStream" uid="uid://dkxct17jp3884" path="res://SFX/Bubbles SFX Batch 1/UI/SFX_UI_Confirm.wav" id="3_56f80"]

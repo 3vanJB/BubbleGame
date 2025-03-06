@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://bscujqsdl8afs"]
 
-[ext_resource type="Script" path="res://characters/player/player_character.gd" id="1_ls565"]
+[ext_resource type="Script" uid="uid://cwhx20vux0mlb" path="res://characters/player/player_character.gd" id="1_ls565"]
 [ext_resource type="SpriteFrames" uid="uid://ckifeyrgwj85x" path="res://characters/Sprites/Rose Idle/rose_frames.tres" id="2_an6d7"]
 [ext_resource type="Texture2D" uid="uid://bhwax555wjpv0" path="res://characters/Sprites/Rose Idle/Rose Idle_full.PNG" id="2_gtlyv"]
 [ext_resource type="Texture2D" uid="uid://cx5f3rhx4uuoe" path="res://characters/Sprites/Yoru_idle/Yoru_idle/yoruidlefull.png" id="4_v5o0f"]
@@ -338,15 +338,15 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e61ve"]
 _data = {
-"RESET": SubResource("Animation_kfkqt"),
-"idle back": SubResource("Animation_l4va0"),
-"idle front": SubResource("Animation_pdgdv"),
-"idle left": SubResource("Animation_yb5wt"),
-"idle right": SubResource("Animation_dgkss"),
-"walk back": SubResource("Animation_67666"),
-"walk front": SubResource("Animation_p764w"),
-"walk left": SubResource("Animation_qkci0"),
-"walk right": SubResource("Animation_s3if3")
+&"RESET": SubResource("Animation_kfkqt"),
+&"idle back": SubResource("Animation_l4va0"),
+&"idle front": SubResource("Animation_pdgdv"),
+&"idle left": SubResource("Animation_yb5wt"),
+&"idle right": SubResource("Animation_dgkss"),
+&"walk back": SubResource("Animation_67666"),
+&"walk front": SubResource("Animation_p764w"),
+&"walk left": SubResource("Animation_qkci0"),
+&"walk right": SubResource("Animation_s3if3")
 }
 
 [sub_resource type="Animation" id="Animation_ke2n3"]
@@ -508,15 +508,15 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_md7je"]
 _data = {
-"RESET": SubResource("Animation_ke2n3"),
-"idle back": SubResource("Animation_wr0n0"),
-"idle front": SubResource("Animation_3wvb7"),
-"idle left": SubResource("Animation_2m4wg"),
-"idle right": SubResource("Animation_ff1ho"),
-"walk back": SubResource("Animation_6bgny"),
-"walk front": SubResource("Animation_3yvw4"),
-"walk left": SubResource("Animation_3suiy"),
-"walk right": SubResource("Animation_s5opw")
+&"RESET": SubResource("Animation_ke2n3"),
+&"idle back": SubResource("Animation_wr0n0"),
+&"idle front": SubResource("Animation_3wvb7"),
+&"idle left": SubResource("Animation_2m4wg"),
+&"idle right": SubResource("Animation_ff1ho"),
+&"walk back": SubResource("Animation_6bgny"),
+&"walk front": SubResource("Animation_3yvw4"),
+&"walk left": SubResource("Animation_3suiy"),
+&"walk right": SubResource("Animation_s5opw")
 }
 
 [node name="PlayerCharacter1" type="CharacterBody2D" groups=["controller"]]
@@ -551,7 +551,7 @@ zoom = Vector2(2, 2)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_e61ve")
+&"": SubResource("AnimationLibrary_e61ve")
 }
 autoplay = "idle front"
 
@@ -569,6 +569,6 @@ region_rect = Rect2(10, 0, 236, 656)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D2"]
 libraries = {
-"": SubResource("AnimationLibrary_md7je")
+&"": SubResource("AnimationLibrary_md7je")
 }
 autoplay = "idle front"

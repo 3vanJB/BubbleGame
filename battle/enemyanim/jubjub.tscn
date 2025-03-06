@@ -37,8 +37,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hpv5q"]
 _data = {
-"RESET": SubResource("Animation_42ces"),
-"idle": SubResource("Animation_d7maq")
+&"RESET": SubResource("Animation_42ces"),
+&"idle": SubResource("Animation_d7maq")
 }
 
 [node name="Jubjub" type="Sprite2D"]

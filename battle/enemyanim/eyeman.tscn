@@ -37,8 +37,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nvpap"]
 _data = {
-"RESET": SubResource("Animation_cjh2h"),
-"idle": SubResource("Animation_8exfm")
+&"RESET": SubResource("Animation_cjh2h"),
+&"idle": SubResource("Animation_8exfm")
 }
 
 [node name="Eyeman" type="Sprite2D"]

@@ -3,11 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dq1hk7unnu5lm"
-valid=false
+path="res://.godot/imported/._SFX_UI_Denied.wav-d81012be159c2fd26da7f2307daeb8bc.sample"
 
 [deps]
 
 source_file="res://SFX/Bubbles SFX Batch 1/__MACOSX/UI/._SFX_UI_Denied.wav"
+dest_files=["res://.godot/imported/._SFX_UI_Denied.wav-d81012be159c2fd26da7f2307daeb8bc.sample"]
 
 [params]
 

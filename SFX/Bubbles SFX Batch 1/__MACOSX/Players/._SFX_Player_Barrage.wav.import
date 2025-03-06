@@ -3,11 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cllt21u7xnomc"
-valid=false
+path="res://.godot/imported/._SFX_Player_Barrage.wav-dbbab6e4b54e06d98451bd7a25943085.sample"
 
 [deps]
 
 source_file="res://SFX/Bubbles SFX Batch 1/__MACOSX/Players/._SFX_Player_Barrage.wav"
+dest_files=["res://.godot/imported/._SFX_Player_Barrage.wav-dbbab6e4b54e06d98451bd7a25943085.sample"]
 
 [params]
 

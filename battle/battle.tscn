@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://xyilfmmrcrvf"]
 
-[ext_resource type="Script" path="res://battle/battle.gd" id="1_f8ab6"]
-[ext_resource type="Script" path="res://battle/playerparty.gd" id="2_ehidm"]
+[ext_resource type="Script" uid="uid://bld1ox2113d5h" path="res://battle/battle.gd" id="1_f8ab6"]
+[ext_resource type="Script" uid="uid://mmce3k8oojar" path="res://battle/playerparty.gd" id="2_ehidm"]
 [ext_resource type="PackedScene" uid="uid://c5g4muvowpv78" path="res://battle/battleui/ui.tscn" id="2_n1p0q"]
-[ext_resource type="Script" path="res://battle/enemyparty.gd" id="3_i4jx3"]
+[ext_resource type="Script" uid="uid://n70pkdkm0ely" path="res://battle/enemyparty.gd" id="3_i4jx3"]
 [ext_resource type="FontFile" uid="uid://cj7c8ydcjaxj5" path="res://Fonts/Fonts/Fonts/LiberationSans.ttf" id="5_sh81s"]
 [ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="6_pa5ik"]
 [ext_resource type="Texture2D" uid="uid://h8br8b8c65k4" path="res://misc/enemy_bg_scaled_4x_pngcrushed.png" id="7_emhce"]
@@ -11,7 +11,6 @@
 [ext_resource type="Theme" uid="uid://banc6367nyh15" path="res://battle/battleui/ui.tres" id="9_coylx"]
 
 [node name="battle" type="Node2D"]
-position = Vector2(0, 1)
 script = ExtResource("1_f8ab6")
 
 [node name="EnemyBgScaled4xPngcrushed" type="Sprite2D" parent="."]
@@ -46,8 +45,8 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 
 [node name="special" parent="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer" index="2"]
-theme_override_colors/font_color = Color(0.952941, 0.494118, 0.705882, 0.905882)
 theme_override_colors/font_outline_color = Color(0.952941, 0.776471, 0.941176, 0.741176)
+theme_override_colors/font_color = Color(0.952941, 0.494118, 0.705882, 0.905882)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("5_sh81s")
 theme_override_font_sizes/font_size = 30
@@ -91,15 +90,15 @@ theme_override_font_sizes/font_size = 25
 
 [node name="skill2" parent="UI/skillmenu/PanelContainer/VBoxContainer/HBoxContainer2" index="0"]
 custom_minimum_size = Vector2(250, 72)
-theme_override_colors/font_color = Color(0.549668, 0.804959, 0.578232, 1)
 theme_override_colors/font_outline_color = Color(0.206614, 0.338726, 0.192363, 1)
+theme_override_colors/font_color = Color(0.549668, 0.804959, 0.578232, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 25
 
 [node name="skill3" parent="UI/skillmenu/PanelContainer/VBoxContainer/HBoxContainer2" index="1"]
 custom_minimum_size = Vector2(250, 72)
-theme_override_colors/font_color = Color(0.948596, 0.693345, 0.612504, 1)
 theme_override_colors/font_outline_color = Color(0.558452, 0.229236, 0.150184, 1)
+theme_override_colors/font_color = Color(0.948596, 0.693345, 0.612504, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 25
 

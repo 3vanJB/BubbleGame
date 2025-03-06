@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://ckcwc5ihns14h"]
 
-[ext_resource type="Script" path="res://finale.gd" id="1_yun13"]
+[ext_resource type="Script" uid="uid://fdqq1jvjndl2" path="res://finale.gd" id="1_yun13"]
 [ext_resource type="Texture2D" uid="uid://cehj4kp5ppa6f" path="res://dialogue/Boss_BG.png" id="2_ofm6k"]
 [ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="3_4vs6f"]
 [ext_resource type="FontFile" uid="uid://cc4xli25271fd" path="res://addons/dialogic/Example Assets/Fonts/Roboto-Bold.ttf" id="4_nqjqb"]
@@ -10,7 +10,7 @@
 
 [sub_resource type="Animation" id="Animation_8xp14"]
 resource_name = "Credits"
-length = 34.0
+length = 36.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -18,8 +18,8 @@ tracks/0/path = NodePath("Credit Text:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0666667, 2.6, 6.83333, 10.8667, 14.3667, 18.2333, 22, 25.8333, 29.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.0666667, 2.6, 6.83333, 10.8667, 14.3667, 18.2333, 22, 25.8333, 29.6, 32.8333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": ["Mabon: Composer
 Also,
@@ -62,20 +62,22 @@ Dialogue
 and Overworld
  (Also thanks to Dialogic!)
 - What is Godot?", "Will: Junior Programmer
-Crafted:
-Options, 
-Menu, 
-Overworld Collision
+- Level Implementation
+- Troublshooting
+- Lighting
 
 -AHHHH!!! What does that function do?!", "Nick: Programmer
-AI?
+-UI Overhaul
 
-- The Team's \"absent\" founder", "Pouya: Game Designer
+- There's this new Kaiju Game Jam!", "Pouya: Game Designer
 Also known for:
 Programming
 Level Design
 
 - \"Aight. I’m awake (literally Alan Wake)\"
+", "From Polemic:
+
+Thank you for playing!
 "]
 }
 tracks/1/type = "value"
@@ -97,10 +99,10 @@ tracks/2/path = NodePath("Credit Text:self_modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 2.1, 2.6, 3.3, 5, 6.8, 7.4, 9.1, 10.8667, 11.3, 12.5667, 14.3667, 14.7, 16.4, 18.2, 18.6, 20.2333, 22.0333, 22.4667, 24.1667, 25.8333, 26.2, 27.8333, 29.6333, 30.1333, 31.7667, 33.5667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.0666667, 2.1, 2.6, 3.3, 5, 6.8, 7.4, 9.1, 10.8667, 11.3, 12.5667, 14.3667, 14.7, 16.4, 18.2, 18.6, 20.2333, 22.0333, 22.4667, 24.1667, 25.8333, 26.2, 27.8333, 29.6333, 30.1333, 31.7667, 32.8, 33.7333, 35.1, 35.9667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -193,8 +195,8 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pgvls"]
 _data = {
-"Credits": SubResource("Animation_8xp14"),
-"RESET": SubResource("Animation_autew")
+&"Credits": SubResource("Animation_8xp14"),
+&"RESET": SubResource("Animation_autew")
 }
 
 [node name="Finale" type="Node2D"]
@@ -206,21 +208,21 @@ position = Vector2(1, 0)
 texture = ExtResource("2_ofm6k")
 
 [node name="Title Label" type="Label" parent="."]
-offset_left = -278.0
+offset_left = -371.0
 offset_top = -285.0
-offset_right = 288.0
+offset_right = 370.0
 offset_bottom = -184.0
 theme_override_colors/font_color = Color(0.837951, 0.746672, 0.909506, 1)
 theme_override_fonts/font = ExtResource("3_4vs6f")
 theme_override_font_sizes/font_size = 100
-text = "Team Grief"
+text = "Polemic Games"
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_pgvls")
+&"": SubResource("AnimationLibrary_pgvls")
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]

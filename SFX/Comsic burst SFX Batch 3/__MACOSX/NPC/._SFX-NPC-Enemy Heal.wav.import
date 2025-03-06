@@ -3,11 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bp580tlfgn7mr"
-valid=false
+path="res://.godot/imported/._SFX-NPC-Enemy Heal.wav-4afe3a0095ccb0fca57ca00e5dc57e36.sample"
 
 [deps]
 
 source_file="res://SFX/Comsic burst SFX Batch 3/__MACOSX/NPC/._SFX-NPC-Enemy Heal.wav"
+dest_files=["res://.godot/imported/._SFX-NPC-Enemy Heal.wav-4afe3a0095ccb0fca57ca00e5dc57e36.sample"]
 
 [params]
 

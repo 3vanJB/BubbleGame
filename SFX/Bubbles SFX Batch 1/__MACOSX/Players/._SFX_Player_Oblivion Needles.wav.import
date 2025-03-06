@@ -3,11 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dk45fvm00l203"
-valid=false
+path="res://.godot/imported/._SFX_Player_Oblivion Needles.wav-ddfdefc1153b887c68df794bd86f654f.sample"
 
 [deps]
 
 source_file="res://SFX/Bubbles SFX Batch 1/__MACOSX/Players/._SFX_Player_Oblivion Needles.wav"
+dest_files=["res://.godot/imported/._SFX_Player_Oblivion Needles.wav-ddfdefc1153b887c68df794bd86f654f.sample"]
 
 [params]
 

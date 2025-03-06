@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dakw1wayutgnm"]
 
-[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_1mmhn"]
+[ext_resource type="Script" uid="uid://6j54whjqip3t" path="res://Scripts/main_menu.gd" id="1_1mmhn"]
 [ext_resource type="Texture2D" uid="uid://h8br8b8c65k4" path="res://misc/enemy_bg_scaled_4x_pngcrushed.png" id="2_jx7p0"]
 [ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="2_runye"]
 [ext_resource type="Theme" uid="uid://banc6367nyh15" path="res://battle/battleui/ui.tres" id="3_64ubu"]

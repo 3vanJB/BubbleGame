@@ -32,7 +32,7 @@ func transition_to_battle(echip, istext) -> void:
 func exitbattle():
 	Audio.music.stream = load(Audio.tracks[1])
 	Audio.music.play()
-	$Lights.show()
+	#$Lights.show()
 	$PlayerCharacter1.frozen = false
 	$PlayerCharacter1/Camera2D.make_current()
 	
@@ -61,10 +61,11 @@ func _on_enemy_1_body_entered(body: Node2D) -> void:
 		#Dialogic.start("Pre Battle 1")
 		#await Dialogic.timeline_ended
 		Audio.switchtotrack(2)
-		transition_to_battle(4, true)
+		transition_to_battle(4, false)
 		#Dialogic.start("Battle 1")
-		$"Enemy_1".queue_free()
-		#await battleend
+		$"Triggers/Enemy_1".queue_free()
+		await battleend
+		exitbattle()
 
 
 func _on_enemy_2_body_entered(body: Node2D) -> void:
@@ -74,9 +75,11 @@ func _on_enemy_2_body_entered(body: Node2D) -> void:
 		#Dialogic.start("Pre Battle 1")
 		#await Dialogic.timeline_ended
 		Audio.switchtotrack(2)
-		transition_to_battle(5, true)
+		transition_to_battle(5, false)
 		#Dialogic.start("Battle 1")
-		$"Enemy_1".queue_free()
+		$"Triggers/Enemy_2".queue_free()
+		await battleend
+		exitbattle()
 
 
 func _on_boss_room_body_entered(body: Node2D) -> void:

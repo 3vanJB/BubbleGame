@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c5g4muvowpv78"]
 
-[ext_resource type="Script" path="res://battle/battleui/ui.gd" id="1_vah0k"]
+[ext_resource type="Script" uid="uid://rp1ear7atasn" path="res://battle/battleui/ui.gd" id="1_vah0k"]
 [ext_resource type="Theme" uid="uid://banc6367nyh15" path="res://battle/battleui/ui.tres" id="2_8i88d"]
 [ext_resource type="Texture2D" uid="uid://bnwfb7lda0tn7" path="res://misc/cursor.png" id="2_of1mc"]
 [ext_resource type="Texture2D" uid="uid://bicsh830tyn65" path="res://misc/bpress.png" id="2_p5khf"]

@@ -54,9 +54,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e7kjc"]
 _data = {
-"RESET": SubResource("Animation_4cfo0"),
-"attack": SubResource("Animation_v0nx2"),
-"idle": SubResource("Animation_fuiwm")
+&"RESET": SubResource("Animation_4cfo0"),
+&"attack": SubResource("Animation_v0nx2"),
+&"idle": SubResource("Animation_fuiwm")
 }
 
 [node name="Sprite2D" type="Sprite2D"]

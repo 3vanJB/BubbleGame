@@ -17,7 +17,7 @@ func transition_to_battle(echip, istext) -> void:
 	prevbattle = echip
 	n.intext = istext
 	$PlayerCharacter1.frozen = true
-	$Lights.hide()
+	#$Lights.hide()
 	Changer.AnimPlayer.play("fadein")
 	Audio.playeffect(bsound)
 	await get_tree().create_timer(3).timeout
@@ -35,14 +35,14 @@ func exitbattle():
 	$Lights.show()
 	$PlayerCharacter1.frozen = false
 	$PlayerCharacter1/Camera2D.make_current()
+	Changer.start_transition("res://finale.tscn")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("controller"):
 		#Dialogic.timeline_ended.connect(_on_timeline_ended)
 		$PlayerCharacter1.frozen = true
-		#Dialogic.start("Pre Battle 1")
-		#await Dialogic.timeline_ended
+		Dialogic.start("preboss")
+		await Dialogic.timeline_ended
 		Audio.switchtotrack(2)
-		transition_to_battle(1, true)
-		#Dialogic.start("Battle 1")
-		$"Enemy_1".queue_free()
+		transition_to_battle(1, false)
+		$Boss.queue_free()

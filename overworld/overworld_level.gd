@@ -36,7 +36,8 @@ func spawn_new_bubble() -> void:
 		return
 
 func _on_bubble_spawn_timer_timeout() -> void:
-	spawn_new_bubble()
+#	spawn_new_bubble()
+	pass
 
 func exitbattle():
 	Audio.music.stream = load(Audio.tracks[1])
@@ -253,6 +254,7 @@ func _on_button_1_body_entered(body: Node2D) -> void:
 		$"Puzzle 1".add_child(beta)
 	else:
 		$"Puzzle 1".remove_child(alpha)
+	solved()
 func _on_button_2_body_entered(body: Node2D) -> void:
 	$"Puzzle 1/Button2/AnimatedSprite2D".play("pressed")
 	Audio.playeffect(confirmsound)
@@ -262,6 +264,7 @@ func _on_button_2_body_entered(body: Node2D) -> void:
 	else:
 		$"Puzzle 1".add_child(alpha)
 		$"Puzzle 1".remove_child(beta)
+	solved()
 func _on_button_3_body_entered(body: Node2D) -> void:
 	$"Puzzle 1/Button3/AnimatedSprite2D".play("pressed")
 	Audio.playeffect(confirmsound)
@@ -271,7 +274,12 @@ func _on_button_3_body_entered(body: Node2D) -> void:
 	else:
 		$"Puzzle 1".add_child(beta)
 		$"Puzzle 1".remove_child(theta)
-
+	solved()
+func solved() -> void:
+	if alpha == null and beta == null and theta == null:
+		Audio.playeffect("res://Audio/Victory Track.wav")
+	else:
+		pass
 
 func _on_next_level_body_entered(body: Node2D) -> void:
 	if body.is_in_group("controller"):
