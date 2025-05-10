@@ -2,14 +2,16 @@ extends Node2D
 
 var members = []
 #Which enemy is selected
-var cursor
+var cursor = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
+var dcount = 0
+var mcount
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func grabfocus(value):
@@ -33,3 +35,10 @@ func scrolldown():
 func endfocus():
 	members[cursor].releasefocus()
 	cursor = 0
+
+func removefromarray():
+	for i in len(members):
+		if members[i].isko == true:
+			members.remove_at(i)
+			
+			return

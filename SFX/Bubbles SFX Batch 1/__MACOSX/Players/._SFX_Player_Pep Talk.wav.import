@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dblq8u13s82yi"
+path="res://.godot/imported/._SFX_Player_Pep Talk.wav-4b2713674318ca9864754278575d6b6b.sample"
+
+[deps]
+
+source_file="res://SFX/Bubbles SFX Batch 1/__MACOSX/Players/._SFX_Player_Pep Talk.wav"
+dest_files=["res://.godot/imported/._SFX_Player_Pep Talk.wav-4b2713674318ca9864754278575d6b6b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

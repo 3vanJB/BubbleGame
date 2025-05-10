@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BattleAction" load_steps=2 format=3 uid="uid://bufy8tb24vd16"]
 
-[ext_resource type="Script" path="res://battle/actions/battleaction.gd" id="1_cjgd4"]
+[ext_resource type="Script" uid="uid://d0uyaty61npu6" path="res://battle/actions/battleaction.gd" id="1_cjgd4"]
 
 [resource]
 script = ExtResource("1_cjgd4")
@@ -17,4 +17,4 @@ targetallyparty = false
 targetenemyparty = true
 isspecial = false
 isheal = false
-heal = 0
+soundpath = "res://SFX/Bubbles SFX Batch 1/Players/SFX_Player_Oblivion Needles.wav"

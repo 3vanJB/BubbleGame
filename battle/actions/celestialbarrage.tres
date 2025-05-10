@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="BattleAction" load_steps=2 format=3 uid="uid://cyhw1jdas1vbk"]
 
-[ext_resource type="Script" path="res://battle/actions/battleaction.gd" id="1_45eaa"]
+[ext_resource type="Script" uid="uid://d0uyaty61npu6" path="res://battle/actions/battleaction.gd" id="1_45eaa"]
 
 [resource]
 script = ExtResource("1_45eaa")
 type = 0
 isattack = true
 power = 2.3
-cost = 100.0
+cost = 40.0
 actionname = "Celestial Barrage"
 targetenemy = false
 ischeer = false
@@ -16,3 +16,5 @@ targetally = false
 targetallyparty = false
 targetenemyparty = true
 isspecial = true
+isheal = false
+soundpath = "res://SFX/Bubbles SFX Batch 1/Players/SFX_Player_Barrage.wav"

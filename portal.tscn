@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://dd2ivg0cb2h54"]
+
+[ext_resource type="Texture2D" uid="uid://b4c6wrj4jhvoj" path="res://Game_Icon.png" id="2_8t0yf"]
+
+[sub_resource type="GDScript" id="GDScript_yt5hs"]
+script/source = "extends Node2D
+
+#NOTE: Make sure to check editable children and move the marker2d around if you want to change things
+
+
+#Other portal node you will exit from
+@export var exit : Node
+#Area 2D node for this portal
+@onready var area = $\"Port-X\"
+#The exit position other portals will use
+@onready var expoint = $exitpoint.global_position
+#@onready var x_position = get_node(\"Port-X\").position
+#@onready var y_position = get_node(\"Port-Y\").position
+var plorp = preload(\"res://SFX/Bubbles SFX Batch 1/UI/SFX_UI_Hover.wav\")
+#teleportation logic
+func _on_port_x_body_entered(body: Node2D) -> void:
+	if exit == null:
+		pass
+	else:
+		if body.is_in_group(\"controller\"):
+			Audio.playeffect(plorp)
+			diablesoppositeteleport()
+			body.global_position = exit.expoint
+		
+
+#creates a buffer between teleports
+func diablesoppositeteleport():
+	exit.area.monitoring = false
+	await get_tree().create_timer(1).timeout
+	exit.area.monitoring = true
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8dyoi"]
+radius = 14.0357
+
+[sub_resource type="Gradient" id="Gradient_1pe8q"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ab13y"]
+gradient = SubResource("Gradient_1pe8q")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="Portal" type="Node2D"]
+texture_filter = 1
+script = SubResource("GDScript_yt5hs")
+
+[node name="Port-X" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Port-X"]
+shape = SubResource("CircleShape2D_8dyoi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Port-X"]
+texture = ExtResource("2_8t0yf")
+
+[node name="exitpoint" type="Marker2D" parent="."]
+position = Vector2(-40, 0)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.22194, 0.890663, 0.956855, 1)
+energy = 5.0
+texture = SubResource("GradientTexture2D_ab13y")
+
+[connection signal="body_entered" from="Port-X" to="." method="_on_port_x_body_entered"]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cdcku1lw6ksic"
+path="res://.godot/imported/Victory Track.wav-413c0d462bd9815766bf1cfb4ce6e58d.sample"
+
+[deps]
+
+source_file="res://Audio/Victory Track.wav"
+dest_files=["res://.godot/imported/Victory Track.wav-413c0d462bd9815766bf1cfb4ce6e58d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

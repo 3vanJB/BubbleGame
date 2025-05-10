@@ -10,7 +10,7 @@ offset_top = -330.0
 offset_right = -528.0
 offset_bottom = -290.0
 scale = Vector2(28.88, 16.56)
-color = Color(1.68458e-06, 0.489758, 0.565806, 1)
+color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
 [node name="Options" parent="." instance=ExtResource("1_mnxxm")]

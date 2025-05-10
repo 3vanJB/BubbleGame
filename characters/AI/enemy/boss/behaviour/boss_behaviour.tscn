@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bau2je0kvmgl5"]
 
-[ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_8vv7x"]
-[ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="2_gcq33"]
+[ext_resource type="Script" uid="uid://bxruclg1yjswy" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_8vv7x"]
+[ext_resource type="Script" uid="uid://cs1bdimdn7iee" path="res://addons/beehave/nodes/composites/selector.gd" id="2_gcq33"]
 
 [node name="BossBehaviour" type="Node" node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("1_8vv7x")

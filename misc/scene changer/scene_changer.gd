@@ -7,7 +7,7 @@ var new_level : Node2D
 
 @export var AnimPlayer : AnimationPlayer
 
-
+var mementocount = 0
 enum E_change_scene_type {
 	NEW_LEVEL,
 	NEW_LOCATION
@@ -29,7 +29,9 @@ func change_scene_animation_event() -> void:
 
 func start_transition(in_new_level_path : String) -> void:
 	new_level_path = in_new_level_path
+	print("play")
 	AnimPlayer.play("fadein")
 	await AnimPlayer.animation_finished
+	print("Finished")
 	change_scene_animation_event()
 	AnimPlayer.play("fadeout")

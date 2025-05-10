@@ -1,0 +1,9 @@
+join Rose right
+Rose: There's a cluster of outbursts to the right. \
+Unfortunatly our attacks and skills don't work on them.
+leave Rose
+join Yoru right
+Yoru: Hey look over to the left! Those slabs on the ground look very interactable.
+leave Yoru
+join Rose right
+Rose: Those slabs might be the hint towards removing the cluster out of the way.

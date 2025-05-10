@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dakw1wayutgnm"]
+[gd_scene load_steps=8 format=3 uid="uid://dakw1wayutgnm"]
 
-[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_1mmhn"]
-[ext_resource type="FontFile" uid="uid://cj7c8ydcjaxj5" path="res://Fonts/Fonts/Fonts/LiberationSans.ttf" id="2_vl5yv"]
+[ext_resource type="Script" uid="uid://6j54whjqip3t" path="res://Scripts/main_menu.gd" id="1_1mmhn"]
+[ext_resource type="Texture2D" uid="uid://h8br8b8c65k4" path="res://misc/enemy_bg_scaled_4x_pngcrushed.png" id="2_jx7p0"]
+[ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="2_runye"]
+[ext_resource type="Theme" uid="uid://banc6367nyh15" path="res://battle/battleui/ui.tres" id="3_64ubu"]
+[ext_resource type="Theme" uid="uid://cqst728xxipcw" path="res://addons/dialogic/Editor/Theme/MainTheme.tres" id="3_c0u7x"]
+[ext_resource type="Texture2D" uid="uid://b4c6wrj4jhvoj" path="res://Game_Icon.png" id="4_aris8"]
+
+[sub_resource type="Theme" id="Theme_23get"]
+Button/styles/disabled_mirrored = null
 
 [node name="Control" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +22,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1mmhn")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = -605.0
 offset_top = -364.0
@@ -23,23 +32,48 @@ offset_bottom = 418.0
 color = Color(0.904407, 0.914717, 0.916658, 1)
 metadata/_edit_lock_ = true
 
+[node name="EnemyBgScaled4xPngcrushed" type="Sprite2D" parent="."]
+position = Vector2(3, -1)
+texture = ExtResource("2_jx7p0")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 metadata/_edit_lock_ = true
 
+[node name="Color" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -222.0
+offset_top = -306.0
+offset_right = 208.0
+offset_bottom = -85.0
+theme = ExtResource("3_c0u7x")
+color = Color(0.881146, 0.935196, 0.993099, 0.941176)
+
 [node name="Main Title" type="Label" parent="."]
 layout_mode = 0
-offset_left = -359.0
-offset_top = -290.0
-offset_right = 358.0
-offset_bottom = -61.0
-theme_override_colors/font_color = Color(0.430042, 0.395257, 0.740773, 0.372549)
-theme_override_colors/font_outline_color = Color(0.815686, 0.301961, 0.988235, 0.839216)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("2_vl5yv")
+offset_left = -377.0
+offset_top = -292.0
+offset_right = 340.0
+offset_bottom = -63.0
+theme_override_colors/font_color = Color(0.959553, 0.959766, 0.989519, 0.67451)
+theme_override_colors/font_outline_color = Color(0.827373, 0.333724, 0.65934, 0.854902)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_runye")
 theme_override_font_sizes/font_size = 100
-text = "Bubble Burst 
-Dungeon"
+text = "Cosmic
+Burst"
 horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 2
+offset_left = -546.0
+offset_top = -61.0
+offset_right = 559.0
+offset_bottom = 281.0
+color = Color(0.85098, 0.741176, 0.980392, 0.572549)
+metadata/_edit_lock_ = true
 
 [node name="Button_Container" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -47,49 +81,73 @@ offset_left = -181.0
 offset_top = -39.0
 offset_right = 176.0
 offset_bottom = 258.0
+theme = ExtResource("3_64ubu")
 metadata/_edit_lock_ = true
 
 [node name="Play" type="Button" parent="Button_Container"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 72)
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_normal_color = Color(0.61998, 0.955695, 0.959663, 0.882353)
-theme_override_colors/icon_hover_color = Color(0.490196, 0.819608, 0.858824, 0.835294)
-theme_override_colors/icon_hover_pressed_color = Color(0.450552, 0.848883, 0.881213, 0.294118)
-theme_override_fonts/font = ExtResource("2_vl5yv")
-theme_override_font_sizes/font_size = 50
+theme = SubResource("Theme_23get")
+theme_override_constants/h_separation = 1
+theme_override_font_sizes/font_size = 40
+theme_override_icons/icon = ExtResource("4_aris8")
 text = "Start"
+icon_alignment = 2
+expand_icon = true
 
 [node name="Options" type="Button" parent="Button_Container"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 72)
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_normal_color = Color(0.61998, 0.955695, 0.959663, 0.882353)
-theme_override_colors/icon_hover_color = Color(0.490196, 0.819608, 0.858824, 0.835294)
-theme_override_colors/icon_hover_pressed_color = Color(0.450552, 0.848883, 0.881213, 0.294118)
-theme_override_fonts/font = ExtResource("2_vl5yv")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Options"
+icon = ExtResource("4_aris8")
+icon_alignment = 2
+expand_icon = true
 
 [node name="Credits" type="Button" parent="Button_Container"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 72)
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_normal_color = Color(0.61998, 0.955695, 0.959663, 0.882353)
-theme_override_colors/icon_hover_color = Color(0.490196, 0.819608, 0.858824, 0.835294)
-theme_override_colors/icon_hover_pressed_color = Color(0.450552, 0.848883, 0.881213, 0.294118)
-theme_override_fonts/font = ExtResource("2_vl5yv")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Credits"
+icon = ExtResource("4_aris8")
+icon_alignment = 2
+expand_icon = true
 
 [node name="Quit" type="Button" parent="Button_Container"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 72)
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_normal_color = Color(0.61998, 0.955695, 0.959663, 0.882353)
-theme_override_colors/icon_hover_color = Color(0.490196, 0.819608, 0.858824, 0.835294)
-theme_override_colors/icon_hover_pressed_color = Color(0.450552, 0.848883, 0.881213, 0.294118)
-theme_override_fonts/font = ExtResource("2_vl5yv")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Quit"
+icon = ExtResource("4_aris8")
+icon_alignment = 2
+expand_icon = true
 
+[node name="GameIcon2" type="Sprite2D" parent="."]
+position = Vector2(-283, -168)
+rotation = -0.179351
+scale = Vector2(-5.05411, 5.23263)
+skew = 0.00684845
+texture = ExtResource("4_aris8")
+
+[node name="GameIcon" type="Sprite2D" parent="."]
+position = Vector2(221, -262)
+rotation = 0.456216
+scale = Vector2(3.625, 3.59375)
+texture = ExtResource("4_aris8")
+
+[connection signal="focus_entered" from="Button_Container/Play" to="." method="_on_play_focus_entered"]
+[connection signal="mouse_entered" from="Button_Container/Play" to="." method="_on_play_mouse_entered"]
 [connection signal="pressed" from="Button_Container/Play" to="." method="_on_play_pressed"]
+[connection signal="focus_entered" from="Button_Container/Options" to="." method="_on_options_focus_entered"]
+[connection signal="mouse_entered" from="Button_Container/Options" to="." method="_on_options_mouse_entered"]
 [connection signal="pressed" from="Button_Container/Options" to="." method="_on_options_pressed"]
+[connection signal="focus_entered" from="Button_Container/Credits" to="." method="_on_credits_focus_entered"]
+[connection signal="mouse_entered" from="Button_Container/Credits" to="." method="_on_credits_mouse_entered"]
 [connection signal="pressed" from="Button_Container/Credits" to="." method="_on_credits_pressed"]
+[connection signal="focus_entered" from="Button_Container/Quit" to="." method="_on_quit_focus_entered"]
+[connection signal="mouse_entered" from="Button_Container/Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="Button_Container/Quit" to="." method="_on_quit_pressed"]

@@ -1,35 +1,286 @@
 extends Node2D
 
-
+var b = preload("res://battle/battle.tscn") # Access battle library of encounters
+var bsound = preload("res://Audio/Battle Start.wav")
 var current_character_controlled_index : int = 0
-var player_characters : Array[PlayerCharacter] = []
+var enemy_dead = 0
+var gate
+var bossgate
+var prevbattle
+@onready var req = $"Gate/Text/Requirement Text"
+# var player_characters : Array[PlayerCharacter] = []
+var battle
+signal battleend
+func _ready() -> void:
+	
+	Audio.switchtotrack(1)
+	Dialogic.timeline_ended.connect(_on_entrance_ended)
+	$PlayerCharacter1.frozen = true
+	Dialogic.start("First Entrance")
+	#Dialogic.start("Quick_start")
 
-# Bubbles
-@export_category("Bubbles")
-@export var max_bubbles_in_level : int = 10
-var teleport_bubbles_in_game : int
+func _on_entrance_ended() -> void:
+	Dialogic.timeline_ended.disconnect(_on_entrance_ended)
+	$PlayerCharacter1.frozen = false
+
 
 func spawn_new_bubble() -> void:
-	var new_bubble : BubbleTeleport = load("res://battle/teleport bubble/bubble_teleport.tscn").instantiate() as BubbleTeleport
+
+	# var new_bubble : BubbleTeleport = load("res://battle/teleport bubble/bubble_teleport.tscn").instantiate() as BubbleTeleport
+
+	var new_bubble : BubbleTeleport = load("res://misc/teleport bubble/bubble_teleport.tscn").instantiate() as BubbleTeleport
+	add_child(new_bubble)
+	print("New Bubble")
+	new_bubble.global_position = get_random_location_around_one_player()
 	if new_bubble == null:
 		return
-	teleport_bubbles_in_game += 1
 
 func _on_bubble_spawn_timer_timeout() -> void:
-	if teleport_bubbles_in_game >= max_bubbles_in_level:
-		return
-	spawn_new_bubble()
+#	spawn_new_bubble()
+	pass
+
+func exitbattle():
+	Audio.music.stream = load(Audio.tracks[1])
+	Audio.music.play()
+	$Lights.show()
+	$PlayerCharacter1.frozen = false
+	$PlayerCharacter1/Camera2D.make_current()
 
 
-func transition_to_battle(echip) -> void:
+func transition_to_battle(echip, istext) -> void:
+	var n = b.instantiate() #Root of borrowing
+	n.echip = echip #Dictionary Ranges 0 to 1
+	n.name = "battle"
+	prevbattle = echip
+	n.intext = istext
+	$PlayerCharacter1.frozen = true
+	$Lights.hide()
 	Changer.AnimPlayer.play("fadein")
-	
+	Audio.playeffect(bsound)
+	await get_tree().create_timer(3).timeout
+	add_child(n)
+	#$TileMapLayer.hide()
+	#$TileMapLayer2.hide()
+	#$PlayerCharacter1.hide()
+	Changer.AnimPlayer.play("fadeout")
+	await Changer.AnimPlayer.animation_finished
+	battle = $battle
+
+func _on_timeline_ended() -> void:
+	#Dialogic.timeline_ended.disconnect(_on_timeline_ended)
+	#var n = b.instantiate()
+	#n.echip = 0
+	#$PlayerCharacter1.frozen = true
+	#Changer.AnimPlayer.play("fadein")
+	#await Changer.AnimPlayer.animation_finished
+	#add_child(n)
+	#$TileMapLayer.hide()
+	##$TileMapLayer2.hide()
+	#$PlayerCharacter1.hide()
+	#Changer.AnimPlayer.play("fadeout")
+	#await Changer.AnimPlayer.animation_finished
+	pass
+
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Escape"):
+	#if event.is_action_pressed("Escape"):
+		#$SceneChanger.start_transition("res://Options_UI.tscn")
+	pass
+
+func get_random_location_around_one_player() -> Vector2:
+	var character : PlayerCharacter = Auto.overworld_characters.pick_random()
+	var x : float = randf_range(300, 400)
+	var y : float = randf_range(100, 150)
+	return Vector2(character.global_position.x + ((x * 1) if randi() % 2 == 0 else (x * -1)), character.global_position.y + ((x * 1) if randi() % 2 == 0 else (x * -1)))
+
+func _on_bosstrigger_body_entered(body: Node2D) -> void:
+	
+	if body.is_in_group("controller"):
+		print("boss")
+		Dialogic.timeline_ended.connect(_on_timeline_ended)
+		$PlayerCharacter1.frozen = true
+		Dialogic.start("preboss_adeline")
+		await Dialogic.timeline_ended
+		#.switchtotrack(2)
+		#Audio.set_pitch(-1)Audio
+		transition_to_battle(1,false)
+		$bosstrigger.queue_free()
+		
+		#await $battle.battleend
+		#exitbattle()
+
+func setgatevalues(value):
+	#print("Value is ",str(value))
+	#gate = value
+	#bossgate = value
+	if value < 3:
+		$"BossGate/Text/Out of".text = str(value) + "/" + "3"
+	if value < 2:
+		$"Gate/Text/Out of".text = str(value) + "/" + "2"
+	if value == 2:
+		$Gate.queue_free()
+	if value == 3:
+		$BossGate.queue_free()
+
+
+
+#NOTE Number corresponds to fight ID and not chronological order
+func _on_battleend() -> void:
+	exitbattle()
+	print("worlbattlened")
+	enemy_dead += 1
+	setgatevalues(enemy_dead)
+	await Changer.AnimPlayer.animation_finished
+	match prevbattle:
+		0:
+			$PlayerCharacter1.frozen = true
+			Dialogic.start("Post Battle 1")
+			await Dialogic.timeline_ended
+			$PlayerCharacter1.frozen = false
+			
+		3:
+			$PlayerCharacter1.frozen = true
+			
+			Dialogic.start("Post Battle 2")
+			await Dialogic.timeline_ended
+			$PlayerCharacter1.frozen = false
+		2:
+			$PlayerCharacter1.frozen = true
+			
+			Dialogic.start("Post Battle 3")
+			await Dialogic.timeline_ended
+			$PlayerCharacter1.frozen = false
+		1:
+			#Changer.AnimPlayer.play("fadeout")
+			#Changer.AnimPlayer.play("fadein")
+			#await Changer.AnimPlayer.animation_finished
+			#Changer.AnimPlayer.play("fadeout")
+			#await Changer.AnimPlayer.animation_finished
+			#get_tree().change_scene_to_file("res://finale.tscn")
+			Changer.start_transition("res://finale.tscn") 
+
+#JANK- Multiple ENEMY_TRIGGERs to deal with death of each of them
+
+func _on_enemy_trigger_2_body_entered(body: Node2D) -> void:
+	#Apparently has "faith type" enemy
+	if body.is_in_group("controller"):
+		#Dialogic.timeline_ended.connect(_on_timeline_ended)
+		
+		$PlayerCharacter1.frozen = true
+		Dialogic.start("Pre Battle 2")
+		await Dialogic.timeline_ended
+		#Audio.switchtotrack(2)
+		transition_to_battle(3, true)
+		Dialogic.start("Battle 2")
+		$"Enemy Trigger2".queue_free()
+		#await battleend
+
+func _on_enemy_trigger_body_entered(body: Node2D) -> void:
+	if body.is_in_group("controller"):
+		#Dialogic.timeline_ended.connect(_on_timeline_ended)
+		$PlayerCharacter1.frozen = true
+		Dialogic.start("Pre Battle 1")
+		await Dialogic.timeline_ended
+		#Audio.switchtotrack(2)
+		transition_to_battle(0, true)
+		Dialogic.start("Battle 1")
+		
+		$"Enemy Trigger".queue_free()
+		#await battleend
+
+func _on_enemy_trigger_3_body_entered(body: Node2D) -> void:
+	if body.is_in_group("controller"):
+		#Dialogic.timeline_ended.connect(_on_timeline_ended)
+		$PlayerCharacter1.frozen = true
+		Dialogic.start("Pre Battle 3")
+		await Dialogic.timeline_ended
+		#Audio.switchtotrack(2)
+		transition_to_battle(2, false)
+		#No Dialogue here such as "Post Dialogue 3"
+		$"Enemy Trigger3".queue_free()
+		#await battleend
+
+func _on_corridor_1_body_entered(body: Node2D) -> void:
+	$corridor1.queue_free()
+	if body.is_in_group("controller"):
+		#Dialogic.timeline_ended.connect(_on_timeline_ended)
+		$PlayerCharacter1.frozen = true
+		Dialogic.start("Pre Boss Corridor")
+		await Dialogic.timeline_ended
+		$PlayerCharacter1.frozen = false
+		
+
+func _on_corridor_2_body_entered(body: Node2D) -> void:
+	$corridor2.queue_free()
+	if body.is_in_group("controller"):
+		#Dialogic.timeline_ended.connect(_on_timeline_ended)
+		$PlayerCharacter1.frozen = true
+		Dialogic.start("Pre Battle 2 Corridor")
+		await Dialogic.timeline_ended
+		$PlayerCharacter1.frozen = false
+
+
+func _on_puzzlogue_1_body_entered(body: Node2D) -> void:
+	if $"Puzzle 1/puzzlogue_1" == null:
+		pass
+	else:
+		$"Puzzle 1/puzzlogue_1".queue_free()
+	if body.is_in_group("controller"):
+		#Dialogic.timeline_ended.connect(_on_timeline_ended)
+		$PlayerCharacter1.frozen = true
+		Dialogic.start("puzzlogue 1")
+		await Dialogic.timeline_ended
+		$PlayerCharacter1.frozen = false
+
+func _on_puzzlogue_2_body_entered(body: Node2D) -> void:
+	$"Puzzle 1/puzzlogue_2".queue_free()
+	if body.is_in_group("controller"):
+		#Dialogic.timeline_ended.connect(_on_timeline_ended)
+		$PlayerCharacter1.frozen = true
+		Dialogic.start("puzzlogue 1 win")
+		await Dialogic.timeline_ended
+		$PlayerCharacter1.frozen = false
+
+#TODO Gonna replace with more complex puzzle later
+@onready var alpha = $"Puzzle 1/Block1"
+@onready var beta = $"Puzzle 1/Block2"
+@onready var theta = $"Puzzle 1/Block3"
+var confirmsound = preload("res://SFX/Bubbles SFX Batch 1/UI/SFX_UI_Confirm.wav")
+
+func _on_button_1_body_entered(body: Node2D) -> void:
+	$"Puzzle 1/Button1/AnimatedSprite2D".play("pressed")
+	Audio.playeffect(confirmsound)
+	$"Puzzle 1/Button1/AnimatedSprite2D".stop()
+	if $"Puzzle 1/Block1" == null:
+		$"Puzzle 1".add_child(beta)
+	else:
+		$"Puzzle 1".remove_child(alpha)
+	solved()
+func _on_button_2_body_entered(body: Node2D) -> void:
+	$"Puzzle 1/Button2/AnimatedSprite2D".play("pressed")
+	Audio.playeffect(confirmsound)
+	$"Puzzle 1/Button2/AnimatedSprite2D".stop()
+	if $"Puzzle 1/Block2" == null:
+		$"Puzzle 1".add_child(theta)
+	else:
+		$"Puzzle 1".add_child(alpha)
+		$"Puzzle 1".remove_child(beta)
+	solved()
+func _on_button_3_body_entered(body: Node2D) -> void:
+	$"Puzzle 1/Button3/AnimatedSprite2D".play("pressed")
+	Audio.playeffect(confirmsound)
+	$"Puzzle 1/Button3/AnimatedSprite2D".stop()
+	if $"Puzzle 1/Block3" == null:
+		$"Puzzle 1".add_child(alpha)
+	else:
+		$"Puzzle 1".add_child(beta)
+		$"Puzzle 1".remove_child(theta)
+	solved()
+func solved() -> void:
+	if alpha == null and beta == null and theta == null:
+		Audio.playeffect("res://Audio/Victory Track.wav")
+	else:
 		pass
 
-
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+func _on_next_level_body_entered(body: Node2D) -> void:
+	if body.is_in_group("controller"):
+		Changer.start_transition("res://overworld/floor2/floor_2.tscn")

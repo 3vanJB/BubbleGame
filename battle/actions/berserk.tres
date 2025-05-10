@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BattleAction" load_steps=2 format=3 uid="uid://byea2le025q5x"]
 
-[ext_resource type="Script" path="res://battle/actions/battleaction.gd" id="1_ad6s8"]
+[ext_resource type="Script" uid="uid://d0uyaty61npu6" path="res://battle/actions/battleaction.gd" id="1_ad6s8"]
 
 [resource]
 script = ExtResource("1_ad6s8")
@@ -8,7 +8,7 @@ type = 0
 isattack = true
 power = 1.0
 cost = 15.0
-actionname = ""
+actionname = "Berserk"
 targetenemy = false
 ischeer = false
 cheervalue = 20
@@ -17,4 +17,4 @@ targetallyparty = false
 targetenemyparty = true
 isspecial = false
 isheal = false
-heal = 0
+soundpath = "res://SFX/Comsic burst SFX Batch 3/NPC/SFX-NPC-Boss Basic Attack.wav"

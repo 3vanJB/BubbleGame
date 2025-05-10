@@ -1,0 +1,48 @@
+extends Node2D
+var b = preload("res://battle/battle.tscn") # Access battle library of encounters
+var bsound = preload("res://Audio/Battle Start.wav")
+var current_character_controlled_index : int = 0
+var prevbattle
+var battle
+signal battleend
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	Audio.switchtotrack(1)
+
+func transition_to_battle(echip, istext) -> void:
+	var n = b.instantiate() #Root of borrowing
+	n.echip = echip #Dictionary Ranges 0 to 1
+	n.name = "battle"
+	prevbattle = echip
+	n.intext = istext
+	$PlayerCharacter1.frozen = true
+	#$Lights.hide()
+	Changer.AnimPlayer.play("fadein")
+	Audio.playeffect(bsound)
+	await get_tree().create_timer(3).timeout
+	add_child(n)
+	#$TileMapLayer.hide()
+	#$TileMapLayer2.hide()
+	#$PlayerCharacter1.hide()
+	Changer.AnimPlayer.play("fadeout")
+	await Changer.AnimPlayer.animation_finished
+	battle = $battle
+	
+func exitbattle():
+	Audio.music.stream = load(Audio.tracks[1])
+	Audio.music.play()
+	$Lights.show()
+	$PlayerCharacter1.frozen = false
+	$PlayerCharacter1/Camera2D.make_current()
+	Changer.start_transition("res://finale.tscn")
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("controller"):
+		#Dialogic.timeline_ended.connect(_on_timeline_ended)
+		$PlayerCharacter1.frozen = true
+		Dialogic.start("preboss")
+		await Dialogic.timeline_ended
+		Audio.switchtotrack(2)
+		transition_to_battle(1, false)
+		$Boss.queue_free()

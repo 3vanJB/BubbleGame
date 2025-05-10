@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://crhhxxgc43x7f"]
+
+[ext_resource type="Texture2D" uid="uid://dtf8us7jasx1p" path="res://overworld/ScreenSelector.png" id="1_yk6kv"]
+[ext_resource type="PackedScene" uid="uid://bscujqsdl8afs" path="res://characters/player/player_character_1.tscn" id="2_m08xp"]
+[ext_resource type="PackedScene" uid="uid://dd2ivg0cb2h54" path="res://portal.tscn" id="3_81t75"]
+[ext_resource type="PackedScene" uid="uid://di4bfda3xmq7i" path="res://overworld/interactables/normal/door/interactable_door.tscn" id="4_ayqtl"]
+[ext_resource type="PackedScene" uid="uid://b73te0yjgahi4" path="res://overworld/interactables/normal/lever/interactable_lever.tscn" id="5_6dlk6"]
+
+[node name="Test world" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(651, 475.5)
+scale = Vector2(10.1719, 7.42969)
+texture = ExtResource("1_yk6kv")
+
+[node name="PlayerCharacter1" parent="." instance=ExtResource("2_m08xp")]
+
+[node name="Portal" parent="." node_paths=PackedStringArray("exit") instance=ExtResource("3_81t75")]
+position = Vector2(138, 29)
+exit = NodePath("../Portal2")
+
+[node name="Portal2" parent="." node_paths=PackedStringArray("exit") instance=ExtResource("3_81t75")]
+position = Vector2(233, 115)
+exit = NodePath("../Portal")
+
+[node name="InteractableDoor" parent="." instance=ExtResource("4_ayqtl")]
+modulate = Color(0.99711, 0.000391014, 0.90809, 1)
+position = Vector2(109, 210)
+
+[node name="InteractableLever" parent="." node_paths=PackedStringArray("door_linked") instance=ExtResource("5_6dlk6")]
+position = Vector2(326, 241)
+door_linked = NodePath("../InteractableDoor")
+
+[editable path="Portal"]
+[editable path="Portal2"]

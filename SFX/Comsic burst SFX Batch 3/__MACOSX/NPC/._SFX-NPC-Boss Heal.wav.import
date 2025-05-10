@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://m3kij82ieryu"
+path="res://.godot/imported/._SFX-NPC-Boss Heal.wav-c741928ab01efb8dcfebf008dd192eb5.sample"
+
+[deps]
+
+source_file="res://SFX/Comsic burst SFX Batch 3/__MACOSX/NPC/._SFX-NPC-Boss Heal.wav"
+dest_files=["res://.godot/imported/._SFX-NPC-Boss Heal.wav-c741928ab01efb8dcfebf008dd192eb5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

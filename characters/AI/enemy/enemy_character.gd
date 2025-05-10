@@ -16,4 +16,4 @@ func trigger_battle_with_player() -> void:
 		if enemy == null:
 			continue
 		enemies_in_battle.append(enemy)
-	
+	Auto.transition_to_battle(enemies_in_battle, self)

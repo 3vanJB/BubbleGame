@@ -1,15 +1,20 @@
 extends Node2D
 #
 var m = preload("res://battle/battlemember.tscn")
+var hoversound = preload("res://SFX/Bubbles SFX Batch 1/UI/SFX_UI_Hover.wav")
+var confirmsound = preload("res://SFX/Bubbles SFX Batch 1/UI/SFX_UI_Confirm.wav")
+var vsound = preload("res://Audio/Victory Track.wav")
+@onready var denysound = preload("res://SFX/Bubbles SFX Batch 1/UI/SFX_UI_Denied.wav")
 @onready var playerparty = $playerparty
 @onready var enemyparty = $enemyparty
 @onready var UI = $UI
-@export var echip : int = 0
+@export var echip : int 
 @onready var skillbutton = $UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer/skill
 @onready var buttonattack = $UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer/attack
 @onready var buttonskill1 = $UI/skillmenu/PanelContainer/VBoxContainer/HBoxContainer/Buttonskill1
 @onready var buttonskill2 = $UI/skillmenu/PanelContainer/VBoxContainer/HBoxContainer2/skill2
 @onready var buttonskill3 = $UI/skillmenu/PanelContainer/VBoxContainer/HBoxContainer2/skill3
+@onready var attackname = $UI/attack
 #checks to see if targeting enemy
 var enemyfocused = false
 var partyfocused = false
@@ -17,12 +22,25 @@ var nextdamage : int
 var last_overworld_locations : Dictionary # THIS is for when going back to overworld. To know where we are going to spawn the characters back to
 
 signal playeractionselected
+
 var turns = []
 var current
+var intext = false
+#MusicManager.currentsong
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if echip == null:
+		echip = 0
+	if echip!= 1:
+		Audio.switchtotrack(2)
+		Audio.music.play()
+	else:
+		Audio.switchtotrack(3)
+		$EnemyBgScaled4xPngcrushed.texture = load("res://dialogue/Boss_BG.png")
+		$EnemyBgBorderScaled4xPngcrushed.texture = load("res://dialogue/Boss_BG_border.png")
 	$Camera2D.make_current()
+	
 	UI.setmainbuttons(true)
 	var x = m.instantiate()
 	x.ID = 0
@@ -51,11 +69,38 @@ func _ready() -> void:
 		x.position.x += (i * 300)
 		enemyparty.members.push_back(x)
 		enemyparty.add_child(x)
+	enemyparty.mcount = len(enemyparty.members)
 	UI.setshine(0, playerparty.members[0].curshine)
 	UI.setshine(1, playerparty.members[1].curshine)
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
+	if intext == false:
+		nextturn()
+
+func _on_timeline_ended() -> void:
+	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
 	nextturn()
 
+func endbattle():
+	$CanvasLayer.show()
+	Audio.togglestreampaused(true)
+	Audio.playeffect(vsound)
+	await Audio.sfx.finished
+	Changer.AnimPlayer.play("fadein")
+	await Changer.AnimPlayer.animation_finished
+	
+	Changer.AnimPlayer.play("fadeout")
+	
+	get_parent().emit_signal("battleend")
+	self.queue_free()
+	
+
+
 func _process(delta: float) -> void:
+	if UI.skillmenu.visible == true:
+		if Input.is_action_just_pressed("ui_cancel"):
+			UI.skillmenu.hide()
+			UI.setmainbuttons(false)
+			buttonattack.grab_focus()
 	if enemyfocused == true:
 		
 		if Input.is_action_just_pressed("left"):
@@ -67,53 +112,160 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_cancel"):
 			enemyfocused = false
 			buttonattack.grab_focus()
+			UI.nameh.hide()
 			UI.setmainbuttons(false)
 			enemyparty.endfocus()
 		if Input.is_action_just_pressed("ui_accept"):
+			Audio.playeffect(confirmsound)
+			await get_tree().create_timer(0.1).timeout
 			enemyfocused = false
-			print("current.membernamepressed")
-			calculate(current, enemyparty.members[enemyparty.cursor])
+			#print("current.membernamepressed")
+			UI.settargettext(current.membername)
+			UI.setattacktext(current.action.actionname)
+			attackname.show()
+			var tar = enemyparty.cursor
 			enemyparty.endfocus()
+			current.action.loadsoundpath()
+			Audio.playeffect(current.action.sound)
+			await get_tree().create_timer(1).timeout
+			calculate(current, enemyparty.members[tar])
+			if enemyparty.members[tar].isko == true:
+				enemyparty.dcount += 1
+			attackname.hide()
+			if current.ID == 0:
+				UI.setshine(0, playerparty.members[0].curshine)
+			else:
+				UI.setshine(1, playerparty.members[1].curshine)
+			current.consumeshine(current.action.cost)
 			emit_signal("playeractionselected")
+			
 	if partyfocused == true:
 		if Input.is_action_just_pressed("left"):
 			playerparty.scrolldown()
-			print(playerparty.cursor)
+			#print(playerparty.cursor)
 		if Input.is_action_just_pressed("right"):
 			playerparty.scrollup()
-			print(playerparty.cursor)
+			#print(playerparty.cursor)
 		if Input.is_action_just_pressed("ui_cancel"):
 			partyfocused = false
 			buttonattack.grab_focus()
 			UI.setmainbuttons(false)
 			playerparty.endfocus()
 		if Input.is_action_just_pressed("ui_accept"):
+			Audio.playeffect(confirmsound)
+			await get_tree().create_timer(0.1).timeout
 			partyfocused = false
-			print(current.membername)
+			
+			UI.settargettext(current.membername)
+			UI.setattacktext(current.action.actionname)
+			attackname.show()
+			current.action.loadsoundpath()
+			Audio.playeffect(current.action.sound)
+			
+			await get_tree().create_timer(1).timeout
+			#print(current.action.actionname)
 			calculate(current, playerparty.members[playerparty.cursor])
 			playerparty.endfocus()
 			enemyparty.endfocus()
+			attackname.hide()
 			emit_signal("playeractionselected")
-
+	
+	
 func nextturn():
+	
+	
+	if enemyparty.dcount == enemyparty.mcount:
+		#print("theend")
+		UI.setmainbuttons(true)
+		endbattle()
+	
 	for i in len(turns):
+		
 		current = turns[i]
-		if turns[i].ally == false:
-			
-			#print(turns[i].membername + "'s turn")
-			turns[i].action = load(ACTIONS.actions[0])
-			calculate(turns[i], playerparty.members[1])
+		if current.ID == 0:
+			$UI/HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/memeber1/name.text = ">Rose"
+			$UI/HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/member2/name.text = "Yoru"
+		elif current.ID == 1:
+			$UI/HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/memeber1/name.text = "Rose"
+			$UI/HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/member2/name.text = ">Yoru"
 		else:
-			UI.loadskills(turns[i].ID)
-			UI.setmainbuttons(false)
-			UI.setskillbuttons(false)
-			#print(turns[i].membername + "'s turn")
-			buttonattack.grab_focus()
-			await playeractionselected
-			UI.nameh.hide()
+			$UI/HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/memeber1/name.text = "Rose"
+			$UI/HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/member2/name.text = "Yoru"
+		if turns[i].isko == false:
+			current.restoreshine(10)
+		
+		
+			if turns[i].ally == false:
+				#print("enemyturn")
+				#print(turns[i].membername + "'s turn")
+				if MEMBERINFO.members[current.ID].has("skills"):
+					var x = randi_range(0, len(MEMBERINFO.members[current.ID]["skills"]))
+					turns[i].action = load(ACTIONS.actions[MEMBERINFO.members[current.ID]["skills"][x - 1]])
+				else:
+					turns[i].action = regatk
+				if current.action.cost > current.curshine:
+					turns[i].action = regatk
+				UI.settargettext(current.membername)
+				UI.setattacktext(current.action.actionname)
+				UI.nameh.show()
+				UI.attackh.show()
+				current.action.loadsoundpath()
+				Audio.playeffect(current.action.sound)
+				await get_tree().create_timer(1).timeout
+				if current.action.targetenemyparty == true:
+					calculate(turns[i], playerparty.members[1])
+					calculate(turns[i], playerparty.members[0])
+					current.consumeshine(current.action.cost)
+				else:
+					var x = randi_range(0, 1)
+					calculate(turns[i], playerparty.members[x-1])
+					current.consumeshine(current.action.cost)
+				if current.action.isheal == true:
+					var x = randi_range(0, len(enemyparty.members))
+					calculate(current, enemyparty.members[x-1])
+					current.consumeshine(current.action.cost)
+			else:
+				if current.isko == false:
+					if current.ID == 0:
+						UI.setshine(0, playerparty.members[0].curshine)
+					else:
+						UI.setshine(1, playerparty.members[1].curshine)
+					UI.loadskills(turns[i].ID)
+					UI.setmainbuttons(false)
+					UI.setskillbuttons(false)
+					current = turns[i]
+					#print(turns[i].membername + "'s turn")
+					buttonattack.grab_focus()
+				
+				if enemyparty.dcount == enemyparty.mcount:
+					UI.setmainbuttons(true)
+					endbattle()
+					return
+				else:
+					if current.isko == false:
+						await playeractionselected
+				
+				UI.nameh.hide()
+		else:
+			#print(len(enemyparty.members))
+			if len(enemyparty.members) == 0:
+				#print("theend")
+				UI.setmainbuttons(true)
+				endbattle()
+	UI.nameh.hide()
+	UI.attackh.hide()
+	attackname.hide()
+	if playerparty.members[0].isko == true and playerparty.members[1].isko == true:
+		$CanvasLayer/Label.text = "Game Over!"
+		$CanvasLayer.show()
+		await get_tree().create_timer(5).timeout
+		get_tree().quit()
+	
+	
 	nextturn()
 
 func calculate(attacker, target):
+	#print(str(attacker) + "12435")
 	if attacker.action.isattack == true:
 		if attacker.action.isspecial == true:
 			if attacker.action.type == 0:
@@ -128,8 +280,14 @@ func calculate(attacker, target):
 				if damage < 0:
 					damage = 1
 				nextdamage = damage
-			
-			
+		if attacker.action.targetenemyparty == true and attacker.ally == false:
+			var damage = (((attacker.curshine/50 * attacker.stats["str"]) - (target.curshine/50 * target.stats["def"]))) * attacker.action.power
+			damage += randi_range(-2, 2)
+			if damage < 0:
+				damage = 1
+			nextdamage = damage
+			playerparty.members[0].takedamage(nextdamage)
+			playerparty.members[1].takedamage(nextdamage)
 		if attacker.action.type == 0:
 			var damage = (((attacker.curshine/50 * attacker.stats["str"]) - (target.curshine/50 * target.stats["def"]))) * attacker.action.power
 			damage += randi_range(-2, 2)
@@ -152,7 +310,7 @@ func calculate(attacker, target):
 			#print(nextdamage)
 			
 	elif attacker.action.ischeer == true:
-		print("cheer")
+		#print("cheer")
 		playerparty.members[0].restoreshine(attacker.action.cheervalue)
 		playerparty.members[1].restoreshine(attacker.action.cheervalue)
 		UI.setshine(0, playerparty.members[0].curshine)
@@ -160,23 +318,27 @@ func calculate(attacker, target):
 	elif attacker.action.isheal == true:
 		var healing = attacker.stats["mgk"] * attacker.action.power
 		target.heal(healing)
-		UI.sethplabel(target.ID, target.curhp)
-		print(target.membername + "653728")
+		if attacker.ally == true:
+			UI.sethplabel(target.ID, target.curhp)
+		#print(target.membername + "653728")
+	UI.setattacktext(current.action.actionname)
 
-
+var regatk = preload("res://battle/actions/RegAttack.tres")
 func _on_attack_pressed() -> void:
+	#print(enemyparty.dcount == enemyparty.mcount)
 	UI.setmainbuttons(true)
 	enemyfocused = true
-	
+	Audio.playeffect(confirmsound)
+	current.action = regatk
 	enemyparty.grabfocus(0)
-	current.action = load(ACTIONS.actions[0])
+	
+	#print(current.membername)
 	UI.settargettext(enemyparty.members[enemyparty.cursor].membername)
 	UI.nameh.show()
 	buttonattack.release_focus()
 	
 func transition_to_overworld() -> void:
 	# TODO: transition back to overworld
-	get_tree().change_scene_to_file("res://overworld/overworld_level.tscn")
 	pass
 
 
@@ -188,50 +350,128 @@ func _on_skill_pressed() -> void:
 
 
 func _on_buttonskill_1_pressed() -> void:
-	UI.setskillbuttons(true)
-	current.action = UI.skill1
-	if UI.skill1.targetenemyparty == true:
-		for i in len(enemyparty.members):
-			calculate(current, enemyparty.members[i])
-		UI.skillmenu.hide()
-		
-		emit_signal("playeractionselected")
-		
+	if UI.skill1.cost > current.curshine:
+		Audio.playeffect(denysound)
 	else:
-		
-		UI.nameh.show()
+		Audio.playeffect(confirmsound)
+		await get_tree().create_timer(0.1).timeout
+		UI.setskillbuttons(true)
 		UI.skillmenu.hide()
-		enemyparty.grabfocus(0)
-		enemyfocused = true
-		UI.settargettext(enemyparty.members[enemyparty.cursor].membername)
-		UI.settargettext(enemyparty.members[enemyparty.cursor].membername)
-	
-	buttonskill1.release_focus()
+		current.action = UI.skill1
+		if UI.skill1.targetenemyparty == true:
+			UI.setattacktext(current.action.actionname)
+			UI.settargettext("All Enemies")
+			attackname.show()
+			current.action.loadsoundpath()
+			Audio.playeffect(current.action.sound)
+			
+			UI.skillmenu.hide()
+			await get_tree().create_timer(1).timeout
+			for i in len(enemyparty.members):
+				calculate(current, enemyparty.members[i])
+				if enemyparty.members[i].isko == true:
+					enemyparty.dcount += 1
+			attackname.hide()
+			current.consumeshine(current.action.cost)
+			if current.ID == 0:
+				UI.setshine(0, playerparty.members[0].curshine)
+			else:
+				UI.setshine(1, playerparty.members[1].curshine)
+			emit_signal("playeractionselected")
+			
+		else:
+			
+			UI.nameh.show()
+			UI.skillmenu.hide()
+			enemyparty.grabfocus(0)
+			enemyfocused = true
+			UI.settargettext(enemyparty.members[enemyparty.cursor].membername)
+			UI.settargettext(enemyparty.members[enemyparty.cursor].membername)
+		current.consumeshine(current.action.cost)
+		UI.setattacktext(current.action.actionname)
+		buttonskill1.release_focus()
 
 
 func _on_skill_2_pressed() -> void:
-	UI.setskillbuttons(true)
-	if UI.skill2.targetallyparty == true:
+	if UI.skill2.cost > current.curshine:
+		Audio.playeffect(denysound)
+	else:
 		current.action = UI.skill2
-		calculate(current, current)
-		emit_signal("playeractionselected")
-		
-	elif UI.skill2.isheal == true:
-		partyfocused = true
+		Audio.playeffect(confirmsound)
+		await get_tree().create_timer(0.1).timeout
+		UI.setskillbuttons(true)
 		UI.skillmenu.hide()
-		playerparty.grabfocus(0)
-	
-	UI.skillmenu.hide()
-	current.action = UI.skill2
-	buttonskill2.release_focus()
+		if UI.skill2.targetallyparty == true:
+			current.action = UI.skill2
+			current.action.loadsoundpath()
+			Audio.playeffect(current.action.sound)
+			
+			UI.setattacktext(current.action.actionname)
+			attackname.show()
+			attackname.show()
+			await get_tree().create_timer(1).timeout
+			calculate(current, current)
+			current.consumeshine(current.action.cost)
+			if current.ID == 0:
+				UI.setshine(0, playerparty.members[0].curshine)
+			else:
+				UI.setshine(1, playerparty.members[1].curshine)
+			attackname.hide()
+			emit_signal("playeractionselected")
+			
+		elif UI.skill2.isheal == true:
+			partyfocused = true
+			UI.skillmenu.hide()
+			playerparty.grabfocus(0)
+		
+		
+		print(current.membername)
+		
+		buttonskill2.release_focus()
 
 
 
 
 func _on_skill_3_pressed() -> void:
-	UI.setskillbuttons(true)
-	current.action = UI.skill3
-	for i in len(enemyparty.members):
-		calculate(current, enemyparty.members[i])
-	UI.skillmenu.hide()
-	buttonskill3.release_focus()
+	if UI.skill3.cost > current.curshine:
+		Audio.playeffect(denysound)
+		#print("Not enough Shine need", UI.skill3.cost, "out of",current.curshine)
+	else:
+		#print(current.curshine)
+		Audio.playeffect(confirmsound)
+		await get_tree().create_timer(0.1).timeout
+		UI.setskillbuttons(true)
+		UI.skillmenu.hide()
+		#print(UI.skill3.actionname +"skill3")
+		current.action = UI.skill3
+		if UI.skill3.targetenemyparty == true:
+			UI.setattacktext(current.action.actionname)
+			UI.settargettext("All Enemies")
+			current.action.loadsoundpath()
+			Audio.playeffect(current.action.sound)
+			attackname.show()
+			
+			await get_tree().create_timer(1).timeout
+			for i in len(enemyparty.members):
+				calculate(current, enemyparty.members[i])
+				if enemyparty.members[i].isko == true:
+					enemyparty.dcount += 1
+			attackname.hide()
+			current.consumeshine(current.action.cost)
+			if current.ID == 0:
+				UI.setshine(0, playerparty.members[0].curshine)
+			else:
+				UI.setshine(1, playerparty.members[1].curshine)
+			emit_signal("playeractionselected")
+			
+		else:
+			enemyparty.grabfocus(0)
+			enemyfocused = true
+			UI.nameh.show()
+			UI.skillmenu.hide()
+			
+			UI.settargettext(enemyparty.members[enemyparty.cursor].membername)
+			
+		UI.skillmenu.hide()
+		
+		buttonskill3.release_focus()
