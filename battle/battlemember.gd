@@ -9,6 +9,7 @@ var action
 var membername
 var ID
 var ally
+var isko = false
 # TODO: make a function that decides the target of the enemy
 
 func setup():
@@ -16,14 +17,15 @@ func setup():
 	curhp = stats["hp"]
 	ally = MEMBERINFO.getmember(ID)["ally"]
 	membername = MEMBERINFO.getmember(ID)["name"]
-	if ally == false:
-		var anim = load(MEMBERINFO.members[ID]["sprite"])
-		anim = anim.instantiate()
-		$holder.add_child(anim)
 	$ProgressBar.max_value = stats["hp"]
 	if ally == true:
 		curhp = MEMBERINFO.partyhp[ID]
 		hide()
+	else:
+		#print(MEMBERINFO.members[ID])
+		var s = load(MEMBERINFO.members[ID]["sprite"])
+		s = s.instantiate()
+		add_child(s)
 	$ProgressBar.value = curhp
 	curshine = 25
 
@@ -33,6 +35,8 @@ func takedamage(value):
 	else:
 		curhp -= value
 	$ProgressBar.value = curhp
+	if curhp == 0:
+		ko()
 
 func restoreshine(value):
 	if curshine + value > maxshine:
@@ -51,7 +55,14 @@ func heal(value):
 		curhp = stats["hp"]
 	else:
 		curhp += value
-	$ProgressBar.value = curhp
+
+func ko():
+	isko = true
+	$AnimationPlayer.play("death")
+	await $AnimationPlayer.animation_finished
+	get_parent().removefromarray()
+
+
 
 func grabfocus():
 	$selecter.show()

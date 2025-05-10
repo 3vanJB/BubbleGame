@@ -1,4 +1,4 @@
-class_name BubbleTeleport extends RigidBody2D
+class_name BubbleTeleport extends Node2D
 
 # Nodes
 @onready var sprite_node : Sprite2D = $sprite
@@ -16,12 +16,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	global_position += movement_direction * movement_speed
-
-func _on_body_entered(body: Node) -> void:
-	if not body is CharacterBase:
-		return
-	var character_collided : CharacterBase = body as CharacterBase
-	character_collided.teleport_to_location(destination_location)
+	
 
 func get_new_direction() -> Vector2:
 	return Vector2(randf(), randf()).normalized()
@@ -31,4 +26,13 @@ func _on_timer_timeout() -> void:
 
 
 func _on_bubble_pop_timer_timeout() -> void:
+	queue_free()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	var character_collided : PlayerCharacter = body as PlayerCharacter
+	if character_collided == null:
+		print("aaaa")
+		return
+	character_collided.teleport_to_location(destination_location)
 	queue_free()

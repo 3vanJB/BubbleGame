@@ -32,7 +32,7 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_g275h"]
+[sub_resource type="Animation" id="Animation_04uxo"]
 resource_name = "fadeout"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -51,7 +51,7 @@ tracks/0/keys = {
 _data = {
 "RESET": SubResource("Animation_kjwq1"),
 "fadein": SubResource("Animation_jnr7m"),
-"fadeout": SubResource("Animation_g275h")
+"fadeout": SubResource("Animation_04uxo")
 }
 
 [node name="SceneChanger" type="CanvasLayer" node_paths=PackedStringArray("AnimPlayer")]

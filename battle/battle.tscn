@@ -1,13 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://xyilfmmrcrvf"]
+[gd_scene load_steps=9 format=3 uid="uid://xyilfmmrcrvf"]
 
 [ext_resource type="Script" path="res://battle/battle.gd" id="1_f8ab6"]
 [ext_resource type="Script" path="res://battle/playerparty.gd" id="2_ehidm"]
 [ext_resource type="PackedScene" uid="uid://c5g4muvowpv78" path="res://battle/battleui/ui.tscn" id="2_n1p0q"]
 [ext_resource type="Script" path="res://battle/enemyparty.gd" id="3_i4jx3"]
+[ext_resource type="Texture2D" uid="uid://cg3mcw4k1f7vl" path="res://dialogue/enemy_bg_border.png" id="3_r6e7k"]
 [ext_resource type="FontFile" uid="uid://cj7c8ydcjaxj5" path="res://Fonts/Fonts/Fonts/LiberationSans.ttf" id="5_sh81s"]
+[ext_resource type="FontFile" uid="uid://qs47mtc8cbqv" path="res://Fonts/Fonts/Fonts/yoster-island/yoster.ttf" id="6_pa5ik"]
+[ext_resource type="Texture2D" uid="uid://cjmpggfwqseyh" path="res://dialogue/enemy_bg.png" id="7_c0led"]
 
 [node name="battle" type="Node2D"]
 script = ExtResource("1_f8ab6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("7_c0led")
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_r6e7k")
 
 [node name="playerparty" type="Node2D" parent="."]
 script = ExtResource("2_ehidm")
@@ -22,19 +36,11 @@ position = Vector2(490, 249)
 
 [node name="attack" parent="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer" index="0"]
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.941176, 0.678431, 0.313726, 1)
-theme_override_colors/font_outline_color = Color(0.862745, 0.862745, 0.862745, 0.647059)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("5_sh81s")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 
 [node name="skill" parent="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer" index="1"]
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.611765, 0.972549, 0.933333, 0.764706)
-theme_override_colors/font_outline_color = Color(0.831373, 0.831373, 0.831373, 0.776471)
-theme_override_constants/outline_size = 2
-theme_override_fonts/font = ExtResource("5_sh81s")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 
 [node name="special" parent="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer" index="2"]
 theme_override_colors/font_color = Color(0.952941, 0.494118, 0.705882, 0.905882)
@@ -43,52 +49,56 @@ theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("5_sh81s")
 theme_override_font_sizes/font_size = 30
 
-[node name="name" parent="UI/HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2/memeber1" index="0"]
-theme_override_colors/font_color = Color(1, 0.319656, 0.415277, 1)
-theme_override_colors/font_outline_color = Color(0.827836, 0.185163, 0.201227, 1)
-theme_override_constants/outline_size = 2
-theme_override_fonts/font = ExtResource("5_sh81s")
-theme_override_font_sizes/font_size = 20
+[node name="memberpanel" parent="UI/HBoxContainer" index="1"]
+custom_minimum_size = Vector2(200, 200)
 
-[node name="hp" parent="UI/HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer2/memeber1" index="1"]
-theme_override_fonts/font = ExtResource("5_sh81s")
+[node name="name" parent="UI/HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/memeber1" index="0"]
+theme_override_colors/font_color = Color(0.88201, 0.345605, 0.321903, 1)
+theme_override_colors/font_outline_color = Color(0.311896, 0.0346116, 0.105128, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 24
 
-[node name="name" parent="UI/HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/member2" index="0"]
-theme_override_colors/font_color = Color(0.834633, 0.869492, 0.971669, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 2
-theme_override_fonts/font = ExtResource("5_sh81s")
-theme_override_font_sizes/font_size = 20
+[node name="hp" parent="UI/HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/memeber1" index="1"]
+theme_override_font_sizes/font_size = 24
 
-[node name="hp" parent="UI/HBoxContainer/memberpanel/PanelContainer/VBoxContainer/VBoxContainer/member2" index="1"]
-theme_override_fonts/font = ExtResource("5_sh81s")
+[node name="shine" parent="UI/HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2" index="1"]
+theme_override_fonts/font = ExtResource("6_pa5ik")
 
-[node name="ColorRect" type="ColorRect" parent="UI/HBoxContainer/textpanel" index="0"]
-layout_mode = 2
-color = Color(0.588235, 0.47451, 0.254902, 0.576471)
+[node name="name" parent="UI/HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/member2" index="0"]
+theme_override_colors/font_color = Color(0.833131, 0.86962, 0.954111, 1)
+theme_override_colors/font_outline_color = Color(0.168974, 0.214442, 0.402339, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 24
 
-[node name="ColorRect" type="ColorRect" parent="UI/skillmenu/PanelContainer" index="0"]
-layout_mode = 2
-color = Color(0.658546, 0.838412, 0.908555, 0.411765)
+[node name="hp" parent="UI/HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/member2" index="1"]
+theme_override_font_sizes/font_size = 24
+
+[node name="shine" parent="UI/HBoxContainer/memberpanel/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" index="1"]
+theme_override_fonts/font = ExtResource("6_pa5ik")
+
+[node name="VBoxContainer" parent="UI/skillmenu/PanelContainer" index="0"]
+metadata/_edit_lock_ = true
 
 [node name="Buttonskill1" parent="UI/skillmenu/PanelContainer/VBoxContainer/HBoxContainer" index="0"]
-theme_override_colors/font_color = Color(0.958157, 0.958157, 0.958157, 1)
-theme_override_colors/font_outline_color = Color(0.441454, 0.955568, 0.970934, 1)
-theme_override_constants/outline_size = 2
-theme_override_fonts/font = ExtResource("5_sh81s")
-theme_override_font_sizes/font_size = 23
+custom_minimum_size = Vector2(250, 72)
+theme_override_colors/font_color = Color(0.706205, 0.862893, 0.979062, 1)
+theme_override_colors/font_outline_color = Color(0.417823, 0.255709, 0.869008, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 25
 
 [node name="skill2" parent="UI/skillmenu/PanelContainer/VBoxContainer/HBoxContainer2" index="0"]
-theme_override_colors/font_color = Color(0.454902, 0.74902, 0.403922, 0.721569)
-theme_override_colors/font_outline_color = Color(0.971335, 0.971335, 0.971335, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 23
+custom_minimum_size = Vector2(250, 72)
+theme_override_colors/font_color = Color(0.549668, 0.804959, 0.578232, 1)
+theme_override_colors/font_outline_color = Color(0.206614, 0.338726, 0.192363, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 25
 
 [node name="skill3" parent="UI/skillmenu/PanelContainer/VBoxContainer/HBoxContainer2" index="1"]
-theme_override_colors/font_color = Color(0.905882, 0.772549, 0.478431, 0.819608)
-theme_override_colors/font_outline_color = Color(0.746401, 0.591553, 0.297444, 1)
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 23
+custom_minimum_size = Vector2(250, 72)
+theme_override_colors/font_color = Color(0.948596, 0.693345, 0.612504, 1)
+theme_override_colors/font_outline_color = Color(0.558452, 0.229236, 0.150184, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 25
 
 [node name="Teleport Bubbles" type="Node" parent="."]
 
@@ -96,7 +106,7 @@ theme_override_font_sizes/font_size = 23
 wait_time = 2.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(574, 324)
+position = Vector2(576, 324)
 
 [connection signal="pressed" from="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer/attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="UI/HBoxContainer/buttonpanel/PanelContainer/VBoxContainer/skill" to="." method="_on_skill_pressed"]

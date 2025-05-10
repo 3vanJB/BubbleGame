@@ -15,3 +15,6 @@ cheervalue = 20
 targetally = false
 targetallyparty = true
 targetenemyparty = false
+isspecial = false
+isheal = false
+soundpath = "res://SFX/Bubbles SFX Batch 1/Players/SFX_Player_Pep Talk.wav"
